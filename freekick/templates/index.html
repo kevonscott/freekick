@@ -1,0 +1,61 @@
+<html>
+    <header>
+        <title>FreeKick</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+        <script src="{{ url_for('static', filename='js/freekick.js') }}"></script>
+    </header>
+    <body>
+        <!-- Head -->
+        <head>
+            <h1>Freekick - True Football Prediction</h1>
+        </head>
+        <!-- End Head -->
+
+        <div>
+            <p>
+                <label for="league">League</label>
+                <select name="league" id="league">
+                    <option value="null"></option>
+                    <option value="EPL">English Premier League</option>
+                    <option value="Bundesliga">Bundesliga</option>
+                </select>
+            </p>
+            <p>
+                <label for="homeTeam">Home Team</label>
+                <select name="homeTeam" id="homeTeam">
+                    <option value="null"></option>
+                    <option value="Everton">Everton</option>
+                    <option value="Tottenham-Hotspur">Tottenham Hotspur</option>
+                    <option value="Liverpool">Liverpool</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="awayTeam">Away Team</label>
+                <select name="awayTeam" id="awayTeam">
+                    <option value="null"></option>
+                    <option value="Everton">Everton</option>
+                    <option value="Tottenham-Hotspur">Tottenham Hotspur</option>
+                    <option value="Liverpool">Liverpool</option>
+                </select>
+            </p>
+            <div>
+                <button type="button" id="predictgame">Predict Game</button>
+                <button type="button" id="predictmatchday">Predict Next Matchday</button>
+            </div>
+            <p>
+                <textarea id="result"></textarea>
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Author: Kevon Scott</p>
+            <div class="copy-rights">
+                <p>© 2021 Kevon Scott All rights reserved.</p>
+              </div>
+        </footer>
+        <!-- End Footer-->
+
+    </body>
+</html>
