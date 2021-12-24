@@ -1,3 +1,5 @@
+#! env/bin/python
+
 import click
 from pprint import pprint
 
@@ -6,29 +8,28 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+from model.ai import soccer_teams, _MODELS
 from model.ai.data_store import load_data
 from model.ai.models.logistic_model import SoccerLogisticModel
-
-_MODELS = ["epl", "bundesliga"]
 
 
 def train_soccer_model(model_name, test_size, source="CSV", persist=False):
     model_score = {}
     print(f"Retraining {model_name}...")
 
-    def _clean_format_data(data):
+    def _clean_format_data(X):
         """Cleans and formats dataframe
 
         Parameters
         ----------
-        data : Dataframe
+        X: Dataframe
             Pandas dataframe with soccer statistics
         """
         # -1: Away Team Win
         #  0: Draw
         # +1: Home Team Win
-        data = data[["HomeTeam", "AwayTeam", "FTHG", "FTAG", "Date"]]
-        data = data.rename(
+        X = X[["HomeTeam", "AwayTeam", "FTHG", "FTAG", "Date"]]
+        X = X.rename(
             columns={
                 "HomeTeam": "home",
                 "AwayTeam": "away",
@@ -37,26 +38,25 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
                 "Date": "date",
             }
         )
-        data = data.dropna()
-        y = np.sign(data["home_goals"] - data["away_goals"])
-        # breakpoint()
-        data["home"] = data["home"].apply(lambda x: x.replace(" ", "-"))
-        data["away"] = data["away"].apply(lambda x: x.replace(" ", "-"))
-        data.index = data["date"] + "_" + data["home"] + "_" + data["away"]
+        X = X.dropna()
+        y = np.sign(X["home_goals"] - X["away_goals"])
+        X["home"] = X["home"].apply(lambda x: soccer_teams[model_name][x])
+        X["away"] = X["away"].apply(lambda x: soccer_teams[model_name][x])
+        X.index = X["date"] + "_" + X["home"] + "_" + X["away"]
 
         # No longer need these columns. This info will not be present at pred
-        data = data.drop(columns=["home_goals", "away_goals", "date"])
+        X = X.drop(columns=["home_goals", "away_goals", "date"])
 
-        data = pd.get_dummies(
-            data, columns=["home", "away"], prefix=["home", "away"]
+        X = pd.get_dummies(
+            X, columns=["home", "away"], prefix=["home", "away"]
         )  # create dummies (OneHotEncoding) from each team name
-        data = data[
-            sorted(data.columns)
+        X = X[
+            sorted(X.columns)
         ]  # Sort columns to match OneHotEncoding below (VERY IMPORTANT)
-        return data, y
+        return X, y
 
-    data = load_data(d_location=source, league=model_name)
-    X, y = _clean_format_data(data=data)
+    X = load_data(d_location=source, league=model_name)
+    X, y = _clean_format_data(X=X)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
 
     soccer_model = SoccerLogisticModel(model_name, X_train, y_train)
@@ -65,7 +65,8 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
 
     y_pred = soccer_model.predict_winner(X_test)
     model_score["accuracy"] = accuracy_score(y_test, y_pred)
-    # model_score['coeffs'] = soccer_model.get_coeff()
+    # model_score['coeff'] = soccer_model.get_coeff()
+    print("Model Statistics:")
     pprint(model_score)
     print(f"Model: {soccer_model.model}")
 
@@ -102,7 +103,7 @@ def cli(retrain, list, size, persist, source):
     if list:
         print("Model Options:")
         for model in _MODELS:
-            print(f"\t{model}")
+            print(f"\t- {model}")
     elif retrain:
         train_soccer_model(
             model_name=retrain, test_size=size, source=source, persist=persist

@@ -5,8 +5,8 @@ This project is in the EARLY PHASE OF DEVELOPMENT and will be iterated upon to c
 complete product.
 
 ### Built With
+* [Python](https://www.python.org/)
 * [Flask](https://flask.palletsprojects.com/)
-* [React.js](https://reactjs.org/)
 * [HTML](https://en.wikipedia.org/wiki/HTML)
 * [CSS](https://en.wikipedia.org/wiki/CSS)
 * [JavaScript](https://www.javascript.com/)
@@ -14,24 +14,16 @@ complete product.
 
 ## Getting Started
 
-### Installation
-1. Create and activate a virtual environment.
-2. Run the command below in the projects main directory it install the required libraries.
-    ```bash
-    $ pip install -e .
-    ```
-
 ## Usage
+Run the command below in the projects main directory to launch the flask app.
 ```bash
-$ export FLASK_APP=freekick
-$ export FLASK_ENV=development
-$ flask run
+$ freekick/app.py
 ```
 
 ## Retraining The Model
 Retraining is done via the command line using the cli tool:
 ```bash
-(soccer) USER@COMPUTER[~/src/freekick]:> python freekick/cli.py --help
+(soccer) USER@COMPUTER[~/src/freekick]:> freekick/cli.py --help
 Usage: cli.py [OPTIONS]
 
 Options:
@@ -49,7 +41,7 @@ Options:
 
 ### Re-fit and Persist the model to disk
 ```bash
-python freekickp/cli.py -r epl --persist
+freekick/cli.py -r epl --persist
 ```
 
 ### Query latest data and update database

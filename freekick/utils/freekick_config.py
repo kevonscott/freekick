@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 
 
 def _set_environ(environment):
+    """Set environment variables from .env file"""
     if environment == "production":
         load_dotenv("production.env")
     else:
@@ -10,10 +11,20 @@ def _set_environ(environment):
 
 
 def load_config(environ):
+    """Load configs form .env files
+
+    Parameters
+    ----------
+    environ : str
+        Name of .env file. Choice of ['production', 'development']
+
+    Returns
+    -------
+    dict
+        Dictionary with each environment variable
+    """
     _set_environ(environ)
     cfg = {}
-    cfg["BUNDESLIGA_CSV"] = os.environ.get("BUNDESLIGA_CSV")
-    cfg["EPL_CSV"] = os.environ.get("EPL_CSV")
     cfg["DATABASE_NAME"] = os.environ.get("DATABASE_NAME")
     cfg["DATABASE_HOST"] = os.environ.get("DATABASE_HOST")
     cfg["DATABASE_KEY"] = os.environ.get("DATABASE_KEY")

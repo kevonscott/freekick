@@ -29,9 +29,7 @@ function predictGame(){
     .then(function (response) {
         return response.json();
     }).then(function (text) {
-        console.log('GET response:');
-        console.log(text);
-        document.getElementById("result").innerText = JSON.stringify(text)
+        displayTable(text);
     });
 }
 
@@ -48,8 +46,42 @@ function predictMatchDay(){
     .then(function (response) {
         return response.json();
     }).then(function (text) {
-        console.log('GET response:');
-        console.log(text);
-        document.getElementById("result").innerText = JSON.stringify(text)
+        displayTable(text);
     });
+}
+
+function displayTable(jsonObj){
+    // Create table header
+    console.log('object received', jsonObj)
+    let tableHead = ['Home Team', 'Away Team', 'Predicted Winner'];
+
+    // Dynamically create a table
+    let table = document.createElement("table");
+    let att = document.createAttribute("class");
+    att.value = "styled-table";
+    table.setAttributeNode(att);
+
+    let tr = table.insertRow(-1); // Append to end of row
+
+    // Create table header
+    for (let i = 0; i < tableHead.length; i++) {
+        let th = document.createElement("th");
+        th.innerHTML = tableHead[i];
+        tr.appendChild(th);
+    }
+
+    // Append json data to table rows
+    for (let i = 0; i < jsonObj.length; i++) {
+        let tr = table.insertRow(-1);
+        console.log(jsonObj[i])
+        for (let j = 0; j < tableHead.length; j++) {
+            let cell = tr.insertCell(-1);
+            cell.innerHTML = jsonObj[i][tableHead[j]];
+        }
+    }
+
+    // Add table to page
+    let resultObject = document.getElementById("result");
+    resultObject.innerHTML = "";
+    resultObject.appendChild(table);
 }

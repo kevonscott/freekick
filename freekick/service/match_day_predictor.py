@@ -1,2 +1,13 @@
 def predict_match_day(league: str):
-    return {"Match_Day": "NotImplemented!"}
+    return [
+        {
+            "Home Team": "NotImplementedError!",
+            "Away Team": "NotImplementedError!",
+            "Predicted Winner": "NotImplementedError!",
+        },
+        {
+            "Home Team": "NotImplementedError!",
+            "Away Team": "NotImplementedError!",
+            "Predicted Winner": "NotImplementedError!",
+        },
+    ]

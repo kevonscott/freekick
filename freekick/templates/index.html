@@ -5,57 +5,55 @@
         <script src="{{ url_for('static', filename='js/freekick.js') }}"></script>
     </header>
     <body>
-        <!-- Head -->
-        <head>
-            <h1>Freekick - True Football Prediction</h1>
-        </head>
-        <!-- End Head -->
+        <div id="page-container">
+            <!-- Head -->
+            <head>
+                <h1>FreeKick - Open Football Prediction</h1>
+            </head>
+            <!-- End Head -->
 
-        <div>
-            <p>
-                <label for="league">League</label>
-                <select name="league" id="league">
-                    <option value="null"></option>
-                    <option value="EPL">English Premier League</option>
-                    <option value="Bundesliga">Bundesliga</option>
-                </select>
-            </p>
-            <p>
-                <label for="homeTeam">Home Team</label>
-                <select name="homeTeam" id="homeTeam">
-                    <option value="null"></option>
-                    <option value="Everton">Everton</option>
-                    <option value="Tottenham-Hotspur">Tottenham Hotspur</option>
-                    <option value="Liverpool">Liverpool</option>
-                </select>
-            </p>
+            <div id="content-wrapper">
+                <p>
+                    <label for="league">League</label>
+                    <select name="league" id="league">
+                        <option value="null"></option>
+                        <option value="epl">English Premier League</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="homeTeam">Home Team</label>
+                    <select name="homeTeam" id="homeTeam">
+                        <option value="null"></option>
+                        <option value="EVE">Everton</option>
+                        <option value="TOT">Tottenham Hotspur</option>
+                        <option value="LIV">Liverpool</option>
+                    </select>
+                </p>
 
-            <p>
-                <label for="awayTeam">Away Team</label>
-                <select name="awayTeam" id="awayTeam">
-                    <option value="null"></option>
-                    <option value="Everton">Everton</option>
-                    <option value="Tottenham-Hotspur">Tottenham Hotspur</option>
-                    <option value="Liverpool">Liverpool</option>
-                </select>
-            </p>
-            <div>
-                <button type="button" id="predictgame">Predict Game</button>
-                <button type="button" id="predictmatchday">Predict Next Matchday</button>
+                <p>
+                    <label for="awayTeam">Away Team</label>
+                    <select name="awayTeam" id="awayTeam">
+                        <option value="null"></option>
+                        <option value="EVE">Everton</option>
+                        <option value="TOT">Tottenham Hotspur</option>
+                        <option value="LIV">Liverpool</option>
+                    </select>
+                </p>
+                <div>
+                    <button type="button" id="predictgame">Predict Game</button>
+                    <button type="button" id="predictmatchday">Predict Next Matchday</button>
+                </div>
+                <p id="result"></p>
             </div>
-            <p>
-                <textarea id="result"></textarea>
-            </p>
+
+            <!-- Footer -->
+            <footer id="footer-container">
+                <div class="copy-rights">
+                    <p>Author: Kevon Scott</p>
+                    <p>©2021 Kevon Scott All rights reserved.</p>
+                </div>
+            </footer>
+            <!-- End Footer -->
         </div>
-
-        <!-- Footer -->
-        <footer>
-            <p>Author: Kevon Scott</p>
-            <div class="copy-rights">
-                <p>© 2021 Kevon Scott All rights reserved.</p>
-              </div>
-        </footer>
-        <!-- End Footer-->
-
     </body>
 </html>

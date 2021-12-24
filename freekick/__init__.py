@@ -1,3 +1,5 @@
 import logging
 
-_logger = logging.getLogger(__name__)
+logging.basicConfig()
+_logger = logging.getLogger("FreeKick")
+_logger.setLevel(logging.INFO)

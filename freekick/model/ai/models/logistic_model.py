@@ -17,8 +17,9 @@ class SoccerLogisticModel:
         model = LogisticRegression(
             penalty="l2", fit_intercept=False, multi_class="ovr", C=1
         )
-        X_to_numpy = self.X.to_numpy().astype("float")
-        self.model = model.fit(X_to_numpy, self.y)
+        # X_to_numpy = self.X.to_numpy().astype("float")
+        # self.model = model.fit(X_to_numpy, self.y)
+        self.model = model.fit(self.X, self.y)
         self.model.columns = None
 
     def check_fit(self):
@@ -40,20 +41,16 @@ class SoccerLogisticModel:
         return coeffs
 
     def predict_winner(self, pred_data):
-        # Predict the match winner
+        """Predict the match winner"""
         self.check_fit()
 
         pred = self.model.predict(pred_data)
 
         df_pred = pd.DataFrame(pred, index=pred_data.index, columns=["Prediction"])
-        # df_pred['Prediction'] = df_pred['Prediction'].apply(
-        #     lambda x: 'draw' if x == 0 else ('home_win' if x > 0 else 'away_win')
-        # )
-
         return df_pred
 
     def predict_probability(self, X):
-        # Predict the probabilities of draw or win for each team
+        """Predict the probabilities of draw or win for each team"""
         self.check_fit()
 
         df = pd.DataFrame(
