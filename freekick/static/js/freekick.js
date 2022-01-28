@@ -85,3 +85,31 @@ function displayTable(jsonObj){
     resultObject.innerHTML = "";
     resultObject.appendChild(table);
 }
+
+function dynamicTeamDropdown(league){
+    document.getElementById("homeTeam").options.length = 0;
+    document.getElementById("awayTeam").options.length = 0;
+
+    switch(league){
+        case "epl":
+            teamNames =  ["", "Everton", "Tottenham Hotspur", "Liverpool", "Arsenal", "Aston Villa", "Chelsea", "Crystal Palace", "Leicester City", "Leeds United", "Manchester City", "Manchester United", "Newcastle United", "Norwich", "Southampton", "Watford", "West Brom", "West Ham"];
+            teamCodes = ["null", "EVE", "TOT", "LIV", "ARS", "AVL", "CHE", "CRY", "LEI", "LEE", "MCI", "MUN", "NEW", "NOR", "SOU", "WAT", "WBA", "WHU"];
+
+            for (let i = 0; i < teamNames.length; i++){
+                document.getElementById("homeTeam").options[i] = new Option(teamNames[i], teamCodes[i])
+                document.getElementById("awayTeam").options[i] = new Option(teamNames[i], teamCodes[i])
+            }
+            break;
+        case "bundesliga":
+            alert("NOTIMPLEMENTEDRROR");
+            break;
+            teamNames =  ["", "Bayern Munich", "Arminia Bielefeld", "Borussia Dortmund"];
+            teamCodes = ["null", "BAY", "BIE", "DOR"];
+
+            for (let i = 0; i < teamNames.length; i++){
+                document.getElementById("homeTeam").options[i] = new Option(teamNames[i], teamCodes[i])
+                document.getElementById("awayTeam").options[i] = new Option(teamNames[i], teamCodes[i])
+            }
+            break;
+    }
+}

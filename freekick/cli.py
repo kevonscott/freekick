@@ -57,7 +57,9 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
 
     X = load_data(d_location=source, league=model_name)
     X, y = _clean_format_data(X=X)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=test_size, stratify=y
+    )
 
     soccer_model = SoccerLogisticModel(model_name, X_train, y_train)
     soccer_model.fit()  # train/fit the model
