@@ -1,7 +1,7 @@
 """API that calls the match_predictor service"""
 from flask import Blueprint, jsonify, request
 
-from service.match_predictor import predict_match
+from freekick.service.match_predictor import predict_match
 
 match_route = Blueprint("match_route", __name__, url_prefix="/api")
 
