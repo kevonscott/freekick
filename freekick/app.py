@@ -1,17 +1,25 @@
 #! env/bin/python
 
+import sys
 import click
-from __init__ import _logger
+import logging
+
+
+logging.basicConfig()
+_logger = logging.getLogger("FreeKick")
+_logger.setLevel(logging.INFO)
+
+sys.path.append(".")
 
 
 def create_app():
     """Creates FreeKick app"""
-    from flask import Flask, render_template
-    from flask_cors import CORS
+    from flask import Flask, render_template  # noqa E402
+    from flask_cors import CORS  # noqa E402
 
     # Blueprints
-    from api.match_day import match_day_route
-    from api.match import match_route
+    from freekick.api.match_day import match_day_route  # noqa E402
+    from freekick.api.match import match_route  # noqa E402
 
     app = Flask(__name__)
     app.register_blueprint(match_day_route)

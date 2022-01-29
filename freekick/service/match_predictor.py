@@ -5,8 +5,8 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import OneHotEncoder
 
-from model.ai import serial_models
-from model.ai import _logger
+from freekick.model.ai import serial_models
+from freekick.model.ai import _logger
 
 
 def predict_match(league: str, home_team: str, away_team: str):
