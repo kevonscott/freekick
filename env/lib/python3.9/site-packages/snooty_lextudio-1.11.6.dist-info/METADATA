@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: snooty-lextudio
+Version: 1.11.6
+Summary: The Snooty documentation writer's tool.
+Home-page: https://github.com/vscode-restructuredtext/snooty-parser
+License: UNKNOWN
+Author: MongoDB, inc.
+Author-email: i80and@foxquill.com
+Maintainer: LeXtudio Inc.
+Maintainer-email: support@lextudio.com
+Requires-Python: ~= 3.7
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Dist: pymongo[srv,tls] >= 3.11.1, < 4
+Requires-Dist: docutils >= 0.16, < 0.18
+Requires-Dist: watchdog ~= 1.0
+Requires-Dist: requests ~= 2.24
+Requires-Dist: toml ~= 0.10
+Requires-Dist: pyyaml ~= 5.3
+Requires-Dist: typing-extensions >= 3.7
+Requires-Dist: python-jsonrpc-server ~= 0.3.4
+Requires-Dist: fett ~= 0.3.2
+Requires-Dist: networkx >= 2.4, < 3
+Requires-Dist: docopt ~= 0.6.2
+Requires-Dist: black ~= 21.12b0 ; extra == "dev"
+Requires-Dist: pyflakes ~= 2.4 ; extra == "dev"
+Requires-Dist: mypy ~= 0.920 ; extra == "dev"
+Requires-Dist: pyinstaller ~= 4.7 ; extra == "dev"
+Requires-Dist: isort ~= 5.10.1 ; extra == "dev"
+Requires-Dist: types-requests ~= 2.26.1 ; extra == "dev"
+Requires-Dist: types-toml ~= 0.10.1 ; extra == "dev"
+Requires-Dist: pytest ~= 6.2.5 ; extra == "test"
+Requires-Dist: pytest-cov ~= 3.0.0 ; extra == "test"
+Provides-Extra: dev
+Provides-Extra: test
+
+Snooty from LeXtudio
+====================
+
+[![Downloads](https://img.shields.io/pypi/dd/snooty-lextudio?style=flat-square)](https://github.com/vscode-restructuredtext/snooty-parser/releases)
+
+The original Snooty language server started as an internal project of MongoDB inc. and was released on GitHub with full source code,
+
+https://github.com/mongodb/snooty-parser
+
+LeXtudio Inc. has been maintaining this fork with the following improvement,
+
+* Basic autocompletion on file references.
+* More directives and roles support.
+* Other patches.
+
+This fork has been published to PyPI and used by many users as default language server of the reStructuredText extension for Visual Studio Code,
+
+https://github.com/vscode-restructuredtext/vscode-restructuredtext
+
