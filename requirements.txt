@@ -11,3 +11,5 @@ scikit-learn>=0.24.2
 Sphinx>=4.2.0
 ipykernel>=6.6.0
 pytest>=6.2.5
+requests==2.26.0
+bs4==0.0.1

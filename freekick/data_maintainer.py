@@ -12,7 +12,10 @@ from model.ai import _MODELS
 @click.option(
     "-m",
     "--model",
-    help="Model for which to generate data file",
+    help=(
+        "Model for which to re-generate data file. Create a single file in freekick/freekick/model/ai/data/processed for model training. Run once new data file is added to "
+        "freekick/freekick/model/ai/data/raw folder"
+    ),
     type=click.Choice(_MODELS, case_sensitive=False),
 )
 @click.option("-p", "--persist", is_flag=True, help="Save updated date to disk.")

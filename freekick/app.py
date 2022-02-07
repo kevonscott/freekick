@@ -6,7 +6,7 @@ import logging
 
 
 logging.basicConfig()
-_logger = logging.getLogger("FreeKick")
+_logger = logging.getLogger("FREEKICK")
 _logger.setLevel(logging.INFO)
 
 sys.path.append(".")

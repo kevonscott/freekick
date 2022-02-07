@@ -101,7 +101,13 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
     default="CSV",
     show_default=True,
 )
-def cli(retrain, list, size, persist, source):
+@click.option(
+    "-d",
+    "--use-database",
+    help="Specify if data should be extracted from database. By default, csv files are used",
+    is_flag=True,
+)
+def cli(retrain, list, size, persist, source, use_database):
     if list:
         print("Model Options:")
         for model in _MODELS:
