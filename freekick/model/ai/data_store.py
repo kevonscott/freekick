@@ -79,34 +79,29 @@ def read_stitch_raw_data(league, persist=False):
 
 
 class DataScraper:
-    def __init__(self, type, league) -> None:
+    """Data class used to fetch various soccer data from open source."""
+
+    def __init__(self, league) -> None:
         self.types = {
-            "team_rating": "https://projects.fivethirtyeight.com/soccer-predictions/",
+            "team_rating": "https://projects.fivethirtyeight.com/soccer-predictions",
             "player_rating": "https://www.whoscored.com/Statistics",
         }  # Dict of data type to scraping url
         self.leagues = {"epl": "premier-league", "bundesliga": "bundesliga"}
-        self.type = type
-        if self.type not in self.types:
-            raise ValueError(
-                f"Invalid scraper type {self.type}. Select from {self.types.keys()}"
-            )
-        self.league = self.leagues[league]
-        self.url = f"{self.types[self.type]}{self.league}/"
+        self.league = league
 
-    def _parse_request(self, soup):
-        last_updated = soup.find(
-            "p", {"class": "timestamp"}
-        ).get_text()  # eg 'Updated Feb. 5, 2022, at 8:03 PM'
+    def _parse_team_rating_request(self, soup, type):
+        # eg 'Updated Feb. 5, 2022, at 8:03 PM'
+        last_updated = soup.find("p", {"class": "timestamp"}).get_text()
         last_updated_split = last_updated.split(" ")[1:4]
-        d_b_Y = (
+        d_m_y = (
             last_updated_split[1].strip(",")
             + "/"
-            + last_updated_split[0].strip(".").upper()
+            + last_updated_split[0].strip(".").capitalize()
             + "/"
             + last_updated_split[2].strip(",")
         )
-        last_updated = datetime.strptime(d_b_Y, "%d/%b/%Y")
-        if self.type == "team_rating":
+        last_updated = datetime.strptime(d_m_y, "%j/%B/%Y")
+        if type == "team_rating":
             team_ranking = (
                 {}
             )  # { teams: {team_name: {overall: <rank>, offense: <rank>, defense: <rank>}, last_updated: 'string' }
@@ -151,36 +146,44 @@ class DataScraper:
             player_ranking = {}
             player_ranking["last_updated"] = last_updated
             raise NotImplementedError
+        else:
+            raise ValueError(
+                f"Invalid scraper type {type}. Select from {self.types.keys()}"
+            )
         return ranking_df
 
-    def scrape(self, persists=False, user_db=False):
-        print(f"Scraping {self.type} data from {self.url}")
-        with requests.Session() as session:
-            page = session.get(url=self.url)
-            page.raise_for_status()
+    def scrape_team_rating(self, persists=False, use_db=False):
+        data_type = "team_rating"
+        leagues = {"epl": "premier-league", "bundesliga": "bundesliga"}
+        league_end_point = leagues[self.league]
+        team_rating_uri = f"{self.types[data_type]}/{league_end_point}/"
+        team_ranking_csv = f"data/processed/{self.league}_team_ranking.csv"
 
+        print(f"Scraping {self.league} '{data_type}' data from {team_rating_uri}")
+        with requests.Session() as session:
+            page = session.get(url=team_rating_uri)
+        page.raise_for_status()
         print(f"Request status code: {page.status_code}")
 
         soup = BeautifulSoup(page.content, "html.parser")
-        df = self._parse_request(soup=soup)
+        df = self._parse_team_rating_request(soup=soup, type=data_type)
         if persists:
-            if user_db:
+            if use_db:
                 raise NotImplementedError
             else:
                 print("Updating csv....")
-                team_ranking_csv = "data/processed/epl_team_ranking.csv"
                 exist_df = pd.read_csv(
                     pkg_resources.resource_filename(__name__, team_ranking_csv),
                     index_col=["date", "ranking"],
                     parse_dates=True,
                 )
-                df = df.stack()  # .to_csv('test_csv.csv')
+                df = df.stack()
                 new_df = pd.concat([exist_df, df], axis=0)
                 new_df.to_csv(
                     pkg_resources.resource_filename(__name__, team_ranking_csv)
                 )
         else:
-            print("unstacking dataframe for better visibility...")
+            print("Unstacking dataframe for better visibility...")
             pprint(df)
 
 

@@ -4,25 +4,52 @@
 
 import click
 
-from model.ai.data_store import read_stitch_raw_data
-from model.ai import _MODELS
+from model.ai import _LEAGUES
+from model.ai.data_store import read_stitch_raw_data, DataScraper
+
+
+@click.group()
+def cli():
+    pass
 
 
 @click.command()
 @click.option(
-    "-m",
-    "--model",
-    help=(
-        "Model for which to re-generate data file. Create a single file in freekick/freekick/model/ai/data/processed for model training. Run once new data file is added to "
-        "freekick/freekick/model/ai/data/raw folder"
-    ),
-    type=click.Choice(_MODELS, case_sensitive=False),
+    "-d",
+    "--data-type",
+    help=("The type of data to update"),
+    type=click.Choice(["team_rating", "player_rating", "match"], case_sensitive=False),
+    required=True,
+)
+@click.option(
+    "-l",
+    "--league",
+    help="Target league to update.",
+    type=click.Choice(_LEAGUES, case_sensitive=False),
+    required=True,
 )
 @click.option("-p", "--persist", is_flag=True, help="Save updated date to disk.")
-def cli(model, persist):
-    # Read in new data and override the current file if persist == True
-    read_stitch_raw_data(model=model, persist=persist)
+def update(data_type, league, persist):
+    if data_type == "player_rating":
+        raise NotImplementedError
+    elif data_type == "team_rating":
+        data_scraper = DataScraper(league=league)
+        data_scraper.scrape_team_rating(persists=persist)
+    elif data_type == "match":
+        raise NotImplementedError
+        # Read in new data and override the current file if persist == True
+        read_stitch_raw_data(model=league, persist=persist)
 
+
+@click.command()
+@click.option("-l", "--list", help="List currently supported leagues.", is_flag=True)
+def league(list):
+    if list:
+        print(_LEAGUES)
+
+
+cli.add_command(update)
+cli.add_command(league)
 
 if __name__ == "__main__":
     cli()

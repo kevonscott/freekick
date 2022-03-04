@@ -1,15 +1,18 @@
 """Model for all Artificial Intelligence and Machine Learning Operations."""
+from functools import partial, lru_cache
 import os
 import pickle
 import logging
 import pkg_resources
+
+_LEAGUES = ["epl", "bundesliga"]
 
 logging.basicConfig()
 _logger = logging.getLogger("Freekick-AI")
 _logger.setLevel(logging.INFO)
 
 
-def load_model(model_name: str):
+def _load_model(model_name: str):
     """Load serial models"""
     model_path = pkg_resources.resource_filename(
         __name__, os.path.join("serialized_models", model_name)
@@ -20,14 +23,15 @@ def load_model(model_name: str):
     return model
 
 
-_logger.info(" Loading serial models...")
-serial_models = {
-    "epl": load_model(model_name="epl.pkl"),
-    # "bundesliga": load_model(model_name="bundesliga.pkl"),
-}
+@lru_cache()
+def load_models():
+    _logger.info(" Loading serial models...")
+    return {league: _load_model(model_name=f"{league}.pkl") for league in _LEAGUES}
 
-_MODELS = list(serial_models.keys())
-_LEAGUES = _MODELS
+
+serial_models = partial(load_models)
+# _MODELS = list(serial_models.keys())
+# _LEAGUES = _MODELS
 
 ####### Team names and short codes #########################
 # reference for the names: https://www.sporcle.com/games/easterbunny/football-club--by-abbreviations-/results
