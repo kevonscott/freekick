@@ -13,7 +13,13 @@ complete product.
 
 
 ## Getting Started
-
+* Create virtual env and install requirements
+```
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+*
 ## Usage
 Run the command below in the projects main directory to launch the flask app.
 ```bash
