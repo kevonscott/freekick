@@ -4,8 +4,14 @@
 
 import click
 
-from model.ai import _LEAGUES
-from model.ai.data_store import read_stitch_raw_data, DataScraper
+from model.ai import _LEAGUES, _SEASON
+from model.ai.data_store import (
+    read_stitch_raw_data,
+    DataScraper,
+    update_current_season_data,
+)
+
+UPDATE_TYPES = ["team_rating", "player_rating", "match", "current_season"]
 
 
 @click.group()
@@ -18,7 +24,7 @@ def cli():
     "-d",
     "--data-type",
     help=("The type of data to update"),
-    type=click.Choice(["team_rating", "player_rating", "match"], case_sensitive=False),
+    type=click.Choice(UPDATE_TYPES, case_sensitive=False),
     required=True,
 )
 @click.option(
@@ -36,9 +42,11 @@ def update(data_type, league, persist):
         data_scraper = DataScraper(league=league)
         data_scraper.scrape_team_rating(persists=persist)
     elif data_type == "match":
-        raise NotImplementedError
+        # raise NotImplementedError
         # Read in new data and override the current file if persist == True
-        read_stitch_raw_data(model=league, persist=persist)
+        read_stitch_raw_data(league=league, persist=persist)
+    elif data_type == "current_season":
+        update_current_season_data(league=league, persist=persist)
 
 
 @click.command()

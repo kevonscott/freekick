@@ -5,7 +5,8 @@ import pickle
 import logging
 import pkg_resources
 
-_LEAGUES = ["epl", "bundesliga"]
+_LEAGUES = ["epl"]
+_SEASON = "2021-2022"
 
 logging.basicConfig()
 _logger = logging.getLogger("Freekick-AI")

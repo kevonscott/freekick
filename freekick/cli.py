@@ -8,7 +8,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-from model.ai import soccer_teams, _MODELS
+from model.ai import soccer_teams, _LEAGUES
 from model.ai.data_store import load_data
 from model.ai.models.logistic_model import SoccerLogisticModel
 
@@ -81,7 +81,7 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
     "-r",
     "--retrain",
     help="Retrain model",
-    type=click.Choice(_MODELS, case_sensitive=False),
+    type=click.Choice(_LEAGUES, case_sensitive=False),
 )
 @click.option("-l", "--list", is_flag=True, help="List current models")
 @click.option(
@@ -110,7 +110,7 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
 def cli(retrain, list, size, persist, source, use_database):
     if list:
         print("Model Options:")
-        for model in _MODELS:
+        for model in _LEAGUES:
             print(f"\t- {model}")
     elif retrain:
         train_soccer_model(

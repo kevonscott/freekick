@@ -5,10 +5,11 @@ from pprint import pprint
 from datetime import datetime
 
 import pandas as pd
+import dask.dataframe as dd
 from bs4 import BeautifulSoup
 
 from utils.freekick_config import load_config
-from model.ai import _LEAGUES
+from model.ai import _LEAGUES, _SEASON
 
 
 def load_data(d_location="CSV", league="bundesliga", environ="development"):
@@ -16,16 +17,16 @@ def load_data(d_location="CSV", league="bundesliga", environ="development"):
 
     d_locations = ["CSV", "DATABASE"]
     if d_location not in d_locations:
-        raise KeyError(
+        raise ValueError(
             f"{d_location} is not a valid d_location. Please select from {d_locations}."
         )
     if league not in _LEAGUES:
-        raise KeyError(
+        raise ValueError(
             f"{league} is not a valid league. Please select from {_LEAGUES}."
         )
 
     if d_location == "CSV":
-        league_csv = league + ".csv"
+        league_csv = f"{league}.csv"
         file_location = pkg_resources.resource_filename(
             __name__, f"data/processed/{league_csv}"
         )
@@ -42,8 +43,24 @@ def load_data(d_location="CSV", league="bundesliga", environ="development"):
     return data
 
 
-def update_current_season_data(league):
-    raise NotImplementedError
+def update_current_season_data(league, d_location="CSV", persist=False):
+    file_name = f"season_{_SEASON}.csv"
+    p = pkg_resources.resource_filename(__name__, f"data/raw/{league}/{file_name}")
+    if league == "epl":
+        url = "https://www.football-data.co.uk/mmz4281/2122/E0.csv"
+
+    if url:
+        season_data = pd.read_csv(url)
+        if persist:
+            if d_location == "CSV":
+                print("Saving/Updating file: ", p)
+            elif d_location == "DATABASE":
+                raise NotImplementedError
+            season_data.to_csv(p, index=False)
+        else:
+            pprint(season_data)
+    else:
+        raise ValueError(f"Unsupported league: {league}")
 
 
 def read_stitch_raw_data(league, persist=False):
@@ -66,16 +83,22 @@ def read_stitch_raw_data(league, persist=False):
     # concat the files together
     dir_path = Path("data") / "raw" / league
     parent_dir = Path(__file__).parent
-    data_files = pkg_resources.resource_listdir(__name__, str(dir_path))
-    data_files = [parent_dir / dir_path / f for f in data_files]
+    # data_files = pkg_resources.resource_listdir(__name__, str(dir_path))
+    # data_files = [parent_dir / dir_path / f for f in data_files]
 
-    df = pd.concat(map(_read_csv, data_files), ignore_index=True)
+    # df = pd.concat(map(_read_csv, data_files), ignore_index=True)
+    print(str(parent_dir / dir_path) + "/season*.csv")
+    df = dd.read_csv(
+        str(parent_dir / dir_path) + "/season*.csv",
+        dtype={"FTAG": "float64", "FTHG": "float64"},
+    ).compute()
 
     if persist:
         file_path = parent_dir / "data" / "processed" / f"{league}.csv"
         print(f"Persisting data: {file_path}")
         df.to_csv(file_path)
-    print(f"df.sample():\n{df.sample(5)}")
+    # print(f"df.shape:\n{df.shape}")
+    # print(f"df.sample(frac=0.1):\n{df.sample(frac=0.1)}")
 
 
 class DataScraper:
@@ -185,8 +208,3 @@ class DataScraper:
         else:
             print("Unstacking dataframe for better visibility...")
             pprint(df)
-
-
-if __name__ == "__main__":
-    s = DataScraper(type="team_rating", league="epl")
-    s.scrape(persists=True)
