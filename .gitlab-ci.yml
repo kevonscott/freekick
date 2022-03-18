@@ -13,23 +13,37 @@
 #
 # For more information, see: https://docs.gitlab.com/ee/ci/yaml/index.html#stages
 
+image: python:latest
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+# If you want to also cache the installed packages, you have to install
+# them in a virtualenv and cache it as well.
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
+
 stages:          # List of stages for jobs, and their order of execution
-  - build
+  - setup
   - test
   - deploy
 
-build-job:       # This job runs in the build stage, which runs first.
-  stage: build
+setup-job:       # This job runs in the build stage, which runs first.
+  stage: setup
   script:
-    - echo "NOTIMPLEMENTED - Compiling the code..."
-    - echo "NOTIMPLEMENTED - Compile complete."
+    - echo "Setting up package"
+    - python --version
+    - python -m venv venv
+    - source venv/bin/activate
 
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
   script:
-    - echo 'NOTIMPLEMENTED - Testing...'
-    #- LOCATION=`pwd`
-    #- $LOCATION/env/bin/python -m pytest
+    - echo 'Running tests...'
+    - python -m pytest
 
 deploy-job:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
