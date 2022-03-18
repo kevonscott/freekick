@@ -38,6 +38,7 @@ setup-job:       # This job runs in the build stage, which runs first.
     - python --version
     - python -m venv venv
     - source venv/bin/activate
+    - pip install -e requirements.txt
 
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
