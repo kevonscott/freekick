@@ -34,6 +34,33 @@ serial_models = partial(load_models)
 # _MODELS = list(serial_models.keys())
 # _LEAGUES = _MODELS
 
+
+def get_team_code(league, team_name) -> str:
+    """Looks up a team's code name given its full name.
+
+    Parameters
+    ----------
+    league : str
+        The teams 3 letter code
+    team_name : str
+        Full name of the team.
+
+    Returns
+    -------
+    str
+        Three letter code representing the team
+
+    Raises
+    ------
+    ValueError
+        Value error if invalid team of league name is provided
+    """
+    try:
+        return soccer_teams[league][team_name]
+    except KeyError:
+        raise ValueError(f"Invalid league ({league}) or team_name ({team_name})")
+
+
 ####### Team names and short codes #########################
 # reference for the names: https://www.sporcle.com/games/easterbunny/football-club--by-abbreviations-/results
 soccer_teams = {
@@ -47,6 +74,7 @@ soccer_teams = {
         "Bolton": "BOL",
         "Bournemouth": "BOU",
         "Bradford": "BRA",
+        "Brentford": "BRE",
         "Brighton": "BHA",
         "Brighton and Hove Albion": "BHA",
         "Burnley": "BUR",
@@ -75,6 +103,7 @@ soccer_teams = {
         "Newcastle United": "NEW",
         "Newcastle": "NEW",
         "Norwich": "NOR",
+        "Norwich City": "NOR",
         "Nottingham Forest": "FOR",
         "Nott'm Forest": "FOR",
         "Oldham": "OLD",
@@ -102,6 +131,7 @@ soccer_teams = {
         "Wimbledon": "WIM",
         "Wolves": "WOL",
         "Wolverhampton Wanderers": "WOL",
+        "Wolverhampton": "WOL",
     },
     "bundesliga": {
         "Arminia Bielefeld": "BIE",

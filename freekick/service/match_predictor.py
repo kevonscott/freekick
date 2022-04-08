@@ -18,7 +18,7 @@ def predict_match(league: str, home_team: str, away_team: str):
     h_team = "home_" + home_team
     a_team = "away_" + away_team
     # Load serialized model
-    soccer_model = serial_models.get(league.lower())
+    soccer_model = serial_models().get(league.lower())
 
     # any date will do for index but using the date of the request.
     # selected date will not impact prediction
