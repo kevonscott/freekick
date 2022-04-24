@@ -3,13 +3,11 @@
 import click
 from pprint import pprint
 
-import pandas as pd
-import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-from model.ai import soccer_teams, _LEAGUES
-from model.ai.data_store import load_data
+from model.ai import _LEAGUES
+from model.ai.data_store import load_data, clean_format_data
 from model.ai.models.logistic_model import SoccerLogisticModel
 
 
@@ -17,46 +15,8 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
     model_score = {}
     print(f"Retraining {model_name}...")
 
-    def _clean_format_data(X):
-        """Cleans and formats dataframe
-
-        Parameters
-        ----------
-        X: Dataframe
-            Pandas dataframe with soccer statistics
-        """
-        # -1: Away Team Win
-        #  0: Draw
-        # +1: Home Team Win
-        X = X[["HomeTeam", "AwayTeam", "FTHG", "FTAG", "Date"]]
-        X = X.rename(
-            columns={
-                "HomeTeam": "home",
-                "AwayTeam": "away",
-                "FTHG": "home_goals",
-                "FTAG": "away_goals",
-                "Date": "date",
-            }
-        )
-        X = X.dropna()
-        y = np.sign(X["home_goals"] - X["away_goals"])
-        X["home"] = X["home"].apply(lambda x: soccer_teams[model_name][x])
-        X["away"] = X["away"].apply(lambda x: soccer_teams[model_name][x])
-        X.index = X["date"] + "_" + X["home"] + "_" + X["away"]
-
-        # No longer need these columns. This info will not be present at pred
-        X = X.drop(columns=["home_goals", "away_goals", "date"])
-
-        X = pd.get_dummies(
-            X, columns=["home", "away"], prefix=["home", "away"]
-        )  # create dummies (OneHotEncoding) from each team name
-        X = X[
-            sorted(X.columns)
-        ]  # Sort columns to match OneHotEncoding below (VERY IMPORTANT)
-        return X, y
-
     X = load_data(d_location=source, league=model_name)
-    X, y = _clean_format_data(X=X)
+    X, y = clean_format_data(X=X, league=model_name)
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=test_size, stratify=y
     )
@@ -88,7 +48,12 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
     "-p", "--persist", is_flag=True, help="Serialize model to disk if provided."
 )
 @click.option(
-    "-s", "--size", default=0.2, help="Training Size.", type=float, show_default=True
+    "-t",
+    "--test_size",
+    default=0.2,
+    help="Training Size.",
+    type=float,
+    show_default=True,
 )
 @click.option(
     "-s",
@@ -101,20 +66,14 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
     default="CSV",
     show_default=True,
 )
-@click.option(
-    "-d",
-    "--use-database",
-    help="Specify if data should be extracted from database. By default, csv files are used",
-    is_flag=True,
-)
-def cli(retrain, list, size, persist, source, use_database):
+def cli(retrain, list, test_size, persist, source):
     if list:
         print("Model Options:")
         for model in _LEAGUES:
             print(f"\t- {model}")
     elif retrain:
         train_soccer_model(
-            model_name=retrain, test_size=size, source=source, persist=persist
+            model_name=retrain, test_size=test_size, source=source, persist=persist
         )
 
 

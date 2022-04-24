@@ -1,8 +1,8 @@
-## About FreeKick (IN-PROGRESS)
+# FreeKick (WORK-IN-PROGRESS)
 
 FreeKick is a program designed to predict soccer games using statistical methods.
 This project is in the EARLY PHASE OF DEVELOPMENT and will be iterated upon to create a
-complete product.
+complete open source product.
 
 ### Built With
 * [Python](https://www.python.org/)
@@ -11,17 +11,22 @@ complete product.
 * [CSS](https://en.wikipedia.org/wiki/CSS)
 * [JavaScript](https://www.javascript.com/)
 
+# Disclaimer
+This software is for educational and entertainment purposes ONLY. Do not use this
+software to risk money which you are afraid to lose. USE THE SOFTWARE AT YOUR
+OWN RISK. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR ANY
+FINANCIAL LOSS RESULTING FROM THE USAGE OF THIS SOFTWARE.
 
-## Getting Started
-* Create virtual env and install requirements
+# Getting Started
+Create virtual env and install requirements
 ```
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-*
+
 ## Usage
-Run the command below in the projects main directory to launch the flask app.
+Run the command below from the root of the project to launch the FreeKick app.
 ```bash
 $ freekick/app.py
 ```
@@ -29,7 +34,7 @@ $ freekick/app.py
 ## Retraining The Model
 Retraining is done via the command line using the cli tool:
 ```bash
-(soccer) USER@COMPUTER[~/src/freekick]:> freekick/cli.py --help
+USER@COMPUTER[~/src/freekick]:> freekick/cli.py --help
 Usage: cli.py [OPTIONS]
 
 Options:
@@ -42,7 +47,7 @@ Options:
                                   same name as the model in the data directory
                                   [default: CSV]
   --help                          Show this message and exit.
-(soccer) USER@COMPUTER[~/src/freekick]:>
+USER@COMPUTER[~/src/freekick]:>
 ```
 
 ### Re-fit and Persist the model to disk

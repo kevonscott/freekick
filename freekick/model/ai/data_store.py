@@ -3,13 +3,15 @@ import pkg_resources
 from pathlib import Path
 from pprint import pprint
 from datetime import datetime
+from functools import partial
 
 import pandas as pd
+import numpy as np
 import dask.dataframe as dd
 from bs4 import BeautifulSoup
 
 from utils.freekick_config import load_config
-from model.ai import _LEAGUES, _SEASON
+from model.ai import _LEAGUES, _SEASON, soccer_teams, get_team_code
 
 
 def load_data(d_location="CSV", league="bundesliga", environ="development"):
@@ -99,6 +101,52 @@ def read_stitch_raw_data(league, persist=False):
         df.to_csv(file_path)
     # print(f"df.shape:\n{df.shape}")
     # print(f"df.sample(frac=0.1):\n{df.sample(frac=0.1)}")
+
+
+def clean_format_data(X, league):
+    """Cleans and formats dataframe
+
+    Parameters
+    ----------
+    X: Dataframe
+        Pandas dataframe with soccer statistics
+    league: str
+        Code name of the league
+    """
+    # -1: Away Team Win
+    #  0: Draw
+    # +1: Home Team Win
+    X = X[["HomeTeam", "AwayTeam", "FTHG", "FTAG", "Date"]]
+    X = X.rename(
+        columns={
+            "HomeTeam": "home",
+            "AwayTeam": "away",
+            "FTHG": "home_goal",
+            "FTAG": "away_goal",
+            "Date": "date",
+        }
+    )
+    X["date"] = pd.to_datetime(X["date"])
+    X = X.dropna(how="all")
+    y = np.sign(X["home_goals"] - X["away_goals"])
+    X["home"] = X["home"].apply(lambda x: soccer_teams[league][x])
+    X["away"] = X["away"].apply(lambda x: soccer_teams[league][x])
+    X.index = X["date"] + "_" + X["home"] + "_" + X["away"]
+
+    team_code = partial(get_team_code, league)
+    X["home"] = X["home"].apply(team_code)
+    X["away"] = X["away"].apply(team_code)
+
+    # No longer need these columns. This info will not be present at pred
+    X = X.drop(columns=["home_goal", "away_goal"])
+
+    X = pd.get_dummies(
+        X, columns=["home", "away"], prefix=["home", "away"]
+    )  # create dummies (OneHotEncoding) from each team name
+    X = X[
+        sorted(X.columns)
+    ]  # Sort columns to match OneHotEncoding below (VERY IMPORTANT)
+    return X, y
 
 
 class DataScraper:
