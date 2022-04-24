@@ -1,20 +1,7 @@
-# This file is a template, and might need editing before it works on your project.
-# To contribute improvements to CI/CD templates, please follow the Development guide at:
-# https://docs.gitlab.com/ee/development/cicd/templates.html
-# This specific template is located at:
-# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
-
-# This is a sample GitLab CI/CD configuration file that should run without any modifications.
-# It demonstrates a basic 3 stage CI/CD pipeline. Instead of real tests or scripts,
-# it uses echo commands to simulate the pipeline execution.
-#
-# A pipeline is composed of independent jobs that run scripts, grouped into stages.
-# Stages run in sequential order, but jobs within stages run in parallel.
-#
-# For more information, see: https://docs.gitlab.com/ee/ci/yaml/index.html#stages
-
 image: python:latest
 
+# Change pip's cache directory to be inside the project directory since we can
+# only cache local items.
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
@@ -34,17 +21,19 @@ stages:          # List of stages for jobs, and their order of execution
 setup-job:       # This job runs in the build stage, which runs first.
   stage: setup
   script:
-    - echo "Setting up package"
-    - python --version
-    - python -m venv venv
+    - echo "Setting up virtual environment.."
+    - python3 --version
+    - python3 -m venv venv
     - source venv/bin/activate
-    # - pip install -e requirements.txt
+    - pip3 --version
+    - echo "Installing requirements.."
+    - pip3 install -r requirements.txt
 
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
   script:
     - echo 'Running tests...'
-    # - python -m pytest
+    - venv/bin/python3 -m pytest
 
 deploy-job:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
