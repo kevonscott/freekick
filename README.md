@@ -2,7 +2,8 @@
 
 FreeKick is a program designed to predict soccer games using statistical methods.
 This project is in the EARLY PHASE OF DEVELOPMENT and will be iterated upon to create a
-complete open source product.
+complete product. As a result of this project being in active development,
+there will be frequent changes some of which might be breaking changes.
 
 ### Built With
 * [Python](https://www.python.org/)

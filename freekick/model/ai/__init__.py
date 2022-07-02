@@ -69,7 +69,7 @@ soccer_teams = {
         "Aston Villa": "AVL",
         "Barnsley": "BAR",
         "Blackburn": "BLA",
-        "Blackpool": "BLP",  # Manually  renamed due to conflick with BLA
+        "Blackpool": "BLP",  # Manually  renamed due to conflict with BLA
         "Birmingham": "BIR",
         "Bolton": "BOL",
         "Bournemouth": "BOU",
