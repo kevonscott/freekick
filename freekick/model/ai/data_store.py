@@ -1,8 +1,10 @@
+import sys
 import requests
 import pkg_resources
 from pathlib import Path
 from pprint import pprint
 from datetime import datetime
+from dateutil.parser import parse
 from functools import partial
 
 import pandas as pd
@@ -15,6 +17,10 @@ from model.ai import _LEAGUES, _SEASON, soccer_teams, get_team_code
 
 
 def load_data(d_location="CSV", league="bundesliga", environ="development"):
+    def clean_date(d):
+        """varying date formats so parse date in consistent format"""
+        return parse(d) if isinstance(d, str) else np.nan
+
     cfg = load_config(environ=environ)  # load configuration
 
     d_locations = ["CSV", "DATABASE"]
@@ -32,7 +38,8 @@ def load_data(d_location="CSV", league="bundesliga", environ="development"):
         file_location = pkg_resources.resource_filename(
             __name__, f"data/processed/{league_csv}"
         )
-        data = pd.read_csv(file_location)
+        data = pd.read_csv(file_location, parse_dates=["Time"])
+        data["Date"] = data["Date"].apply(clean_date)
     elif d_location == "DATABASE":  # TO BE COMPLETED LATER
         db_name = cfg.get("DATABASE_NAME")
         # db_host = cfg.get("DATABASE_HOST")
@@ -41,7 +48,6 @@ def load_data(d_location="CSV", league="bundesliga", environ="development"):
         # Load data from DB
         # Database extraction to be implemented later
         raise NotImplementedError("Cannot extract data from databases yet...")
-
     return data
 
 
@@ -78,17 +84,10 @@ def read_stitch_raw_data(league, persist=False):
     if league not in _LEAGUES:
         raise ValueError(f"Invalid League. Please select from {_LEAGUES}")
 
-    def _read_csv(csv_path):
-        print(f"Extracting data from: {csv_path}")
-        return pd.read_csv(csv_path)
-
     # concat the files together
     dir_path = Path("data") / "raw" / league
     parent_dir = Path(__file__).parent
-    # data_files = pkg_resources.resource_listdir(__name__, str(dir_path))
-    # data_files = [parent_dir / dir_path / f for f in data_files]
 
-    # df = pd.concat(map(_read_csv, data_files), ignore_index=True)
     print(str(parent_dir / dir_path) + "/season*.csv")
     df = dd.read_csv(
         str(parent_dir / dir_path) + "/season*.csv",
@@ -99,7 +98,7 @@ def read_stitch_raw_data(league, persist=False):
         file_path = parent_dir / "data" / "processed" / f"{league}.csv"
         print(f"Persisting data: {file_path}")
         df.to_csv(file_path)
-    # print(f"df.shape:\n{df.shape}")
+    print(f"df.shape:\n{df.shape}")
     # print(f"df.sample(frac=0.1):\n{df.sample(frac=0.1)}")
 
 
@@ -116,7 +115,7 @@ def clean_format_data(X, league):
     # -1: Away Team Win
     #  0: Draw
     # +1: Home Team Win
-    X = X[["HomeTeam", "AwayTeam", "FTHG", "FTAG", "Date"]]
+    X = X[["HomeTeam", "AwayTeam", "FTHG", "FTAG", "Date", "Time", "Attendance"]]
     X = X.rename(
         columns={
             "HomeTeam": "home",
@@ -124,28 +123,25 @@ def clean_format_data(X, league):
             "FTHG": "home_goal",
             "FTAG": "away_goal",
             "Date": "date",
+            "Time": "time",
+            "Attendance": "attendance",
         }
     )
     X["date"] = pd.to_datetime(X["date"])
-    X = X.dropna(how="all")
-    y = np.sign(X["home_goals"] - X["away_goals"])
-    X["home"] = X["home"].apply(lambda x: soccer_teams[league][x])
-    X["away"] = X["away"].apply(lambda x: soccer_teams[league][x])
-    X.index = X["date"] + "_" + X["home"] + "_" + X["away"]
+    X = X.dropna(subset=["home", "away", "home_goal", "away_goal", "date"], how="all")
+    X["time"] = pd.to_datetime(X["time"].fillna(method="bfill").fillna(method="ffill"))
+    X["attendance"] = X["attendance"].fillna(0)
+    y = np.sign(X["home_goal"] - X["away_goal"])
 
-    team_code = partial(get_team_code, league)
+    team_code = partial(get_team_code, league, code_type="int")
     X["home"] = X["home"].apply(team_code)
     X["away"] = X["away"].apply(team_code)
-
     # No longer need these columns. This info will not be present at pred
-    X = X.drop(columns=["home_goal", "away_goal"])
+    # TODO: Fix time and date. dropping date and time for now as I cannot seem
+    # TODO: to get them working with sklearn and dask at the moment
+    X = X.drop(columns=["home_goal", "away_goal", "time", "date"])
+    X = X.reset_index(drop=True)
 
-    X = pd.get_dummies(
-        X, columns=["home", "away"], prefix=["home", "away"]
-    )  # create dummies (OneHotEncoding) from each team name
-    X = X[
-        sorted(X.columns)
-    ]  # Sort columns to match OneHotEncoding below (VERY IMPORTANT)
     return X, y
 
 
@@ -171,7 +167,10 @@ class DataScraper:
             + "/"
             + last_updated_split[2].strip(",")
         )
-        last_updated = datetime.strptime(d_m_y, "%j/%B/%Y")
+        try:  # First try full month name
+            last_updated = datetime.strptime(d_m_y, "%j/%B/%Y")
+        except ValueError:  # The try 3 letter month name
+            last_updated = datetime.strptime(d_m_y, "%j/%b/%Y")
         if type == "team_rating":
             team_ranking = (
                 {}

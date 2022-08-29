@@ -12,5 +12,8 @@ def match():
     home_team = request_data["home"].replace(" ", "-")
     away_team = request_data["away"].replace(" ", "-")
     league = request_data["league"]
-    prediction = predict_match(league=league, home_team=home_team, away_team=away_team)
+    attendance = request_data["attendance"]
+    prediction = predict_match(
+        league=league, home_team=home_team, away_team=away_team, attendance=attendance
+    )
     return jsonify(prediction)

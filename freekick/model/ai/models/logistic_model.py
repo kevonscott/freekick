@@ -1,26 +1,37 @@
 """Model for various logistic models."""
 
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegression as sklearn_LR
+from dask_ml.linear_model import LogisticRegression as dask_LR
+
 import pandas as pd
 import os
 import pickle
 
+from model.ai.models import Backend
+from model.ai import _logger
+
 
 class SoccerLogisticModel:
-    def __init__(self, league, X, y) -> None:
+    def __init__(self, league, X, y, backend: Backend = Backend.PANDAS) -> None:
         self.league = league
         self.model = None
         self.y = y
         self.X = X
+        self.backend = backend
+
+        self.initialize_backend()
+
+    def initialize_backend(self):
+        self.logistic_regression = (
+            dask_LR if self.backend == Backend.DASK else sklearn_LR
+        )
+        _logger.info(f"Selected Backend: {self.logistic_regression}")
 
     def fit(self):
-        model = LogisticRegression(
+        model = self.logistic_regression(
             penalty="l2", fit_intercept=False, multi_class="ovr", C=1
         )
-        # X_to_numpy = self.X.to_numpy().astype("float")
-        # self.model = model.fit(X_to_numpy, self.y)
         self.model = model.fit(self.X, self.y)
-        self.model.columns = None
 
     def check_fit(self):
         if not self.model:
@@ -62,7 +73,7 @@ class SoccerLogisticModel:
 
     def persist_model(self):
         """Persists a model as Pickle file on disk in models folder.
-        Overrite if file already exists.
+        Overwrite if file already exists.
 
         Parameters
         ----------

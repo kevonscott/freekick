@@ -1,4 +1,4 @@
-#! venv/bin/python
+#! .venv/bin/python
 
 import click
 from pprint import pprint
@@ -12,7 +12,6 @@ from model.ai.models.logistic_model import SoccerLogisticModel
 
 
 def train_soccer_model(model_name, test_size, source="CSV", persist=False):
-    model_score = {}
     print(f"Retraining {model_name}...")
 
     X = load_data(d_location=source, league=model_name)
@@ -20,17 +19,18 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=test_size, stratify=y
     )
-
     soccer_model = SoccerLogisticModel(model_name, X_train, y_train)
     soccer_model.fit()  # train/fit the model
-    soccer_model.model.columns = list(X.columns)
+    # soccer_model.model.columns = list(X.columns)
 
     y_pred = soccer_model.predict_winner(X_test)
-    model_score["accuracy"] = accuracy_score(y_test, y_pred)
-    # model_score['coeff'] = soccer_model.get_coeff()
-    print("Model Statistics:")
-    pprint(model_score)
+    accuracy = accuracy_score(y_test, y_pred)
+    coeff = soccer_model.get_coeff()
+    print("=========================Model Statistics=========================")
     print(f"Model: {soccer_model.model}")
+    print(f"Accuracy: {accuracy}")
+    print("Coeff:")
+    pprint(coeff)
 
     if persist:
         soccer_model.persist_model()

@@ -1,15 +1,12 @@
-#! venv/bin/python
+#! .venv/bin/python
 
 import sys
 import click
-import logging
 
-
-logging.basicConfig()
-_logger = logging.getLogger("FREEKICK")
-_logger.setLevel(logging.INFO)
 
 sys.path.append(".")
+
+from freekick import __version__, _logger  # noqa E402
 
 
 def create_app():
@@ -56,6 +53,7 @@ def create_app():
 def main(env, logging_level):
     _logger.setLevel(logging_level.upper())
     _logger.info(f" Launching FreeKick app in {env} mode....")
+    _logger.info(f"FreeKick Version: {str(__version__)}")
 
     app = create_app()
     if env.upper() == "DEV":

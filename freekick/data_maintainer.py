@@ -1,6 +1,6 @@
-#! venv/bin/python
+#! .venv/bin/python
 
-"""Model for generating datafiles used for each model"""
+"""Model for generating data files used for each model"""
 
 import click
 
@@ -24,7 +24,7 @@ def cli():
     "-d",
     "--data-type",
     help=("The type of data to update"),
-    type=click.Choice(UPDATE_TYPES, case_sensitive=False),
+    type=click.Choice(UPDATE_TYPES, case_sensitive=True),
     required=True,
 )
 @click.option(
