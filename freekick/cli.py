@@ -1,80 +1,97 @@
 #! .venv/bin/python
 
+
+import sys
 import click
 from pprint import pprint
 
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+sys.path.append(".")
 
-from model.ai import _LEAGUES
-from model.ai.data_store import load_data, clean_format_data
-from model.ai.models.logistic_model import SoccerLogisticModel
-
-
-def train_soccer_model(model_name, test_size, source="CSV", persist=False):
-    print(f"Retraining {model_name}...")
-
-    X = load_data(d_location=source, league=model_name)
-    X, y = clean_format_data(X=X, league=model_name)
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=test_size, stratify=y
-    )
-    soccer_model = SoccerLogisticModel(model_name, X_train, y_train)
-    soccer_model.fit()  # train/fit the model
-    # soccer_model.model.columns = list(X.columns)
-
-    y_pred = soccer_model.predict_winner(X_test)
-    accuracy = accuracy_score(y_test, y_pred)
-    coeff = soccer_model.get_coeff()
-    print("=========================Model Statistics=========================")
-    print(f"Model: {soccer_model.model}")
-    print(f"Accuracy: {accuracy}")
-    print("Coeff:")
-    pprint(coeff)
-
-    if persist:
-        soccer_model.persist_model()
+from service.match_predictor import predict_match  # noqa E402
+from freekick import _logger, __version__  # noqa E402
+from freekick.app import create_app  # noqa E402
 
 
-@click.command()
+@click.group()
+@click.option("--debug/--no-debug", default=False)
 @click.option(
-    "-r",
-    "--retrain",
-    help="Retrain model",
-    type=click.Choice(_LEAGUES, case_sensitive=False),
-)
-@click.option("-l", "--list", is_flag=True, help="List current models")
-@click.option(
-    "-p", "--persist", is_flag=True, help="Serialize model to disk if provided."
-)
-@click.option(
-    "-t",
-    "--test_size",
-    default=0.2,
-    help="Training Size.",
-    type=float,
-    show_default=True,
-)
-@click.option(
-    "-s",
-    "--source",
-    help=(
-        "Source of the training data. Default is CSV. If CSV, place the csv"
-        " data file with the same name as the model in the data directory"
+    "-l",
+    "--logging-level",
+    help="Logging level",
+    type=click.Choice(
+        ["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"], case_sensitive=False
     ),
-    type=click.Choice(["CSV", "DATABASE"]),
-    default="CSV",
+    default="INFO",
     show_default=True,
 )
-def cli(retrain, list, test_size, persist, source):
-    if list:
-        print("Model Options:")
-        for model in _LEAGUES:
-            print(f"\t- {model}")
-    elif retrain:
-        train_soccer_model(
-            model_name=retrain, test_size=test_size, source=source, persist=persist
-        )
+@click.option(
+    "-e",
+    "--env",
+    help="Environment to run in",
+    type=click.Choice(["PROD", "DEV"], case_sensitive=False),
+    default="DEV",
+    show_default=True,
+)
+@click.pass_context
+def cli(ctx, debug, env, logging_level):
+    ctx.ensure_object(dict)
+    if debug:
+        logging_level = "DEBUG"
+    _logger.setLevel(logging_level)
+    ctx.obj["LOGGING_LEVEL"] = logging_level
+    ctx.obj["ENV"] = env
+
+
+@cli.command()
+@click.option(
+    "--league", "-l", required=True, help="Football/Soccer league code", type=str
+)
+@click.option(
+    "--home", "-r", required=True, help="Home team code league code", type=str
+)
+@click.option(
+    "--away", "-a", required=True, help="Away team code league code", type=str
+)
+@click.option(
+    "--attendance",
+    "-g",
+    help="Estimated attendance of the game",
+    type=float,
+    default=0.0,
+)
+@click.pass_context
+def match(ctx, league, home, away, attendance):
+    """Predict the head to head clash between two teams within a league."""
+    prediction = predict_match(
+        league=league, home_team=home, away_team=away, attendance=attendance
+    )
+    pprint(prediction[0])
+
+
+@cli.command()
+@click.option("--league", "-l", required=True, help="Football/Soccer league code")
+@click.pass_context
+def season(ctx, league):
+    """Predict all the games within a league."""
+    raise NotImplementedError("Sorry, I cannot predict seasons as yet!")
+
+
+@cli.command()
+@click.option(
+    "--port", "-p", help="Web port to open for webapp", default=39592, type=int
+)
+@click.pass_context
+def serve(ctx, port):
+    env = ctx.obj["ENV"]
+    _logger.info(f" Launching FreeKick app in {env} mode....")
+    _logger.info(f"FreeKick Version: {str(__version__)}")
+
+    app = create_app()
+    app.logger.setLevel(ctx.obj["LOGGING_LEVEL"])
+    if env.upper() == "DEV":
+        app.run(debug=True, port=port)
+    else:
+        app.run(port=port)
 
 
 if __name__ == "__main__":

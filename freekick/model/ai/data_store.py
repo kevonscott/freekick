@@ -1,4 +1,3 @@
-import sys
 import requests
 import pkg_resources
 from pathlib import Path
@@ -12,8 +11,8 @@ import numpy as np
 import dask.dataframe as dd
 from bs4 import BeautifulSoup
 
-from utils.freekick_config import load_config
-from model.ai import _LEAGUES, _SEASON, soccer_teams, get_team_code
+from ...utils.freekick_config import load_config
+from ..ai import _LEAGUES, _SEASON, soccer_teams, get_team_code
 
 
 def load_data(d_location="CSV", league="bundesliga", environ="development"):
@@ -26,12 +25,10 @@ def load_data(d_location="CSV", league="bundesliga", environ="development"):
     d_locations = ["CSV", "DATABASE"]
     if d_location not in d_locations:
         raise ValueError(
-            f"{d_location} is not a valid d_location. Please select from {d_locations}."
+            f"{d_location} is not a valid d_location. Valid choices: {d_locations}."
         )
     if league not in _LEAGUES:
-        raise ValueError(
-            f"{league} is not a valid league. Please select from {_LEAGUES}."
-        )
+        raise ValueError(f"{league} is not a valid league. Valid choices: {_LEAGUES}.")
 
     if d_location == "CSV":
         league_csv = f"{league}.csv"
@@ -82,7 +79,7 @@ def read_stitch_raw_data(league, persist=False):
         If specified, new data file will be saved, by default False
     """
     if league not in _LEAGUES:
-        raise ValueError(f"Invalid League. Please select from {_LEAGUES}")
+        raise ValueError(f"Invalid League. Valid choices: {_LEAGUES}")
 
     # concat the files together
     dir_path = Path("data") / "raw" / league
@@ -170,7 +167,14 @@ class DataScraper:
         try:  # First try full month name
             last_updated = datetime.strptime(d_m_y, "%j/%B/%Y")
         except ValueError:  # The try 3 letter month name
-            last_updated = datetime.strptime(d_m_y, "%j/%b/%Y")
+            try:
+                last_updated = datetime.strptime(d_m_y, "%j/%b/%Y")
+            except ValueError:
+                day, month, year = d_m_y.split("/")
+                if month == "Sept":
+                    last_updated = datetime(int(year), 9, int(day))
+                else:
+                    raise
         if type == "team_rating":
             team_ranking = (
                 {}
@@ -218,7 +222,7 @@ class DataScraper:
             raise NotImplementedError
         else:
             raise ValueError(
-                f"Invalid scraper type {type}. Select from {self.types.keys()}"
+                f"Invalid scraper type {type}. Valid choices {self.types.keys()}"
             )
         return ranking_df
 

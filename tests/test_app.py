@@ -1,6 +1,10 @@
 import unittest
+import sys
+
 from flask import Flask
-import freekick.app
+
+sys.path.append(".")
+import freekick.app  # noqa E402
 
 
 class AppTestCase(unittest.TestCase):

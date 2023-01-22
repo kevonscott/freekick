@@ -1,17 +1,14 @@
 """Model for all Artificial Intelligence and Machine Learning Operations."""
-from functools import partial, lru_cache
 import os
 import pickle
-import logging
 import pkg_resources
 from typing import Union
+from functools import partial, lru_cache
+
+from freekick import _logger
 
 _LEAGUES = ["epl"]
-_SEASON = "2021-2022"
-
-logging.basicConfig()
-_logger = logging.getLogger("Freekick-AI")
-_logger.setLevel(logging.INFO)
+# _SEASON = "2021-2022"
 
 
 def _load_model(model_name: str):
@@ -21,13 +18,13 @@ def _load_model(model_name: str):
     )
     with open(model_path, "rb") as plk_file:
         model = pickle.load(plk_file)
-        _logger.info(f"     - {model_name}")
+        _logger.debug(f"     - {model_name}")
     return model
 
 
 @lru_cache()
 def load_models():
-    _logger.info(" Loading serial models...")
+    _logger.debug(" Loading serial models...")
     return {league: _load_model(model_name=f"{league}.pkl") for league in _LEAGUES}
 
 

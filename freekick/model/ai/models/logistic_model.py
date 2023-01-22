@@ -7,8 +7,8 @@ import pandas as pd
 import os
 import pickle
 
-from model.ai.models import Backend
-from model.ai import _logger
+from freekick.model.ai.models import Backend
+from freekick.model.ai import _logger
 
 
 class SoccerLogisticModel:

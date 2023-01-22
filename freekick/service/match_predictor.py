@@ -12,7 +12,7 @@ from freekick.model.ai import serial_models, _logger, get_team_code
 def predict_match(
     league: str, home_team: str, away_team: str, attendance: Union[int, float]
 ):
-    _logger.info(
+    _logger.debug(
         "\n Request Type: Single Match Prediction\n"
         " League\tHome Team\tAway Team\n"
         f" {league}\t{home_team}\t{away_team}"
@@ -49,10 +49,10 @@ def predict_match(
 
     pred = soccer_model.predict(single_match_df)
     pred = int(pred)
-    _logger.info(f"Prediction: {pred}")
+    _logger.debug(f"Prediction: {pred}")
     result = "draw" if pred == 0 else (home_team if pred > 0 else away_team)
     json_pred = [
         {"Home Team": home_team, "Away Team": away_team, "Predicted Winner": result}
     ]
-    pprint(json_pred)
+    _logger.debug(json_pred)
     return json_pred
