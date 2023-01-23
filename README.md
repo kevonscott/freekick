@@ -27,15 +27,21 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-Run the command below from the root of the project to launch the FreeKick app.
+### Making predictions form the command line
+Fom the root of the project, execute the command below specifying the codes for the league, home team and away team respectively.
+```
+./freekick/cli.py match --league epl --home ARS -away MCI
+```
+### Making predictions using the webapp
+Fom the root of the project to launch the FreeKick app.
 ```bash
-$ freekick/app.py
+$ freekick/cli.py serve
 ```
 
 ## Retraining The Model
 Retraining is done via the command line using the cli tool:
 ```bash
-USER@COMPUTER[~/src/freekick]:> freekick/cli.py --help
+USER@COMPUTER[~/src/freekick]:> freekick/admin_cli.py --help
 Usage: cli.py [OPTIONS]
 
 Options:
@@ -53,7 +59,7 @@ USER@COMPUTER[~/src/freekick]:>
 
 ### Re-fit and Persist the model to disk
 ```bash
-freekick/cli.py -r epl --persist
+freekick/admin_cli.py -r epl --persist
 ```
 
 ### Query latest data and update database
