@@ -12,7 +12,7 @@ ipykernel==6.15.01
 numpy==1.24.2
 pandas==1.5.3
 pre-commit==2.15.0
-pytest==6.2.5
+pytest==7.2.1
 python-dotenv==0.21.1
 requests==2.28.2
 scikit-learn==1.1.1
