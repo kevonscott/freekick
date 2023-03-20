@@ -1,4 +1,4 @@
-bandit==1.7.4
+bandit==1.7.5
 beautifulsoup4==4.11.2
 black==23.1.0
 click==8.1.3
