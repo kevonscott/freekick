@@ -7,7 +7,7 @@ dask-ml==2023.3.24
 flake8==6.0.0
 flake8-bugbear==23.6.5
 Flask==2.3.2
-Flask-Cors==3.0.10
+Flask-Cors==4.0.0
 ipykernel==6.23.3
 numpy==1.25.1
 pandas==2.0.2
