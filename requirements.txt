@@ -8,7 +8,7 @@ flake8==6.0.0
 flake8-bugbear==23.6.5
 Flask==2.3.2
 Flask-Cors==4.0.0
-ipykernel==6.23.3
+ipykernel==6.24.0
 numpy==1.25.1
 pandas==2.0.2
 pre-commit==3.3.3
