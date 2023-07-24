@@ -1,6 +1,6 @@
 bandit==1.7.5
 beautifulsoup4==4.12.2
-black==23.3.0
+black==23.7.0
 click==8.1.5
 dask==2023.6.0
 dask-ml==2023.3.24
