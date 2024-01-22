@@ -1,5 +1,5 @@
 bandit==1.7.6
-beautifulsoup4==4.12.2
+beautifulsoup4==4.12.3
 black==23.12.1
 click==8.1.7
 dask==2024.1.0
