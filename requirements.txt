@@ -17,4 +17,4 @@ python-dotenv==1.0.1
 requests==2.31.0
 scikit-learn==1.4.0
 Sphinx==7.2.6
-waitress==2.1.2
+waitress==3.0.0
