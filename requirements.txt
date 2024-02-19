@@ -11,7 +11,7 @@ Flask-Cors==4.0.0
 ipykernel==6.29.0
 numpy==1.26.4
 pandas==2.2.0
-pre-commit==3.6.0
+pre-commit==3.6.2
 pytest==8.0.1
 python-dotenv==1.0.1
 requests==2.31.0
