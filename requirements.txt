@@ -10,7 +10,7 @@ Flask==3.0.3
 Flask-Cors==4.0.0
 ipykernel==6.29.4
 numpy==1.26.4
-pandas==2.2.1
+pandas==2.2.2
 pre-commit==3.7.0
 pytest==8.1.1
 python-dotenv==1.0.1
