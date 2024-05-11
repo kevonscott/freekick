@@ -1,12 +1,8 @@
-from datetime import datetime
-from pprint import pprint
 from typing import Union
 
 import pandas as pd
-import numpy as np
-from sklearn.preprocessing import OneHotEncoder
 
-from freekick.model.ai import serial_models, _logger, get_team_code
+from freekick.model import _logger, get_team_code, serial_models
 
 
 def predict_match(

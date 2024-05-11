@@ -21,8 +21,8 @@ FINANCIAL LOSS RESULTING FROM THE USAGE OF THIS SOFTWARE.
 # Getting Started
 Create virtual env and install requirements
 ```
-python -m venv venv
-source venv/bin/activate
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -35,13 +35,13 @@ Fom the root of the project, execute the command below specifying the codes for 
 ### Making predictions using the webapp
 Fom the root of the project to launch the FreeKick app.
 ```bash
-$ freekick/cli.py serve
+$ .venv/bin/python3 -m entrypoints.cli serve
 ```
 
 ## Retraining The Model
 Retraining is done via the command line using the cli tool:
 ```bash
-USER@COMPUTER[~/src/freekick]:> freekick/admin_cli.py --help
+.venv/bin/python3 -m freekick.admin_cli --help
 Usage: cli.py [OPTIONS]
 
 Options:
@@ -54,12 +54,12 @@ Options:
                                   same name as the model in the data directory
                                   [default: CSV]
   --help                          Show this message and exit.
-USER@COMPUTER[~/src/freekick]:>
+
 ```
 
 ### Re-fit and Persist the model to disk
 ```bash
-freekick/admin_cli.py -r epl --persist
+.venv/bin/python3 -m freekick.admin_cli -r epl --persist
 ```
 
 ### Query latest data and update database

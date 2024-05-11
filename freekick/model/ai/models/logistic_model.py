@@ -1,14 +1,13 @@
 """Model for various logistic models."""
 
-from sklearn.linear_model import LogisticRegression as sklearn_LR
-from dask_ml.linear_model import LogisticRegression as dask_LR
-
-import pandas as pd
 import os
 import pickle
 
-from freekick.model.ai.models import Backend
-from freekick.model.ai import _logger
+import pandas as pd
+from dask_ml.linear_model import LogisticRegression as dask_LR
+from model.ai import _logger
+from model.ai.models import Backend
+from sklearn.linear_model import LogisticRegression as sklearn_LR
 
 
 class SoccerLogisticModel:

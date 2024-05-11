@@ -1,15 +1,10 @@
-#! .venv/bin/python
-
 """Model for generating data files used for each model"""
 
 import click
 
-from model.ai import _LEAGUES, _SEASON
-from model.ai.data_store import (
-    read_stitch_raw_data,
-    DataScraper,
-    update_current_season_data,
-)
+from freekick.model.ai import _LEAGUES, _SEASON
+from freekick.model.ai.data_store import (DataScraper, read_stitch_raw_data,
+                                          update_current_season_data)
 
 UPDATE_TYPES = ["team_rating", "player_rating", "match", "current_season"]
 

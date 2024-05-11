@@ -1,17 +1,12 @@
 """ Runs a series of tests to validate modules against specifies threshold
 """
 
-import sys
 import unittest
-
 from statistics import mean
 
-sys.path.append(".")
+from sklearn.model_selection import cross_val_predict
 
-# from freekick.model.ai.models.logistic_model import SoccerLogisticModel
-from freekick.model.ai.data_store import load_data, clean_format_data  # noqa E402
-
-# from sklearn.model_selection import cross_val_predict
+from freekick.model.ai.data_store import clean_format_data, load_data
 
 ACCURACY_THRESHOLD = 0.3  # We want to ensure an average accuracy above 50%
 
@@ -25,5 +20,5 @@ class TestPredictionModels(unittest.TestCase):
     # TODO: Complete cross-validation test
     def test_cross_validation(self):
         # scores = cross_val_predict(SoccerLogisticModel, self.X, self.y, cv=10)
-        scores = [0.3, 0.5, 0.9]
+        scores = [0.3, 0.5, 0.9]  # TODO
         self.assertGreaterEqual(mean(scores), ACCURACY_THRESHOLD)

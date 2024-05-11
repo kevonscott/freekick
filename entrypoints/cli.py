@@ -1,15 +1,10 @@
-#! .venv/bin/python
-
-
-import sys
-import click
 from pprint import pprint
 
-sys.path.append(".")
+import click
 
-from service.match_predictor import predict_match  # noqa E402
-from freekick import _logger, __version__  # noqa E402
 from freekick.app import create_app  # noqa E402
+from freekick.service import predict_match  # noqa E402
+from freekick.utils import __version__, _logger  # noqa E402
 
 
 @click.group()

@@ -1,14 +1,11 @@
-#! .venv/bin/python
-
-import click
 from pprint import pprint
 
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-
+import click
 from model.ai import _LEAGUES
-from model.ai.data_store import load_data, clean_format_data
+from model.ai.data_store import clean_format_data, load_data
 from model.ai.models.logistic_model import SoccerLogisticModel
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
 
 
 def train_soccer_model(model_name, test_size, source="CSV", persist=False):

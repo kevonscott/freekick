@@ -1,23 +1,12 @@
-#! .venv/bin/python
+from flask import Flask, render_template
+from flask_cors import CORS
 
-import sys
-
-# import click
-
-
-sys.path.append(".")
-
-from freekick import __version__, _logger  # noqa E402
+from freekick.api.match import match_route
+from freekick.api.match_day import match_day_route
 
 
 def create_app():
     """Creates FreeKick app"""
-    from flask import Flask, render_template  # noqa E402
-    from flask_cors import CORS  # noqa E402
-
-    # Blueprints
-    from freekick.api.match_day import match_day_route  # noqa E402
-    from freekick.api.match import match_route  # noqa E402
 
     app = Flask(
         __name__,

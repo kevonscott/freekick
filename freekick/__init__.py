@@ -1,6 +1,2 @@
-import logging
-from ._version import __version__
-
-
-logging.basicConfig()
-_logger = logging.getLogger("FREEKICK")
+from .utils._version import __version__
+from .utils.freekick_logging import _logger
