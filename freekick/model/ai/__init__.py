@@ -1,4 +1,5 @@
 """Model for all Artificial Intelligence and Machine Learning Operations."""
+
 import os
 import pickle
 from functools import lru_cache, partial
@@ -8,8 +9,8 @@ import pkg_resources
 
 from freekick.utils.freekick_logging import _logger
 
-_LEAGUES = ["epl"]
-_SEASON = "2021-2022"
+LEAGUES = ["epl"]
+SEASON = "2021-2022"
 
 
 def _load_model(model_name: str):
@@ -26,12 +27,10 @@ def _load_model(model_name: str):
 @lru_cache()
 def load_models():
     _logger.debug(" Loading serial models...")
-    return {league: _load_model(model_name=f"{league}.pkl") for league in _LEAGUES}
+    return {league: _load_model(model_name=f"{league}.pkl") for league in LEAGUES}
 
 
 serial_models = partial(load_models)
-# _MODELS = list(serial_models.keys())
-# _LEAGUES = _MODELS
 
 
 def get_team_code(

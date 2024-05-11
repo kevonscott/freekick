@@ -1,11 +1,11 @@
 from pprint import pprint
 
 import click
-from model.ai import _LEAGUES
-from model.ai.data_store import clean_format_data, load_data
-from model.ai.models.logistic_model import SoccerLogisticModel
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
+
+from freekick.model import (LEAGUES, SoccerLogisticModel, clean_format_data,
+                            load_data)
 
 
 def train_soccer_model(model_name, test_size, source="CSV", persist=False):
@@ -38,7 +38,7 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
     "-r",
     "--retrain",
     help="Retrain model",
-    type=click.Choice(_LEAGUES, case_sensitive=False),
+    type=click.Choice(LEAGUES, case_sensitive=False),
 )
 @click.option("-l", "--list", is_flag=True, help="List current models")
 @click.option(
@@ -66,7 +66,7 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
 def cli(retrain, list, test_size, persist, source):
     if list:
         print("Model Options:")
-        for model in _LEAGUES:
+        for model in LEAGUES:
             print(f"\t- {model}")
     elif retrain:
         train_soccer_model(

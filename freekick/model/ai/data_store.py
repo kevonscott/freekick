@@ -1,18 +1,18 @@
-import requests
-import pkg_resources
+from datetime import datetime
+from functools import partial
 from pathlib import Path
 from pprint import pprint
-from datetime import datetime
-from dateutil.parser import parse
-from functools import partial
 
-import pandas as pd
-import numpy as np
 import dask.dataframe as dd
+import numpy as np
+import pandas as pd
+import pkg_resources
+import requests
 from bs4 import BeautifulSoup
+from dateutil.parser import parse
 
 from ...utils.freekick_config import load_config
-from ..ai import _LEAGUES, _SEASON, soccer_teams, get_team_code
+from ..ai import LEAGUES, SEASON, get_team_code
 
 
 def load_data(d_location="CSV", league="bundesliga", environ="development"):
@@ -27,8 +27,8 @@ def load_data(d_location="CSV", league="bundesliga", environ="development"):
         raise ValueError(
             f"{d_location} is not a valid d_location. Valid choices: {d_locations}."
         )
-    if league not in _LEAGUES:
-        raise ValueError(f"{league} is not a valid league. Valid choices: {_LEAGUES}.")
+    if league not in LEAGUES:
+        raise ValueError(f"{league} is not a valid league. Valid choices: {LEAGUES}.")
 
     if d_location == "CSV":
         league_csv = f"{league}.csv"
@@ -49,7 +49,7 @@ def load_data(d_location="CSV", league="bundesliga", environ="development"):
 
 
 def update_current_season_data(league, d_location="CSV", persist=False):
-    file_name = f"season_{_SEASON}.csv"
+    file_name = f"season_{SEASON}.csv"
     p = pkg_resources.resource_filename(__name__, f"data/raw/{league}/{file_name}")
     if league == "epl":
         url = "https://www.football-data.co.uk/mmz4281/2122/E0.csv"
@@ -78,8 +78,8 @@ def read_stitch_raw_data(league, persist=False):
     persist : bool, optional
         If specified, new data file will be saved, by default False
     """
-    if league not in _LEAGUES:
-        raise ValueError(f"Invalid League. Valid choices: {_LEAGUES}")
+    if league not in LEAGUES:
+        raise ValueError(f"Invalid League. Valid choices: {LEAGUES}")
 
     # concat the files together
     dir_path = Path("data") / "raw" / league

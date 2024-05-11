@@ -2,9 +2,8 @@
 
 import click
 
-from freekick.model.ai import _LEAGUES, _SEASON
-from freekick.model.ai.data_store import (DataScraper, read_stitch_raw_data,
-                                          update_current_season_data)
+from freekick.model import (LEAGUES, SEASON, DataScraper, read_stitch_raw_data,
+                            update_current_season_data)
 
 UPDATE_TYPES = ["team_rating", "player_rating", "match", "current_season"]
 
@@ -26,7 +25,7 @@ def cli():
     "-l",
     "--league",
     help="Target league to update.",
-    type=click.Choice(_LEAGUES, case_sensitive=False),
+    type=click.Choice(LEAGUES, case_sensitive=False),
     required=True,
 )
 @click.option("-p", "--persist", is_flag=True, help="Save updated date to disk.")
@@ -48,7 +47,7 @@ def update(data_type, league, persist):
 @click.option("-l", "--list", help="List currently supported leagues.", is_flag=True)
 def league(list):
     if list:
-        print(_LEAGUES)
+        print(LEAGUES)
 
 
 cli.add_command(update)
