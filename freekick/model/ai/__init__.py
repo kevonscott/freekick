@@ -4,7 +4,7 @@ import os
 import pickle
 from enum import Enum
 from functools import lru_cache, partial
-from typing import Union
+from typing import Any, Union
 
 import pkg_resources
 
@@ -31,7 +31,7 @@ def _load_model(model_name: str):
 
 
 @lru_cache()
-def load_models():
+def load_models() -> dict[str, Any]:
     _logger.debug(" Loading serialized models...")
     return {league: _load_model(model_name=f"{league.value}.pkl") for league in League}
 

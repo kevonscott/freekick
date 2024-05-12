@@ -1,7 +1,8 @@
 """API that calls the match_predictor service"""
+
 from flask import Blueprint, jsonify, request
 
-from freekick.service.match_predictor import predict_match
+from freekick.service import predict_match
 
 match_route = Blueprint("match_route", __name__, url_prefix="/api")
 
@@ -14,6 +15,9 @@ def match():
     league = request_data["league"]
     attendance = request_data["attendance"]
     prediction = predict_match(
-        league=league, home_team=home_team, away_team=away_team, attendance=attendance
+        league=league,  # should we create a League enum here or have predict_match create the enum?
+        home_team=home_team,
+        away_team=away_team,
+        attendance=attendance,
     )
     return jsonify(prediction)

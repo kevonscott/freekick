@@ -1,13 +1,40 @@
-from typing import Union
+from typing import Any
 
 import pandas as pd
 
-from freekick.model import _logger, get_team_code, serial_models
+from freekick.model import League, _logger, get_team_code, serial_models
+
+
+class PredictorNotFoundError(Exception):
+    """Custom exception for unknown learner/model"""
+
+    pass
 
 
 def predict_match(
-    league: str, home_team: str, away_team: str, attendance: Union[int, float]
-):
+    league: str, home_team: str, away_team: str, attendance: int | float
+) -> list[dict[str, Any]]:
+    """Predict a single match with using data passed from frontend.
+
+    Prediction is done via the default pre-configured learner/model for each
+    league in serial_models.
+
+    Parameters
+    ----------
+    league :
+        League to make prediction in.
+    home_team :
+        Code of the home team
+    away_team :
+        code of away team
+    attendance :
+        Approximate number of attendance
+
+    Returns
+    -------
+        json results of prediction.
+    """
+    league: League = League[league.upper()]
     _logger.debug(
         "\n Request Type: Single Match Prediction\n"
         " League\tHome Team\tAway Team\n"
@@ -17,12 +44,15 @@ def predict_match(
     # a_team = "away_" + away_team
     # Load serialized model
     home = get_team_code(
-        league=league, team_name=home_team, code_type="int", team_code=home_team
+        league=league.value, team_name=home_team, code_type="int", team_code=home_team
     )
     away = get_team_code(
-        league=league, team_name=away_team, code_type="int", team_code=away_team
+        league=league.value, team_name=away_team, code_type="int", team_code=away_team
     )
-    soccer_model = serial_models().get(league.lower())
+    try:
+        soccer_model = serial_models()[league]
+    except KeyError:
+        raise PredictorNotFoundError(f"Serial model not found for {league}.")
 
     # any date will do for index but using the date of the request.
     # selected date will not impact prediction

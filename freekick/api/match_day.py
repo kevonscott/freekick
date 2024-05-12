@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 
-from freekick.service.match_day_predictor import predict_match_day
+from freekick.service import predict_match_day
 
 match_day_route = Blueprint("match_day_route", __name__, url_prefix="/api")
 
