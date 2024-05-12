@@ -2,6 +2,7 @@
 
 import os
 import pickle
+from enum import Enum
 from functools import lru_cache, partial
 from typing import Union
 
@@ -9,12 +10,17 @@ import pkg_resources
 
 from freekick.utils.freekick_logging import _logger
 
-LEAGUES = ["epl"]
 SEASON = "2021-2022"
 
 
+class League(Enum):
+    """Container for the supported leagues"""
+
+    EPL = "epl"
+
+
 def _load_model(model_name: str):
-    """Load serial models"""
+    """Load and deserialize a model."""
     model_path = pkg_resources.resource_filename(
         __name__, os.path.join("serialized_models", model_name)
     )
@@ -26,8 +32,8 @@ def _load_model(model_name: str):
 
 @lru_cache()
 def load_models():
-    _logger.debug(" Loading serial models...")
-    return {league: _load_model(model_name=f"{league}.pkl") for league in LEAGUES}
+    _logger.debug(" Loading serialized models...")
+    return {league: _load_model(model_name=f"{league.value}.pkl") for league in League}
 
 
 serial_models = partial(load_models)
@@ -38,17 +44,17 @@ def get_team_code(
     team_name: str,
     code_type: str = "str",
     team_code: Union[str, None] = None,
-) -> str:
+) -> str | int:
     """Looks up a team's code name given its full name.
 
     Parameters
     ----------
-    league : str
+    league :
         The teams 3 letter code
-    team_name : str
+    team_name :
         Full name of the team
 
-    code_type: str
+    code_type:
         Type of code to get. Choices are ['str', 'int']. Default is 'str'.
         Note that if you
     team_code:
@@ -56,8 +62,8 @@ def get_team_code(
         code type
     Returns
     -------
-    str
-        Three letter code representing the team
+    str | int
+        Three letter code or integer representing the team.
 
     Raises
     ------
@@ -261,4 +267,4 @@ soccer_teams_int = {
     # },
 }
 
-current_season_teams = {"epl": [], "bundesliga": []}
+current_season_teams: dict[str, list] = {"epl": [], "bundesliga": []}

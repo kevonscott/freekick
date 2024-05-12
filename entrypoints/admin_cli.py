@@ -4,11 +4,12 @@ import click
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
-from freekick.model import (LEAGUES, SoccerLogisticModel, clean_format_data,
-                            load_data)
+from freekick.model import League, SoccerLogisticModel, clean_format_data, load_data
 
 
-def train_soccer_model(model_name, test_size, source="CSV", persist=False):
+def train_soccer_model(
+    model_name: League, test_size: float, source: str = "CSV", persist: bool = False
+):
     print(f"Retraining {model_name}...")
 
     X = load_data(d_location=source, league=model_name)
@@ -38,7 +39,7 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
     "-r",
     "--retrain",
     help="Retrain model",
-    type=click.Choice(LEAGUES, case_sensitive=False),
+    type=click.Choice(League._member_names_, case_sensitive=False),
 )
 @click.option("-l", "--list", is_flag=True, help="List current models")
 @click.option(
@@ -66,11 +67,14 @@ def train_soccer_model(model_name, test_size, source="CSV", persist=False):
 def cli(retrain, list, test_size, persist, source):
     if list:
         print("Model Options:")
-        for model in LEAGUES:
-            print(f"\t- {model}")
+        for model in League:
+            print(f"\t- {model.name}")
     elif retrain:
         train_soccer_model(
-            model_name=retrain, test_size=test_size, source=source, persist=persist
+            model_name=League[retrain],
+            test_size=test_size,
+            source=source,
+            persist=persist,
         )
 
 

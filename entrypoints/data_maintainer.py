@@ -2,8 +2,13 @@
 
 import click
 
-from freekick.model import (LEAGUES, SEASON, DataScraper, read_stitch_raw_data,
-                            update_current_season_data)
+from freekick.model import (
+    SEASON,
+    DataScraper,
+    League,
+    read_stitch_raw_data,
+    update_current_season_data,
+)
 
 UPDATE_TYPES = ["team_rating", "player_rating", "match", "current_season"]
 
@@ -25,7 +30,7 @@ def cli():
     "-l",
     "--league",
     help="Target league to update.",
-    type=click.Choice(LEAGUES, case_sensitive=False),
+    type=click.Choice(League._member_names_, case_sensitive=False),
     required=True,
 )
 @click.option("-p", "--persist", is_flag=True, help="Save updated date to disk.")
@@ -33,12 +38,12 @@ def update(data_type, league, persist):
     if data_type == "player_rating":
         raise NotImplementedError
     elif data_type == "team_rating":
-        data_scraper = DataScraper(league=league)
+        data_scraper = DataScraper(league=League[league])
         data_scraper.scrape_team_rating(persists=persist)
     elif data_type == "match":
         # raise NotImplementedError
         # Read in new data and override the current file if persist == True
-        read_stitch_raw_data(league=league, persist=persist)
+        read_stitch_raw_data(league=League[league], persist=persist)
     elif data_type == "current_season":
         update_current_season_data(league=league, persist=persist)
 
@@ -47,7 +52,7 @@ def update(data_type, league, persist):
 @click.option("-l", "--list", help="List currently supported leagues.", is_flag=True)
 def league(list):
     if list:
-        print(LEAGUES)
+        print(League._member_names_)
 
 
 cli.add_command(update)
