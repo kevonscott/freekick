@@ -3,6 +3,13 @@ Release Notes
 =============
 
 
+Version 0.2
+-----------
+
+- Whats new in version 0.2.0
+
+  - _LEAGUES has been renamed to League and is now an Enum.
+
 Version 0.1
 -----------
 
