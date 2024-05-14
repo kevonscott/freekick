@@ -1,15 +1,20 @@
-from flask import Blueprint, jsonify, request
+from flask_restful import Resource, fields, marshal_with, reqparse
 
 from freekick.service import predict_match_day
 
-match_day_route = Blueprint("match_day_route", __name__, url_prefix="/api")
+resource_fields = {
+    "home_team": fields.String,
+    "away_team": fields.String,
+    "predicted_winner": fields.String,
+}
+
+post_parser = reqparse.RequestParser()
+post_parser.add_argument("league", type=str, required=True, help="league code")
 
 
-@match_day_route.route("/matchday", methods=["GET", "POST"])
-def matchday():
-    request_data = request.get_json()
-    # home_team = request_data['home']
-    # away_team = request_data['away']
-    league = request_data["league"]
-    prediction = predict_match_day(league=league)
-    return jsonify(prediction)
+class MatchDay(Resource):
+    @marshal_with(resource_fields)
+    def post(self):
+        args = post_parser.parse_args(strict=True)
+        match_day_dto = predict_match_day(league=args["league"])
+        return match_day_dto

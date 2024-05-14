@@ -75,10 +75,9 @@ function displayTable(jsonObj){
     // Append json data to table rows
     for (let i = 0; i < jsonObj.length; i++) {
         let tr = table.insertRow(-1);
-        console.log(jsonObj[i])
         for (let j = 0; j < tableHead.length; j++) {
             let cell = tr.insertCell(-1);
-            cell.innerHTML = jsonObj[i][tableHead[j]];
+            cell.innerHTML = jsonObj[i][tableHead[j].toLowerCase().replace(' ', '_')];
         }
     }
 

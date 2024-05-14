@@ -1,8 +1,10 @@
 from flask import Flask, render_template
 from flask_cors import CORS
+from flask_restful import Api
 
-from freekick.api.match import match_route
-from freekick.api.match_day import match_day_route
+from freekick.api.healthcheck import HealthCheck
+from freekick.api.match import Match
+from freekick.api.match_day import MatchDay
 
 
 def create_app():
@@ -11,8 +13,11 @@ def create_app():
     app = Flask(
         __name__,
     )
-    app.register_blueprint(match_day_route)
-    app.register_blueprint(match_route)
+    api = Api(app=app, prefix="/api")
+    api.add_resource(Match, "/match")
+    api.add_resource(MatchDay, "/matchday")
+    api.add_resource(HealthCheck, "/healthy")
+
     CORS(app)
 
     @app.route("/")

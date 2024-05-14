@@ -4,6 +4,8 @@ import pandas as pd
 
 from freekick.model import League, _logger, get_team_code, serial_models
 
+from .util import MatchDTO
+
 
 class PredictorNotFoundError(Exception):
     """Custom exception for unknown learner/model"""
@@ -13,7 +15,7 @@ class PredictorNotFoundError(Exception):
 
 def predict_match(
     league: str, home_team: str, away_team: str, attendance: int | float
-) -> list[dict[str, Any]]:
+) -> list[MatchDTO]:
     """Predict a single match with using data passed from frontend.
 
     Prediction is done via the default pre-configured learner/model for each
@@ -77,8 +79,8 @@ def predict_match(
     pred = int(pred)
     _logger.debug(f"Prediction: {pred}")
     result = "draw" if pred == 0 else (home_team if pred > 0 else away_team)
-    json_pred = [
-        {"Home Team": home_team, "Away Team": away_team, "Predicted Winner": result}
+    match_dto = [
+        MatchDTO(home_team=home_team, away_team=away_team, predicted_winner=result)
     ]
-    _logger.debug(json_pred)
-    return json_pred
+    _logger.debug(match_dto)
+    return match_dto

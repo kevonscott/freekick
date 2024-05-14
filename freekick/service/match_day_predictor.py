@@ -1,13 +1,10 @@
+from .util import MatchDTO
+
+
 def predict_match_day(league: str):
+    # TODO: Complete function
     return [
-        {
-            "Home Team": "NotImplementedError!",
-            "Away Team": "NotImplementedError!",
-            "Predicted Winner": "NotImplementedError!",
-        },
-        {
-            "Home Team": "NotImplementedError!",
-            "Away Team": "NotImplementedError!",
-            "Predicted Winner": "NotImplementedError!",
-        },
+        MatchDTO(home_team="Team1", away_team="Team2", predicted_winner="TEAM1"),
+        MatchDTO(home_team="Team3", away_team="Team4", predicted_winner="TEAM4"),
+        MatchDTO(home_team="Team6", away_team="Team5", predicted_winner="TEAM6"),
     ]
