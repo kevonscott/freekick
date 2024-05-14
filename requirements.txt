@@ -10,7 +10,7 @@ Flask==3.0.3
 Flask-Cors==4.0.1
 Flask-RESTful==0.3.10
 ipykernel==6.29.4
-mypy==1.0.0
+mypy==1.10.0
 numpy==1.26.4
 pandas==2.2.2
 pre-commit==3.7.0
