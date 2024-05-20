@@ -14,7 +14,7 @@ mypy==1.10.0
 numpy==1.26.4
 pandas==2.2.2
 pre-commit==3.7.1
-pytest==8.2.0
+pytest==8.2.1
 python-dotenv==1.0.1
 requests==2.31.0
 scikit-learn==1.4.2
