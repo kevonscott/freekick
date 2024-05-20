@@ -11,8 +11,12 @@ resource_fields = {
 }
 
 post_parser = reqparse.RequestParser()
-post_parser.add_argument("home", type=str, required=True, help="Home team code")
-post_parser.add_argument("away", type=str, required=True, help="Away team code")
+post_parser.add_argument(
+    "home", type=str, required=True, help="Home team code"
+)
+post_parser.add_argument(
+    "away", type=str, required=True, help="Away team code"
+)
 post_parser.add_argument("league", type=str, required=True, help="league code")
 post_parser.add_argument(
     "attendance", type=float, help="Approximate. Average attendance"

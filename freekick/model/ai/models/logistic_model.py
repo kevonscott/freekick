@@ -13,7 +13,9 @@ from . import Backend
 
 
 class SoccerLogisticModel:
-    def __init__(self, league, X, y, backend: Backend = Backend.PANDAS) -> None:
+    def __init__(
+        self, league, X, y, backend: Backend = Backend.PANDAS
+    ) -> None:
         self.league = league
         self.model = None
         self.y = y
@@ -48,7 +50,9 @@ class SoccerLogisticModel:
         coeffs = pd.DataFrame(
             self.model.coef_, index=self.model.classes_, columns=self.X.columns
         ).T
-        coeffs = coeffs.rename(columns={-1: "away_win", 0: "draw", 1: "home_win"})
+        coeffs = coeffs.rename(
+            columns={-1: "away_win", 0: "draw", 1: "home_win"}
+        )
 
         return coeffs
 
@@ -58,7 +62,9 @@ class SoccerLogisticModel:
 
         pred = self.model.predict(pred_data)
 
-        df_pred = pd.DataFrame(pred, index=pred_data.index, columns=["Prediction"])
+        df_pred = pd.DataFrame(
+            pred, index=pred_data.index, columns=["Prediction"]
+        )
         return df_pred
 
     def predict_probability(self, X):
@@ -66,7 +72,9 @@ class SoccerLogisticModel:
         self.check_fit()
 
         df = pd.DataFrame(
-            self.model.predict_proba(X), columns=self.model.classes_, index=X.index
+            self.model.predict_proba(X),
+            columns=self.model.classes_,
+            index=X.index,
         )
         df = df.rename(columns={-1: "away_win", 0: "draw", 1: "home_win"})
 
@@ -83,7 +91,11 @@ class SoccerLogisticModel:
         """
         self.check_fit()
         serial_path = os.path.join(
-            "freekick", "model", "ai", "serialized_models", self.league + ".pkl"
+            "freekick",
+            "model",
+            "ai",
+            "serialized_models",
+            self.league + ".pkl",
         )
         file_path = os.path.abspath(serial_path)
         with open(file_path, "wb") as mod_file:

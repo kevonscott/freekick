@@ -39,7 +39,11 @@ def cli(ctx, debug, env, logging_level):
 
 @cli.command()
 @click.option(
-    "--league", "-l", required=True, help="Football/Soccer league code", type=str
+    "--league",
+    "-l",
+    required=True,
+    help="Football/Soccer league code",
+    type=str,
 )
 @click.option(
     "--home", "-r", required=True, help="Home team code league code", type=str
@@ -64,7 +68,9 @@ def match(ctx, league, home, away, attendance):
 
 
 @cli.command()
-@click.option("--league", "-l", required=True, help="Football/Soccer league code")
+@click.option(
+    "--league", "-l", required=True, help="Football/Soccer league code"
+)
 @click.pass_context
 def season(ctx, league):
     """Predict all the games within a league."""

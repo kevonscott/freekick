@@ -75,7 +75,8 @@ def _load_model(model_name: str):
 def load_models() -> dict[str, Any]:
     _logger.debug(" Loading serialized models...")
     return {
-        league.value: _load_model(model_name=f"{league.value}.pkl") for league in League
+        league.value: _load_model(model_name=f"{league.value}.pkl")
+        for league in League
     }
 
 
@@ -117,7 +118,9 @@ def get_team_code(
         try:
             return soccer_teams[league][team_name]
         except KeyError:
-            raise ValueError(f"Invalid league ({league}) or team_name ({team_name})")
+            raise ValueError(
+                f"Invalid league ({league}) or team_name ({team_name})"
+            )
     elif code_type == "int":
         team_code_str = team_code or soccer_teams[league][team_name]
         return soccer_teams_int[league][team_code_str]

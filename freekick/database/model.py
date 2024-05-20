@@ -45,5 +45,6 @@ class Team(Base):
 
     def __repr__(self) -> str:
         return (
-            f"Team(code={self.code!r}, name={self.name!r}, " f"league={self.league!r})"
+            f"Team(code={self.code!r}, name={self.name!r}, "
+            f"league={self.league!r})"
         )

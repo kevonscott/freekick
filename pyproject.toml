@@ -1,8 +1,53 @@
 
 [project]
+name = "freekick"
+requires-python = ">=3.10"
+description="Soccer/Football match prediction"
 authors = [
   {name = "Kevon Scot", email = "kevon-dev@outlook.com"}
 ]
 maintainers = [
   {name = "Kevon Scott", email = "kevon-dev@outlook.com"}
 ]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "click>=8.1.0",
+  "pandas>=2.2.2",
+  "Flask>=3.0.3",
+  "Flask-Cors>=4.0.1",
+  "Flask-RESTful>=0.3.10",
+  "requests>=2.31.0",
+]
+
+[project.urls]
+Documentation = "https://github.com/kevonscott/freekick"
+Changelog = "https://github.com/kevonscott/freekick/blob/master/CHANGELOG.rst"
+Repository = "https://github.com/kevonscott/freekick"
+Issues = "https://github.com/kevonscott/freekick/issues"
+
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+target-version = ['py310']
+exclude = '''
+/(
+ \.git
+ | \.hg
+ | \.mypy_cache
+ | \.tox
+ | \.venv
+ | _build
+ | buck-out
+ | build
+ | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"

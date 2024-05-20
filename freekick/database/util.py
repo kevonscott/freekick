@@ -61,11 +61,15 @@ class DBUtils:
         """
         if team_code:
             statement = (
-                select(Team).where(Team.code == team_code).where(Team.league == league)
+                select(Team)
+                .where(Team.code == team_code)
+                .where(Team.league == league)
             )
         else:
             statement = (
-                select(Team).where(Team.name == team_name).where(Team.league == league)
+                select(Team)
+                .where(Team.name == team_name)
+                .where(Team.league == league)
             )
 
         entity = repository.session.sclars(statement).one()

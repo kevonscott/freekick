@@ -18,7 +18,9 @@ D_LOCATIONS = ["CSV", "DATABASE"]  # TODO: Use Enum instead
 
 
 def load_data(
-    d_location: str = "CSV", league: League = League.EPL, environ: str = "development"
+    d_location: str = "CSV",
+    league: League = League.EPL,
+    environ: str = "development",
 ) -> pd.DataFrame:
     """Load data from location configured for d_location.
 
@@ -40,10 +42,13 @@ def load_data(
 
     if d_location not in D_LOCATIONS:
         raise ValueError(
-            f"{d_location} is not a valid d_location." f"Valid choices: {D_LOCATIONS}."
+            f"{d_location} is not a valid d_location."
+            f"Valid choices: {D_LOCATIONS}."
         )
     if league not in League:
-        raise ValueError(f"{league} is not a valid league. Valid choices: {League}.")
+        raise ValueError(
+            f"{league} is not a valid league. Valid choices: {League}."
+        )
 
     if d_location == "CSV":
         league_csv = f"{league.value}.csv"
@@ -146,7 +151,9 @@ def clean_format_data(X: pd.DataFrame, league: League):
     # -1: Away Team Win
     #  0: Draw
     # +1: Home Team Win
-    X = X[["HomeTeam", "AwayTeam", "FTHG", "FTAG", "Date", "Time", "Attendance"]]
+    X = X[
+        ["HomeTeam", "AwayTeam", "FTHG", "FTAG", "Date", "Time", "Attendance"]
+    ]
     X = X.rename(
         columns={
             "HomeTeam": "home",
@@ -159,8 +166,12 @@ def clean_format_data(X: pd.DataFrame, league: League):
         }
     )
     X["date"] = pd.to_datetime(X["date"])
-    X = X.dropna(subset=["home", "away", "home_goal", "away_goal", "date"], how="all")
-    X["time"] = pd.to_datetime(X["time"].fillna(method="bfill").fillna(method="ffill"))
+    X = X.dropna(
+        subset=["home", "away", "home_goal", "away_goal", "date"], how="all"
+    )
+    X["time"] = pd.to_datetime(
+        X["time"].fillna(method="bfill").fillna(method="ffill")
+    )
     X["attendance"] = X["attendance"].fillna(0)
     y = np.sign(X["home_goal"] - X["away_goal"])
 
@@ -285,7 +296,9 @@ class DataScraper:
         leagues = {"epl": "premier-league", "bundesliga": "bundesliga"}
         league_end_point = leagues[self.league.value]
         team_rating_uri = f"{self.types[data_type]}/{league_end_point}/"
-        team_ranking_csv = f"data/processed/{self.league.value}_team_ranking.csv"
+        team_ranking_csv = (
+            f"data/processed/{self.league.value}_team_ranking.csv"
+        )
 
         print(
             f"Scraping {self.league} '{data_type}' data from {team_rating_uri}"
@@ -303,7 +316,9 @@ class DataScraper:
             else:
                 print("Updating csv....")
                 exist_df = pd.read_csv(
-                    pkg_resources.resource_filename(__name__, team_ranking_csv),
+                    pkg_resources.resource_filename(
+                        __name__, team_ranking_csv
+                    ),
                     index_col=["date", "ranking"],
                     parse_dates=True,
                 )

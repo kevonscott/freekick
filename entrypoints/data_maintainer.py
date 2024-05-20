@@ -33,7 +33,9 @@ def cli():
     type=click.Choice(League._member_names_, case_sensitive=False),
     required=True,
 )
-@click.option("-p", "--persist", is_flag=True, help="Save updated date to disk.")
+@click.option(
+    "-p", "--persist", is_flag=True, help="Save updated date to disk."
+)
 def update(data_type, league, persist):
     if data_type == "player_rating":
         raise NotImplementedError
@@ -49,7 +51,9 @@ def update(data_type, league, persist):
 
 
 @click.command()
-@click.option("-l", "--list", help="List currently supported leagues.", is_flag=True)
+@click.option(
+    "-l", "--list", help="List currently supported leagues.", is_flag=True
+)
 def league(list):
     if list:
         print(League._member_names_)

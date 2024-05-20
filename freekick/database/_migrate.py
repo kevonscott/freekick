@@ -62,7 +62,9 @@ def _csv_to_sqlite_migration(engine=ENGINE):
         teams = []
         for _, series in df.iterrows():
             team = Team(
-                code=series["code"], name=series["name"], league=series["league"]
+                code=series["code"],
+                name=series["name"],
+                league=series["league"],
             )
             teams.append(team)
         return teams

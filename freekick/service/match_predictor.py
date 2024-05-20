@@ -46,10 +46,16 @@ def predict_match(
     # a_team = "away_" + away_team
     # Load serialized model
     home = get_team_code(
-        league=league.value, team_name=home_team, code_type="int", team_code=home_team
+        league=league.value,
+        team_name=home_team,
+        code_type="int",
+        team_code=home_team,
     )
     away = get_team_code(
-        league=league.value, team_name=away_team, code_type="int", team_code=away_team
+        league=league.value,
+        team_name=away_team,
+        code_type="int",
+        team_code=away_team,
     )
     try:
         soccer_model = serial_models()[league]
@@ -80,7 +86,9 @@ def predict_match(
     _logger.debug(f"Prediction: {pred}")
     result = "draw" if pred == 0 else (home_team if pred > 0 else away_team)
     match_dto = [
-        MatchDTO(home_team=home_team, away_team=away_team, predicted_winner=result)
+        MatchDTO(
+            home_team=home_team, away_team=away_team, predicted_winner=result
+        )
     ]
     _logger.debug(match_dto)
     return match_dto

@@ -4,9 +4,15 @@ from freekick.database._migrate import _csv_to_sqlite_migration, create_db
 
 
 @click.command()
-@click.option("-c", "--create-database", help="Create DB", is_flag=True, default=False)
 @click.option(
-    "-r", "--recreate-database", help="Re-create DB", is_flag=True, default=False
+    "-c", "--create-database", help="Create DB", is_flag=True, default=False
+)
+@click.option(
+    "-r",
+    "--recreate-database",
+    help="Re-create DB",
+    is_flag=True,
+    default=False,
 )
 @click.option(
     "-m",
