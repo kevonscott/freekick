@@ -1,4 +1,5 @@
 import os
+
 from dotenv import load_dotenv
 
 
@@ -28,5 +29,6 @@ def load_config(environ):
     cfg["DATABASE_NAME"] = os.environ.get("DATABASE_NAME")
     cfg["DATABASE_HOST"] = os.environ.get("DATABASE_HOST")
     cfg["DATABASE_KEY"] = os.environ.get("DATABASE_KEY")
+    cfg["DATABASE_URL"] = os.environ.get("DATABASE_URL")
 
     return cfg

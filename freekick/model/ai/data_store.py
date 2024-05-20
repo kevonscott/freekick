@@ -315,5 +315,5 @@ class DataScraper:
         else:
             print(
                 "Unstacking dataframe for better visibility..."
-            )  # TODO: user _logger instead
+            )  # TODO: use _logger instead
             pprint(df)

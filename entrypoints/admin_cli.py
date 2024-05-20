@@ -7,6 +7,9 @@ from sklearn.model_selection import train_test_split
 from freekick.model import League, SoccerLogisticModel, clean_format_data, load_data
 
 
+# TODO: Move train_soccer_model to a classmethod withing the model and call
+# into it. Otherwise we will need to replicate this code once we start adding
+# more models and have front end specifying which model/predictor it wants to use.
 def train_soccer_model(
     model_name: League, test_size: float, source: str = "CSV", persist: bool = False
 ):

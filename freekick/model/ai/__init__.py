@@ -10,13 +10,54 @@ import pkg_resources
 
 from freekick.utils.freekick_logging import _logger
 
-SEASON = "2021-2022"
+# TODO: Move everything under ai/data to project_root/data
+
+
+class Season(Enum):
+    """List of supported seasons."""
+
+    S_2023_2024 = "S_2023_2024"
+    S_2022_2023 = "S_2022_2023"
+    S_2021_2022 = "S_2021_2022"
+    S_2020_2021 = "S_2020_2021"
+    S_2019_2020 = "S_2019_2020"
+    S_2018_2019 = "S_2018_2019"
+    S_2017_2018 = "S_2017_2018"
+    S_2016_2017 = "S_2016_2017"
+    S_2015_2016 = "S_2015_2016"
+    S_2014_2015 = "S_2014_2015"
+    S_2013_2014 = "S_2013_2014"
+    S_2012_2013 = "S_2012_2013"
+    S_2011_2012 = "S_2011_2012"
+    S_2010_2011 = "S_2010_2011"
+    S_2009_2010 = "S_2009_2010"
+    S_2008_2009 = "S_2008_2009"
+    S_2007_2008 = "S_2007_2008"
+    S_2006_2007 = "S_2006_2007"
+    S_2005_2006 = "S_2005_2006"
+    S_2004_2005 = "S_2004_2005"
+    S_2003_2004 = "S_2003_2004"
+    S_2002_2003 = "S_2002_2003"
+    S_2001_2002 = "S_2001_2002"
+    S_2000_2001 = "S_2000_2001"
+    S_1999_2000 = "S_1999_2000"
+    S_1998_1999 = "S_1998_1999"
+    S_1997_1998 = "S_1997_1998"
+    S_1996_1997 = "S_1996_1997"
+    S_1995_1996 = "S_1995_1996"
+    S_1994_1995 = "S_1994_1995"
+    S_1993_1994 = "S_1993_1994"
+    CURRENT = S_2021_2022
+
+
+SEASON = Season.CURRENT.value
 
 
 class League(Enum):
     """Container for the supported leagues"""
 
     EPL = "epl"
+    BUNDESLIGA = "bundesliga"
 
 
 def _load_model(model_name: str):
@@ -33,7 +74,9 @@ def _load_model(model_name: str):
 @lru_cache()
 def load_models() -> dict[str, Any]:
     _logger.debug(" Loading serialized models...")
-    return {league: _load_model(model_name=f"{league.value}.pkl") for league in League}
+    return {
+        league.value: _load_model(model_name=f"{league.value}.pkl") for league in League
+    }
 
 
 serial_models = partial(load_models)
@@ -84,6 +127,8 @@ def get_team_code(
 
 ####### Team names and short codes #########################
 # reference for the names: https://www.sporcle.com/games/easterbunny/football-club--by-abbreviations-/results
+# TODO: Move soccer_teams and soccer_teams_int to data cleaning step (clean_format_data). Once we clean data, we should
+# not need this anymore. If we need to get team codes, can look up in DB
 soccer_teams = {
     "epl": {
         "Arsenal": "ARS",
@@ -267,4 +312,5 @@ soccer_teams_int = {
     # },
 }
 
+# TODO: Query from database (filter by league)
 current_season_teams: dict[str, list] = {"epl": [], "bundesliga": []}

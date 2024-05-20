@@ -1,0 +1,68 @@
+,id,league,name,code
+0,1,epl,Arsenal,ARS
+1,2,epl,Aston Villa,AVL
+2,3,epl,Barnsley,BAR
+3,4,epl,Blackburn,BLA
+4,5,epl,Blackpool,BLP
+5,6,epl,Birmingham,BIR
+6,7,epl,Bolton,BOL
+7,8,epl,Bournemouth,BOU
+8,9,epl,Bradford,BRA
+9,10,epl,Brentford,BRE
+10,11,epl,Brighton,BHA
+11,12,epl,Burnley,BUR
+12,13,epl,Cardiff,CAR
+13,14,epl,Charlton,CHA
+14,15,epl,Chelsea,CHE
+15,16,epl,Coventry,COV
+16,17,epl,Crystal Palace,CRY
+17,18,epl,Derby,DER
+18,19,epl,Everton,EVE
+19,20,epl,Fulham,FUL
+20,21,epl,Huddersfield,HUD
+21,22,epl,Hull City,HUL
+22,23,epl,Ipswich,IPS
+23,24,epl,Leeds United,LEE
+24,25,epl,Leicester City,LEI
+25,26,epl,Liverpool,LIV
+26,27,epl,Manchester City,MCI
+27,28,epl,Manchester United,MUN
+28,29,epl,Middlesbrough,MID
+29,30,epl,Newcastle,NEW
+30,31,epl,Norwich,NOR
+31,32,epl,Nottingham Forest,FOR
+32,33,epl,Oldham,OLD
+33,34,epl,Portsmouth,POR
+34,35,epl,Queens Park Rangers,QPR
+35,36,epl,Reading,REA
+36,37,epl,Southampton,SOU
+37,38,epl,Sheffield Wednesday,SHW
+38,39,epl,Stoke City,STO
+39,40,epl,Sunderland,SUN
+40,41,epl,Swansea,SWA
+41,42,epl,Swindon,SWI
+42,43,epl,Tottenham Hotspur,TOT
+43,44,epl,Watford,WAT
+44,45,epl,West Brom,WBA
+45,46,epl,West Ham United,WHU
+46,47,epl,Wigan,WIG
+47,48,epl,Wimbledon,WIM
+48,49,epl,Wolves,WOL
+49,50,bundesliga,Arminia Bielefeld,BIE
+50,51,bundesliga,Bayer Leverkusen,B04
+51,52,bundesliga,Borussia Dortmund,DOR
+52,53,bundesliga,Borussia Monchengladbach,BMG
+53,54,bundesliga,Eintracht Frankfurt,SGE
+54,55,bundesliga,Bayern Munich,BAY
+55,56,bundesliga,Freiburg,SCF
+56,57,bundesliga,Mainz,MAI
+57,58,bundesliga,VfB Stuttgart,STU
+58,59,bundesliga,VfL Bochum,BOC
+59,60,bundesliga,VfL Wolfsburg,WOB
+60,61,bundesliga,Cologne,CGN
+61,62,bundesliga,FC Augsburg,AUG
+62,63,bundesliga,Greuther Fuerth,GRF
+63,64,bundesliga,Hertha Berlin,BCS
+64,65,bundesliga,Hoffenheim,TSG
+65,66,bundesliga,RB Leipzig,RBL
+66,67,bundesliga,Union Berlin,UNB
