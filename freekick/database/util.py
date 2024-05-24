@@ -14,8 +14,9 @@ class DBUtils:
         team_name: str,
         code_type: str = "str",
         team_code: str | None = None,
-    ) -> str | int:
-        """Looks up a team's code name given its full name.
+    ) -> str | int | None:
+        """Looks up a team's integer or string code name given its full name or
+        team_code.
 
         Parameters
         ----------
@@ -34,31 +35,24 @@ class DBUtils:
             int code type
         Returns
         -------
-        str | int
-            Three letter code or integer representing the team.
+        str | int | None
+            Three letter code or integer representing the team. None if team
+            cannot  be found.
 
         Raises
         ------
         ValueError
             Value error if invalid team of league name is provided
 
-        Example
-        -------
-        >>> from freekick.database import DEFAULT_ENGINE
-        >>> from sqlalchemy.orm import Session
-        >>> from freekick.database.model import Team
-        >>> from freekick.database.repository import SQLAlchemyRepository
-
-        >>> repo = SQLAlchemyRepository(session)
-        >>> session = Session(DEFAULT_ENGINE)
-        >>> statement =select(Team).where(Team.code=='ARS').where(Team.league=='epl')
-        >>> entity = repo.session.scalars(statement).one()
-        >>> entity
-        Team(code='ARS', name='Arsenal', league='epl')
-        >>> entity.id
-        1
-        >>>
         """
+        valid_code_types = ("str", "int")
+        if code_type not in valid_code_types:
+            # Fail early on invalid code_type
+            raise ValueError(
+                f"Invalid code_type {code_type}. "
+                f"Valid options are  {valid_code_types}"
+            )
+        code: str | int | None = None
         if team_code:
             statement = (
                 select(Team)
@@ -71,16 +65,12 @@ class DBUtils:
                 .where(Team.name == team_name)
                 .where(Team.league == league)
             )
-
-        entity = repository.session.sclars(statement).one()
-        if code_type == "str":
-            try:
-                return entity.code
-            except KeyError:
-                raise ValueError(
-                    f"Invalid league ({league}) or team_name ({team_name})"
-                )
+        entity = repository.session.scalars(statement).one_or_none()
+        if not entity:
+            pass
+        elif code_type == "str":
+            code = entity.code
         elif code_type == "int":
             return entity.id
-        else:
-            raise ValueError(f"Invalid code_type ({code_type})")
+
+        return code
