@@ -19,4 +19,5 @@ python-dotenv==1.0.1
 requests==2.32.0
 scikit-learn==1.4.2
 Sphinx==7.3.7
+SQLAlchemy==2.0.30
 waitress==3.0.0
