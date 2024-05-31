@@ -1,381 +1,381 @@
-Div,Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,,,,,,,,,,,,
-E0,07/08/99,Arsenal,Leicester,2,1,H,0,0,D,,,,,,,,,,,,
-E0,07/08/99,Chelsea,Sunderland,4,0,H,2,0,H,,,,,,,,,,,,
-E0,07/08/99,Coventry,Southampton,0,1,A,0,0,D,,,,,,,,,,,,
-E0,07/08/99,Leeds,Derby,0,0,D,0,0,D,,,,,,,,,,,,
-E0,07/08/99,Middlesbrough,Bradford,0,1,A,0,0,D,,,,,,,,,,,,
-E0,07/08/99,Newcastle,Aston Villa,0,1,A,0,0,D,,,,,,,,,,,,
-E0,07/08/99,Sheffield Weds,Liverpool,1,2,A,0,0,D,,,,,,,,,,,,
-E0,07/08/99,Watford,Wimbledon,2,3,A,1,2,A,,,,,,,,,,,,
-E0,07/08/99,West Ham,Tottenham,1,0,H,1,0,H,,,,,,,,,,,,
-E0,08/08/99,Everton,Man United,1,1,D,0,1,A,,,,,,,,,,,,
-E0,09/08/99,Tottenham,Newcastle,3,1,H,2,1,H,,,,,,,,,,,,
-E0,10/08/99,Derby,Arsenal,1,2,A,1,1,D,,,,,,,,,,,,
-E0,10/08/99,Sunderland,Watford,2,0,H,0,0,D,,,,,,,,,,,,
-E0,10/08/99,Wimbledon,Middlesbrough,2,3,A,1,2,A,,,,,,,,,,,,
-E0,11/08/99,Aston Villa,Everton,3,0,H,1,0,H,,,,,,,,,,,,
-E0,11/08/99,Leicester,Coventry,1,0,H,1,0,H,,,,,,,,,,,,
-E0,11/08/99,Man United,Sheffield Weds,4,0,H,2,0,H,,,,,,,,,,,,
-E0,11/08/99,Southampton,Leeds,0,3,A,0,1,A,,,,,,,,,,,,
-E0,14/08/99,Bradford,Sheffield Weds,1,1,D,0,1,A,,,,,,,,,,,,
-E0,14/08/99,Derby,Middlesbrough,1,3,A,1,2,A,,,,,,,,,,,,
-E0,14/08/99,Leicester,Chelsea,2,2,D,1,0,H,,,,,,,,,,,,
-E0,14/08/99,Liverpool,Watford,0,1,A,0,1,A,,,,,,,,,,,,
-E0,14/08/99,Man United,Leeds,2,0,H,0,0,D,,,,,,,,,,,,
-E0,14/08/99,Sunderland,Arsenal,0,0,D,0,0,D,,,,,,,,,,,,
-E0,14/08/99,Tottenham,Everton,3,2,H,1,1,D,,,,,,,,,,,,
-E0,14/08/99,Wimbledon,Coventry,1,1,D,0,0,D,,,,,,,,,,,,
-E0,15/08/99,Southampton,Newcastle,4,2,H,0,1,A,,,,,,,,,,,,
-E0,16/08/99,Aston Villa,West Ham,2,2,D,1,1,D,,,,,,,,,,,,
-E0,21/08/99,Chelsea,Aston Villa,1,0,H,0,0,D,,,,,,,,,,,,
-E0,21/08/99,Coventry,Derby,2,0,H,1,0,H,,,,,,,,,,,,
-E0,21/08/99,Everton,Southampton,4,1,H,2,0,H,,,,,,,,,,,,
-E0,21/08/99,Leeds,Sunderland,2,1,H,0,1,A,,,,,,,,,,,,
-E0,21/08/99,Middlesbrough,Liverpool,1,0,H,0,0,D,,,,,,,,,,,,
-E0,21/08/99,Newcastle,Wimbledon,3,3,D,2,1,H,,,,,,,,,,,,
-E0,21/08/99,Sheffield Weds,Tottenham,1,2,A,1,2,A,,,,,,,,,,,,
-E0,21/08/99,Watford,Bradford,1,0,H,0,0,D,,,,,,,,,,,,
-E0,21/08/99,West Ham,Leicester,2,1,H,1,1,D,,,,,,,,,,,,
-E0,22/08/99,Arsenal,Man United,1,2,A,1,0,H,,,,,,,,,,,,
-E0,23/08/99,Leeds,Liverpool,1,2,A,1,1,D,,,,,,,,,,,,
-E0,24/08/99,Middlesbrough,Leicester,0,3,A,0,2,A,,,,,,,,,,,,
-E0,24/08/99,Watford,Aston Villa,0,1,A,0,0,D,,,,,,,,,,,,
-E0,25/08/99,Arsenal,Bradford,2,0,H,2,0,H,,,,,,,,,,,,
-E0,25/08/99,Coventry,Man United,1,2,A,0,0,D,,,,,,,,,,,,
-E0,25/08/99,Everton,Wimbledon,4,0,H,1,0,H,,,,,,,,,,,,
-E0,25/08/99,Newcastle,Sunderland,1,2,A,1,0,H,,,,,,,,,,,,
-E0,25/08/99,Sheffield Weds,Derby,0,2,A,0,0,D,,,,,,,,,,,,
-E0,28/08/99,Aston Villa,Middlesbrough,1,0,H,1,0,H,,,,,,,,,,,,
-E0,28/08/99,Bradford,West Ham,0,3,A,0,2,A,,,,,,,,,,,,
-E0,28/08/99,Derby,Everton,1,0,H,0,0,D,,,,,,,,,,,,
-E0,28/08/99,Liverpool,Arsenal,2,0,H,1,0,H,,,,,,,,,,,,
-E0,28/08/99,Southampton,Sheffield Weds,2,0,H,0,0,D,,,,,,,,,,,,
-E0,28/08/99,Tottenham,Leeds,1,2,A,1,0,H,,,,,,,,,,,,
-E0,28/08/99,Wimbledon,Chelsea,0,1,A,0,0,D,,,,,,,,,,,,
-E0,29/08/99,Sunderland,Coventry,1,1,D,0,1,A,,,,,,,,,,,,
-E0,30/08/99,Leicester,Watford,1,0,H,1,0,H,,,,,,,,,,,,
-E0,30/08/99,Man United,Newcastle,5,1,H,1,1,D,,,,,,,,,,,,
-E0,11/09/99,Arsenal,Aston Villa,3,1,H,1,1,D,,,,,,,,,,,,
-E0,11/09/99,Chelsea,Newcastle,1,0,H,1,0,H,,,,,,,,,,,,
-E0,11/09/99,Coventry,Leeds,3,4,A,2,3,A,,,,,,,,,,,,
-E0,11/09/99,Liverpool,Man United,2,3,A,1,3,A,,,,,,,,,,,,
-E0,11/09/99,Middlesbrough,Southampton,3,2,H,1,1,D,,,,,,,,,,,,
-E0,11/09/99,Sheffield Weds,Everton,0,2,A,0,2,A,,,,,,,,,,,,
-E0,11/09/99,Sunderland,Leicester,2,0,H,1,0,H,,,,,,,,,,,,
-E0,11/09/99,West Ham,Watford,1,0,H,0,0,D,,,,,,,,,,,,
-E0,11/09/99,Wimbledon,Derby,2,2,D,0,1,A,,,,,,,,,,,,
-E0,12/09/99,Bradford,Tottenham,1,1,D,0,0,D,,,,,,,,,,,,
-E0,18/09/99,Aston Villa,Bradford,1,0,H,0,0,D,,,,,,,,,,,,
-E0,18/09/99,Derby,Sunderland,0,5,A,0,2,A,,,,,,,,,,,,
-E0,18/09/99,Leicester,Liverpool,2,2,D,1,2,A,,,,,,,,,,,,
-E0,18/09/99,Man United,Wimbledon,1,1,D,0,1,A,,,,,,,,,,,,
-E0,18/09/99,Southampton,Arsenal,0,1,A,0,0,D,,,,,,,,,,,,
-E0,18/09/99,Watford,Chelsea,1,0,H,0,0,D,,,,,,,,,,,,
-E0,19/09/99,Everton,West Ham,1,0,H,0,0,D,,,,,,,,,,,,
-E0,19/09/99,Leeds,Middlesbrough,2,0,H,1,0,H,,,,,,,,,,,,
-E0,19/09/99,Newcastle,Sheffield Weds,8,0,H,4,0,H,,,,,,,,,,,,
-E0,19/09/99,Tottenham,Coventry,3,2,H,1,0,H,,,,,,,,,,,,
-E0,25/09/99,Arsenal,Watford,1,0,H,0,0,D,,,,,,,,,,,,
-E0,25/09/99,Coventry,West Ham,1,0,H,1,0,H,,,,,,,,,,,,
-E0,25/09/99,Derby,Bradford,0,1,A,0,0,D,,,,,,,,,,,,
-E0,25/09/99,Leeds,Newcastle,3,2,H,2,1,H,,,,,,,,,,,,
-E0,25/09/99,Leicester,Aston Villa,3,1,H,1,0,H,,,,,,,,,,,,
-E0,25/09/99,Man United,Southampton,3,3,D,2,1,H,,,,,,,,,,,,
-E0,25/09/99,Middlesbrough,Chelsea,0,1,A,0,0,D,,,,,,,,,,,,
-E0,25/09/99,Sunderland,Sheffield Weds,1,0,H,0,0,D,,,,,,,,,,,,
-E0,26/09/99,Wimbledon,Tottenham,1,1,D,0,0,D,,,,,,,,,,,,
-E0,27/09/99,Liverpool,Everton,0,1,A,0,1,A,,,,,,,,,,,,
-E0,02/10/99,Aston Villa,Liverpool,0,0,D,0,0,D,,,,,,,,,,,,
-E0,02/10/99,Bradford,Sunderland,0,4,A,0,1,A,,,,,,,,,,,,
-E0,02/10/99,Everton,Coventry,1,1,D,1,1,D,,,,,,,,,,,,
-E0,02/10/99,Sheffield Weds,Wimbledon,5,1,H,2,1,H,,,,,,,,,,,,
-E0,03/10/99,Chelsea,Man United,5,0,H,2,0,H,,,,,,,,,,,,
-E0,03/10/99,Newcastle,Middlesbrough,2,1,H,2,0,H,,,,,,,,,,,,
-E0,03/10/99,Tottenham,Leicester,2,3,A,2,1,H,,,,,,,,,,,,
-E0,03/10/99,Watford,Leeds,1,2,A,1,1,D,,,,,,,,,,,,
-E0,03/10/99,West Ham,Arsenal,2,1,H,1,0,H,,,,,,,,,,,,
-E0,04/10/99,Southampton,Derby,3,3,D,2,1,H,,,,,,,,,,,,
-E0,16/10/99,Arsenal,Everton,4,1,H,1,1,D,,,,,,,,,,,,
-E0,16/10/99,Coventry,Newcastle,4,1,H,3,0,H,,,,,,,,,,,,
-E0,16/10/99,Derby,Tottenham,0,1,A,0,1,A,,,,,,,,,,,,
-E0,16/10/99,Leeds,Sheffield Weds,2,0,H,0,0,D,,,,,,,,,,,,
-E0,16/10/99,Leicester,Southampton,2,1,H,2,0,H,,,,,,,,,,,,
-E0,16/10/99,Liverpool,Chelsea,1,0,H,0,0,D,,,,,,,,,,,,
-E0,16/10/99,Man United,Watford,4,1,H,3,0,H,,,,,,,,,,,,
-E0,16/10/99,Wimbledon,Bradford,3,2,H,2,1,H,,,,,,,,,,,,
-E0,17/10/99,Middlesbrough,West Ham,2,0,H,0,0,D,,,,,,,,,,,,
-E0,18/10/99,Sunderland,Aston Villa,2,1,H,0,0,D,,,,,,,,,,,,
-E0,23/10/99,Aston Villa,Wimbledon,1,1,D,1,1,D,,,,,,,,,,,,
-E0,23/10/99,Bradford,Leicester,3,1,H,2,1,H,,,,,,,,,,,,
-E0,23/10/99,Chelsea,Arsenal,2,3,A,1,0,H,,,,,,,,,,,,
-E0,23/10/99,Sheffield Weds,Coventry,0,0,D,0,0,D,,,,,,,,,,,,
-E0,23/10/99,Southampton,Liverpool,1,1,D,1,0,H,,,,,,,,,,,,
-E0,23/10/99,Tottenham,Man United,3,1,H,2,1,H,,,,,,,,,,,,
-E0,24/10/99,Everton,Leeds,4,4,D,3,2,H,,,,,,,,,,,,
-E0,24/10/99,Watford,Middlesbrough,1,3,A,0,2,A,,,,,,,,,,,,
-E0,24/10/99,West Ham,Sunderland,1,1,D,0,1,A,,,,,,,,,,,,
-E0,25/10/99,Newcastle,Derby,2,0,H,1,0,H,,,,,,,,,,,,
-E0,27/10/99,Liverpool,West Ham,1,0,H,1,0,H,,,,,,,,,,,,
-E0,30/10/99,Arsenal,Newcastle,0,0,D,0,0,D,,,,,,,,,,,,
-E0,30/10/99,Derby,Chelsea,3,1,H,1,1,D,,,,,,,,,,,,
-E0,30/10/99,Leeds,West Ham,1,0,H,0,0,D,,,,,,,,,,,,
-E0,30/10/99,Leicester,Sheffield Weds,3,0,H,2,0,H,,,,,,,,,,,,
-E0,30/10/99,Man United,Aston Villa,3,0,H,2,0,H,,,,,,,,,,,,
-E0,30/10/99,Middlesbrough,Everton,2,1,H,1,1,D,,,,,,,,,,,,
-E0,30/10/99,Wimbledon,Southampton,1,1,D,0,0,D,,,,,,,,,,,,
-E0,31/10/99,Coventry,Watford,4,0,H,2,0,H,,,,,,,,,,,,
-E0,31/10/99,Sunderland,Tottenham,2,1,H,2,0,H,,,,,,,,,,,,
-E0,01/11/99,Liverpool,Bradford,3,1,H,2,1,H,,,,,,,,,,,,
-E0,06/11/99,Aston Villa,Southampton,0,1,A,0,0,D,,,,,,,,,,,,
-E0,06/11/99,Bradford,Coventry,1,1,D,1,1,D,,,,,,,,,,,,
-E0,06/11/99,Liverpool,Derby,2,0,H,0,0,D,,,,,,,,,,,,
-E0,06/11/99,Man United,Leicester,2,0,H,1,0,H,,,,,,,,,,,,
-E0,06/11/99,Middlesbrough,Sunderland,1,1,D,0,0,D,,,,,,,,,,,,
-E0,06/11/99,Sheffield Weds,Watford,2,2,D,0,1,A,,,,,,,,,,,,
-E0,07/11/99,Chelsea,West Ham,0,0,D,0,0,D,,,,,,,,,,,,
-E0,07/11/99,Newcastle,Everton,1,1,D,0,0,D,,,,,,,,,,,,
-E0,07/11/99,Tottenham,Arsenal,2,1,H,2,1,H,,,,,,,,,,,,
-E0,07/11/99,Wimbledon,Leeds,2,0,H,1,0,H,,,,,,,,,,,,
-E0,20/11/99,Arsenal,Middlesbrough,5,1,H,2,0,H,,,,,,,,,,,,
-E0,20/11/99,Derby,Man United,1,2,A,0,0,D,,,,,,,,,,,,
-E0,20/11/99,Everton,Chelsea,1,1,D,1,0,H,,,,,,,,,,,,
-E0,20/11/99,Leeds,Bradford,2,1,H,0,0,D,,,,,,,,,,,,
-E0,20/11/99,Leicester,Wimbledon,2,1,H,1,1,D,,,,,,,,,,,,
-E0,20/11/99,Southampton,Tottenham,0,1,A,0,0,D,,,,,,,,,,,,
-E0,20/11/99,Sunderland,Liverpool,0,2,A,0,0,D,,,,,,,,,,,,
-E0,20/11/99,Watford,Newcastle,1,1,D,0,0,D,,,,,,,,,,,,
-E0,21/11/99,West Ham,Sheffield Weds,4,3,H,1,1,D,,,,,,,,,,,,
-E0,22/11/99,Coventry,Aston Villa,2,1,H,1,1,D,,,,,,,,,,,,
-E0,27/11/99,Coventry,Leicester,0,1,A,0,0,D,,,,,,,,,,,,
-E0,27/11/99,Everton,Aston Villa,0,0,D,0,0,D,,,,,,,,,,,,
-E0,27/11/99,Middlesbrough,Wimbledon,0,0,D,0,0,D,,,,,,,,,,,,
-E0,27/11/99,Watford,Sunderland,2,3,A,1,2,A,,,,,,,,,,,,
-E0,27/11/99,West Ham,Liverpool,1,0,H,1,0,H,,,,,,,,,,,,
-E0,28/11/99,Arsenal,Derby,2,1,H,1,1,D,,,,,,,,,,,,
-E0,28/11/99,Chelsea,Bradford,1,0,H,1,0,H,,,,,,,,,,,,
-E0,28/11/99,Leeds,Southampton,1,0,H,0,0,D,,,,,,,,,,,,
-E0,28/11/99,Newcastle,Tottenham,2,1,H,1,1,D,,,,,,,,,,,,
-E0,04/12/99,Aston Villa,Newcastle,0,1,A,0,0,D,,,,,,,,,,,,
-E0,04/12/99,Bradford,Middlesbrough,1,1,D,0,1,A,,,,,,,,,,,,
-E0,04/12/99,Leicester,Arsenal,0,3,A,0,1,A,,,,,,,,,,,,
-E0,04/12/99,Man United,Everton,5,1,H,3,1,H,,,,,,,,,,,,
-E0,04/12/99,Southampton,Coventry,0,0,D,0,0,D,,,,,,,,,,,,
-E0,04/12/99,Sunderland,Chelsea,4,1,H,4,0,H,,,,,,,,,,,,
-E0,04/12/99,Wimbledon,Watford,5,0,H,2,0,H,,,,,,,,,,,,
-E0,05/12/99,Derby,Leeds,0,1,A,0,0,D,,,,,,,,,,,,
-E0,05/12/99,Liverpool,Sheffield Weds,4,1,H,2,1,H,,,,,,,,,,,,
-E0,06/12/99,Tottenham,West Ham,0,0,D,0,0,D,,,,,,,,,,,,
-E0,18/12/99,Arsenal,Wimbledon,1,1,D,0,1,A,,,,,,,,,,,,
-E0,18/12/99,Aston Villa,Sheffield Weds,2,1,H,0,1,A,,,,,,,,,,,,
-E0,18/12/99,Bradford,Newcastle,2,0,H,0,0,D,,,,,,,,,,,,
-E0,18/12/99,Leicester,Derby,0,1,A,0,0,D,,,,,,,,,,,,
-E0,18/12/99,Liverpool,Coventry,2,0,H,1,0,H,,,,,,,,,,,,
-E0,18/12/99,Middlesbrough,Tottenham,2,1,H,1,1,D,,,,,,,,,,,,
-E0,18/12/99,Sunderland,Southampton,2,0,H,1,0,H,,,,,,,,,,,,
-E0,18/12/99,Watford,Everton,1,3,A,0,2,A,,,,,,,,,,,,
-E0,18/12/99,West Ham,Man United,2,4,A,1,3,A,,,,,,,,,,,,
-E0,19/12/99,Chelsea,Leeds,0,2,A,0,0,D,,,,,,,,,,,,
-E0,26/12/99,Coventry,Arsenal,3,2,H,2,0,H,,,,,,,,,,,,
-E0,26/12/99,Derby,Aston Villa,0,2,A,0,0,D,,,,,,,,,,,,
-E0,26/12/99,Everton,Sunderland,5,0,H,3,0,H,,,,,,,,,,,,
-E0,26/12/99,Leeds,Leicester,2,1,H,2,1,H,,,,,,,,,,,,
-E0,26/12/99,Man United,Bradford,4,0,H,0,0,D,,,,,,,,,,,,
-E0,26/12/99,Newcastle,Liverpool,2,2,D,1,1,D,,,,,,,,,,,,
-E0,26/12/99,Sheffield Weds,Middlesbrough,1,0,H,1,0,H,,,,,,,,,,,,
-E0,26/12/99,Southampton,Chelsea,1,2,A,0,2,A,,,,,,,,,,,,
-E0,26/12/99,Tottenham,Watford,4,0,H,2,0,H,,,,,,,,,,,,
-E0,26/12/99,Wimbledon,West Ham,2,2,D,1,1,D,,,,,,,,,,,,
-E0,28/12/99,Arsenal,Leeds,2,0,H,1,0,H,,,,,,,,,,,,
-E0,28/12/99,Bradford,Everton,0,0,D,0,0,D,,,,,,,,,,,,
-E0,28/12/99,Leicester,Newcastle,1,2,A,0,1,A,,,,,,,,,,,,
-E0,28/12/99,Liverpool,Wimbledon,3,1,H,0,0,D,,,,,,,,,,,,
-E0,28/12/99,Sunderland,Man United,2,2,D,2,1,H,,,,,,,,,,,,
-E0,28/12/99,Watford,Southampton,3,2,H,2,0,H,,,,,,,,,,,,
-E0,28/12/99,West Ham,Derby,1,1,D,1,1,D,,,,,,,,,,,,
-E0,29/12/99,Aston Villa,Tottenham,1,1,D,0,1,A,,,,,,,,,,,,
-E0,29/12/99,Chelsea,Sheffield Weds,3,0,H,2,0,H,,,,,,,,,,,,
-E0,03/01/00,Derby,Watford,2,0,H,1,0,H,,,,,,,,,,,,
-E0,03/01/00,Everton,Leicester,2,2,D,1,2,A,,,,,,,,,,,,
-E0,03/01/00,Leeds,Aston Villa,1,2,A,0,1,A,,,,,,,,,,,,
-E0,03/01/00,Newcastle,West Ham,2,2,D,1,0,H,,,,,,,,,,,,
-E0,03/01/00,Sheffield Weds,Arsenal,1,1,D,0,1,A,,,,,,,,,,,,
-E0,03/01/00,Southampton,Bradford,1,0,H,0,0,D,,,,,,,,,,,,
-E0,03/01/00,Tottenham,Liverpool,1,0,H,1,0,H,,,,,,,,,,,,
-E0,03/01/00,Wimbledon,Sunderland,1,0,H,1,0,H,,,,,,,,,,,,
-E0,04/01/00,Coventry,Chelsea,2,2,D,0,0,D,,,,,,,,,,,,
-E0,08/01/00,Bradford,Chelsea,1,1,D,1,0,H,,,,,,,,,,,,
-E0,12/01/00,Chelsea,Tottenham,1,0,H,0,0,D,,,,,,,,,,,,
-E0,15/01/00,Arsenal,Sunderland,4,1,H,3,0,H,,,,,,,,,,,,
-E0,15/01/00,Chelsea,Leicester,1,1,D,0,1,A,,,,,,,,,,,,
-E0,15/01/00,Coventry,Wimbledon,2,0,H,0,0,D,,,,,,,,,,,,
-E0,15/01/00,Everton,Tottenham,2,2,D,1,2,A,,,,,,,,,,,,
-E0,15/01/00,Middlesbrough,Derby,1,4,A,0,1,A,,,,,,,,,,,,
-E0,15/01/00,Sheffield Weds,Bradford,2,0,H,0,0,D,,,,,,,,,,,,
-E0,15/01/00,Watford,Liverpool,2,3,A,1,2,A,,,,,,,,,,,,
-E0,15/01/00,West Ham,Aston Villa,1,1,D,0,1,A,,,,,,,,,,,,
-E0,16/01/00,Newcastle,Southampton,5,0,H,4,0,H,,,,,,,,,,,,
-E0,22/01/00,Aston Villa,Chelsea,0,0,D,0,0,D,,,,,,,,,,,,
-E0,22/01/00,Bradford,Watford,3,2,H,2,1,H,,,,,,,,,,,,
-E0,22/01/00,Derby,Coventry,0,0,D,0,0,D,,,,,,,,,,,,
-E0,22/01/00,Leicester,West Ham,1,3,A,1,2,A,,,,,,,,,,,,
-E0,22/01/00,Liverpool,Middlesbrough,0,0,D,0,0,D,,,,,,,,,,,,
-E0,22/01/00,Southampton,Everton,2,0,H,0,0,D,,,,,,,,,,,,
-E0,22/01/00,Tottenham,Sheffield Weds,0,1,A,0,1,A,,,,,,,,,,,,
-E0,22/01/00,Wimbledon,Newcastle,2,0,H,0,0,D,,,,,,,,,,,,
-E0,23/01/00,Sunderland,Leeds,1,2,A,0,1,A,,,,,,,,,,,,
-E0,24/01/00,Man United,Arsenal,1,1,D,0,1,A,,,,,,,,,,,,
-E0,29/01/00,Man United,Middlesbrough,1,0,H,0,0,D,,,,,,,,,,,,
-E0,02/02/00,Sheffield Weds,Man United,0,1,A,0,0,D,,,,,,,,,,,,
-E0,05/02/00,Aston Villa,Watford,4,0,H,0,0,D,,,,,,,,,,,,
-E0,05/02/00,Bradford,Arsenal,2,1,H,1,1,D,,,,,,,,,,,,
-E0,05/02/00,Derby,Sheffield Weds,3,3,D,0,1,A,,,,,,,,,,,,
-E0,05/02/00,Leicester,Middlesbrough,2,1,H,2,0,H,,,,,,,,,,,,
-E0,05/02/00,Liverpool,Leeds,3,1,H,1,0,H,,,,,,,,,,,,
-E0,05/02/00,Man United,Coventry,3,2,H,1,0,H,,,,,,,,,,,,
-E0,05/02/00,Southampton,West Ham,2,1,H,0,0,D,,,,,,,,,,,,
-E0,05/02/00,Sunderland,Newcastle,2,2,D,1,2,A,,,,,,,,,,,,
-E0,05/02/00,Tottenham,Chelsea,0,1,A,0,0,D,,,,,,,,,,,,
-E0,06/02/00,Wimbledon,Everton,0,3,A,0,0,D,,,,,,,,,,,,
-E0,12/02/00,Chelsea,Wimbledon,3,1,H,0,0,D,,,,,,,,,,,,
-E0,12/02/00,Coventry,Sunderland,3,2,H,3,0,H,,,,,,,,,,,,
-E0,12/02/00,Everton,Derby,2,1,H,2,0,H,,,,,,,,,,,,
-E0,12/02/00,Leeds,Tottenham,1,0,H,1,0,H,,,,,,,,,,,,
-E0,12/02/00,Newcastle,Man United,3,0,H,1,0,H,,,,,,,,,,,,
-E0,12/02/00,Sheffield Weds,Southampton,0,1,A,0,1,A,,,,,,,,,,,,
-E0,12/02/00,Watford,Leicester,1,1,D,0,1,A,,,,,,,,,,,,
-E0,12/02/00,West Ham,Bradford,5,4,H,2,2,D,,,,,,,,,,,,
-E0,13/02/00,Arsenal,Liverpool,0,1,A,0,1,A,,,,,,,,,,,,
-E0,14/02/00,Middlesbrough,Aston Villa,0,4,A,0,1,A,,,,,,,,,,,,
-E0,19/02/00,Middlesbrough,Coventry,2,0,H,2,0,H,,,,,,,,,,,,
-E0,20/02/00,Leeds,Man United,0,1,A,0,0,D,,,,,,,,,,,,
-E0,26/02/00,Arsenal,Southampton,3,1,H,2,0,H,,,,,,,,,,,,
-E0,26/02/00,Bradford,Aston Villa,1,1,D,0,1,A,,,,,,,,,,,,
-E0,26/02/00,Chelsea,Watford,2,1,H,1,1,D,,,,,,,,,,,,
-E0,26/02/00,Coventry,Tottenham,0,1,A,0,0,D,,,,,,,,,,,,
-E0,26/02/00,Middlesbrough,Leeds,0,0,D,0,0,D,,,,,,,,,,,,
-E0,26/02/00,Sheffield Weds,Newcastle,0,2,A,0,1,A,,,,,,,,,,,,
-E0,26/02/00,Sunderland,Derby,1,1,D,0,0,D,,,,,,,,,,,,
-E0,26/02/00,West Ham,Everton,0,4,A,0,1,A,,,,,,,,,,,,
-E0,26/02/00,Wimbledon,Man United,2,2,D,1,1,D,,,,,,,,,,,,
-E0,04/03/00,Derby,Wimbledon,4,0,H,0,0,D,,,,,,,,,,,,
-E0,04/03/00,Everton,Sheffield Weds,1,1,D,1,0,H,,,,,,,,,,,,
-E0,04/03/00,Man United,Liverpool,1,1,D,1,1,D,,,,,,,,,,,,
-E0,04/03/00,Newcastle,Chelsea,0,1,A,0,1,A,,,,,,,,,,,,
-E0,04/03/00,Southampton,Middlesbrough,1,1,D,1,1,D,,,,,,,,,,,,
-E0,04/03/00,Tottenham,Bradford,1,1,D,1,1,D,,,,,,,,,,,,
-E0,04/03/00,Watford,West Ham,1,2,A,0,2,A,,,,,,,,,,,,
-E0,05/03/00,Aston Villa,Arsenal,1,1,D,0,0,D,,,,,,,,,,,,
-E0,05/03/00,Leeds,Coventry,3,0,H,2,0,H,,,,,,,,,,,,
-E0,05/03/00,Leicester,Sunderland,5,2,H,2,0,H,,,,,,,,,,,,
-E0,08/03/00,West Ham,Southampton,2,0,H,1,0,H,,,,,,,,,,,,
-E0,11/03/00,Aston Villa,Coventry,1,0,H,1,0,H,,,,,,,,,,,,
-E0,11/03/00,Chelsea,Everton,1,1,D,1,0,H,,,,,,,,,,,,
-E0,11/03/00,Liverpool,Sunderland,1,1,D,1,0,H,,,,,,,,,,,,
-E0,11/03/00,Man United,Derby,3,1,H,1,0,H,,,,,,,,,,,,
-E0,11/03/00,Newcastle,Watford,1,0,H,0,0,D,,,,,,,,,,,,
-E0,11/03/00,Sheffield Weds,West Ham,3,1,H,0,1,A,,,,,,,,,,,,
-E0,11/03/00,Tottenham,Southampton,7,2,H,4,2,H,,,,,,,,,,,,
-E0,11/03/00,Wimbledon,Leicester,2,1,H,1,0,H,,,,,,,,,,,,
-E0,12/03/00,Bradford,Leeds,1,2,A,0,1,A,,,,,,,,,,,,
-E0,12/03/00,Middlesbrough,Arsenal,2,1,H,0,0,D,,,,,,,,,,,,
-E0,15/03/00,Coventry,Everton,1,0,H,0,0,D,,,,,,,,,,,,
-E0,15/03/00,Liverpool,Aston Villa,0,0,D,0,0,D,,,,,,,,,,,,
-E0,18/03/00,Coventry,Bradford,4,0,H,2,0,H,,,,,,,,,,,,
-E0,18/03/00,Derby,Liverpool,0,2,A,0,1,A,,,,,,,,,,,,
-E0,18/03/00,Leicester,Man United,0,2,A,0,1,A,,,,,,,,,,,,
-E0,18/03/00,Southampton,Aston Villa,2,0,H,1,0,H,,,,,,,,,,,,
-E0,18/03/00,Sunderland,Middlesbrough,1,1,D,0,0,D,,,,,,,,,,,,
-E0,18/03/00,Watford,Sheffield Weds,1,0,H,0,0,D,,,,,,,,,,,,
-E0,18/03/00,West Ham,Chelsea,0,0,D,0,0,D,,,,,,,,,,,,
-E0,19/03/00,Arsenal,Tottenham,2,1,H,2,1,H,,,,,,,,,,,,
-E0,19/03/00,Everton,Newcastle,0,2,A,0,0,D,,,,,,,,,,,,
-E0,19/03/00,Leeds,Wimbledon,4,1,H,3,1,H,,,,,,,,,,,,
-E0,25/03/00,Aston Villa,Derby,2,0,H,1,0,H,,,,,,,,,,,,
-E0,25/03/00,Bradford,Man United,0,4,A,0,2,A,,,,,,,,,,,,
-E0,25/03/00,Chelsea,Southampton,1,1,D,0,0,D,,,,,,,,,,,,
-E0,25/03/00,Liverpool,Newcastle,2,1,H,0,0,D,,,,,,,,,,,,
-E0,25/03/00,Middlesbrough,Sheffield Weds,1,0,H,1,0,H,,,,,,,,,,,,
-E0,25/03/00,Sunderland,Everton,2,1,H,1,1,D,,,,,,,,,,,,
-E0,25/03/00,Watford,Tottenham,1,1,D,0,0,D,,,,,,,,,,,,
-E0,26/03/00,Arsenal,Coventry,3,0,H,0,0,D,,,,,,,,,,,,
-E0,26/03/00,Leicester,Leeds,2,1,H,1,1,D,,,,,,,,,,,,
-E0,26/03/00,West Ham,Wimbledon,2,1,H,1,0,H,,,,,,,,,,,,
-E0,01/04/00,Coventry,Liverpool,0,3,A,0,2,A,,,,,,,,,,,,
-E0,01/04/00,Everton,Watford,4,2,H,3,1,H,,,,,,,,,,,,
-E0,01/04/00,Leeds,Chelsea,0,1,A,0,0,D,,,,,,,,,,,,
-E0,01/04/00,Man United,West Ham,7,1,H,3,1,H,,,,,,,,,,,,
-E0,01/04/00,Newcastle,Bradford,2,0,H,1,0,H,,,,,,,,,,,,
-E0,01/04/00,Southampton,Sunderland,1,2,A,0,1,A,,,,,,,,,,,,
-E0,01/04/00,Wimbledon,Arsenal,1,3,A,1,2,A,,,,,,,,,,,,
-E0,02/04/00,Derby,Leicester,3,0,H,3,0,H,,,,,,,,,,,,
-E0,03/04/00,Tottenham,Middlesbrough,2,3,A,1,1,D,,,,,,,,,,,,
-E0,05/04/00,Sheffield Weds,Aston Villa,0,1,A,0,0,D,,,,,,,,,,,,
-E0,08/04/00,Bradford,Southampton,1,2,A,0,0,D,,,,,,,,,,,,
-E0,08/04/00,Leicester,Everton,1,1,D,1,1,D,,,,,,,,,,,,
-E0,08/04/00,Sunderland,Wimbledon,2,1,H,0,0,D,,,,,,,,,,,,
-E0,08/04/00,Watford,Derby,0,0,D,0,0,D,,,,,,,,,,,,
-E0,09/04/00,Aston Villa,Leeds,1,0,H,1,0,H,,,,,,,,,,,,
-E0,09/04/00,Liverpool,Tottenham,2,0,H,1,0,H,,,,,,,,,,,,
-E0,10/04/00,Middlesbrough,Man United,3,4,A,1,0,H,,,,,,,,,,,,
-E0,12/04/00,Chelsea,Coventry,2,1,H,0,1,A,,,,,,,,,,,,
-E0,12/04/00,West Ham,Newcastle,2,1,H,0,0,D,,,,,,,,,,,,
-E0,12/04/00,Wimbledon,Sheffield Weds,0,2,A,0,1,A,,,,,,,,,,,,
-E0,15/04/00,Coventry,Middlesbrough,2,1,H,1,0,H,,,,,,,,,,,,
-E0,15/04/00,Derby,West Ham,1,2,A,0,2,A,,,,,,,,,,,,
-E0,15/04/00,Everton,Bradford,4,0,H,2,0,H,,,,,,,,,,,,
-E0,15/04/00,Man United,Sunderland,4,0,H,1,0,H,,,,,,,,,,,,
-E0,15/04/00,Newcastle,Leicester,0,2,A,0,1,A,,,,,,,,,,,,
-E0,15/04/00,Sheffield Weds,Chelsea,1,0,H,0,0,D,,,,,,,,,,,,
-E0,15/04/00,Southampton,Watford,2,0,H,1,0,H,,,,,,,,,,,,
-E0,15/04/00,Tottenham,Aston Villa,2,4,A,1,0,H,,,,,,,,,,,,
-E0,16/04/00,Leeds,Arsenal,0,4,A,0,1,A,,,,,,,,,,,,
-E0,16/04/00,Wimbledon,Liverpool,1,2,A,0,1,A,,,,,,,,,,,,
-E0,19/04/00,Leicester,Tottenham,0,1,A,0,0,D,,,,,,,,,,,,
-E0,21/04/00,Bradford,Derby,4,4,D,4,3,H,,,,,,,,,,,,
-E0,21/04/00,Everton,Liverpool,0,0,D,0,0,D,,,,,,,,,,,,
-E0,22/04/00,Aston Villa,Leicester,2,2,D,1,1,D,,,,,,,,,,,,
-E0,22/04/00,Chelsea,Middlesbrough,1,1,D,1,1,D,,,,,,,,,,,,
-E0,22/04/00,Sheffield Weds,Sunderland,0,2,A,0,0,D,,,,,,,,,,,,
-E0,22/04/00,Southampton,Man United,1,3,A,0,3,A,,,,,,,,,,,,
-E0,22/04/00,Tottenham,Wimbledon,2,0,H,2,0,H,,,,,,,,,,,,
-E0,22/04/00,West Ham,Coventry,5,0,H,2,0,H,,,,,,,,,,,,
-E0,23/04/00,Newcastle,Leeds,2,2,D,1,2,A,,,,,,,,,,,,
-E0,23/04/00,Watford,Arsenal,2,3,A,0,3,A,,,,,,,,,,,,
-E0,24/04/00,Derby,Southampton,2,0,H,2,0,H,,,,,,,,,,,,
-E0,24/04/00,Man United,Chelsea,3,2,H,2,2,D,,,,,,,,,,,,
-E0,24/04/00,Sunderland,Bradford,0,1,A,0,0,D,,,,,,,,,,,,
-E0,29/04/00,Aston Villa,Sunderland,1,1,D,0,0,D,,,,,,,,,,,,
-E0,29/04/00,Chelsea,Liverpool,2,0,H,2,0,H,,,,,,,,,,,,
-E0,29/04/00,Everton,Arsenal,0,1,A,0,1,A,,,,,,,,,,,,
-E0,29/04/00,Newcastle,Coventry,2,0,H,0,0,D,,,,,,,,,,,,
-E0,29/04/00,Southampton,Leicester,1,2,A,1,1,D,,,,,,,,,,,,
-E0,29/04/00,Tottenham,Derby,1,1,D,0,0,D,,,,,,,,,,,,
-E0,29/04/00,Watford,Man United,2,3,A,1,0,H,,,,,,,,,,,,
-E0,29/04/00,West Ham,Middlesbrough,0,1,A,0,0,D,,,,,,,,,,,,
-E0,30/04/00,Bradford,Wimbledon,3,0,H,1,0,H,,,,,,,,,,,,
-E0,30/04/00,Sheffield Weds,Leeds,0,3,A,0,1,A,,,,,,,,,,,,
-E0,02/05/00,Arsenal,West Ham,2,1,H,0,1,A,,,,,,,,,,,,
-E0,02/05/00,Middlesbrough,Newcastle,2,2,D,1,2,A,,,,,,,,,,,,
-E0,03/05/00,Leeds,Watford,3,1,H,2,1,H,,,,,,,,,,,,
-E0,03/05/00,Liverpool,Leicester,0,2,A,0,1,A,,,,,,,,,,,,
-E0,06/05/00,Arsenal,Chelsea,2,1,H,1,0,H,,,,,,,,,,,,
-E0,06/05/00,Coventry,Sheffield Weds,4,1,H,1,0,H,,,,,,,,,,,,
-E0,06/05/00,Derby,Newcastle,0,0,D,0,0,D,,,,,,,,,,,,
-E0,06/05/00,Leicester,Bradford,3,0,H,0,0,D,,,,,,,,,,,,
-E0,06/05/00,Man United,Tottenham,3,1,H,3,1,H,,,,,,,,,,,,
-E0,06/05/00,Middlesbrough,Watford,1,1,D,1,0,H,,,,,,,,,,,,
-E0,06/05/00,Sunderland,West Ham,1,0,H,1,0,H,,,,,,,,,,,,
-E0,06/05/00,Wimbledon,Aston Villa,2,2,D,1,0,H,,,,,,,,,,,,
-E0,07/05/00,Liverpool,Southampton,0,0,D,0,0,D,,,,,,,,,,,,
-E0,08/05/00,Leeds,Everton,1,1,D,1,0,H,,,,,,,,,,,,
-E0,09/05/00,Arsenal,Sheffield Weds,3,3,D,1,0,H,,,,,,,,,,,,
-E0,14/05/00,Aston Villa,Man United,0,1,A,0,0,D,,,,,,,,,,,,
-E0,14/05/00,Bradford,Liverpool,1,0,H,1,0,H,,,,,,,,,,,,
-E0,14/05/00,Chelsea,Derby,4,0,H,0,0,D,,,,,,,,,,,,
-E0,14/05/00,Everton,Middlesbrough,0,2,A,0,1,A,,,,,,,,,,,,
-E0,14/05/00,Newcastle,Arsenal,4,2,H,2,1,H,,,,,,,,,,,,
-E0,14/05/00,Sheffield Weds,Leicester,4,0,H,2,0,H,,,,,,,,,,,,
-E0,14/05/00,Southampton,Wimbledon,2,0,H,0,0,D,,,,,,,,,,,,
-E0,14/05/00,Tottenham,Sunderland,3,1,H,1,1,D,,,,,,,,,,,,
-E0,14/05/00,Watford,Coventry,1,0,H,1,0,H,,,,,,,,,,,,
-E0,14/05/00,West Ham,Leeds,0,0,D,0,0,D,,,,,,,,,,,,
+,Div,Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14,Unnamed: 15,Unnamed: 16,Unnamed: 17,Unnamed: 18,Unnamed: 19,Unnamed: 20,Unnamed: 21,season
+0,E0,07/08/99,Arsenal,Leicester,2,1,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+1,E0,07/08/99,Chelsea,Sunderland,4,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+2,E0,07/08/99,Coventry,Southampton,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+3,E0,07/08/99,Leeds,Derby,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+4,E0,07/08/99,Middlesbrough,Bradford,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+5,E0,07/08/99,Newcastle,Aston Villa,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+6,E0,07/08/99,Sheffield Weds,Liverpool,1,2,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+7,E0,07/08/99,Watford,Wimbledon,2,3,A,1,2,A,,,,,,,,,,,,,S_1999_2000
+8,E0,07/08/99,West Ham,Tottenham,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+9,E0,08/08/99,Everton,Man United,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+10,E0,09/08/99,Tottenham,Newcastle,3,1,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+11,E0,10/08/99,Derby,Arsenal,1,2,A,1,1,D,,,,,,,,,,,,,S_1999_2000
+12,E0,10/08/99,Sunderland,Watford,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+13,E0,10/08/99,Wimbledon,Middlesbrough,2,3,A,1,2,A,,,,,,,,,,,,,S_1999_2000
+14,E0,11/08/99,Aston Villa,Everton,3,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+15,E0,11/08/99,Leicester,Coventry,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+16,E0,11/08/99,Man United,Sheffield Weds,4,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+17,E0,11/08/99,Southampton,Leeds,0,3,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+18,E0,14/08/99,Bradford,Sheffield Weds,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+19,E0,14/08/99,Derby,Middlesbrough,1,3,A,1,2,A,,,,,,,,,,,,,S_1999_2000
+20,E0,14/08/99,Leicester,Chelsea,2,2,D,1,0,H,,,,,,,,,,,,,S_1999_2000
+21,E0,14/08/99,Liverpool,Watford,0,1,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+22,E0,14/08/99,Man United,Leeds,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+23,E0,14/08/99,Sunderland,Arsenal,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+24,E0,14/08/99,Tottenham,Everton,3,2,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+25,E0,14/08/99,Wimbledon,Coventry,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+26,E0,15/08/99,Southampton,Newcastle,4,2,H,0,1,A,,,,,,,,,,,,,S_1999_2000
+27,E0,16/08/99,Aston Villa,West Ham,2,2,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+28,E0,21/08/99,Chelsea,Aston Villa,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+29,E0,21/08/99,Coventry,Derby,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+30,E0,21/08/99,Everton,Southampton,4,1,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+31,E0,21/08/99,Leeds,Sunderland,2,1,H,0,1,A,,,,,,,,,,,,,S_1999_2000
+32,E0,21/08/99,Middlesbrough,Liverpool,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+33,E0,21/08/99,Newcastle,Wimbledon,3,3,D,2,1,H,,,,,,,,,,,,,S_1999_2000
+34,E0,21/08/99,Sheffield Weds,Tottenham,1,2,A,1,2,A,,,,,,,,,,,,,S_1999_2000
+35,E0,21/08/99,Watford,Bradford,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+36,E0,21/08/99,West Ham,Leicester,2,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+37,E0,22/08/99,Arsenal,Man United,1,2,A,1,0,H,,,,,,,,,,,,,S_1999_2000
+38,E0,23/08/99,Leeds,Liverpool,1,2,A,1,1,D,,,,,,,,,,,,,S_1999_2000
+39,E0,24/08/99,Middlesbrough,Leicester,0,3,A,0,2,A,,,,,,,,,,,,,S_1999_2000
+40,E0,24/08/99,Watford,Aston Villa,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+41,E0,25/08/99,Arsenal,Bradford,2,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+42,E0,25/08/99,Coventry,Man United,1,2,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+43,E0,25/08/99,Everton,Wimbledon,4,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+44,E0,25/08/99,Newcastle,Sunderland,1,2,A,1,0,H,,,,,,,,,,,,,S_1999_2000
+45,E0,25/08/99,Sheffield Weds,Derby,0,2,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+46,E0,28/08/99,Aston Villa,Middlesbrough,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+47,E0,28/08/99,Bradford,West Ham,0,3,A,0,2,A,,,,,,,,,,,,,S_1999_2000
+48,E0,28/08/99,Derby,Everton,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+49,E0,28/08/99,Liverpool,Arsenal,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+50,E0,28/08/99,Southampton,Sheffield Weds,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+51,E0,28/08/99,Tottenham,Leeds,1,2,A,1,0,H,,,,,,,,,,,,,S_1999_2000
+52,E0,28/08/99,Wimbledon,Chelsea,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+53,E0,29/08/99,Sunderland,Coventry,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+54,E0,30/08/99,Leicester,Watford,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+55,E0,30/08/99,Man United,Newcastle,5,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+56,E0,11/09/99,Arsenal,Aston Villa,3,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+57,E0,11/09/99,Chelsea,Newcastle,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+58,E0,11/09/99,Coventry,Leeds,3,4,A,2,3,A,,,,,,,,,,,,,S_1999_2000
+59,E0,11/09/99,Liverpool,Man United,2,3,A,1,3,A,,,,,,,,,,,,,S_1999_2000
+60,E0,11/09/99,Middlesbrough,Southampton,3,2,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+61,E0,11/09/99,Sheffield Weds,Everton,0,2,A,0,2,A,,,,,,,,,,,,,S_1999_2000
+62,E0,11/09/99,Sunderland,Leicester,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+63,E0,11/09/99,West Ham,Watford,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+64,E0,11/09/99,Wimbledon,Derby,2,2,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+65,E0,12/09/99,Bradford,Tottenham,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+66,E0,18/09/99,Aston Villa,Bradford,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+67,E0,18/09/99,Derby,Sunderland,0,5,A,0,2,A,,,,,,,,,,,,,S_1999_2000
+68,E0,18/09/99,Leicester,Liverpool,2,2,D,1,2,A,,,,,,,,,,,,,S_1999_2000
+69,E0,18/09/99,Man United,Wimbledon,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+70,E0,18/09/99,Southampton,Arsenal,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+71,E0,18/09/99,Watford,Chelsea,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+72,E0,19/09/99,Everton,West Ham,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+73,E0,19/09/99,Leeds,Middlesbrough,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+74,E0,19/09/99,Newcastle,Sheffield Weds,8,0,H,4,0,H,,,,,,,,,,,,,S_1999_2000
+75,E0,19/09/99,Tottenham,Coventry,3,2,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+76,E0,25/09/99,Arsenal,Watford,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+77,E0,25/09/99,Coventry,West Ham,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+78,E0,25/09/99,Derby,Bradford,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+79,E0,25/09/99,Leeds,Newcastle,3,2,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+80,E0,25/09/99,Leicester,Aston Villa,3,1,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+81,E0,25/09/99,Man United,Southampton,3,3,D,2,1,H,,,,,,,,,,,,,S_1999_2000
+82,E0,25/09/99,Middlesbrough,Chelsea,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+83,E0,25/09/99,Sunderland,Sheffield Weds,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+84,E0,26/09/99,Wimbledon,Tottenham,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+85,E0,27/09/99,Liverpool,Everton,0,1,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+86,E0,02/10/99,Aston Villa,Liverpool,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+87,E0,02/10/99,Bradford,Sunderland,0,4,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+88,E0,02/10/99,Everton,Coventry,1,1,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+89,E0,02/10/99,Sheffield Weds,Wimbledon,5,1,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+90,E0,03/10/99,Chelsea,Man United,5,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+91,E0,03/10/99,Newcastle,Middlesbrough,2,1,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+92,E0,03/10/99,Tottenham,Leicester,2,3,A,2,1,H,,,,,,,,,,,,,S_1999_2000
+93,E0,03/10/99,Watford,Leeds,1,2,A,1,1,D,,,,,,,,,,,,,S_1999_2000
+94,E0,03/10/99,West Ham,Arsenal,2,1,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+95,E0,04/10/99,Southampton,Derby,3,3,D,2,1,H,,,,,,,,,,,,,S_1999_2000
+96,E0,16/10/99,Arsenal,Everton,4,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+97,E0,16/10/99,Coventry,Newcastle,4,1,H,3,0,H,,,,,,,,,,,,,S_1999_2000
+98,E0,16/10/99,Derby,Tottenham,0,1,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+99,E0,16/10/99,Leeds,Sheffield Weds,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+100,E0,16/10/99,Leicester,Southampton,2,1,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+101,E0,16/10/99,Liverpool,Chelsea,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+102,E0,16/10/99,Man United,Watford,4,1,H,3,0,H,,,,,,,,,,,,,S_1999_2000
+103,E0,16/10/99,Wimbledon,Bradford,3,2,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+104,E0,17/10/99,Middlesbrough,West Ham,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+105,E0,18/10/99,Sunderland,Aston Villa,2,1,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+106,E0,23/10/99,Aston Villa,Wimbledon,1,1,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+107,E0,23/10/99,Bradford,Leicester,3,1,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+108,E0,23/10/99,Chelsea,Arsenal,2,3,A,1,0,H,,,,,,,,,,,,,S_1999_2000
+109,E0,23/10/99,Sheffield Weds,Coventry,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+110,E0,23/10/99,Southampton,Liverpool,1,1,D,1,0,H,,,,,,,,,,,,,S_1999_2000
+111,E0,23/10/99,Tottenham,Man United,3,1,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+112,E0,24/10/99,Everton,Leeds,4,4,D,3,2,H,,,,,,,,,,,,,S_1999_2000
+113,E0,24/10/99,Watford,Middlesbrough,1,3,A,0,2,A,,,,,,,,,,,,,S_1999_2000
+114,E0,24/10/99,West Ham,Sunderland,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+115,E0,25/10/99,Newcastle,Derby,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+116,E0,27/10/99,Liverpool,West Ham,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+117,E0,30/10/99,Arsenal,Newcastle,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+118,E0,30/10/99,Derby,Chelsea,3,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+119,E0,30/10/99,Leeds,West Ham,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+120,E0,30/10/99,Leicester,Sheffield Weds,3,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+121,E0,30/10/99,Man United,Aston Villa,3,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+122,E0,30/10/99,Middlesbrough,Everton,2,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+123,E0,30/10/99,Wimbledon,Southampton,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+124,E0,31/10/99,Coventry,Watford,4,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+125,E0,31/10/99,Sunderland,Tottenham,2,1,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+126,E0,01/11/99,Liverpool,Bradford,3,1,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+127,E0,06/11/99,Aston Villa,Southampton,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+128,E0,06/11/99,Bradford,Coventry,1,1,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+129,E0,06/11/99,Liverpool,Derby,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+130,E0,06/11/99,Man United,Leicester,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+131,E0,06/11/99,Middlesbrough,Sunderland,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+132,E0,06/11/99,Sheffield Weds,Watford,2,2,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+133,E0,07/11/99,Chelsea,West Ham,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+134,E0,07/11/99,Newcastle,Everton,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+135,E0,07/11/99,Tottenham,Arsenal,2,1,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+136,E0,07/11/99,Wimbledon,Leeds,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+137,E0,20/11/99,Arsenal,Middlesbrough,5,1,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+138,E0,20/11/99,Derby,Man United,1,2,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+139,E0,20/11/99,Everton,Chelsea,1,1,D,1,0,H,,,,,,,,,,,,,S_1999_2000
+140,E0,20/11/99,Leeds,Bradford,2,1,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+141,E0,20/11/99,Leicester,Wimbledon,2,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+142,E0,20/11/99,Southampton,Tottenham,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+143,E0,20/11/99,Sunderland,Liverpool,0,2,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+144,E0,20/11/99,Watford,Newcastle,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+145,E0,21/11/99,West Ham,Sheffield Weds,4,3,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+146,E0,22/11/99,Coventry,Aston Villa,2,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+147,E0,27/11/99,Coventry,Leicester,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+148,E0,27/11/99,Everton,Aston Villa,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+149,E0,27/11/99,Middlesbrough,Wimbledon,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+150,E0,27/11/99,Watford,Sunderland,2,3,A,1,2,A,,,,,,,,,,,,,S_1999_2000
+151,E0,27/11/99,West Ham,Liverpool,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+152,E0,28/11/99,Arsenal,Derby,2,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+153,E0,28/11/99,Chelsea,Bradford,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+154,E0,28/11/99,Leeds,Southampton,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+155,E0,28/11/99,Newcastle,Tottenham,2,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+156,E0,04/12/99,Aston Villa,Newcastle,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+157,E0,04/12/99,Bradford,Middlesbrough,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+158,E0,04/12/99,Leicester,Arsenal,0,3,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+159,E0,04/12/99,Man United,Everton,5,1,H,3,1,H,,,,,,,,,,,,,S_1999_2000
+160,E0,04/12/99,Southampton,Coventry,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+161,E0,04/12/99,Sunderland,Chelsea,4,1,H,4,0,H,,,,,,,,,,,,,S_1999_2000
+162,E0,04/12/99,Wimbledon,Watford,5,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+163,E0,05/12/99,Derby,Leeds,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+164,E0,05/12/99,Liverpool,Sheffield Weds,4,1,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+165,E0,06/12/99,Tottenham,West Ham,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+166,E0,18/12/99,Arsenal,Wimbledon,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+167,E0,18/12/99,Aston Villa,Sheffield Weds,2,1,H,0,1,A,,,,,,,,,,,,,S_1999_2000
+168,E0,18/12/99,Bradford,Newcastle,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+169,E0,18/12/99,Leicester,Derby,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+170,E0,18/12/99,Liverpool,Coventry,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+171,E0,18/12/99,Middlesbrough,Tottenham,2,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+172,E0,18/12/99,Sunderland,Southampton,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+173,E0,18/12/99,Watford,Everton,1,3,A,0,2,A,,,,,,,,,,,,,S_1999_2000
+174,E0,18/12/99,West Ham,Man United,2,4,A,1,3,A,,,,,,,,,,,,,S_1999_2000
+175,E0,19/12/99,Chelsea,Leeds,0,2,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+176,E0,26/12/99,Coventry,Arsenal,3,2,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+177,E0,26/12/99,Derby,Aston Villa,0,2,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+178,E0,26/12/99,Everton,Sunderland,5,0,H,3,0,H,,,,,,,,,,,,,S_1999_2000
+179,E0,26/12/99,Leeds,Leicester,2,1,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+180,E0,26/12/99,Man United,Bradford,4,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+181,E0,26/12/99,Newcastle,Liverpool,2,2,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+182,E0,26/12/99,Sheffield Weds,Middlesbrough,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+183,E0,26/12/99,Southampton,Chelsea,1,2,A,0,2,A,,,,,,,,,,,,,S_1999_2000
+184,E0,26/12/99,Tottenham,Watford,4,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+185,E0,26/12/99,Wimbledon,West Ham,2,2,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+186,E0,28/12/99,Arsenal,Leeds,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+187,E0,28/12/99,Bradford,Everton,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+188,E0,28/12/99,Leicester,Newcastle,1,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+189,E0,28/12/99,Liverpool,Wimbledon,3,1,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+190,E0,28/12/99,Sunderland,Man United,2,2,D,2,1,H,,,,,,,,,,,,,S_1999_2000
+191,E0,28/12/99,Watford,Southampton,3,2,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+192,E0,28/12/99,West Ham,Derby,1,1,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+193,E0,29/12/99,Aston Villa,Tottenham,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+194,E0,29/12/99,Chelsea,Sheffield Weds,3,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+195,E0,03/01/00,Derby,Watford,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+196,E0,03/01/00,Everton,Leicester,2,2,D,1,2,A,,,,,,,,,,,,,S_1999_2000
+197,E0,03/01/00,Leeds,Aston Villa,1,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+198,E0,03/01/00,Newcastle,West Ham,2,2,D,1,0,H,,,,,,,,,,,,,S_1999_2000
+199,E0,03/01/00,Sheffield Weds,Arsenal,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+200,E0,03/01/00,Southampton,Bradford,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+201,E0,03/01/00,Tottenham,Liverpool,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+202,E0,03/01/00,Wimbledon,Sunderland,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+203,E0,04/01/00,Coventry,Chelsea,2,2,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+204,E0,08/01/00,Bradford,Chelsea,1,1,D,1,0,H,,,,,,,,,,,,,S_1999_2000
+205,E0,12/01/00,Chelsea,Tottenham,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+206,E0,15/01/00,Arsenal,Sunderland,4,1,H,3,0,H,,,,,,,,,,,,,S_1999_2000
+207,E0,15/01/00,Chelsea,Leicester,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+208,E0,15/01/00,Coventry,Wimbledon,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+209,E0,15/01/00,Everton,Tottenham,2,2,D,1,2,A,,,,,,,,,,,,,S_1999_2000
+210,E0,15/01/00,Middlesbrough,Derby,1,4,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+211,E0,15/01/00,Sheffield Weds,Bradford,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+212,E0,15/01/00,Watford,Liverpool,2,3,A,1,2,A,,,,,,,,,,,,,S_1999_2000
+213,E0,15/01/00,West Ham,Aston Villa,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+214,E0,16/01/00,Newcastle,Southampton,5,0,H,4,0,H,,,,,,,,,,,,,S_1999_2000
+215,E0,22/01/00,Aston Villa,Chelsea,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+216,E0,22/01/00,Bradford,Watford,3,2,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+217,E0,22/01/00,Derby,Coventry,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+218,E0,22/01/00,Leicester,West Ham,1,3,A,1,2,A,,,,,,,,,,,,,S_1999_2000
+219,E0,22/01/00,Liverpool,Middlesbrough,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+220,E0,22/01/00,Southampton,Everton,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+221,E0,22/01/00,Tottenham,Sheffield Weds,0,1,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+222,E0,22/01/00,Wimbledon,Newcastle,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+223,E0,23/01/00,Sunderland,Leeds,1,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+224,E0,24/01/00,Man United,Arsenal,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+225,E0,29/01/00,Man United,Middlesbrough,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+226,E0,02/02/00,Sheffield Weds,Man United,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+227,E0,05/02/00,Aston Villa,Watford,4,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+228,E0,05/02/00,Bradford,Arsenal,2,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+229,E0,05/02/00,Derby,Sheffield Weds,3,3,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+230,E0,05/02/00,Leicester,Middlesbrough,2,1,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+231,E0,05/02/00,Liverpool,Leeds,3,1,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+232,E0,05/02/00,Man United,Coventry,3,2,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+233,E0,05/02/00,Southampton,West Ham,2,1,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+234,E0,05/02/00,Sunderland,Newcastle,2,2,D,1,2,A,,,,,,,,,,,,,S_1999_2000
+235,E0,05/02/00,Tottenham,Chelsea,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+236,E0,06/02/00,Wimbledon,Everton,0,3,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+237,E0,12/02/00,Chelsea,Wimbledon,3,1,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+238,E0,12/02/00,Coventry,Sunderland,3,2,H,3,0,H,,,,,,,,,,,,,S_1999_2000
+239,E0,12/02/00,Everton,Derby,2,1,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+240,E0,12/02/00,Leeds,Tottenham,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+241,E0,12/02/00,Newcastle,Man United,3,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+242,E0,12/02/00,Sheffield Weds,Southampton,0,1,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+243,E0,12/02/00,Watford,Leicester,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+244,E0,12/02/00,West Ham,Bradford,5,4,H,2,2,D,,,,,,,,,,,,,S_1999_2000
+245,E0,13/02/00,Arsenal,Liverpool,0,1,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+246,E0,14/02/00,Middlesbrough,Aston Villa,0,4,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+247,E0,19/02/00,Middlesbrough,Coventry,2,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+248,E0,20/02/00,Leeds,Man United,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+249,E0,26/02/00,Arsenal,Southampton,3,1,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+250,E0,26/02/00,Bradford,Aston Villa,1,1,D,0,1,A,,,,,,,,,,,,,S_1999_2000
+251,E0,26/02/00,Chelsea,Watford,2,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+252,E0,26/02/00,Coventry,Tottenham,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+253,E0,26/02/00,Middlesbrough,Leeds,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+254,E0,26/02/00,Sheffield Weds,Newcastle,0,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+255,E0,26/02/00,Sunderland,Derby,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+256,E0,26/02/00,West Ham,Everton,0,4,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+257,E0,26/02/00,Wimbledon,Man United,2,2,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+258,E0,04/03/00,Derby,Wimbledon,4,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+259,E0,04/03/00,Everton,Sheffield Weds,1,1,D,1,0,H,,,,,,,,,,,,,S_1999_2000
+260,E0,04/03/00,Man United,Liverpool,1,1,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+261,E0,04/03/00,Newcastle,Chelsea,0,1,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+262,E0,04/03/00,Southampton,Middlesbrough,1,1,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+263,E0,04/03/00,Tottenham,Bradford,1,1,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+264,E0,04/03/00,Watford,West Ham,1,2,A,0,2,A,,,,,,,,,,,,,S_1999_2000
+265,E0,05/03/00,Aston Villa,Arsenal,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+266,E0,05/03/00,Leeds,Coventry,3,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+267,E0,05/03/00,Leicester,Sunderland,5,2,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+268,E0,08/03/00,West Ham,Southampton,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+269,E0,11/03/00,Aston Villa,Coventry,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+270,E0,11/03/00,Chelsea,Everton,1,1,D,1,0,H,,,,,,,,,,,,,S_1999_2000
+271,E0,11/03/00,Liverpool,Sunderland,1,1,D,1,0,H,,,,,,,,,,,,,S_1999_2000
+272,E0,11/03/00,Man United,Derby,3,1,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+273,E0,11/03/00,Newcastle,Watford,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+274,E0,11/03/00,Sheffield Weds,West Ham,3,1,H,0,1,A,,,,,,,,,,,,,S_1999_2000
+275,E0,11/03/00,Tottenham,Southampton,7,2,H,4,2,H,,,,,,,,,,,,,S_1999_2000
+276,E0,11/03/00,Wimbledon,Leicester,2,1,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+277,E0,12/03/00,Bradford,Leeds,1,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+278,E0,12/03/00,Middlesbrough,Arsenal,2,1,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+279,E0,15/03/00,Coventry,Everton,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+280,E0,15/03/00,Liverpool,Aston Villa,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+281,E0,18/03/00,Coventry,Bradford,4,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+282,E0,18/03/00,Derby,Liverpool,0,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+283,E0,18/03/00,Leicester,Man United,0,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+284,E0,18/03/00,Southampton,Aston Villa,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+285,E0,18/03/00,Sunderland,Middlesbrough,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+286,E0,18/03/00,Watford,Sheffield Weds,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+287,E0,18/03/00,West Ham,Chelsea,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+288,E0,19/03/00,Arsenal,Tottenham,2,1,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+289,E0,19/03/00,Everton,Newcastle,0,2,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+290,E0,19/03/00,Leeds,Wimbledon,4,1,H,3,1,H,,,,,,,,,,,,,S_1999_2000
+291,E0,25/03/00,Aston Villa,Derby,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+292,E0,25/03/00,Bradford,Man United,0,4,A,0,2,A,,,,,,,,,,,,,S_1999_2000
+293,E0,25/03/00,Chelsea,Southampton,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+294,E0,25/03/00,Liverpool,Newcastle,2,1,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+295,E0,25/03/00,Middlesbrough,Sheffield Weds,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+296,E0,25/03/00,Sunderland,Everton,2,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+297,E0,25/03/00,Watford,Tottenham,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+298,E0,26/03/00,Arsenal,Coventry,3,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+299,E0,26/03/00,Leicester,Leeds,2,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+300,E0,26/03/00,West Ham,Wimbledon,2,1,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+301,E0,01/04/00,Coventry,Liverpool,0,3,A,0,2,A,,,,,,,,,,,,,S_1999_2000
+302,E0,01/04/00,Everton,Watford,4,2,H,3,1,H,,,,,,,,,,,,,S_1999_2000
+303,E0,01/04/00,Leeds,Chelsea,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+304,E0,01/04/00,Man United,West Ham,7,1,H,3,1,H,,,,,,,,,,,,,S_1999_2000
+305,E0,01/04/00,Newcastle,Bradford,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+306,E0,01/04/00,Southampton,Sunderland,1,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+307,E0,01/04/00,Wimbledon,Arsenal,1,3,A,1,2,A,,,,,,,,,,,,,S_1999_2000
+308,E0,02/04/00,Derby,Leicester,3,0,H,3,0,H,,,,,,,,,,,,,S_1999_2000
+309,E0,03/04/00,Tottenham,Middlesbrough,2,3,A,1,1,D,,,,,,,,,,,,,S_1999_2000
+310,E0,05/04/00,Sheffield Weds,Aston Villa,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+311,E0,08/04/00,Bradford,Southampton,1,2,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+312,E0,08/04/00,Leicester,Everton,1,1,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+313,E0,08/04/00,Sunderland,Wimbledon,2,1,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+314,E0,08/04/00,Watford,Derby,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+315,E0,09/04/00,Aston Villa,Leeds,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+316,E0,09/04/00,Liverpool,Tottenham,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+317,E0,10/04/00,Middlesbrough,Man United,3,4,A,1,0,H,,,,,,,,,,,,,S_1999_2000
+318,E0,12/04/00,Chelsea,Coventry,2,1,H,0,1,A,,,,,,,,,,,,,S_1999_2000
+319,E0,12/04/00,West Ham,Newcastle,2,1,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+320,E0,12/04/00,Wimbledon,Sheffield Weds,0,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+321,E0,15/04/00,Coventry,Middlesbrough,2,1,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+322,E0,15/04/00,Derby,West Ham,1,2,A,0,2,A,,,,,,,,,,,,,S_1999_2000
+323,E0,15/04/00,Everton,Bradford,4,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+324,E0,15/04/00,Man United,Sunderland,4,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+325,E0,15/04/00,Newcastle,Leicester,0,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+326,E0,15/04/00,Sheffield Weds,Chelsea,1,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+327,E0,15/04/00,Southampton,Watford,2,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+328,E0,15/04/00,Tottenham,Aston Villa,2,4,A,1,0,H,,,,,,,,,,,,,S_1999_2000
+329,E0,16/04/00,Leeds,Arsenal,0,4,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+330,E0,16/04/00,Wimbledon,Liverpool,1,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+331,E0,19/04/00,Leicester,Tottenham,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+332,E0,21/04/00,Bradford,Derby,4,4,D,4,3,H,,,,,,,,,,,,,S_1999_2000
+333,E0,21/04/00,Everton,Liverpool,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+334,E0,22/04/00,Aston Villa,Leicester,2,2,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+335,E0,22/04/00,Chelsea,Middlesbrough,1,1,D,1,1,D,,,,,,,,,,,,,S_1999_2000
+336,E0,22/04/00,Sheffield Weds,Sunderland,0,2,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+337,E0,22/04/00,Southampton,Man United,1,3,A,0,3,A,,,,,,,,,,,,,S_1999_2000
+338,E0,22/04/00,Tottenham,Wimbledon,2,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+339,E0,22/04/00,West Ham,Coventry,5,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+340,E0,23/04/00,Newcastle,Leeds,2,2,D,1,2,A,,,,,,,,,,,,,S_1999_2000
+341,E0,23/04/00,Watford,Arsenal,2,3,A,0,3,A,,,,,,,,,,,,,S_1999_2000
+342,E0,24/04/00,Derby,Southampton,2,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+343,E0,24/04/00,Man United,Chelsea,3,2,H,2,2,D,,,,,,,,,,,,,S_1999_2000
+344,E0,24/04/00,Sunderland,Bradford,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+345,E0,29/04/00,Aston Villa,Sunderland,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+346,E0,29/04/00,Chelsea,Liverpool,2,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+347,E0,29/04/00,Everton,Arsenal,0,1,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+348,E0,29/04/00,Newcastle,Coventry,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+349,E0,29/04/00,Southampton,Leicester,1,2,A,1,1,D,,,,,,,,,,,,,S_1999_2000
+350,E0,29/04/00,Tottenham,Derby,1,1,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+351,E0,29/04/00,Watford,Man United,2,3,A,1,0,H,,,,,,,,,,,,,S_1999_2000
+352,E0,29/04/00,West Ham,Middlesbrough,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+353,E0,30/04/00,Bradford,Wimbledon,3,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+354,E0,30/04/00,Sheffield Weds,Leeds,0,3,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+355,E0,02/05/00,Arsenal,West Ham,2,1,H,0,1,A,,,,,,,,,,,,,S_1999_2000
+356,E0,02/05/00,Middlesbrough,Newcastle,2,2,D,1,2,A,,,,,,,,,,,,,S_1999_2000
+357,E0,03/05/00,Leeds,Watford,3,1,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+358,E0,03/05/00,Liverpool,Leicester,0,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+359,E0,06/05/00,Arsenal,Chelsea,2,1,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+360,E0,06/05/00,Coventry,Sheffield Weds,4,1,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+361,E0,06/05/00,Derby,Newcastle,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+362,E0,06/05/00,Leicester,Bradford,3,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+363,E0,06/05/00,Man United,Tottenham,3,1,H,3,1,H,,,,,,,,,,,,,S_1999_2000
+364,E0,06/05/00,Middlesbrough,Watford,1,1,D,1,0,H,,,,,,,,,,,,,S_1999_2000
+365,E0,06/05/00,Sunderland,West Ham,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+366,E0,06/05/00,Wimbledon,Aston Villa,2,2,D,1,0,H,,,,,,,,,,,,,S_1999_2000
+367,E0,07/05/00,Liverpool,Southampton,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000
+368,E0,08/05/00,Leeds,Everton,1,1,D,1,0,H,,,,,,,,,,,,,S_1999_2000
+369,E0,09/05/00,Arsenal,Sheffield Weds,3,3,D,1,0,H,,,,,,,,,,,,,S_1999_2000
+370,E0,14/05/00,Aston Villa,Man United,0,1,A,0,0,D,,,,,,,,,,,,,S_1999_2000
+371,E0,14/05/00,Bradford,Liverpool,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+372,E0,14/05/00,Chelsea,Derby,4,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+373,E0,14/05/00,Everton,Middlesbrough,0,2,A,0,1,A,,,,,,,,,,,,,S_1999_2000
+374,E0,14/05/00,Newcastle,Arsenal,4,2,H,2,1,H,,,,,,,,,,,,,S_1999_2000
+375,E0,14/05/00,Sheffield Weds,Leicester,4,0,H,2,0,H,,,,,,,,,,,,,S_1999_2000
+376,E0,14/05/00,Southampton,Wimbledon,2,0,H,0,0,D,,,,,,,,,,,,,S_1999_2000
+377,E0,14/05/00,Tottenham,Sunderland,3,1,H,1,1,D,,,,,,,,,,,,,S_1999_2000
+378,E0,14/05/00,Watford,Coventry,1,0,H,1,0,H,,,,,,,,,,,,,S_1999_2000
+379,E0,14/05/00,West Ham,Leeds,0,0,D,0,0,D,,,,,,,,,,,,,S_1999_2000

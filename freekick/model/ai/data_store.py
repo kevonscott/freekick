@@ -87,7 +87,7 @@ def update_current_season_data(
     ValueError
         If an unsupported league is passed
     """
-    file_name = f"season_{SEASON}.csv"
+    file_name = f"season_{SEASON.removeprefix('S_').replace('_', '-')}.csv"
     p = pkg_resources.resource_filename(
         __name__, f"data/raw/{league.value}/{file_name}"
     )
@@ -99,6 +99,7 @@ def update_current_season_data(
             raise ValueError(f"Unsupported league: {league}")
 
     season_data = pd.read_csv(url)
+    season_data['season'] = SEASON
     if persist:
         if d_location == "CSV":
             print("Saving/Updating file: ", p)

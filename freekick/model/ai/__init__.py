@@ -12,6 +12,8 @@ from freekick.utils.freekick_logging import _logger
 
 # TODO: Move everything under ai/data to project_root/data
 
+# TODO: add 'season' to all bundesliga csv data.
+
 
 class Season(Enum):
     """List of supported seasons."""

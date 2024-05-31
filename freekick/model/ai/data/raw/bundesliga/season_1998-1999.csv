@@ -1,0 +1,307 @@
+,Div,Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14,Unnamed: 15,Unnamed: 16,Unnamed: 17,Unnamed: 18,Unnamed: 19,Unnamed: 20,season
+0,D1,14/08/98,Duisburg,Ein Frankfurt,2,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+1,D1,14/08/98,Stuttgart,Dortmund,2,1,H,2,1,H,,,,,,,,,,,,S_1998_1999
+2,D1,15/08/98,Bochum,Freiburg,1,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+3,D1,15/08/98,Leverkusen,Hansa Rostock,3,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+4,D1,15/08/98,M'gladbach,Schalke 04,3,0,H,2,0,H,,,,,,,,,,,,S_1998_1999
+5,D1,15/08/98,Munich 1860,Kaiserslautern,1,2,A,1,1,D,,,,,,,,,,,,S_1998_1999
+6,D1,15/08/98,Nurnberg,Hamburg,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+7,D1,15/08/98,Wolfsburg,Bayern Munich,0,1,A,0,0,D,,,,,,,,,,,,S_1998_1999
+8,D1,16/08/98,Hertha,Werder Bremen,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+9,D1,21/08/98,Hansa Rostock,Wolfsburg,3,3,D,2,2,D,,,,,,,,,,,,S_1998_1999
+10,D1,21/08/98,Werder Bremen,Nurnberg,2,3,A,2,2,D,,,,,,,,,,,,S_1998_1999
+11,D1,22/08/98,Bayern Munich,Duisburg,3,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+12,D1,22/08/98,Dortmund,Hertha,3,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+13,D1,22/08/98,Ein Frankfurt,Munich 1860,2,3,A,1,1,D,,,,,,,,,,,,S_1998_1999
+14,D1,22/08/98,Freiburg,Leverkusen,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+15,D1,22/08/98,Kaiserslautern,M'gladbach,2,1,H,1,0,H,,,,,,,,,,,,S_1998_1999
+16,D1,22/08/98,Schalke 04,Stuttgart,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+17,D1,23/08/98,Hamburg,Bochum,1,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+18,D1,08/09/98,Bochum,Werder Bremen,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+19,D1,08/09/98,Duisburg,Munich 1860,1,1,D,1,0,H,,,,,,,,,,,,S_1998_1999
+20,D1,08/09/98,M'gladbach,Ein Frankfurt,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+21,D1,08/09/98,Stuttgart,Kaiserslautern,4,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+22,D1,08/09/98,Wolfsburg,Freiburg,1,1,D,0,1,A,,,,,,,,,,,,S_1998_1999
+23,D1,09/09/98,Bayern Munich,Hansa Rostock,6,1,H,0,0,D,,,,,,,,,,,,S_1998_1999
+24,D1,09/09/98,Hertha,Schalke 04,2,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+25,D1,09/09/98,Leverkusen,Hamburg,1,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+26,D1,09/09/98,Nurnberg,Dortmund,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+27,D1,11/09/98,Ein Frankfurt,Stuttgart,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+28,D1,11/09/98,Munich 1860,M'gladbach,3,1,H,2,0,H,,,,,,,,,,,,S_1998_1999
+29,D1,12/09/98,Freiburg,Bayern Munich,0,2,A,0,2,A,,,,,,,,,,,,S_1998_1999
+30,D1,12/09/98,Hamburg,Wolfsburg,1,1,D,1,0,H,,,,,,,,,,,,S_1998_1999
+31,D1,12/09/98,Hansa Rostock,Duisburg,3,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+32,D1,12/09/98,Kaiserslautern,Hertha,4,3,H,1,2,A,,,,,,,,,,,,S_1998_1999
+33,D1,12/09/98,Schalke 04,Nurnberg,2,2,D,2,0,H,,,,,,,,,,,,S_1998_1999
+34,D1,12/09/98,Werder Bremen,Leverkusen,2,2,D,0,1,A,,,,,,,,,,,,S_1998_1999
+35,D1,13/09/98,Dortmund,Bochum,0,1,A,0,0,D,,,,,,,,,,,,S_1998_1999
+36,D1,18/09/98,Hansa Rostock,Freiburg,0,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+37,D1,18/09/98,Hertha,Ein Frankfurt,3,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+38,D1,19/09/98,Bochum,Schalke 04,1,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+39,D1,19/09/98,Leverkusen,Dortmund,3,1,H,1,0,H,,,,,,,,,,,,S_1998_1999
+40,D1,19/09/98,Nurnberg,Kaiserslautern,1,1,D,1,0,H,,,,,,,,,,,,S_1998_1999
+41,D1,19/09/98,Stuttgart,Munich 1860,0,1,A,0,0,D,,,,,,,,,,,,S_1998_1999
+42,D1,19/09/98,Wolfsburg,Werder Bremen,2,4,A,0,3,A,,,,,,,,,,,,S_1998_1999
+43,D1,20/09/98,Bayern Munich,Hamburg,5,3,H,2,1,H,,,,,,,,,,,,S_1998_1999
+44,D1,20/09/98,Duisburg,M'gladbach,2,2,D,1,0,H,,,,,,,,,,,,S_1998_1999
+45,D1,25/09/98,Hamburg,Hansa Rostock,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+46,D1,25/09/98,Munich 1860,Hertha,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+47,D1,26/09/98,Dortmund,Wolfsburg,2,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+48,D1,26/09/98,Freiburg,Duisburg,2,2,D,1,0,H,,,,,,,,,,,,S_1998_1999
+49,D1,26/09/98,Kaiserslautern,Bochum,2,3,A,1,0,H,,,,,,,,,,,,S_1998_1999
+50,D1,26/09/98,M'gladbach,Stuttgart,2,3,A,2,2,D,,,,,,,,,,,,S_1998_1999
+51,D1,26/09/98,Schalke 04,Leverkusen,0,1,A,0,0,D,,,,,,,,,,,,S_1998_1999
+52,D1,26/09/98,Werder Bremen,Bayern Munich,0,1,A,0,0,D,,,,,,,,,,,,S_1998_1999
+53,D1,27/09/98,Ein Frankfurt,Nurnberg,3,2,H,1,1,D,,,,,,,,,,,,S_1998_1999
+54,D1,02/10/98,Hertha,M'gladbach,4,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+55,D1,02/10/98,Wolfsburg,Schalke 04,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+56,D1,03/10/98,Bochum,Ein Frankfurt,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+57,D1,03/10/98,Freiburg,Hamburg,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+58,D1,03/10/98,Hansa Rostock,Werder Bremen,2,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+59,D1,03/10/98,Leverkusen,Kaiserslautern,2,2,D,1,2,A,,,,,,,,,,,,S_1998_1999
+60,D1,03/10/98,Nurnberg,Munich 1860,1,5,A,0,2,A,,,,,,,,,,,,S_1998_1999
+61,D1,04/10/98,Bayern Munich,Dortmund,2,2,D,2,1,H,,,,,,,,,,,,S_1998_1999
+62,D1,04/10/98,Duisburg,Stuttgart,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+63,D1,16/10/98,Kaiserslautern,Wolfsburg,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+64,D1,16/10/98,Munich 1860,Bochum,2,1,H,2,1,H,,,,,,,,,,,,S_1998_1999
+65,D1,17/10/98,Ein Frankfurt,Leverkusen,2,3,A,2,0,H,,,,,,,,,,,,S_1998_1999
+66,D1,17/10/98,Hamburg,Duisburg,4,1,H,2,0,H,,,,,,,,,,,,S_1998_1999
+67,D1,17/10/98,M'gladbach,Nurnberg,0,2,A,0,1,A,,,,,,,,,,,,S_1998_1999
+68,D1,17/10/98,Schalke 04,Bayern Munich,1,3,A,1,2,A,,,,,,,,,,,,S_1998_1999
+69,D1,17/10/98,Stuttgart,Hertha,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+70,D1,17/10/98,Werder Bremen,Freiburg,2,3,A,1,3,A,,,,,,,,,,,,S_1998_1999
+71,D1,18/10/98,Dortmund,Hansa Rostock,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+72,D1,23/10/98,Freiburg,Dortmund,2,2,D,1,1,D,,,,,,,,,,,,S_1998_1999
+73,D1,23/10/98,Hamburg,Werder Bremen,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+74,D1,24/10/98,Bayern Munich,Kaiserslautern,4,0,H,2,0,H,,,,,,,,,,,,S_1998_1999
+75,D1,24/10/98,Bochum,M'gladbach,2,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+76,D1,24/10/98,Hansa Rostock,Schalke 04,2,2,D,0,0,D,,,,,,,,,,,,S_1998_1999
+77,D1,24/10/98,Nurnberg,Stuttgart,2,2,D,0,2,A,,,,,,,,,,,,S_1998_1999
+78,D1,24/10/98,Wolfsburg,Ein Frankfurt,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+79,D1,25/10/98,Duisburg,Hertha,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+80,D1,25/10/98,Leverkusen,Munich 1860,1,1,D,1,0,H,,,,,,,,,,,,S_1998_1999
+81,D1,30/10/98,Kaiserslautern,Hansa Rostock,3,2,H,0,2,A,,,,,,,,,,,,S_1998_1999
+82,D1,30/10/98,M'gladbach,Leverkusen,2,8,A,0,4,A,,,,,,,,,,,,S_1998_1999
+83,D1,31/10/98,Ein Frankfurt,Bayern Munich,1,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+84,D1,31/10/98,Munich 1860,Wolfsburg,2,3,A,0,1,A,,,,,,,,,,,,S_1998_1999
+85,D1,31/10/98,Stuttgart,Bochum,4,2,H,2,1,H,,,,,,,,,,,,S_1998_1999
+86,D1,31/10/98,Werder Bremen,Duisburg,1,1,D,0,1,A,,,,,,,,,,,,S_1998_1999
+87,D1,01/11/98,Hertha,Nurnberg,3,0,H,3,0,H,,,,,,,,,,,,S_1998_1999
+88,D1,03/11/98,Schalke 04,Freiburg,1,1,D,1,0,H,,,,,,,,,,,,S_1998_1999
+89,D1,06/11/98,Duisburg,Nurnberg,1,1,D,0,1,A,,,,,,,,,,,,S_1998_1999
+90,D1,06/11/98,Werder Bremen,Dortmund,1,1,D,0,1,A,,,,,,,,,,,,S_1998_1999
+91,D1,07/11/98,Bayern Munich,Munich 1860,3,1,H,0,0,D,,,,,,,,,,,,S_1998_1999
+92,D1,07/11/98,Bochum,Hertha,2,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+93,D1,07/11/98,Freiburg,Kaiserslautern,0,1,A,0,1,A,,,,,,,,,,,,S_1998_1999
+94,D1,07/11/98,Hamburg,Schalke 04,2,2,D,1,0,H,,,,,,,,,,,,S_1998_1999
+95,D1,07/11/98,Hansa Rostock,Ein Frankfurt,2,2,D,1,1,D,,,,,,,,,,,,S_1998_1999
+96,D1,07/11/98,Wolfsburg,M'gladbach,7,1,H,4,1,H,,,,,,,,,,,,S_1998_1999
+97,D1,08/11/98,Leverkusen,Stuttgart,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+98,D1,10/11/98,Kaiserslautern,Hamburg,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+99,D1,10/11/98,Munich 1860,Hansa Rostock,2,1,H,1,0,H,,,,,,,,,,,,S_1998_1999
+100,D1,11/11/98,Dortmund,Duisburg,2,0,H,2,0,H,,,,,,,,,,,,S_1998_1999
+101,D1,11/11/98,Ein Frankfurt,Freiburg,3,1,H,2,1,H,,,,,,,,,,,,S_1998_1999
+102,D1,11/11/98,Hertha,Leverkusen,0,1,A,0,0,D,,,,,,,,,,,,S_1998_1999
+103,D1,11/11/98,Nurnberg,Bochum,2,2,D,1,1,D,,,,,,,,,,,,S_1998_1999
+104,D1,11/11/98,Stuttgart,Wolfsburg,1,2,A,1,1,D,,,,,,,,,,,,S_1998_1999
+105,D1,13/11/98,Hansa Rostock,M'gladbach,1,1,D,0,1,A,,,,,,,,,,,,S_1998_1999
+106,D1,13/11/98,Werder Bremen,Kaiserslautern,0,1,A,0,0,D,,,,,,,,,,,,S_1998_1999
+107,D1,14/11/98,Bayern Munich,Stuttgart,2,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+108,D1,14/11/98,Dortmund,Schalke 04,3,0,H,2,0,H,,,,,,,,,,,,S_1998_1999
+109,D1,14/11/98,Duisburg,Bochum,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+110,D1,14/11/98,Hamburg,Ein Frankfurt,0,1,A,0,1,A,,,,,,,,,,,,S_1998_1999
+111,D1,14/11/98,Leverkusen,Nurnberg,3,0,H,3,0,H,,,,,,,,,,,,S_1998_1999
+112,D1,14/11/98,Wolfsburg,Hertha,2,1,H,2,1,H,,,,,,,,,,,,S_1998_1999
+113,D1,15/11/98,Freiburg,Munich 1860,1,2,A,1,0,H,,,,,,,,,,,,S_1998_1999
+114,D1,20/11/98,Ein Frankfurt,Werder Bremen,0,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+115,D1,20/11/98,Schalke 04,Duisburg,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+116,D1,21/11/98,Bochum,Leverkusen,1,5,A,0,2,A,,,,,,,,,,,,S_1998_1999
+117,D1,21/11/98,Hertha,Bayern Munich,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+118,D1,21/11/98,Kaiserslautern,Dortmund,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+119,D1,21/11/98,Munich 1860,Hamburg,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+120,D1,21/11/98,Nurnberg,Wolfsburg,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+121,D1,21/11/98,Stuttgart,Hansa Rostock,1,1,D,1,0,H,,,,,,,,,,,,S_1998_1999
+122,D1,22/11/98,M'gladbach,Freiburg,3,1,H,2,1,H,,,,,,,,,,,,S_1998_1999
+123,D1,24/11/98,Dortmund,Hamburg,2,1,H,1,0,H,,,,,,,,,,,,S_1998_1999
+124,D1,24/11/98,Schalke 04,Werder Bremen,1,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+125,D1,27/11/98,Dortmund,Ein Frankfurt,3,1,H,1,0,H,,,,,,,,,,,,S_1998_1999
+126,D1,27/11/98,Hansa Rostock,Hertha,1,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+127,D1,28/11/98,Bayern Munich,Nurnberg,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+128,D1,28/11/98,Freiburg,Stuttgart,2,0,H,2,0,H,,,,,,,,,,,,S_1998_1999
+129,D1,28/11/98,Hamburg,M'gladbach,3,0,H,2,0,H,,,,,,,,,,,,S_1998_1999
+130,D1,28/11/98,Leverkusen,Duisburg,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+131,D1,28/11/98,Werder Bremen,Munich 1860,4,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+132,D1,28/11/98,Wolfsburg,Bochum,4,1,H,2,1,H,,,,,,,,,,,,S_1998_1999
+133,D1,29/11/98,Kaiserslautern,Schalke 04,4,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+134,D1,04/12/98,Bochum,Bayern Munich,2,2,D,1,1,D,,,,,,,,,,,,S_1998_1999
+135,D1,04/12/98,Nurnberg,Hansa Rostock,2,2,D,2,1,H,,,,,,,,,,,,S_1998_1999
+136,D1,05/12/98,Ein Frankfurt,Schalke 04,1,2,A,0,2,A,,,,,,,,,,,,S_1998_1999
+137,D1,05/12/98,Leverkusen,Wolfsburg,3,0,H,2,0,H,,,,,,,,,,,,S_1998_1999
+138,D1,05/12/98,Stuttgart,Hamburg,3,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+139,D1,06/12/98,Munich 1860,Dortmund,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+140,D1,08/12/98,M'gladbach,Werder Bremen,0,1,A,0,1,A,,,,,,,,,,,,S_1998_1999
+141,D1,11/12/98,Dortmund,M'gladbach,1,1,D,1,1,D,,,,,,,,,,,,S_1998_1999
+142,D1,11/12/98,Hamburg,Hertha,0,4,A,0,1,A,,,,,,,,,,,,S_1998_1999
+143,D1,12/12/98,Freiburg,Nurnberg,1,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+144,D1,12/12/98,Hansa Rostock,Bochum,3,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+145,D1,12/12/98,Kaiserslautern,Ein Frankfurt,2,1,H,1,0,H,,,,,,,,,,,,S_1998_1999
+146,D1,12/12/98,Schalke 04,Munich 1860,2,2,D,0,1,A,,,,,,,,,,,,S_1998_1999
+147,D1,12/12/98,Werder Bremen,Stuttgart,2,2,D,0,1,A,,,,,,,,,,,,S_1998_1999
+148,D1,12/12/98,Wolfsburg,Duisburg,4,2,H,1,0,H,,,,,,,,,,,,S_1998_1999
+149,D1,13/12/98,Bayern Munich,Leverkusen,2,0,H,2,0,H,,,,,,,,,,,,S_1998_1999
+150,D1,15/12/98,Hertha,Freiburg,1,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+151,D1,16/12/98,Duisburg,Kaiserslautern,3,1,H,0,1,A,,,,,,,,,,,,S_1998_1999
+152,D1,16/12/98,M'gladbach,Bayern Munich,0,2,A,0,2,A,,,,,,,,,,,,S_1998_1999
+153,D1,18/12/98,Dortmund,Stuttgart,3,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+154,D1,18/12/98,Freiburg,Bochum,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+155,D1,19/12/98,Bayern Munich,Wolfsburg,3,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+156,D1,19/12/98,Ein Frankfurt,Duisburg,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+157,D1,19/12/98,Hamburg,Nurnberg,2,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+158,D1,19/12/98,Hansa Rostock,Leverkusen,1,1,D,0,1,A,,,,,,,,,,,,S_1998_1999
+159,D1,19/12/98,Kaiserslautern,Munich 1860,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+160,D1,19/12/98,Schalke 04,M'gladbach,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+161,D1,20/12/98,Werder Bremen,Hertha,2,1,H,1,0,H,,,,,,,,,,,,S_1998_1999
+162,D1,19/02/99,Wolfsburg,Hansa Rostock,1,1,D,0,1,A,,,,,,,,,,,,S_1998_1999
+163,D1,20/02/99,Duisburg,Bayern Munich,0,3,A,0,2,A,,,,,,,,,,,,S_1998_1999
+164,D1,20/02/99,Hertha,Dortmund,3,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+165,D1,20/02/99,Leverkusen,Freiburg,1,1,D,0,1,A,,,,,,,,,,,,S_1998_1999
+166,D1,20/02/99,Munich 1860,Ein Frankfurt,4,1,H,4,0,H,,,,,,,,,,,,S_1998_1999
+167,D1,20/02/99,Nurnberg,Werder Bremen,1,1,D,1,1,D,,,,,,,,,,,,S_1998_1999
+168,D1,20/02/99,Stuttgart,Schalke 04,2,1,H,0,0,D,,,,,,,,,,,,S_1998_1999
+169,D1,21/02/99,M'gladbach,Kaiserslautern,0,2,A,0,1,A,,,,,,,,,,,,S_1998_1999
+170,D1,26/02/99,Kaiserslautern,Stuttgart,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+171,D1,26/02/99,Werder Bremen,Bochum,1,1,D,0,1,A,,,,,,,,,,,,S_1998_1999
+172,D1,27/02/99,Dortmund,Nurnberg,3,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+173,D1,27/02/99,Ein Frankfurt,M'gladbach,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+174,D1,27/02/99,Freiburg,Wolfsburg,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+175,D1,27/02/99,Hamburg,Leverkusen,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+176,D1,27/02/99,Hansa Rostock,Bayern Munich,0,4,A,0,0,D,,,,,,,,,,,,S_1998_1999
+177,D1,27/02/99,Munich 1860,Duisburg,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+178,D1,28/02/99,Schalke 04,Hertha,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+179,D1,05/03/99,Duisburg,Hansa Rostock,4,1,H,3,0,H,,,,,,,,,,,,S_1998_1999
+180,D1,05/03/99,Nurnberg,Schalke 04,3,0,H,2,0,H,,,,,,,,,,,,S_1998_1999
+181,D1,06/03/99,Bayern Munich,Freiburg,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+182,D1,06/03/99,Bochum,Dortmund,0,1,A,0,1,A,,,,,,,,,,,,S_1998_1999
+183,D1,06/03/99,Hertha,Kaiserslautern,1,1,D,0,1,A,,,,,,,,,,,,S_1998_1999
+184,D1,06/03/99,M'gladbach,Munich 1860,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+185,D1,06/03/99,Stuttgart,Ein Frankfurt,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+186,D1,06/03/99,Wolfsburg,Hamburg,4,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+187,D1,07/03/99,Leverkusen,Werder Bremen,2,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+188,D1,12/03/99,Dortmund,Leverkusen,1,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+189,D1,12/03/99,Freiburg,Hansa Rostock,3,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+190,D1,13/03/99,Hamburg,Bayern Munich,0,2,A,0,2,A,,,,,,,,,,,,S_1998_1999
+191,D1,13/03/99,Kaiserslautern,Nurnberg,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+192,D1,13/03/99,M'gladbach,Duisburg,0,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+193,D1,13/03/99,Munich 1860,Stuttgart,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+194,D1,13/03/99,Schalke 04,Bochum,2,2,D,2,2,D,,,,,,,,,,,,S_1998_1999
+195,D1,13/03/99,Werder Bremen,Wolfsburg,0,1,A,0,0,D,,,,,,,,,,,,S_1998_1999
+196,D1,14/03/99,Ein Frankfurt,Hertha,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+197,D1,16/03/99,Bochum,Hamburg,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+198,D1,19/03/99,Leverkusen,Schalke 04,1,1,D,1,0,H,,,,,,,,,,,,S_1998_1999
+199,D1,19/03/99,Wolfsburg,Dortmund,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+200,D1,20/03/99,Bayern Munich,Werder Bremen,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+201,D1,20/03/99,Bochum,Kaiserslautern,1,2,A,1,0,H,,,,,,,,,,,,S_1998_1999
+202,D1,20/03/99,Duisburg,Freiburg,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+203,D1,20/03/99,Hertha,Munich 1860,2,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+204,D1,20/03/99,Nurnberg,Ein Frankfurt,2,2,D,1,1,D,,,,,,,,,,,,S_1998_1999
+205,D1,20/03/99,Stuttgart,M'gladbach,2,2,D,1,0,H,,,,,,,,,,,,S_1998_1999
+206,D1,21/03/99,Hansa Rostock,Hamburg,0,1,A,0,1,A,,,,,,,,,,,,S_1998_1999
+207,D1,03/04/99,Dortmund,Bayern Munich,2,2,D,2,0,H,,,,,,,,,,,,S_1998_1999
+208,D1,03/04/99,Hamburg,Freiburg,2,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+209,D1,03/04/99,Kaiserslautern,Leverkusen,0,1,A,0,1,A,,,,,,,,,,,,S_1998_1999
+210,D1,03/04/99,Munich 1860,Nurnberg,1,2,A,0,1,A,,,,,,,,,,,,S_1998_1999
+211,D1,03/04/99,Schalke 04,Wolfsburg,2,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+212,D1,03/04/99,Stuttgart,Duisburg,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+213,D1,03/04/99,Werder Bremen,Hansa Rostock,0,3,A,0,2,A,,,,,,,,,,,,S_1998_1999
+214,D1,04/04/99,Ein Frankfurt,Bochum,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+215,D1,04/04/99,M'gladbach,Hertha,2,4,A,0,1,A,,,,,,,,,,,,S_1998_1999
+216,D1,09/04/99,Duisburg,Hamburg,2,3,A,2,0,H,,,,,,,,,,,,S_1998_1999
+217,D1,09/04/99,Freiburg,Werder Bremen,0,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+218,D1,10/04/99,Bayern Munich,Schalke 04,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+219,D1,10/04/99,Hansa Rostock,Dortmund,2,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+220,D1,10/04/99,Hertha,Stuttgart,2,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+221,D1,10/04/99,Leverkusen,Ein Frankfurt,2,1,H,2,0,H,,,,,,,,,,,,S_1998_1999
+222,D1,10/04/99,Nurnberg,M'gladbach,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+223,D1,10/04/99,Wolfsburg,Kaiserslautern,2,1,H,1,0,H,,,,,,,,,,,,S_1998_1999
+224,D1,11/04/99,Bochum,Munich 1860,2,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+225,D1,13/04/99,Ein Frankfurt,Wolfsburg,0,1,A,0,1,A,,,,,,,,,,,,S_1998_1999
+226,D1,13/04/99,Kaiserslautern,Bayern Munich,2,1,H,2,1,H,,,,,,,,,,,,S_1998_1999
+227,D1,13/04/99,Schalke 04,Hansa Rostock,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+228,D1,13/04/99,Stuttgart,Nurnberg,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+229,D1,13/04/99,Werder Bremen,Hamburg,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+230,D1,14/04/99,Dortmund,Freiburg,2,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+231,D1,14/04/99,Hertha,Duisburg,1,3,A,0,1,A,,,,,,,,,,,,S_1998_1999
+232,D1,14/04/99,M'gladbach,Bochum,2,2,D,0,0,D,,,,,,,,,,,,S_1998_1999
+233,D1,14/04/99,Munich 1860,Leverkusen,0,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+234,D1,16/04/99,Bayern Munich,Ein Frankfurt,3,1,H,2,0,H,,,,,,,,,,,,S_1998_1999
+235,D1,16/04/99,Hansa Rostock,Kaiserslautern,2,1,H,1,0,H,,,,,,,,,,,,S_1998_1999
+236,D1,17/04/99,Bochum,Stuttgart,3,3,D,0,2,A,,,,,,,,,,,,S_1998_1999
+237,D1,17/04/99,Duisburg,Werder Bremen,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+238,D1,17/04/99,Freiburg,Schalke 04,0,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+239,D1,17/04/99,Leverkusen,M'gladbach,4,1,H,1,0,H,,,,,,,,,,,,S_1998_1999
+240,D1,17/04/99,Nurnberg,Hertha,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+241,D1,17/04/99,Wolfsburg,Munich 1860,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+242,D1,18/04/99,Hamburg,Dortmund,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+243,D1,23/04/99,Dortmund,Werder Bremen,2,1,H,0,1,A,,,,,,,,,,,,S_1998_1999
+244,D1,23/04/99,Stuttgart,Leverkusen,0,1,A,0,1,A,,,,,,,,,,,,S_1998_1999
+245,D1,24/04/99,Ein Frankfurt,Hansa Rostock,2,2,D,0,1,A,,,,,,,,,,,,S_1998_1999
+246,D1,24/04/99,Hertha,Bochum,4,1,H,3,0,H,,,,,,,,,,,,S_1998_1999
+247,D1,24/04/99,Kaiserslautern,Freiburg,0,2,A,0,1,A,,,,,,,,,,,,S_1998_1999
+248,D1,24/04/99,M'gladbach,Wolfsburg,5,2,H,2,0,H,,,,,,,,,,,,S_1998_1999
+249,D1,24/04/99,Nurnberg,Duisburg,0,2,A,0,1,A,,,,,,,,,,,,S_1998_1999
+250,D1,24/04/99,Schalke 04,Hamburg,1,4,A,1,2,A,,,,,,,,,,,,S_1998_1999
+251,D1,25/04/99,Munich 1860,Bayern Munich,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+252,D1,30/04/99,Bochum,Nurnberg,0,3,A,0,1,A,,,,,,,,,,,,S_1998_1999
+253,D1,30/04/99,Freiburg,Ein Frankfurt,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+254,D1,01/05/99,Bayern Munich,M'gladbach,4,2,H,1,1,D,,,,,,,,,,,,S_1998_1999
+255,D1,01/05/99,Hamburg,Kaiserslautern,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+256,D1,01/05/99,Hansa Rostock,Munich 1860,4,1,H,4,0,H,,,,,,,,,,,,S_1998_1999
+257,D1,01/05/99,Leverkusen,Hertha,2,2,D,1,1,D,,,,,,,,,,,,S_1998_1999
+258,D1,01/05/99,Wolfsburg,Stuttgart,3,2,H,0,2,A,,,,,,,,,,,,S_1998_1999
+259,D1,02/05/99,Duisburg,Dortmund,3,2,H,3,1,H,,,,,,,,,,,,S_1998_1999
+260,D1,04/05/99,Ein Frankfurt,Hamburg,2,2,D,2,0,H,,,,,,,,,,,,S_1998_1999
+261,D1,04/05/99,Kaiserslautern,Werder Bremen,4,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+262,D1,04/05/99,M'gladbach,Hansa Rostock,1,1,D,0,0,D,,,,,,,,,,,,S_1998_1999
+263,D1,04/05/99,Stuttgart,Bayern Munich,0,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+264,D1,05/05/99,Bochum,Duisburg,0,2,A,0,1,A,,,,,,,,,,,,S_1998_1999
+265,D1,05/05/99,Hertha,Wolfsburg,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+266,D1,05/05/99,Munich 1860,Freiburg,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+267,D1,05/05/99,Nurnberg,Leverkusen,2,2,D,1,1,D,,,,,,,,,,,,S_1998_1999
+268,D1,05/05/99,Schalke 04,Dortmund,1,1,D,1,1,D,,,,,,,,,,,,S_1998_1999
+269,D1,07/05/99,Hansa Rostock,Stuttgart,3,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+270,D1,07/05/99,Werder Bremen,Ein Frankfurt,1,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+271,D1,08/05/99,Dortmund,Kaiserslautern,1,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+272,D1,08/05/99,Duisburg,Schalke 04,1,2,A,1,0,H,,,,,,,,,,,,S_1998_1999
+273,D1,08/05/99,Freiburg,M'gladbach,2,1,H,1,0,H,,,,,,,,,,,,S_1998_1999
+274,D1,08/05/99,Hamburg,Munich 1860,3,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+275,D1,08/05/99,Leverkusen,Bochum,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+276,D1,08/05/99,Wolfsburg,Nurnberg,1,1,D,0,1,A,,,,,,,,,,,,S_1998_1999
+277,D1,09/05/99,Bayern Munich,Hertha,1,1,D,1,0,H,,,,,,,,,,,,S_1998_1999
+278,D1,11/05/99,Werder Bremen,Schalke 04,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+279,D1,14/05/99,Hertha,Hansa Rostock,2,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+280,D1,14/05/99,M'gladbach,Hamburg,2,2,D,0,0,D,,,,,,,,,,,,S_1998_1999
+281,D1,15/05/99,Bochum,Wolfsburg,0,2,A,0,1,A,,,,,,,,,,,,S_1998_1999
+282,D1,15/05/99,Duisburg,Leverkusen,0,0,D,0,0,D,,,,,,,,,,,,S_1998_1999
+283,D1,15/05/99,Ein Frankfurt,Dortmund,2,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
+284,D1,15/05/99,Munich 1860,Werder Bremen,1,3,A,1,2,A,,,,,,,,,,,,S_1998_1999
+285,D1,15/05/99,Nurnberg,Bayern Munich,2,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+286,D1,15/05/99,Stuttgart,Freiburg,3,1,H,1,1,D,,,,,,,,,,,,S_1998_1999
+287,D1,16/05/99,Schalke 04,Kaiserslautern,0,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+288,D1,22/05/99,Bayern Munich,Bochum,4,2,H,0,1,A,,,,,,,,,,,,S_1998_1999
+289,D1,22/05/99,Dortmund,Munich 1860,3,1,H,0,0,D,,,,,,,,,,,,S_1998_1999
+290,D1,22/05/99,Freiburg,Hertha,0,2,A,0,1,A,,,,,,,,,,,,S_1998_1999
+291,D1,22/05/99,Hamburg,Stuttgart,3,1,H,3,1,H,,,,,,,,,,,,S_1998_1999
+292,D1,22/05/99,Hansa Rostock,Nurnberg,1,1,D,1,0,H,,,,,,,,,,,,S_1998_1999
+293,D1,22/05/99,Kaiserslautern,Duisburg,3,0,H,3,0,H,,,,,,,,,,,,S_1998_1999
+294,D1,22/05/99,Schalke 04,Ein Frankfurt,2,3,A,2,1,H,,,,,,,,,,,,S_1998_1999
+295,D1,22/05/99,Werder Bremen,M'gladbach,4,1,H,2,0,H,,,,,,,,,,,,S_1998_1999
+296,D1,22/05/99,Wolfsburg,Leverkusen,1,0,H,0,0,D,,,,,,,,,,,,S_1998_1999
+297,D1,29/05/99,Bochum,Hansa Rostock,2,3,A,0,1,A,,,,,,,,,,,,S_1998_1999
+298,D1,29/05/99,Duisburg,Wolfsburg,6,1,H,2,1,H,,,,,,,,,,,,S_1998_1999
+299,D1,29/05/99,Ein Frankfurt,Kaiserslautern,5,1,H,0,0,D,,,,,,,,,,,,S_1998_1999
+300,D1,29/05/99,Hertha,Hamburg,6,1,H,1,0,H,,,,,,,,,,,,S_1998_1999
+301,D1,29/05/99,Leverkusen,Bayern Munich,1,2,A,0,1,A,,,,,,,,,,,,S_1998_1999
+302,D1,29/05/99,M'gladbach,Dortmund,0,2,A,0,0,D,,,,,,,,,,,,S_1998_1999
+303,D1,29/05/99,Munich 1860,Schalke 04,4,5,A,4,3,H,,,,,,,,,,,,S_1998_1999
+304,D1,29/05/99,Nurnberg,Freiburg,1,2,A,0,2,A,,,,,,,,,,,,S_1998_1999
+305,D1,29/05/99,Stuttgart,Werder Bremen,1,0,H,1,0,H,,,,,,,,,,,,S_1998_1999
