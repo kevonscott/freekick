@@ -1,9 +1,13 @@
 import platform
+from pathlib import Path
 
 from packaging.version import Version
 
 from .utils._version import __version__
 from .utils.freekick_logging import _logger
+
+ROOT_DIR = Path(__file__).parent.parent
+DATA_DIR = ROOT_DIR / "data"
 
 # Ensure we are using the min_supported_platform
 # We also need to ensure this only executes once and not all imports.

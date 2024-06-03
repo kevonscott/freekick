@@ -1,381 +1,381 @@
-,Div,Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14,Unnamed: 15,Unnamed: 16,Unnamed: 17,Unnamed: 18,Unnamed: 19,Unnamed: 20,season
-0,E0,17/08/96,Arsenal,West Ham,2,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-1,E0,17/08/96,Blackburn,Tottenham,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-2,E0,17/08/96,Coventry,Nott'm Forest,0,3,A,0,2,A,,,,,,,,,,,,S_1996_1997
-3,E0,17/08/96,Derby,Leeds,3,3,D,0,1,A,,,,,,,,,,,,S_1996_1997
-4,E0,17/08/96,Everton,Newcastle,2,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-5,E0,17/08/96,Middlesbrough,Liverpool,3,3,D,2,2,D,,,,,,,,,,,,S_1996_1997
-6,E0,17/08/96,Sheffield Weds,Aston Villa,2,1,H,0,0,D,,,,,,,,,,,,S_1996_1997
-7,E0,17/08/96,Sunderland,Leicester,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-8,E0,17/08/96,Wimbledon,Man United,0,3,A,0,1,A,,,,,,,,,,,,S_1996_1997
-9,E0,18/08/96,Southampton,Chelsea,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-10,E0,19/08/96,Liverpool,Arsenal,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-11,E0,20/08/96,Leeds,Sheffield Weds,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-12,E0,21/08/96,Aston Villa,Blackburn,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-13,E0,21/08/96,Chelsea,Middlesbrough,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-14,E0,21/08/96,Leicester,Southampton,2,1,H,2,0,H,,,,,,,,,,,,S_1996_1997
-15,E0,21/08/96,Man United,Everton,2,2,D,0,2,A,,,,,,,,,,,,S_1996_1997
-16,E0,21/08/96,Newcastle,Wimbledon,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-17,E0,21/08/96,Nott'm Forest,Sunderland,1,4,A,1,4,A,,,,,,,,,,,,S_1996_1997
-18,E0,21/08/96,Tottenham,Derby,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-19,E0,21/08/96,West Ham,Coventry,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997
-20,E0,24/08/96,Aston Villa,Derby,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-21,E0,24/08/96,Chelsea,Coventry,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-22,E0,24/08/96,Leicester,Arsenal,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-23,E0,24/08/96,Liverpool,Sunderland,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-24,E0,24/08/96,Newcastle,Sheffield Weds,1,2,A,1,1,D,,,,,,,,,,,,S_1996_1997
-25,E0,24/08/96,Nott'm Forest,Middlesbrough,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-26,E0,24/08/96,Tottenham,Everton,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-27,E0,24/08/96,West Ham,Southampton,2,1,H,0,1,A,,,,,,,,,,,,S_1996_1997
-28,E0,25/08/96,Man United,Blackburn,2,2,D,1,1,D,,,,,,,,,,,,S_1996_1997
-29,E0,26/08/96,Leeds,Wimbledon,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-30,E0,02/09/96,Sheffield Weds,Leicester,2,1,H,1,1,D,,,,,,,,,,,,S_1996_1997
-31,E0,04/09/96,Arsenal,Chelsea,3,3,D,1,2,A,,,,,,,,,,,,S_1996_1997
-32,E0,04/09/96,Blackburn,Leeds,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997
-33,E0,04/09/96,Coventry,Liverpool,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-34,E0,04/09/96,Derby,Man United,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997
-35,E0,04/09/96,Everton,Aston Villa,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-36,E0,04/09/96,Middlesbrough,West Ham,4,1,H,2,0,H,,,,,,,,,,,,S_1996_1997
-37,E0,04/09/96,Southampton,Nott'm Forest,2,2,D,0,2,A,,,,,,,,,,,,S_1996_1997
-38,E0,04/09/96,Sunderland,Newcastle,1,2,A,1,0,H,,,,,,,,,,,,S_1996_1997
-39,E0,04/09/96,Wimbledon,Tottenham,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-40,E0,07/09/96,Aston Villa,Arsenal,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997
-41,E0,07/09/96,Leeds,Man United,0,4,A,0,1,A,,,,,,,,,,,,S_1996_1997
-42,E0,07/09/96,Liverpool,Southampton,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-43,E0,07/09/96,Middlesbrough,Coventry,4,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-44,E0,07/09/96,Nott'm Forest,Leicester,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-45,E0,07/09/96,Sheffield Weds,Chelsea,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-46,E0,07/09/96,Tottenham,Newcastle,1,2,A,1,1,D,,,,,,,,,,,,S_1996_1997
-47,E0,07/09/96,Wimbledon,Everton,4,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-48,E0,08/09/96,Sunderland,West Ham,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-49,E0,09/09/96,Blackburn,Derby,1,2,A,1,1,D,,,,,,,,,,,,S_1996_1997
-50,E0,14/09/96,Coventry,Leeds,2,1,H,0,1,A,,,,,,,,,,,,S_1996_1997
-51,E0,14/09/96,Derby,Sunderland,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-52,E0,14/09/96,Everton,Middlesbrough,1,2,A,1,0,H,,,,,,,,,,,,S_1996_1997
-53,E0,14/09/96,Man United,Nott'm Forest,4,1,H,2,1,H,,,,,,,,,,,,S_1996_1997
-54,E0,14/09/96,Newcastle,Blackburn,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-55,E0,14/09/96,Southampton,Tottenham,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-56,E0,14/09/96,West Ham,Wimbledon,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997
-57,E0,15/09/96,Chelsea,Aston Villa,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997
-58,E0,15/09/96,Leicester,Liverpool,0,3,A,0,0,D,,,,,,,,,,,,S_1996_1997
-59,E0,16/09/96,Arsenal,Sheffield Weds,4,1,H,0,1,A,,,,,,,,,,,,S_1996_1997
-60,E0,21/09/96,Aston Villa,Man United,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-61,E0,21/09/96,Blackburn,Everton,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997
-62,E0,21/09/96,Leeds,Newcastle,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-63,E0,21/09/96,Liverpool,Chelsea,5,1,H,3,0,H,,,,,,,,,,,,S_1996_1997
-64,E0,21/09/96,Middlesbrough,Arsenal,0,2,A,0,2,A,,,,,,,,,,,,S_1996_1997
-65,E0,21/09/96,Nott'm Forest,West Ham,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-66,E0,21/09/96,Sheffield Weds,Derby,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-67,E0,21/09/96,Sunderland,Coventry,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-68,E0,22/09/96,Tottenham,Leicester,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-69,E0,23/09/96,Wimbledon,Southampton,3,1,H,2,0,H,,,,,,,,,,,,S_1996_1997
-70,E0,28/09/96,Arsenal,Sunderland,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-71,E0,28/09/96,Chelsea,Nott'm Forest,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-72,E0,28/09/96,Coventry,Blackburn,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-73,E0,28/09/96,Derby,Wimbledon,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997
-74,E0,28/09/96,Everton,Sheffield Weds,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-75,E0,28/09/96,Leicester,Leeds,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-76,E0,28/09/96,Southampton,Middlesbrough,4,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-77,E0,29/09/96,Man United,Tottenham,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-78,E0,29/09/96,West Ham,Liverpool,1,2,A,1,1,D,,,,,,,,,,,,S_1996_1997
-79,E0,30/09/96,Newcastle,Aston Villa,4,3,H,3,1,H,,,,,,,,,,,,S_1996_1997
-80,E0,12/10/96,Blackburn,Arsenal,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-81,E0,12/10/96,Derby,Newcastle,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-82,E0,12/10/96,Everton,West Ham,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-83,E0,12/10/96,Leeds,Nott'm Forest,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-84,E0,12/10/96,Leicester,Chelsea,1,3,A,1,0,H,,,,,,,,,,,,S_1996_1997
-85,E0,12/10/96,Man United,Liverpool,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-86,E0,12/10/96,Tottenham,Aston Villa,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-87,E0,12/10/96,Wimbledon,Sheffield Weds,4,2,H,2,1,H,,,,,,,,,,,,S_1996_1997
-88,E0,13/10/96,Coventry,Southampton,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997
-89,E0,14/10/96,Sunderland,Middlesbrough,2,2,D,1,1,D,,,,,,,,,,,,S_1996_1997
-90,E0,19/10/96,Arsenal,Coventry,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-91,E0,19/10/96,Aston Villa,Leeds,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-92,E0,19/10/96,Chelsea,Wimbledon,2,4,A,1,2,A,,,,,,,,,,,,S_1996_1997
-93,E0,19/10/96,Middlesbrough,Tottenham,0,3,A,0,2,A,,,,,,,,,,,,S_1996_1997
-94,E0,19/10/96,Nott'm Forest,Derby,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-95,E0,19/10/96,Sheffield Weds,Blackburn,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-96,E0,19/10/96,Southampton,Sunderland,3,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-97,E0,19/10/96,West Ham,Leicester,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-98,E0,20/10/96,Newcastle,Man United,5,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-99,E0,26/10/96,Arsenal,Leeds,3,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-100,E0,26/10/96,Chelsea,Tottenham,3,1,H,1,1,D,,,,,,,,,,,,S_1996_1997
-101,E0,26/10/96,Coventry,Sheffield Weds,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-102,E0,26/10/96,Leicester,Newcastle,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-103,E0,26/10/96,Middlesbrough,Wimbledon,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-104,E0,26/10/96,Southampton,Man United,6,3,H,3,1,H,,,,,,,,,,,,S_1996_1997
-105,E0,26/10/96,Sunderland,Aston Villa,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-106,E0,26/10/96,West Ham,Blackburn,2,1,H,0,1,A,,,,,,,,,,,,S_1996_1997
-107,E0,27/10/96,Liverpool,Derby,2,1,H,0,0,D,,,,,,,,,,,,S_1996_1997
-108,E0,28/10/96,Nott'm Forest,Everton,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997
-109,E0,02/11/96,Aston Villa,Nott'm Forest,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-110,E0,02/11/96,Derby,Leicester,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-111,E0,02/11/96,Leeds,Sunderland,3,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-112,E0,02/11/96,Man United,Chelsea,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-113,E0,02/11/96,Sheffield Weds,Southampton,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-114,E0,02/11/96,Tottenham,West Ham,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-115,E0,02/11/96,Wimbledon,Arsenal,2,2,D,1,1,D,,,,,,,,,,,,S_1996_1997
-116,E0,03/11/96,Blackburn,Liverpool,3,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-117,E0,03/11/96,Newcastle,Middlesbrough,3,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-118,E0,04/11/96,Everton,Coventry,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-119,E0,16/11/96,Aston Villa,Leicester,1,3,A,1,2,A,,,,,,,,,,,,S_1996_1997
-120,E0,16/11/96,Blackburn,Chelsea,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-121,E0,16/11/96,Everton,Southampton,7,1,H,5,1,H,,,,,,,,,,,,S_1996_1997
-122,E0,16/11/96,Leeds,Liverpool,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-123,E0,16/11/96,Man United,Arsenal,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-124,E0,16/11/96,Newcastle,West Ham,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997
-125,E0,16/11/96,Tottenham,Sunderland,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-126,E0,16/11/96,Wimbledon,Coventry,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997
-127,E0,17/11/96,Derby,Middlesbrough,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-128,E0,18/11/96,Sheffield Weds,Nott'm Forest,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-129,E0,20/11/96,Liverpool,Everton,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-130,E0,23/11/96,Chelsea,Newcastle,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997
-131,E0,23/11/96,Coventry,Aston Villa,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-132,E0,23/11/96,Leicester,Everton,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-133,E0,23/11/96,Liverpool,Wimbledon,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-134,E0,23/11/96,Middlesbrough,Man United,2,2,D,1,1,D,,,,,,,,,,,,S_1996_1997
-135,E0,23/11/96,Southampton,Leeds,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997
-136,E0,23/11/96,Sunderland,Sheffield Weds,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-137,E0,23/11/96,West Ham,Derby,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997
-138,E0,24/11/96,Arsenal,Tottenham,3,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-139,E0,25/11/96,Nott'm Forest,Blackburn,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997
-140,E0,30/11/96,Aston Villa,Middlesbrough,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-141,E0,30/11/96,Blackburn,Southampton,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-142,E0,30/11/96,Derby,Coventry,2,1,H,1,1,D,,,,,,,,,,,,S_1996_1997
-143,E0,30/11/96,Everton,Sunderland,1,3,A,0,0,D,,,,,,,,,,,,S_1996_1997
-144,E0,30/11/96,Man United,Leicester,3,1,H,0,0,D,,,,,,,,,,,,S_1996_1997
-145,E0,30/11/96,Newcastle,Arsenal,1,2,A,1,1,D,,,,,,,,,,,,S_1996_1997
-146,E0,30/11/96,Sheffield Weds,West Ham,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-147,E0,30/11/96,Wimbledon,Nott'm Forest,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-148,E0,01/12/96,Leeds,Chelsea,2,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-149,E0,02/12/96,Tottenham,Liverpool,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-150,E0,03/12/96,Middlesbrough,Leicester,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-151,E0,04/12/96,Arsenal,Southampton,3,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-152,E0,04/12/96,West Ham,Aston Villa,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-153,E0,07/12/96,Arsenal,Derby,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997
-154,E0,07/12/96,Chelsea,Everton,2,2,D,1,2,A,,,,,,,,,,,,S_1996_1997
-155,E0,07/12/96,Coventry,Tottenham,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-156,E0,07/12/96,Leicester,Blackburn,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997
-157,E0,07/12/96,Liverpool,Sheffield Weds,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997
-158,E0,07/12/96,Middlesbrough,Leeds,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-159,E0,07/12/96,Southampton,Aston Villa,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997
-160,E0,07/12/96,Sunderland,Wimbledon,1,3,A,0,2,A,,,,,,,,,,,,S_1996_1997
-161,E0,08/12/96,West Ham,Man United,2,2,D,0,0,D,,,,,,,,,,,,S_1996_1997
-162,E0,09/12/96,Nott'm Forest,Newcastle,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-163,E0,14/12/96,Leeds,Tottenham,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-164,E0,14/12/96,Liverpool,Middlesbrough,5,1,H,3,0,H,,,,,,,,,,,,S_1996_1997
-165,E0,14/12/96,Wimbledon,Blackburn,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-166,E0,15/12/96,Sunderland,Chelsea,3,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-167,E0,16/12/96,Derby,Everton,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-168,E0,17/12/96,Coventry,Newcastle,2,1,H,2,0,H,,,,,,,,,,,,S_1996_1997
-169,E0,17/12/96,Liverpool,Nott'm Forest,4,2,H,2,1,H,,,,,,,,,,,,S_1996_1997
-170,E0,18/12/96,Sheffield Weds,Man United,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-171,E0,21/12/96,Chelsea,West Ham,3,1,H,3,1,H,,,,,,,,,,,,S_1996_1997
-172,E0,21/12/96,Everton,Leeds,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-173,E0,21/12/96,Leicester,Coventry,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-174,E0,21/12/96,Man United,Sunderland,5,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-175,E0,21/12/96,Nott'm Forest,Arsenal,2,1,H,0,0,D,,,,,,,,,,,,S_1996_1997
-176,E0,21/12/96,Southampton,Derby,3,1,H,2,1,H,,,,,,,,,,,,S_1996_1997
-177,E0,21/12/96,Tottenham,Sheffield Weds,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997
-178,E0,22/12/96,Aston Villa,Wimbledon,5,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-179,E0,23/12/96,Newcastle,Liverpool,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997
-180,E0,26/12/96,Aston Villa,Chelsea,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997
-181,E0,26/12/96,Blackburn,Newcastle,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-182,E0,26/12/96,Leeds,Coventry,1,3,A,1,3,A,,,,,,,,,,,,S_1996_1997
-183,E0,26/12/96,Liverpool,Leicester,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-184,E0,26/12/96,Middlesbrough,Everton,4,2,H,2,2,D,,,,,,,,,,,,S_1996_1997
-185,E0,26/12/96,Nott'm Forest,Man United,0,4,A,0,2,A,,,,,,,,,,,,S_1996_1997
-186,E0,26/12/96,Sheffield Weds,Arsenal,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-187,E0,26/12/96,Sunderland,Derby,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-188,E0,26/12/96,Tottenham,Southampton,3,1,H,2,1,H,,,,,,,,,,,,S_1996_1997
-189,E0,28/12/96,Arsenal,Aston Villa,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997
-190,E0,28/12/96,Chelsea,Sheffield Weds,2,2,D,2,1,H,,,,,,,,,,,,S_1996_1997
-191,E0,28/12/96,Coventry,Middlesbrough,3,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-192,E0,28/12/96,Derby,Blackburn,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-193,E0,28/12/96,Everton,Wimbledon,1,3,A,1,0,H,,,,,,,,,,,,S_1996_1997
-194,E0,28/12/96,Leicester,Nott'm Forest,2,2,D,1,1,D,,,,,,,,,,,,S_1996_1997
-195,E0,28/12/96,Man United,Leeds,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-196,E0,28/12/96,Newcastle,Tottenham,7,1,H,2,0,H,,,,,,,,,,,,S_1996_1997
-197,E0,28/12/96,West Ham,Sunderland,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-198,E0,29/12/96,Southampton,Liverpool,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-199,E0,01/01/97,Arsenal,Middlesbrough,2,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-200,E0,01/01/97,Chelsea,Liverpool,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-201,E0,01/01/97,Coventry,Sunderland,2,2,D,2,2,D,,,,,,,,,,,,S_1996_1997
-202,E0,01/01/97,Everton,Blackburn,0,2,A,0,2,A,,,,,,,,,,,,S_1996_1997
-203,E0,01/01/97,Man United,Aston Villa,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-204,E0,01/01/97,Newcastle,Leeds,3,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-205,E0,01/01/97,West Ham,Nott'm Forest,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997
-206,E0,11/01/97,Aston Villa,Newcastle,2,2,D,1,2,A,,,,,,,,,,,,S_1996_1997
-207,E0,11/01/97,Blackburn,Coventry,4,0,H,3,0,H,,,,,,,,,,,,S_1996_1997
-208,E0,11/01/97,Leeds,Leicester,3,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-209,E0,11/01/97,Liverpool,West Ham,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-210,E0,11/01/97,Middlesbrough,Southampton,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-211,E0,11/01/97,Nott'm Forest,Chelsea,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-212,E0,11/01/97,Sheffield Weds,Everton,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-213,E0,11/01/97,Sunderland,Arsenal,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-214,E0,11/01/97,Wimbledon,Derby,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-215,E0,12/01/97,Tottenham,Man United,1,2,A,1,1,D,,,,,,,,,,,,S_1996_1997
-216,E0,18/01/97,Chelsea,Derby,3,1,H,2,1,H,,,,,,,,,,,,S_1996_1997
-217,E0,18/01/97,Coventry,Man United,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997
-218,E0,18/01/97,Leicester,Wimbledon,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-219,E0,18/01/97,Liverpool,Aston Villa,3,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-220,E0,18/01/97,Middlesbrough,Sheffield Weds,4,2,H,2,1,H,,,,,,,,,,,,S_1996_1997
-221,E0,18/01/97,Southampton,Newcastle,2,2,D,0,1,A,,,,,,,,,,,,S_1996_1997
-222,E0,18/01/97,Sunderland,Blackburn,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-223,E0,19/01/97,Arsenal,Everton,3,1,H,0,0,D,,,,,,,,,,,,S_1996_1997
-224,E0,19/01/97,Nott'm Forest,Tottenham,2,1,H,0,1,A,,,,,,,,,,,,S_1996_1997
-225,E0,20/01/97,West Ham,Leeds,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997
-226,E0,29/01/97,Aston Villa,Sheffield Weds,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-227,E0,29/01/97,Leeds,Derby,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-228,E0,29/01/97,Leicester,Sunderland,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997
-229,E0,29/01/97,Man United,Wimbledon,2,1,H,0,0,D,,,,,,,,,,,,S_1996_1997
-230,E0,29/01/97,Newcastle,Everton,4,1,H,0,1,A,,,,,,,,,,,,S_1996_1997
-231,E0,29/01/97,Nott'm Forest,Coventry,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-232,E0,29/01/97,Tottenham,Blackburn,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-233,E0,29/01/97,West Ham,Arsenal,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-234,E0,01/02/97,Aston Villa,Sunderland,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-235,E0,01/02/97,Blackburn,West Ham,2,1,H,2,0,H,,,,,,,,,,,,S_1996_1997
-236,E0,01/02/97,Derby,Liverpool,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-237,E0,01/02/97,Everton,Nott'm Forest,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-238,E0,01/02/97,Leeds,Arsenal,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-239,E0,01/02/97,Man United,Southampton,2,1,H,1,1,D,,,,,,,,,,,,S_1996_1997
-240,E0,01/02/97,Sheffield Weds,Coventry,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-241,E0,01/02/97,Tottenham,Chelsea,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-242,E0,01/02/97,Wimbledon,Middlesbrough,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-243,E0,02/02/97,Newcastle,Leicester,4,3,H,1,0,H,,,,,,,,,,,,S_1996_1997
-244,E0,15/02/97,Derby,West Ham,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-245,E0,15/02/97,Tottenham,Arsenal,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-246,E0,19/02/97,Arsenal,Man United,1,2,A,0,2,A,,,,,,,,,,,,S_1996_1997
-247,E0,19/02/97,Aston Villa,Coventry,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-248,E0,19/02/97,Derby,Sheffield Weds,2,2,D,1,1,D,,,,,,,,,,,,S_1996_1997
-249,E0,19/02/97,Liverpool,Leeds,4,0,H,3,0,H,,,,,,,,,,,,S_1996_1997
-250,E0,22/02/97,Chelsea,Man United,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-251,E0,22/02/97,Coventry,Everton,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-252,E0,22/02/97,Leicester,Derby,4,2,H,3,1,H,,,,,,,,,,,,S_1996_1997
-253,E0,22/02/97,Liverpool,Blackburn,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-254,E0,22/02/97,Middlesbrough,Newcastle,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997
-255,E0,22/02/97,Nott'm Forest,Aston Villa,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-256,E0,22/02/97,Southampton,Sheffield Weds,2,3,A,2,0,H,,,,,,,,,,,,S_1996_1997
-257,E0,22/02/97,Sunderland,Leeds,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-258,E0,23/02/97,Arsenal,Wimbledon,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997
-259,E0,24/02/97,West Ham,Tottenham,4,3,H,3,2,H,,,,,,,,,,,,S_1996_1997
-260,E0,26/02/97,Southampton,Wimbledon,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-261,E0,01/03/97,Blackburn,Sunderland,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-262,E0,01/03/97,Derby,Chelsea,3,2,H,0,1,A,,,,,,,,,,,,S_1996_1997
-263,E0,01/03/97,Everton,Arsenal,0,2,A,0,2,A,,,,,,,,,,,,S_1996_1997
-264,E0,01/03/97,Leeds,West Ham,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-265,E0,01/03/97,Man United,Coventry,3,1,H,2,0,H,,,,,,,,,,,,S_1996_1997
-266,E0,01/03/97,Newcastle,Southampton,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-267,E0,01/03/97,Sheffield Weds,Middlesbrough,3,1,H,2,0,H,,,,,,,,,,,,S_1996_1997
-268,E0,01/03/97,Tottenham,Nott'm Forest,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997
-269,E0,01/03/97,Wimbledon,Leicester,1,3,A,0,3,A,,,,,,,,,,,,S_1996_1997
-270,E0,02/03/97,Aston Villa,Liverpool,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-271,E0,03/03/97,Coventry,Wimbledon,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997
-272,E0,04/03/97,Sunderland,Tottenham,0,4,A,0,3,A,,,,,,,,,,,,S_1996_1997
-273,E0,05/03/97,Chelsea,Blackburn,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-274,E0,05/03/97,Leicester,Aston Villa,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-275,E0,05/03/97,Middlesbrough,Derby,6,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-276,E0,05/03/97,Nott'm Forest,Sheffield Weds,0,3,A,0,0,D,,,,,,,,,,,,S_1996_1997
-277,E0,05/03/97,Southampton,Everton,2,2,D,0,2,A,,,,,,,,,,,,S_1996_1997
-278,E0,08/03/97,Arsenal,Nott'm Forest,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-279,E0,08/03/97,Coventry,Leicester,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-280,E0,08/03/97,Leeds,Everton,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-281,E0,08/03/97,Sunderland,Man United,2,1,H,0,0,D,,,,,,,,,,,,S_1996_1997
-282,E0,10/03/97,Liverpool,Newcastle,4,3,H,3,0,H,,,,,,,,,,,,S_1996_1997
-283,E0,11/03/97,Blackburn,Nott'm Forest,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997
-284,E0,12/03/97,Leeds,Southampton,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-285,E0,12/03/97,Sheffield Weds,Sunderland,2,1,H,1,1,D,,,,,,,,,,,,S_1996_1997
-286,E0,12/03/97,West Ham,Chelsea,3,2,H,0,1,A,,,,,,,,,,,,S_1996_1997
-287,E0,15/03/97,Aston Villa,West Ham,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-288,E0,15/03/97,Blackburn,Wimbledon,3,1,H,2,1,H,,,,,,,,,,,,S_1996_1997
-289,E0,15/03/97,Everton,Derby,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-290,E0,15/03/97,Leicester,Middlesbrough,1,3,A,0,3,A,,,,,,,,,,,,S_1996_1997
-291,E0,15/03/97,Man United,Sheffield Weds,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-292,E0,15/03/97,Newcastle,Coventry,4,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-293,E0,15/03/97,Nott'm Forest,Liverpool,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997
-294,E0,15/03/97,Southampton,Arsenal,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-295,E0,15/03/97,Tottenham,Leeds,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-296,E0,16/03/97,Chelsea,Sunderland,6,2,H,2,0,H,,,,,,,,,,,,S_1996_1997
-297,E0,18/03/97,Wimbledon,West Ham,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-298,E0,19/03/97,Chelsea,Southampton,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-299,E0,19/03/97,Leicester,Tottenham,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-300,E0,19/03/97,Middlesbrough,Blackburn,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-301,E0,22/03/97,Blackburn,Aston Villa,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997
-302,E0,22/03/97,Coventry,West Ham,1,3,A,1,2,A,,,,,,,,,,,,S_1996_1997
-303,E0,22/03/97,Derby,Tottenham,4,2,H,2,1,H,,,,,,,,,,,,S_1996_1997
-304,E0,22/03/97,Everton,Man United,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-305,E0,22/03/97,Middlesbrough,Chelsea,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-306,E0,22/03/97,Sheffield Weds,Leeds,2,2,D,1,2,A,,,,,,,,,,,,S_1996_1997
-307,E0,22/03/97,Southampton,Leicester,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997
-308,E0,22/03/97,Sunderland,Nott'm Forest,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-309,E0,23/03/97,Wimbledon,Newcastle,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-310,E0,24/03/97,Arsenal,Liverpool,1,2,A,0,0,D,,,,,,,,,,,,S_1996_1997
-311,E0,24/03/97,Middlesbrough,Nott'm Forest,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997
-312,E0,05/04/97,Aston Villa,Everton,3,1,H,1,1,D,,,,,,,,,,,,S_1996_1997
-313,E0,05/04/97,Chelsea,Arsenal,0,3,A,0,1,A,,,,,,,,,,,,S_1996_1997
-314,E0,05/04/97,Man United,Derby,2,3,A,0,2,A,,,,,,,,,,,,S_1996_1997
-315,E0,05/04/97,Newcastle,Sunderland,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997
-316,E0,05/04/97,Nott'm Forest,Southampton,1,3,A,0,1,A,,,,,,,,,,,,S_1996_1997
-317,E0,05/04/97,Tottenham,Wimbledon,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-318,E0,06/04/97,Liverpool,Coventry,1,2,A,0,0,D,,,,,,,,,,,,S_1996_1997
-319,E0,07/04/97,Leeds,Blackburn,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-320,E0,09/04/97,Coventry,Chelsea,3,1,H,0,1,A,,,,,,,,,,,,S_1996_1997
-321,E0,09/04/97,Derby,Southampton,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-322,E0,09/04/97,Everton,Leicester,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-323,E0,09/04/97,Sheffield Weds,Tottenham,2,1,H,1,1,D,,,,,,,,,,,,S_1996_1997
-324,E0,09/04/97,West Ham,Middlesbrough,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-325,E0,09/04/97,Wimbledon,Aston Villa,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-326,E0,12/04/97,Arsenal,Leicester,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-327,E0,12/04/97,Blackburn,Man United,2,3,A,1,2,A,,,,,,,,,,,,S_1996_1997
-328,E0,12/04/97,Derby,Aston Villa,2,1,H,2,0,H,,,,,,,,,,,,S_1996_1997
-329,E0,12/04/97,Everton,Tottenham,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-330,E0,12/04/97,Southampton,West Ham,2,0,H,2,0,H,,,,,,,,,,,,S_1996_1997
-331,E0,13/04/97,Sheffield Weds,Newcastle,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997
-332,E0,13/04/97,Sunderland,Liverpool,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997
-333,E0,16/04/97,Everton,Liverpool,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997
-334,E0,16/04/97,Newcastle,Chelsea,3,1,H,3,0,H,,,,,,,,,,,,S_1996_1997
-335,E0,16/04/97,Wimbledon,Leeds,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-336,E0,19/04/97,Arsenal,Blackburn,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-337,E0,19/04/97,Aston Villa,Tottenham,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-338,E0,19/04/97,Chelsea,Leicester,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-339,E0,19/04/97,Liverpool,Man United,1,3,A,1,2,A,,,,,,,,,,,,S_1996_1997
-340,E0,19/04/97,Middlesbrough,Sunderland,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997
-341,E0,19/04/97,Newcastle,Derby,3,1,H,1,1,D,,,,,,,,,,,,S_1996_1997
-342,E0,19/04/97,Nott'm Forest,Leeds,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997
-343,E0,19/04/97,Sheffield Weds,Wimbledon,3,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-344,E0,19/04/97,Southampton,Coventry,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997
-345,E0,19/04/97,West Ham,Everton,2,2,D,2,0,H,,,,,,,,,,,,S_1996_1997
-346,E0,21/04/97,Coventry,Arsenal,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997
-347,E0,22/04/97,Blackburn,Sheffield Weds,4,1,H,3,0,H,,,,,,,,,,,,S_1996_1997
-348,E0,22/04/97,Leeds,Aston Villa,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-349,E0,22/04/97,Sunderland,Southampton,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997
-350,E0,22/04/97,Wimbledon,Chelsea,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997
-351,E0,23/04/97,Derby,Nott'm Forest,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-352,E0,23/04/97,Leicester,West Ham,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997
-353,E0,24/04/97,Tottenham,Middlesbrough,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-354,E0,03/05/97,Arsenal,Newcastle,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997
-355,E0,03/05/97,Chelsea,Leeds,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-356,E0,03/05/97,Coventry,Derby,1,2,A,0,0,D,,,,,,,,,,,,S_1996_1997
-357,E0,03/05/97,Leicester,Man United,2,2,D,2,1,H,,,,,,,,,,,,S_1996_1997
-358,E0,03/05/97,Liverpool,Tottenham,2,1,H,2,1,H,,,,,,,,,,,,S_1996_1997
-359,E0,03/05/97,Middlesbrough,Aston Villa,3,2,H,2,0,H,,,,,,,,,,,,S_1996_1997
-360,E0,03/05/97,Nott'm Forest,Wimbledon,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997
-361,E0,03/05/97,Southampton,Blackburn,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-362,E0,03/05/97,Sunderland,Everton,3,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-363,E0,03/05/97,West Ham,Sheffield Weds,5,1,H,3,0,H,,,,,,,,,,,,S_1996_1997
-364,E0,05/05/97,Man United,Middlesbrough,3,3,D,2,3,A,,,,,,,,,,,,S_1996_1997
-365,E0,06/05/97,West Ham,Newcastle,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-366,E0,06/05/97,Wimbledon,Liverpool,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997
-367,E0,07/05/97,Leicester,Sheffield Weds,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
-368,E0,08/05/97,Blackburn,Middlesbrough,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-369,E0,08/05/97,Man United,Newcastle,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997
-370,E0,11/05/97,Aston Villa,Southampton,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-371,E0,11/05/97,Blackburn,Leicester,2,4,A,1,1,D,,,,,,,,,,,,S_1996_1997
-372,E0,11/05/97,Derby,Arsenal,1,3,A,1,0,H,,,,,,,,,,,,S_1996_1997
-373,E0,11/05/97,Everton,Chelsea,1,2,A,0,2,A,,,,,,,,,,,,S_1996_1997
-374,E0,11/05/97,Leeds,Middlesbrough,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-375,E0,11/05/97,Man United,West Ham,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997
-376,E0,11/05/97,Newcastle,Nott'm Forest,5,0,H,4,0,H,,,,,,,,,,,,S_1996_1997
-377,E0,11/05/97,Sheffield Weds,Liverpool,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997
-378,E0,11/05/97,Tottenham,Coventry,1,2,A,1,2,A,,,,,,,,,,,,S_1996_1997
-379,E0,11/05/97,Wimbledon,Sunderland,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997
+,Unnamed: 0,Div,Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14,Unnamed: 15,Unnamed: 16,Unnamed: 17,Unnamed: 18,Unnamed: 19,Time,season,Attendance
+0,0,E0,17/08/96,Arsenal,West Ham,2,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+1,1,E0,17/08/96,Blackburn,Tottenham,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+2,2,E0,17/08/96,Coventry,Nott'm Forest,0,3,A,0,2,A,,,,,,,,,,,,S_1996_1997,
+3,3,E0,17/08/96,Derby,Leeds,3,3,D,0,1,A,,,,,,,,,,,,S_1996_1997,
+4,4,E0,17/08/96,Everton,Newcastle,2,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+5,5,E0,17/08/96,Middlesbrough,Liverpool,3,3,D,2,2,D,,,,,,,,,,,,S_1996_1997,
+6,6,E0,17/08/96,Sheffield Weds,Aston Villa,2,1,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+7,7,E0,17/08/96,Sunderland,Leicester,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+8,8,E0,17/08/96,Wimbledon,Man United,0,3,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+9,9,E0,18/08/96,Southampton,Chelsea,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+10,10,E0,19/08/96,Liverpool,Arsenal,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+11,11,E0,20/08/96,Leeds,Sheffield Weds,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+12,12,E0,21/08/96,Aston Villa,Blackburn,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+13,13,E0,21/08/96,Chelsea,Middlesbrough,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+14,14,E0,21/08/96,Leicester,Southampton,2,1,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+15,15,E0,21/08/96,Man United,Everton,2,2,D,0,2,A,,,,,,,,,,,,S_1996_1997,
+16,16,E0,21/08/96,Newcastle,Wimbledon,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+17,17,E0,21/08/96,Nott'm Forest,Sunderland,1,4,A,1,4,A,,,,,,,,,,,,S_1996_1997,
+18,18,E0,21/08/96,Tottenham,Derby,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+19,19,E0,21/08/96,West Ham,Coventry,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997,
+20,20,E0,24/08/96,Aston Villa,Derby,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+21,21,E0,24/08/96,Chelsea,Coventry,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+22,22,E0,24/08/96,Leicester,Arsenal,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+23,23,E0,24/08/96,Liverpool,Sunderland,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+24,24,E0,24/08/96,Newcastle,Sheffield Weds,1,2,A,1,1,D,,,,,,,,,,,,S_1996_1997,
+25,25,E0,24/08/96,Nott'm Forest,Middlesbrough,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+26,26,E0,24/08/96,Tottenham,Everton,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+27,27,E0,24/08/96,West Ham,Southampton,2,1,H,0,1,A,,,,,,,,,,,,S_1996_1997,
+28,28,E0,25/08/96,Man United,Blackburn,2,2,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+29,29,E0,26/08/96,Leeds,Wimbledon,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+30,30,E0,02/09/96,Sheffield Weds,Leicester,2,1,H,1,1,D,,,,,,,,,,,,S_1996_1997,
+31,31,E0,04/09/96,Arsenal,Chelsea,3,3,D,1,2,A,,,,,,,,,,,,S_1996_1997,
+32,32,E0,04/09/96,Blackburn,Leeds,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+33,33,E0,04/09/96,Coventry,Liverpool,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+34,34,E0,04/09/96,Derby,Man United,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+35,35,E0,04/09/96,Everton,Aston Villa,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+36,36,E0,04/09/96,Middlesbrough,West Ham,4,1,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+37,37,E0,04/09/96,Southampton,Nott'm Forest,2,2,D,0,2,A,,,,,,,,,,,,S_1996_1997,
+38,38,E0,04/09/96,Sunderland,Newcastle,1,2,A,1,0,H,,,,,,,,,,,,S_1996_1997,
+39,39,E0,04/09/96,Wimbledon,Tottenham,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+40,40,E0,07/09/96,Aston Villa,Arsenal,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+41,41,E0,07/09/96,Leeds,Man United,0,4,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+42,42,E0,07/09/96,Liverpool,Southampton,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+43,43,E0,07/09/96,Middlesbrough,Coventry,4,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+44,44,E0,07/09/96,Nott'm Forest,Leicester,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+45,45,E0,07/09/96,Sheffield Weds,Chelsea,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+46,46,E0,07/09/96,Tottenham,Newcastle,1,2,A,1,1,D,,,,,,,,,,,,S_1996_1997,
+47,47,E0,07/09/96,Wimbledon,Everton,4,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+48,48,E0,08/09/96,Sunderland,West Ham,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+49,49,E0,09/09/96,Blackburn,Derby,1,2,A,1,1,D,,,,,,,,,,,,S_1996_1997,
+50,50,E0,14/09/96,Coventry,Leeds,2,1,H,0,1,A,,,,,,,,,,,,S_1996_1997,
+51,51,E0,14/09/96,Derby,Sunderland,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+52,52,E0,14/09/96,Everton,Middlesbrough,1,2,A,1,0,H,,,,,,,,,,,,S_1996_1997,
+53,53,E0,14/09/96,Man United,Nott'm Forest,4,1,H,2,1,H,,,,,,,,,,,,S_1996_1997,
+54,54,E0,14/09/96,Newcastle,Blackburn,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+55,55,E0,14/09/96,Southampton,Tottenham,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+56,56,E0,14/09/96,West Ham,Wimbledon,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+57,57,E0,15/09/96,Chelsea,Aston Villa,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+58,58,E0,15/09/96,Leicester,Liverpool,0,3,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+59,59,E0,16/09/96,Arsenal,Sheffield Weds,4,1,H,0,1,A,,,,,,,,,,,,S_1996_1997,
+60,60,E0,21/09/96,Aston Villa,Man United,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+61,61,E0,21/09/96,Blackburn,Everton,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+62,62,E0,21/09/96,Leeds,Newcastle,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+63,63,E0,21/09/96,Liverpool,Chelsea,5,1,H,3,0,H,,,,,,,,,,,,S_1996_1997,
+64,64,E0,21/09/96,Middlesbrough,Arsenal,0,2,A,0,2,A,,,,,,,,,,,,S_1996_1997,
+65,65,E0,21/09/96,Nott'm Forest,West Ham,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+66,66,E0,21/09/96,Sheffield Weds,Derby,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+67,67,E0,21/09/96,Sunderland,Coventry,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+68,68,E0,22/09/96,Tottenham,Leicester,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+69,69,E0,23/09/96,Wimbledon,Southampton,3,1,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+70,70,E0,28/09/96,Arsenal,Sunderland,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+71,71,E0,28/09/96,Chelsea,Nott'm Forest,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+72,72,E0,28/09/96,Coventry,Blackburn,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+73,73,E0,28/09/96,Derby,Wimbledon,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+74,74,E0,28/09/96,Everton,Sheffield Weds,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+75,75,E0,28/09/96,Leicester,Leeds,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+76,76,E0,28/09/96,Southampton,Middlesbrough,4,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+77,77,E0,29/09/96,Man United,Tottenham,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+78,78,E0,29/09/96,West Ham,Liverpool,1,2,A,1,1,D,,,,,,,,,,,,S_1996_1997,
+79,79,E0,30/09/96,Newcastle,Aston Villa,4,3,H,3,1,H,,,,,,,,,,,,S_1996_1997,
+80,80,E0,12/10/96,Blackburn,Arsenal,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+81,81,E0,12/10/96,Derby,Newcastle,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+82,82,E0,12/10/96,Everton,West Ham,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+83,83,E0,12/10/96,Leeds,Nott'm Forest,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+84,84,E0,12/10/96,Leicester,Chelsea,1,3,A,1,0,H,,,,,,,,,,,,S_1996_1997,
+85,85,E0,12/10/96,Man United,Liverpool,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+86,86,E0,12/10/96,Tottenham,Aston Villa,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+87,87,E0,12/10/96,Wimbledon,Sheffield Weds,4,2,H,2,1,H,,,,,,,,,,,,S_1996_1997,
+88,88,E0,13/10/96,Coventry,Southampton,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997,
+89,89,E0,14/10/96,Sunderland,Middlesbrough,2,2,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+90,90,E0,19/10/96,Arsenal,Coventry,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+91,91,E0,19/10/96,Aston Villa,Leeds,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+92,92,E0,19/10/96,Chelsea,Wimbledon,2,4,A,1,2,A,,,,,,,,,,,,S_1996_1997,
+93,93,E0,19/10/96,Middlesbrough,Tottenham,0,3,A,0,2,A,,,,,,,,,,,,S_1996_1997,
+94,94,E0,19/10/96,Nott'm Forest,Derby,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+95,95,E0,19/10/96,Sheffield Weds,Blackburn,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+96,96,E0,19/10/96,Southampton,Sunderland,3,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+97,97,E0,19/10/96,West Ham,Leicester,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+98,98,E0,20/10/96,Newcastle,Man United,5,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+99,99,E0,26/10/96,Arsenal,Leeds,3,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+100,100,E0,26/10/96,Chelsea,Tottenham,3,1,H,1,1,D,,,,,,,,,,,,S_1996_1997,
+101,101,E0,26/10/96,Coventry,Sheffield Weds,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+102,102,E0,26/10/96,Leicester,Newcastle,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+103,103,E0,26/10/96,Middlesbrough,Wimbledon,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+104,104,E0,26/10/96,Southampton,Man United,6,3,H,3,1,H,,,,,,,,,,,,S_1996_1997,
+105,105,E0,26/10/96,Sunderland,Aston Villa,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+106,106,E0,26/10/96,West Ham,Blackburn,2,1,H,0,1,A,,,,,,,,,,,,S_1996_1997,
+107,107,E0,27/10/96,Liverpool,Derby,2,1,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+108,108,E0,28/10/96,Nott'm Forest,Everton,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+109,109,E0,02/11/96,Aston Villa,Nott'm Forest,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+110,110,E0,02/11/96,Derby,Leicester,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+111,111,E0,02/11/96,Leeds,Sunderland,3,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+112,112,E0,02/11/96,Man United,Chelsea,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+113,113,E0,02/11/96,Sheffield Weds,Southampton,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+114,114,E0,02/11/96,Tottenham,West Ham,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+115,115,E0,02/11/96,Wimbledon,Arsenal,2,2,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+116,116,E0,03/11/96,Blackburn,Liverpool,3,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+117,117,E0,03/11/96,Newcastle,Middlesbrough,3,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+118,118,E0,04/11/96,Everton,Coventry,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+119,119,E0,16/11/96,Aston Villa,Leicester,1,3,A,1,2,A,,,,,,,,,,,,S_1996_1997,
+120,120,E0,16/11/96,Blackburn,Chelsea,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+121,121,E0,16/11/96,Everton,Southampton,7,1,H,5,1,H,,,,,,,,,,,,S_1996_1997,
+122,122,E0,16/11/96,Leeds,Liverpool,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+123,123,E0,16/11/96,Man United,Arsenal,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+124,124,E0,16/11/96,Newcastle,West Ham,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997,
+125,125,E0,16/11/96,Tottenham,Sunderland,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+126,126,E0,16/11/96,Wimbledon,Coventry,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+127,127,E0,17/11/96,Derby,Middlesbrough,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+128,128,E0,18/11/96,Sheffield Weds,Nott'm Forest,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+129,129,E0,20/11/96,Liverpool,Everton,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+130,130,E0,23/11/96,Chelsea,Newcastle,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+131,131,E0,23/11/96,Coventry,Aston Villa,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+132,132,E0,23/11/96,Leicester,Everton,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+133,133,E0,23/11/96,Liverpool,Wimbledon,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+134,134,E0,23/11/96,Middlesbrough,Man United,2,2,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+135,135,E0,23/11/96,Southampton,Leeds,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+136,136,E0,23/11/96,Sunderland,Sheffield Weds,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+137,137,E0,23/11/96,West Ham,Derby,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+138,138,E0,24/11/96,Arsenal,Tottenham,3,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+139,139,E0,25/11/96,Nott'm Forest,Blackburn,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+140,140,E0,30/11/96,Aston Villa,Middlesbrough,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+141,141,E0,30/11/96,Blackburn,Southampton,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+142,142,E0,30/11/96,Derby,Coventry,2,1,H,1,1,D,,,,,,,,,,,,S_1996_1997,
+143,143,E0,30/11/96,Everton,Sunderland,1,3,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+144,144,E0,30/11/96,Man United,Leicester,3,1,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+145,145,E0,30/11/96,Newcastle,Arsenal,1,2,A,1,1,D,,,,,,,,,,,,S_1996_1997,
+146,146,E0,30/11/96,Sheffield Weds,West Ham,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+147,147,E0,30/11/96,Wimbledon,Nott'm Forest,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+148,148,E0,01/12/96,Leeds,Chelsea,2,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+149,149,E0,02/12/96,Tottenham,Liverpool,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+150,150,E0,03/12/96,Middlesbrough,Leicester,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+151,151,E0,04/12/96,Arsenal,Southampton,3,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+152,152,E0,04/12/96,West Ham,Aston Villa,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+153,153,E0,07/12/96,Arsenal,Derby,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+154,154,E0,07/12/96,Chelsea,Everton,2,2,D,1,2,A,,,,,,,,,,,,S_1996_1997,
+155,155,E0,07/12/96,Coventry,Tottenham,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+156,156,E0,07/12/96,Leicester,Blackburn,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997,
+157,157,E0,07/12/96,Liverpool,Sheffield Weds,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+158,158,E0,07/12/96,Middlesbrough,Leeds,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+159,159,E0,07/12/96,Southampton,Aston Villa,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+160,160,E0,07/12/96,Sunderland,Wimbledon,1,3,A,0,2,A,,,,,,,,,,,,S_1996_1997,
+161,161,E0,08/12/96,West Ham,Man United,2,2,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+162,162,E0,09/12/96,Nott'm Forest,Newcastle,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+163,163,E0,14/12/96,Leeds,Tottenham,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+164,164,E0,14/12/96,Liverpool,Middlesbrough,5,1,H,3,0,H,,,,,,,,,,,,S_1996_1997,
+165,165,E0,14/12/96,Wimbledon,Blackburn,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+166,166,E0,15/12/96,Sunderland,Chelsea,3,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+167,167,E0,16/12/96,Derby,Everton,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+168,168,E0,17/12/96,Coventry,Newcastle,2,1,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+169,169,E0,17/12/96,Liverpool,Nott'm Forest,4,2,H,2,1,H,,,,,,,,,,,,S_1996_1997,
+170,170,E0,18/12/96,Sheffield Weds,Man United,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+171,171,E0,21/12/96,Chelsea,West Ham,3,1,H,3,1,H,,,,,,,,,,,,S_1996_1997,
+172,172,E0,21/12/96,Everton,Leeds,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+173,173,E0,21/12/96,Leicester,Coventry,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+174,174,E0,21/12/96,Man United,Sunderland,5,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+175,175,E0,21/12/96,Nott'm Forest,Arsenal,2,1,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+176,176,E0,21/12/96,Southampton,Derby,3,1,H,2,1,H,,,,,,,,,,,,S_1996_1997,
+177,177,E0,21/12/96,Tottenham,Sheffield Weds,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+178,178,E0,22/12/96,Aston Villa,Wimbledon,5,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+179,179,E0,23/12/96,Newcastle,Liverpool,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+180,180,E0,26/12/96,Aston Villa,Chelsea,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+181,181,E0,26/12/96,Blackburn,Newcastle,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+182,182,E0,26/12/96,Leeds,Coventry,1,3,A,1,3,A,,,,,,,,,,,,S_1996_1997,
+183,183,E0,26/12/96,Liverpool,Leicester,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+184,184,E0,26/12/96,Middlesbrough,Everton,4,2,H,2,2,D,,,,,,,,,,,,S_1996_1997,
+185,185,E0,26/12/96,Nott'm Forest,Man United,0,4,A,0,2,A,,,,,,,,,,,,S_1996_1997,
+186,186,E0,26/12/96,Sheffield Weds,Arsenal,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+187,187,E0,26/12/96,Sunderland,Derby,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+188,188,E0,26/12/96,Tottenham,Southampton,3,1,H,2,1,H,,,,,,,,,,,,S_1996_1997,
+189,189,E0,28/12/96,Arsenal,Aston Villa,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+190,190,E0,28/12/96,Chelsea,Sheffield Weds,2,2,D,2,1,H,,,,,,,,,,,,S_1996_1997,
+191,191,E0,28/12/96,Coventry,Middlesbrough,3,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+192,192,E0,28/12/96,Derby,Blackburn,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+193,193,E0,28/12/96,Everton,Wimbledon,1,3,A,1,0,H,,,,,,,,,,,,S_1996_1997,
+194,194,E0,28/12/96,Leicester,Nott'm Forest,2,2,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+195,195,E0,28/12/96,Man United,Leeds,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+196,196,E0,28/12/96,Newcastle,Tottenham,7,1,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+197,197,E0,28/12/96,West Ham,Sunderland,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+198,198,E0,29/12/96,Southampton,Liverpool,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+199,199,E0,01/01/97,Arsenal,Middlesbrough,2,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+200,200,E0,01/01/97,Chelsea,Liverpool,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+201,201,E0,01/01/97,Coventry,Sunderland,2,2,D,2,2,D,,,,,,,,,,,,S_1996_1997,
+202,202,E0,01/01/97,Everton,Blackburn,0,2,A,0,2,A,,,,,,,,,,,,S_1996_1997,
+203,203,E0,01/01/97,Man United,Aston Villa,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+204,204,E0,01/01/97,Newcastle,Leeds,3,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+205,205,E0,01/01/97,West Ham,Nott'm Forest,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+206,206,E0,11/01/97,Aston Villa,Newcastle,2,2,D,1,2,A,,,,,,,,,,,,S_1996_1997,
+207,207,E0,11/01/97,Blackburn,Coventry,4,0,H,3,0,H,,,,,,,,,,,,S_1996_1997,
+208,208,E0,11/01/97,Leeds,Leicester,3,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+209,209,E0,11/01/97,Liverpool,West Ham,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+210,210,E0,11/01/97,Middlesbrough,Southampton,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+211,211,E0,11/01/97,Nott'm Forest,Chelsea,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+212,212,E0,11/01/97,Sheffield Weds,Everton,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+213,213,E0,11/01/97,Sunderland,Arsenal,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+214,214,E0,11/01/97,Wimbledon,Derby,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+215,215,E0,12/01/97,Tottenham,Man United,1,2,A,1,1,D,,,,,,,,,,,,S_1996_1997,
+216,216,E0,18/01/97,Chelsea,Derby,3,1,H,2,1,H,,,,,,,,,,,,S_1996_1997,
+217,217,E0,18/01/97,Coventry,Man United,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+218,218,E0,18/01/97,Leicester,Wimbledon,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+219,219,E0,18/01/97,Liverpool,Aston Villa,3,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+220,220,E0,18/01/97,Middlesbrough,Sheffield Weds,4,2,H,2,1,H,,,,,,,,,,,,S_1996_1997,
+221,221,E0,18/01/97,Southampton,Newcastle,2,2,D,0,1,A,,,,,,,,,,,,S_1996_1997,
+222,222,E0,18/01/97,Sunderland,Blackburn,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+223,223,E0,19/01/97,Arsenal,Everton,3,1,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+224,224,E0,19/01/97,Nott'm Forest,Tottenham,2,1,H,0,1,A,,,,,,,,,,,,S_1996_1997,
+225,225,E0,20/01/97,West Ham,Leeds,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+226,226,E0,29/01/97,Aston Villa,Sheffield Weds,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+227,227,E0,29/01/97,Leeds,Derby,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+228,228,E0,29/01/97,Leicester,Sunderland,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+229,229,E0,29/01/97,Man United,Wimbledon,2,1,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+230,230,E0,29/01/97,Newcastle,Everton,4,1,H,0,1,A,,,,,,,,,,,,S_1996_1997,
+231,231,E0,29/01/97,Nott'm Forest,Coventry,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+232,232,E0,29/01/97,Tottenham,Blackburn,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+233,233,E0,29/01/97,West Ham,Arsenal,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+234,234,E0,01/02/97,Aston Villa,Sunderland,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+235,235,E0,01/02/97,Blackburn,West Ham,2,1,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+236,236,E0,01/02/97,Derby,Liverpool,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+237,237,E0,01/02/97,Everton,Nott'm Forest,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+238,238,E0,01/02/97,Leeds,Arsenal,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+239,239,E0,01/02/97,Man United,Southampton,2,1,H,1,1,D,,,,,,,,,,,,S_1996_1997,
+240,240,E0,01/02/97,Sheffield Weds,Coventry,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+241,241,E0,01/02/97,Tottenham,Chelsea,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+242,242,E0,01/02/97,Wimbledon,Middlesbrough,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+243,243,E0,02/02/97,Newcastle,Leicester,4,3,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+244,244,E0,15/02/97,Derby,West Ham,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+245,245,E0,15/02/97,Tottenham,Arsenal,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+246,246,E0,19/02/97,Arsenal,Man United,1,2,A,0,2,A,,,,,,,,,,,,S_1996_1997,
+247,247,E0,19/02/97,Aston Villa,Coventry,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+248,248,E0,19/02/97,Derby,Sheffield Weds,2,2,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+249,249,E0,19/02/97,Liverpool,Leeds,4,0,H,3,0,H,,,,,,,,,,,,S_1996_1997,
+250,250,E0,22/02/97,Chelsea,Man United,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+251,251,E0,22/02/97,Coventry,Everton,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+252,252,E0,22/02/97,Leicester,Derby,4,2,H,3,1,H,,,,,,,,,,,,S_1996_1997,
+253,253,E0,22/02/97,Liverpool,Blackburn,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+254,254,E0,22/02/97,Middlesbrough,Newcastle,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+255,255,E0,22/02/97,Nott'm Forest,Aston Villa,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+256,256,E0,22/02/97,Southampton,Sheffield Weds,2,3,A,2,0,H,,,,,,,,,,,,S_1996_1997,
+257,257,E0,22/02/97,Sunderland,Leeds,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+258,258,E0,23/02/97,Arsenal,Wimbledon,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+259,259,E0,24/02/97,West Ham,Tottenham,4,3,H,3,2,H,,,,,,,,,,,,S_1996_1997,
+260,260,E0,26/02/97,Southampton,Wimbledon,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+261,261,E0,01/03/97,Blackburn,Sunderland,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+262,262,E0,01/03/97,Derby,Chelsea,3,2,H,0,1,A,,,,,,,,,,,,S_1996_1997,
+263,263,E0,01/03/97,Everton,Arsenal,0,2,A,0,2,A,,,,,,,,,,,,S_1996_1997,
+264,264,E0,01/03/97,Leeds,West Ham,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+265,265,E0,01/03/97,Man United,Coventry,3,1,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+266,266,E0,01/03/97,Newcastle,Southampton,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+267,267,E0,01/03/97,Sheffield Weds,Middlesbrough,3,1,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+268,268,E0,01/03/97,Tottenham,Nott'm Forest,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+269,269,E0,01/03/97,Wimbledon,Leicester,1,3,A,0,3,A,,,,,,,,,,,,S_1996_1997,
+270,270,E0,02/03/97,Aston Villa,Liverpool,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+271,271,E0,03/03/97,Coventry,Wimbledon,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+272,272,E0,04/03/97,Sunderland,Tottenham,0,4,A,0,3,A,,,,,,,,,,,,S_1996_1997,
+273,273,E0,05/03/97,Chelsea,Blackburn,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+274,274,E0,05/03/97,Leicester,Aston Villa,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+275,275,E0,05/03/97,Middlesbrough,Derby,6,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+276,276,E0,05/03/97,Nott'm Forest,Sheffield Weds,0,3,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+277,277,E0,05/03/97,Southampton,Everton,2,2,D,0,2,A,,,,,,,,,,,,S_1996_1997,
+278,278,E0,08/03/97,Arsenal,Nott'm Forest,2,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+279,279,E0,08/03/97,Coventry,Leicester,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+280,280,E0,08/03/97,Leeds,Everton,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+281,281,E0,08/03/97,Sunderland,Man United,2,1,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+282,282,E0,10/03/97,Liverpool,Newcastle,4,3,H,3,0,H,,,,,,,,,,,,S_1996_1997,
+283,283,E0,11/03/97,Blackburn,Nott'm Forest,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997,
+284,284,E0,12/03/97,Leeds,Southampton,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+285,285,E0,12/03/97,Sheffield Weds,Sunderland,2,1,H,1,1,D,,,,,,,,,,,,S_1996_1997,
+286,286,E0,12/03/97,West Ham,Chelsea,3,2,H,0,1,A,,,,,,,,,,,,S_1996_1997,
+287,287,E0,15/03/97,Aston Villa,West Ham,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+288,288,E0,15/03/97,Blackburn,Wimbledon,3,1,H,2,1,H,,,,,,,,,,,,S_1996_1997,
+289,289,E0,15/03/97,Everton,Derby,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+290,290,E0,15/03/97,Leicester,Middlesbrough,1,3,A,0,3,A,,,,,,,,,,,,S_1996_1997,
+291,291,E0,15/03/97,Man United,Sheffield Weds,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+292,292,E0,15/03/97,Newcastle,Coventry,4,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+293,293,E0,15/03/97,Nott'm Forest,Liverpool,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+294,294,E0,15/03/97,Southampton,Arsenal,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+295,295,E0,15/03/97,Tottenham,Leeds,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+296,296,E0,16/03/97,Chelsea,Sunderland,6,2,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+297,297,E0,18/03/97,Wimbledon,West Ham,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+298,298,E0,19/03/97,Chelsea,Southampton,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+299,299,E0,19/03/97,Leicester,Tottenham,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+300,300,E0,19/03/97,Middlesbrough,Blackburn,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+301,301,E0,22/03/97,Blackburn,Aston Villa,0,2,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+302,302,E0,22/03/97,Coventry,West Ham,1,3,A,1,2,A,,,,,,,,,,,,S_1996_1997,
+303,303,E0,22/03/97,Derby,Tottenham,4,2,H,2,1,H,,,,,,,,,,,,S_1996_1997,
+304,304,E0,22/03/97,Everton,Man United,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+305,305,E0,22/03/97,Middlesbrough,Chelsea,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+306,306,E0,22/03/97,Sheffield Weds,Leeds,2,2,D,1,2,A,,,,,,,,,,,,S_1996_1997,
+307,307,E0,22/03/97,Southampton,Leicester,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+308,308,E0,22/03/97,Sunderland,Nott'm Forest,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+309,309,E0,23/03/97,Wimbledon,Newcastle,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+310,310,E0,24/03/97,Arsenal,Liverpool,1,2,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+311,311,E0,24/03/97,Middlesbrough,Nott'm Forest,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997,
+312,312,E0,05/04/97,Aston Villa,Everton,3,1,H,1,1,D,,,,,,,,,,,,S_1996_1997,
+313,313,E0,05/04/97,Chelsea,Arsenal,0,3,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+314,314,E0,05/04/97,Man United,Derby,2,3,A,0,2,A,,,,,,,,,,,,S_1996_1997,
+315,315,E0,05/04/97,Newcastle,Sunderland,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997,
+316,316,E0,05/04/97,Nott'm Forest,Southampton,1,3,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+317,317,E0,05/04/97,Tottenham,Wimbledon,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+318,318,E0,06/04/97,Liverpool,Coventry,1,2,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+319,319,E0,07/04/97,Leeds,Blackburn,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+320,320,E0,09/04/97,Coventry,Chelsea,3,1,H,0,1,A,,,,,,,,,,,,S_1996_1997,
+321,321,E0,09/04/97,Derby,Southampton,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+322,322,E0,09/04/97,Everton,Leicester,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+323,323,E0,09/04/97,Sheffield Weds,Tottenham,2,1,H,1,1,D,,,,,,,,,,,,S_1996_1997,
+324,324,E0,09/04/97,West Ham,Middlesbrough,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+325,325,E0,09/04/97,Wimbledon,Aston Villa,0,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+326,326,E0,12/04/97,Arsenal,Leicester,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+327,327,E0,12/04/97,Blackburn,Man United,2,3,A,1,2,A,,,,,,,,,,,,S_1996_1997,
+328,328,E0,12/04/97,Derby,Aston Villa,2,1,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+329,329,E0,12/04/97,Everton,Tottenham,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+330,330,E0,12/04/97,Southampton,West Ham,2,0,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+331,331,E0,13/04/97,Sheffield Weds,Newcastle,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997,
+332,332,E0,13/04/97,Sunderland,Liverpool,1,2,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+333,333,E0,16/04/97,Everton,Liverpool,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997,
+334,334,E0,16/04/97,Newcastle,Chelsea,3,1,H,3,0,H,,,,,,,,,,,,S_1996_1997,
+335,335,E0,16/04/97,Wimbledon,Leeds,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+336,336,E0,19/04/97,Arsenal,Blackburn,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+337,337,E0,19/04/97,Aston Villa,Tottenham,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+338,338,E0,19/04/97,Chelsea,Leicester,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+339,339,E0,19/04/97,Liverpool,Man United,1,3,A,1,2,A,,,,,,,,,,,,S_1996_1997,
+340,340,E0,19/04/97,Middlesbrough,Sunderland,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+341,341,E0,19/04/97,Newcastle,Derby,3,1,H,1,1,D,,,,,,,,,,,,S_1996_1997,
+342,342,E0,19/04/97,Nott'm Forest,Leeds,1,1,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+343,343,E0,19/04/97,Sheffield Weds,Wimbledon,3,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+344,344,E0,19/04/97,Southampton,Coventry,2,2,D,1,0,H,,,,,,,,,,,,S_1996_1997,
+345,345,E0,19/04/97,West Ham,Everton,2,2,D,2,0,H,,,,,,,,,,,,S_1996_1997,
+346,346,E0,21/04/97,Coventry,Arsenal,1,1,D,1,1,D,,,,,,,,,,,,S_1996_1997,
+347,347,E0,22/04/97,Blackburn,Sheffield Weds,4,1,H,3,0,H,,,,,,,,,,,,S_1996_1997,
+348,348,E0,22/04/97,Leeds,Aston Villa,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+349,349,E0,22/04/97,Sunderland,Southampton,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+350,350,E0,22/04/97,Wimbledon,Chelsea,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+351,351,E0,23/04/97,Derby,Nott'm Forest,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+352,352,E0,23/04/97,Leicester,West Ham,0,1,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+353,353,E0,24/04/97,Tottenham,Middlesbrough,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+354,354,E0,03/05/97,Arsenal,Newcastle,0,1,A,0,1,A,,,,,,,,,,,,S_1996_1997,
+355,355,E0,03/05/97,Chelsea,Leeds,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+356,356,E0,03/05/97,Coventry,Derby,1,2,A,0,0,D,,,,,,,,,,,,S_1996_1997,
+357,357,E0,03/05/97,Leicester,Man United,2,2,D,2,1,H,,,,,,,,,,,,S_1996_1997,
+358,358,E0,03/05/97,Liverpool,Tottenham,2,1,H,2,1,H,,,,,,,,,,,,S_1996_1997,
+359,359,E0,03/05/97,Middlesbrough,Aston Villa,3,2,H,2,0,H,,,,,,,,,,,,S_1996_1997,
+360,360,E0,03/05/97,Nott'm Forest,Wimbledon,1,1,D,0,1,A,,,,,,,,,,,,S_1996_1997,
+361,361,E0,03/05/97,Southampton,Blackburn,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+362,362,E0,03/05/97,Sunderland,Everton,3,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+363,363,E0,03/05/97,West Ham,Sheffield Weds,5,1,H,3,0,H,,,,,,,,,,,,S_1996_1997,
+364,364,E0,05/05/97,Man United,Middlesbrough,3,3,D,2,3,A,,,,,,,,,,,,S_1996_1997,
+365,365,E0,06/05/97,West Ham,Newcastle,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+366,366,E0,06/05/97,Wimbledon,Liverpool,2,1,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+367,367,E0,07/05/97,Leicester,Sheffield Weds,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,
+368,368,E0,08/05/97,Blackburn,Middlesbrough,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+369,369,E0,08/05/97,Man United,Newcastle,0,0,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+370,370,E0,11/05/97,Aston Villa,Southampton,1,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+371,371,E0,11/05/97,Blackburn,Leicester,2,4,A,1,1,D,,,,,,,,,,,,S_1996_1997,
+372,372,E0,11/05/97,Derby,Arsenal,1,3,A,1,0,H,,,,,,,,,,,,S_1996_1997,
+373,373,E0,11/05/97,Everton,Chelsea,1,2,A,0,2,A,,,,,,,,,,,,S_1996_1997,
+374,374,E0,11/05/97,Leeds,Middlesbrough,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+375,375,E0,11/05/97,Man United,West Ham,2,0,H,1,0,H,,,,,,,,,,,,S_1996_1997,
+376,376,E0,11/05/97,Newcastle,Nott'm Forest,5,0,H,4,0,H,,,,,,,,,,,,S_1996_1997,
+377,377,E0,11/05/97,Sheffield Weds,Liverpool,1,1,D,0,0,D,,,,,,,,,,,,S_1996_1997,
+378,378,E0,11/05/97,Tottenham,Coventry,1,2,A,1,2,A,,,,,,,,,,,,S_1996_1997,
+379,379,E0,11/05/97,Wimbledon,Sunderland,1,0,H,0,0,D,,,,,,,,,,,,S_1996_1997,

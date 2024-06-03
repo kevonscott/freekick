@@ -15,6 +15,17 @@ from ...utils.freekick_config import load_config
 from ..ai import SEASON, League, get_team_code
 
 D_LOCATIONS = ["CSV", "DATABASE"]  # TODO: Use Enum instead
+COLUMNS = [
+    "Date",
+    "Time",
+    "HomeTeam",
+    "AwayTeam",
+    "FTHG",
+    "FTAG",
+    "FTR",
+    "season",
+    "Attendance",
+]
 
 
 def load_data(
@@ -99,7 +110,7 @@ def update_current_season_data(
             raise ValueError(f"Unsupported league: {league}")
 
     season_data = pd.read_csv(url)
-    season_data['season'] = SEASON
+    season_data["season"] = SEASON
     if persist:
         if d_location == "CSV":
             print("Saving/Updating file: ", p)
@@ -126,11 +137,15 @@ def read_stitch_raw_data(league: League, persist: bool = False) -> None:
     parent_dir = Path(__file__).parent
 
     print(str(parent_dir / dir_path) + "/season*.csv")
+    # Read all csv files in parallel
     df = dd.read_csv(
         str(parent_dir / dir_path) + "/season*.csv",
-        dtype={"FTAG": "float64", "FTHG": "float64"},
+        dtype={"FTAG": "float64", "FTHG": "float64", "Time": "object"},
+        usecols=COLUMNS,
+        skip_blank_lines=True,
     ).compute()
-
+    df["Date"] = pd.to_datetime(df["Date"], format="mixed")
+    df = df.reset_index(drop=True)
     if persist:
         file_path = parent_dir / "data" / "processed" / f"{league.value}.csv"
         print(f"Persisting data: {file_path}")
@@ -157,8 +172,8 @@ def clean_format_data(X: pd.DataFrame, league: League):
     ]
     X = X.rename(
         columns={
-            "HomeTeam": "home",
-            "AwayTeam": "away",
+            "HomeTeam": "home_team",
+            "AwayTeam": "away_team",
             "FTHG": "home_goal",
             "FTAG": "away_goal",
             "Date": "date",
@@ -168,7 +183,8 @@ def clean_format_data(X: pd.DataFrame, league: League):
     )
     X["date"] = pd.to_datetime(X["date"])
     X = X.dropna(
-        subset=["home", "away", "home_goal", "away_goal", "date"], how="all"
+        subset=["home_team", "away_team", "home_goal", "away_goal", "date"],
+        how="all",
     )
     X["time"] = pd.to_datetime(
         X["time"].fillna(method="bfill").fillna(method="ffill")
@@ -177,8 +193,8 @@ def clean_format_data(X: pd.DataFrame, league: League):
     y = np.sign(X["home_goal"] - X["away_goal"])
 
     team_code = partial(get_team_code, league.value, code_type="int")
-    X["home"] = X["home"].apply(team_code)
-    X["away"] = X["away"].apply(team_code)
+    X["home_team"] = X["home_team"].apply(team_code)
+    X["away_team"] = X["away_team"].apply(team_code)
     # No longer need these columns. This info will not be present at pred
     # TODO: Fix time and date. dropping date and time for now as I cannot seem
     # TODO: to get them working with sklearn and dask at the moment

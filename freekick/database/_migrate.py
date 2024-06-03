@@ -5,12 +5,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
 from .model import Base, Game, Team
+from freekick import DATA_DIR
 
 # TODO: Season in not included in this migration since I am carrying over the
 # processed file form model/ai/data/processed/epl. We should read the raw data
 # and regenerate db!!!
 
-DB_PATH = Path(__file__).parent.parent.parent / "data" / "freekick.db"
+DB_PATH = DATA_DIR / "freekick.db"
 ENGINE = create_engine(f"sqlite:///{str(DB_PATH)}")
 
 
