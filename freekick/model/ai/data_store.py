@@ -1,6 +1,5 @@
 from datetime import datetime
 from functools import partial
-from pathlib import Path
 from pprint import pprint
 
 import dask.dataframe as dd
@@ -11,8 +10,10 @@ import requests
 from bs4 import BeautifulSoup
 from dateutil.parser import parse
 
+from freekick import DATA_DIR
+
 from ...utils.freekick_config import load_config
-from ..ai import SEASON, League, get_team_code
+from ..ai import SEASON, League, fix_team_name, get_team_code
 
 D_LOCATIONS = ["CSV", "DATABASE"]  # TODO: Use Enum instead
 COLUMNS = [
@@ -62,11 +63,8 @@ def load_data(
         )
 
     if d_location == "CSV":
-        league_csv = f"{league.value}.csv"
-        file_location = pkg_resources.resource_filename(
-            __name__, f"data/processed/{league_csv}"
-        )
-        data = pd.read_csv(file_location, parse_dates=["Time"])
+        file_location = DATA_DIR / "processed" / f"{league.value}.csv"
+        data = pd.read_csv(str(file_location), parse_dates=["Time"])
         data["Date"] = data["Date"].apply(clean_date)
     elif d_location == "DATABASE":  # TODO: TO BE COMPLETED LATER
         db_name = cfg.get("DATABASE_NAME")
@@ -99,9 +97,10 @@ def update_current_season_data(
         If an unsupported league is passed
     """
     file_name = f"season_{SEASON.removeprefix('S_').replace('_', '-')}.csv"
-    p = pkg_resources.resource_filename(
-        __name__, f"data/raw/{league.value}/{file_name}"
-    )
+    # p = pkg_resources.resource_filename(
+    #     __name__, f"data/raw/{league.value}/{file_name}"
+    # )
+    p = str(DATA_DIR / "raw" / league.value / file_name)
 
     match league:
         case League.EPL:
@@ -132,22 +131,24 @@ def read_stitch_raw_data(league: League, persist: bool = False) -> None:
         If specified, new data file will be saved, by default False
     """
 
-    # concat the files together
-    dir_path = Path("data") / "raw" / league.value
-    parent_dir = Path(__file__).parent
+    # concat the csv files together
+    dir_path = DATA_DIR / "raw" / league.value
+    # parent_dir = Path(__file__).parent
 
-    print(str(parent_dir / dir_path) + "/season*.csv")
+    print(str(dir_path) + "/season*.csv")
     # Read all csv files in parallel
     df = dd.read_csv(
-        str(parent_dir / dir_path) + "/season*.csv",
+        str(dir_path) + "/season*.csv",
         dtype={"FTAG": "float64", "FTHG": "float64", "Time": "object"},
         usecols=COLUMNS,
         skip_blank_lines=True,
     ).compute()
     df["Date"] = pd.to_datetime(df["Date"], format="mixed")
+    df["HomeTeam"] = df["HomeTeam"].apply(fix_team_name)
+    df["AwayTeam"] = df["AwayTeam"].apply(fix_team_name)
     df = df.reset_index(drop=True)
     if persist:
-        file_path = parent_dir / "data" / "processed" / f"{league.value}.csv"
+        file_path = DATA_DIR / "processed" / f"{league.value}.csv"
         print(f"Persisting data: {file_path}")
         df.to_csv(file_path)
     print(f"df.shape:\n{df.shape}")

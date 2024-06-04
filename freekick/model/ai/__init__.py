@@ -6,6 +6,7 @@ from enum import Enum
 from functools import lru_cache, partial
 from typing import Any, Union
 
+import pandas as pd
 import pkg_resources
 
 from freekick.utils.freekick_logging import _logger
@@ -59,7 +60,7 @@ class League(Enum):
     """Container for the supported leagues"""
 
     EPL = "epl"
-    BUNDESLIGA = "bundesliga"
+    # BUNDESLIGA = "bundesliga"
 
 
 def _load_model(model_name: str):
@@ -130,6 +131,45 @@ def get_team_code(
         raise ValueError(f"Invalid code_type ({code_type})")
 
 
+def fix_team_name(name: str) -> str:
+
+    match name:
+        case "Tottenham":
+            return "Tottenham Hotspur"
+        case "Leeds":
+            return "Leeds United"
+        case "Brighton and Hove Albion":
+            return "Brighton"
+        case "Hull":
+            return "Hull City"
+        case "QPR":
+            return "Queens Park Rangers"
+        case "Man United" | "MUN":
+            return "Manchester United"
+        case "Nott'm Forest":
+            return "Nottingham Forest"
+        case "West Ham":
+            return "West Ham United"
+        case "Wolverhampton Wanderers" | "Wolverhampton":
+            return "Wolves"
+        case "West Bromwich Albion":
+            return "West Brom"
+        case "STO" | "Stoke":
+            return "Stoke City"
+        case " City":
+            return "Norwich"
+        case "Newcastle United":
+            return "Newcastle"
+        case "Leicester":
+            return "Leicester City"
+        case "Man City":
+            return "Manchester City"
+        case "Sheffield Weds":
+            return "Sheffield Wednesday"
+        case _:
+            return name
+
+
 ####### Team names and short codes #########################
 # reference for the names: https://www.sporcle.com/games/easterbunny/football-club--by-abbreviations-/results
 # TODO: Move soccer_teams and soccer_teams_int to data cleaning step (clean_format_data). Once we clean data, we should
@@ -182,7 +222,6 @@ soccer_teams = {
         "Nott'm Forest": "FOR",
         "Oldham": "OLD",
         "Portsmouth": "POR",
-        "QPR": "QPR",
         "Queens Park Rangers": "QPR",
         "Reading": "REA",
         "Southampton": "SOU",

@@ -15,8 +15,8 @@ class Game(Base):
     __tablename__ = "game"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    home_team: Mapped[int] = mapped_column(ForeignKey("team.id"))
-    away_team: Mapped[int] = mapped_column(ForeignKey("team.id"))
+    home_team: Mapped[str] = mapped_column(ForeignKey("team.code"))
+    away_team: Mapped[str] = mapped_column(ForeignKey("team.code"))
     home_goal: Mapped[int]
     away_goal: Mapped[int]
     season: Mapped[Optional[str]]
@@ -38,8 +38,7 @@ class Game(Base):
 class Team(Base):
     __tablename__ = "team"
 
-    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    code: Mapped[str] = mapped_column()
+    code: Mapped[str] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(STRING_LENGTH))
     league: Mapped[str] = mapped_column(String(STRING_LENGTH))
 

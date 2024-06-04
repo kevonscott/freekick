@@ -12,7 +12,7 @@ post_parser = reqparse.RequestParser()
 post_parser.add_argument("league", type=str, required=True, help="league code")
 
 
-class MatchDay(Resource):
+class MatchDayApi(Resource):
     @marshal_with(resource_fields)
     def post(self):
         args = post_parser.parse_args(strict=True)

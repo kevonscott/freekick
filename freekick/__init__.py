@@ -22,3 +22,5 @@ if not _PLATFORM_CHECK:
             f" Python version is {min_supported_platform}"
         )
     _PLATFORM_CHECK = True
+
+# TODO: Replace all print statements with log statements

@@ -1,18 +1,18 @@
-from pathlib import Path
+from functools import partial
 
 import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
-from .model import Base, Game, Team
 from freekick import DATA_DIR
+from freekick.database.repository import SQLAlchemyRepository
+from freekick.database.util import DBUtils
 
-# TODO: Season in not included in this migration since I am carrying over the
-# processed file form model/ai/data/processed/epl. We should read the raw data
-# and regenerate db!!!
+from .model import Base, Game, Team
 
 DB_PATH = DATA_DIR / "freekick.db"
 ENGINE = create_engine(f"sqlite:///{str(DB_PATH)}")
+REPOSITORY = SQLAlchemyRepository(Session(ENGINE))
 
 
 def create_db(exists_ok: bool = True) -> None:
@@ -38,25 +38,11 @@ def _csv_to_sqlite_migration(engine=ENGINE):
     # Lock csv first?
     # create DB
     def load_teams_from_csv():
-        team_csv = (
-            Path(__file__).parent.parent
-            / "model"
-            / "ai"
-            / "data"
-            / "processed"
-            / "team.csv"
-        )
+        team_csv = DATA_DIR / "processed" / "team.csv"
         return pd.read_csv(team_csv)
 
     def load_games_from_csv():
-        game_csv = (
-            Path(__file__).parent.parent
-            / "model"
-            / "ai"
-            / "data"
-            / "processed"
-            / "epl.csv"
-        )
+        game_csv = DATA_DIR / "processed" / "epl.csv"
         return pd.read_csv(game_csv).dropna(how="all")
 
     def create_team_models(df: pd.DataFrame) -> list[Team]:
@@ -71,12 +57,19 @@ def _csv_to_sqlite_migration(engine=ENGINE):
         return teams
 
     def create_game_models(df: pd.DataFrame) -> list[Game]:
+        team_code = partial(
+            DBUtils.get_team_code, repository=REPOSITORY, league="epl"
+        )
         df = df.dropna(subset=["AwayTeam", "HomeTeam"])
         games = []
         df["Date"] = pd.to_datetime(df["Date"])
         df["FTHG"] = df["FTHG"].fillna(0).astype("int64")
         df["FTAG"] = df["FTAG"].fillna(0).astype("int64")
         df["Attendance"] = df["Attendance"].fillna(0).astype("int64")
+        # Convert team names to team codes
+
+        df["AwayTeam"] = df["AwayTeam"].apply(lambda x: team_code(team_name=x))
+        df["HomeTeam"] = df["HomeTeam"].apply(lambda x: team_code(team_name=x))
         for _, series in df.iterrows():
             game = Game(
                 home_team=series["AwayTeam"],
@@ -87,7 +80,7 @@ def _csv_to_sqlite_migration(engine=ENGINE):
                 date=series["Date"],
                 time=series["Time"],
                 attendance=series["Attendance"],
-                # season=""  # TODO Backfill season later
+                season=series["season"],
             )
             games.append(game)
         return games
@@ -102,5 +95,4 @@ def _csv_to_sqlite_migration(engine=ENGINE):
         games_df = load_games_from_csv()
         games_models = create_game_models(games_df)
         session.add_all(games_models)
-
         session.commit()

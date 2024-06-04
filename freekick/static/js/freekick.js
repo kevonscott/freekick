@@ -90,27 +90,21 @@ function displayTable(jsonObj){
 function dynamicTeamDropdown(league){
     document.getElementById("homeTeam").options.length = 0;
     document.getElementById("awayTeam").options.length = 0;
+    var seasonTeams;
+    fetch(
+        '/api/season', {
+            method: "POST",
+            body: JSON.stringify({"league": league}),
+            headers: { "Content-type": "application/json; charset=UTF-8"  }
+        }
+    ).then(res => res.json())
+        .then( data => {
+            seasonTeams = data;
+            let teams = seasonTeams.teams;
 
-    switch(league){
-        case "epl":
-            teamNames =  ["", "Everton", "Tottenham Hotspur", "Liverpool", "Arsenal", "Aston Villa", "Chelsea", "Crystal Palace", "Leicester City", "Leeds United", "Manchester City", "Manchester United", "Newcastle United", "Norwich", "Southampton", "Watford", "West Brom", "West Ham"];
-            teamCodes = ["null", "EVE", "TOT", "LIV", "ARS", "AVL", "CHE", "CRY", "LEI", "LEE", "MCI", "MUN", "NEW", "NOR", "SOU", "WAT", "WBA", "WHU"];
-
-            for (let i = 0; i < teamNames.length; i++){
-                document.getElementById("homeTeam").options[i] = new Option(teamNames[i], teamCodes[i])
-                document.getElementById("awayTeam").options[i] = new Option(teamNames[i], teamCodes[i])
+            for (const teamCode in teams){
+                document.getElementById("homeTeam").options.add(new Option(teams[teamCode], teamCode))
+                document.getElementById("awayTeam").options.add(new Option(teams[teamCode], teamCode))
             }
-            break;
-        case "bundesliga":
-            alert("NOTIMPLEMENTEDRROR");
-            break;
-            teamNames =  ["", "Bayern Munich", "Arminia Bielefeld", "Borussia Dortmund"];
-            teamCodes = ["null", "BAY", "BIE", "DOR"];
-
-            for (let i = 0; i < teamNames.length; i++){
-                document.getElementById("homeTeam").options[i] = new Option(teamNames[i], teamCodes[i])
-                document.getElementById("awayTeam").options[i] = new Option(teamNames[i], teamCodes[i])
-            }
-            break;
-    }
+        });
 }

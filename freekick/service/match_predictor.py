@@ -7,7 +7,7 @@ from freekick.model import League, _logger, get_team_code, serial_models
 from .util import MatchDTO
 
 
-class PredictorNotFoundError(Exception):
+class LearnerNotFoundError(Exception):
     """Custom exception for unknown learner/model"""
 
     pass
@@ -36,31 +36,31 @@ def predict_match(
     -------
         json results of prediction.
     """
-    league: League = League[league.upper()]
-    _logger.debug(
+    _league: League = League[league.upper()]
+    _logger.info(
         "\n Request Type: Single Match Prediction\n"
-        " League\tHome Team\tAway Team\n"
-        f" {league}\t{home_team}\t{away_team}"
+        " League\tHomeTeam\tAwayTeam\n"
+        f" {league}\t{home_team}\t\t{away_team}"
     )
-    # h_team = "home_" + home_team
-    # a_team = "away_" + away_team
     # Load serialized model
+    # TODO: remove 'home' and 'away' since we are not longer using int team code
+    # pass str team codes directly. We will need to retrain the model first.
     home = get_team_code(
-        league=league.value,
+        league=_league.value,
         team_name=home_team,
         code_type="int",
         team_code=home_team,
     )
     away = get_team_code(
-        league=league.value,
+        league=_league.value,
         team_name=away_team,
         code_type="int",
         team_code=away_team,
     )
     try:
-        soccer_model = serial_models()[league]
+        soccer_model = serial_models()[_league.value]
     except KeyError:
-        raise PredictorNotFoundError(f"Serial model not found for {league}.")
+        raise LearnerNotFoundError(f"Serial model not found for {_league}.")
 
     # any date will do for index but using the date of the request.
     # selected date will not impact prediction

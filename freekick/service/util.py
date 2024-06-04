@@ -3,3 +3,9 @@ class MatchDTO:  # Move to services
         self.home_team = home_team
         self.away_team = away_team
         self.predicted_winner = predicted_winner
+
+
+class SeasonDTO:
+    def __init__(self, season: str, teams: dict[str, str]) -> None:
+        self.season = season
+        self.teams = teams  # Mapping of team code to team names.

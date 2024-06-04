@@ -23,7 +23,7 @@ post_parser.add_argument(
 )
 
 
-class Match(Resource):
+class MatchApi(Resource):
     @marshal_with(resource_fields)
     def post(self):
         args = post_parser.parse_args(strict=True)

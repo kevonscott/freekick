@@ -2,9 +2,10 @@ from flask import Flask, render_template
 from flask_cors import CORS
 from flask_restful import Api
 
-from freekick.api.healthcheck import HealthCheck
-from freekick.api.match import Match
-from freekick.api.match_day import MatchDay
+from freekick.api.healthcheck import HealthCheckApi
+from freekick.api.match import MatchApi
+from freekick.api.match_day import MatchDayApi
+from freekick.api.season import SeasonApi
 
 
 def create_app():
@@ -14,9 +15,10 @@ def create_app():
         __name__,
     )
     api = Api(app=app, prefix="/api")
-    api.add_resource(Match, "/match")
-    api.add_resource(MatchDay, "/matchday")
-    api.add_resource(HealthCheck, "/healthy")
+    api.add_resource(MatchApi, "/match")
+    api.add_resource(MatchDayApi, "/matchday")
+    api.add_resource(HealthCheckApi, "/healthy")
+    api.add_resource(SeasonApi, "/season")
 
     CORS(app)
 

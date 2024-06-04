@@ -24,24 +24,23 @@ class DBUtilsTestcase(unittest.TestCase):
         # Insert some sample data
         self.repository.session.execute(statement=text(STMT))
 
-    def test_get_team_code_str(self):
+    def test_get_team_code(self):
         team2_code = DBUtils.get_team_code(
             repository=self.repository,
             league="League1",
             team_name="Team2",
-            code_type="str",
         )
         self.assertEqual(team2_code, "T2")
 
-    def test_get_team_code_int(self):
-        team2_code_int = DBUtils.get_team_code(
-            repository=self.repository,
-            league="League1",
-            team_name="Team2",
-            code_type="int",
-            team_code="T2",
-        )
-        self.assertEqual(team2_code_int, 2)
+    # def test_get_team_code_int(self):
+    #     team2_code_int = DBUtils.get_team_code(
+    #         repository=self.repository,
+    #         league="League1",
+    #         team_name="Team2",
+    #         code_type="int",
+    #         team_code="T2",
+    #     )
+    #     self.assertEqual(team2_code_int, 2)
 
 
 class SQLAlchemyRepositoryTestcase(unittest.TestCase):
@@ -54,9 +53,8 @@ class SQLAlchemyRepositoryTestcase(unittest.TestCase):
         self.repository.session.execute(statement=text(STMT))
 
     def test_get(self):
-        res = self.repository.get(Team, 1)  # First instance should be T1
+        res = self.repository.get(Team, "T1")  # First instance should be T1
 
-        self.assertEqual(res.id, 1)
         self.assertEqual(res.code, "T1")
         self.assertEqual(res.name, "Team1")
 
@@ -67,12 +65,11 @@ class SQLAlchemyRepositoryTestcase(unittest.TestCase):
 
         stmt = text(
             """
-        SELECT id, code, name, league FROM team WHERE code='T9999'
+        SELECT code, name, league FROM team WHERE code='T9999'
         """
         )
-        id, code, name, league = self.repository.session.execute(stmt).one()
+        code, name, league = self.repository.session.execute(stmt).one()
 
-        self.assertEqual(id, t9999.id)
         self.assertEqual(code, t9999.code)
         self.assertEqual(name, t9999.name)
         self.assertEqual(league, t9999.league)
