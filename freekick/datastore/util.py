@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum, auto
 from functools import cache, partial
@@ -12,9 +13,8 @@ from dateutil.parser import parse
 from sqlalchemy import select
 
 from freekick import DATA_DIR, _logger
-from freekick.datastore.model import Game, Team
-from freekick.service.util import TeamName
 
+from .model import Game, Team
 from .repository import AbstractRepository
 
 
@@ -27,6 +27,12 @@ class League(Enum):
 
     EPL = "epl"
     # BUNDESLIGA = "bundesliga"
+
+
+@dataclass(frozen=True)
+class TeamName:
+    code: str
+    name: str
 
 
 # TODO: add 'season' to all bundesliga csv data.

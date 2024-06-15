@@ -3,18 +3,14 @@
 
 from dataclasses import dataclass
 
+from freekick.datastore.util import TeamName
+
 
 @dataclass
 class MatchDTO:
     home_team: str
     away_team: str
     predicted_winner: str
-
-
-@dataclass(frozen=True)
-class TeamName:
-    code: str
-    name: str
 
 
 class SeasonDTO:
