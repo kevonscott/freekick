@@ -4,6 +4,8 @@ from sqlalchemy import create_engine
 
 from freekick import DATA_DIR
 
+from .util import DATA_UTIL
+
 # TODO: Load DATABASE_URL from env (load_config.load_config) instead
 DB_URL = DATA_DIR / "freekick.db"
 

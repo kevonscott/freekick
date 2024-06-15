@@ -9,6 +9,9 @@ from .utils.freekick_logging import _logger
 ROOT_DIR = Path(__file__).parent.parent
 DATA_DIR = ROOT_DIR / "data"
 
+# TODO LEARNER_MODEL_LOCATION should be tmp_dir/azure blob, gcs, s3 etc..
+LEARNER_MODEL_LOCATION = DATA_DIR / "learner_model"
+
 # Ensure we are using the min_supported_platform
 # We also need to ensure this only executes once and not all imports.
 # TODO: Maybe use sitecustomize.py for checking instead?

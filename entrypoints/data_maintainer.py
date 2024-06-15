@@ -2,12 +2,11 @@
 
 import click
 
-from freekick.model import (
-    SEASON,
+from freekick.datastore.util import (
     DataScraper,
+    DataStore,
     League,
-    read_stitch_raw_data,
-    update_current_season_data,
+    get_league_data_container,
 )
 
 UPDATE_TYPES = ["team_rating", "player_rating", "match", "current_season"]
@@ -37,6 +36,7 @@ def cli():
     "-p", "--persist", is_flag=True, help="Save updated date to disk."
 )
 def update(data_type, league, persist):
+    league_container = get_league_data_container(league=league)
     if data_type == "player_rating":
         raise NotImplementedError
     elif data_type == "team_rating":
@@ -45,9 +45,13 @@ def update(data_type, league, persist):
     elif data_type == "match":
         # raise NotImplementedError
         # Read in new data and override the current file if persist == True
-        read_stitch_raw_data(league=League[league], persist=persist)
+        # read_stitch_raw_data(league=League[league], persist=persist)
+        league_container.read_stitch_raw_data(league=league, persist=persist)
     elif data_type == "current_season":
-        update_current_season_data(league=league, persist=persist)
+        # TODO: Also update for DB
+        league_container(datastore=DataStore.CSV, repository=None)
+        league_container.update_current_season(persist=persist)
+        # update_current_season_data(league=league, persist=persist)
 
 
 @click.command()

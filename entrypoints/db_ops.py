@@ -1,6 +1,6 @@
 import click
 
-from freekick.database._migrate import _csv_to_sqlite_migration, create_db
+from freekick.datastore._migrate import _csv_to_sqlite_migration, create_db
 
 
 @click.command()

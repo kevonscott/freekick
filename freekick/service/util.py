@@ -1,11 +1,23 @@
-class MatchDTO:  # Move to services
-    def __init__(self, home_team, away_team, predicted_winner) -> None:
-        self.home_team = home_team
-        self.away_team = away_team
-        self.predicted_winner = predicted_winner
+"""Data Transfer Objects (DTO) for sending across network.
+"""
+
+from dataclasses import dataclass
+
+
+@dataclass
+class MatchDTO:
+    home_team: str
+    away_team: str
+    predicted_winner: str
+
+
+@dataclass(frozen=True)
+class TeamName:
+    code: str
+    name: str
 
 
 class SeasonDTO:
-    def __init__(self, season: str, teams: dict[str, str]) -> None:
+    def __init__(self, season: str, teams: list[TeamName]) -> None:
         self.season = season
-        self.teams = teams  # Mapping of team code to team names.
+        self.teams = teams

@@ -6,17 +6,21 @@ from statistics import mean
 
 from sklearn.model_selection import cross_val_predict
 
-from freekick.model import League
-from freekick.model.ai.data_store import clean_format_data, load_data
+from freekick.datastore.util import DataStore, EPLData
 
 ACCURACY_THRESHOLD = 0.3  # We want to ensure an average accuracy above 50%
 
 
 class TestPredictionModels(unittest.TestCase):
     def setUp(self) -> None:
-        self.league = League.EPL  # TODO: should be testing for all leagues
-        self.data = load_data(league=self.league)
-        self.X, self.y = clean_format_data(self.data, league=self.league)
+        # self.league = League.EPL  # TODO: should be testing for all leagues
+        # self.data = load_data(league=self.league)
+        self.epl_data_container = EPLData(datastore=DataStore.CSV)
+        self.epl_data = self.epl_data_container.load()
+        # self.X, self.y = clean_format_data(self.data, league=self.league)
+        self.X, self.y = self.epl_data_container.clean_format_data(
+            self.epl_data
+        )
 
     # TODO: Complete cross-validation test
     def test_cross_validation(self):

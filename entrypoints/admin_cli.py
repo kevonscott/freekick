@@ -4,12 +4,13 @@ import click
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
-from freekick.model import (
+from freekick import _logger
+from freekick.datastore.util import (
+    DataStore,
     League,
-    SoccerLogisticModel,
-    clean_format_data,
-    load_data,
+    get_league_data_container,
 )
+from freekick.learners import SoccerLogisticModel
 
 
 # TODO: Move train_soccer_model to a classmethod withing the model and call
@@ -21,14 +22,18 @@ def train_soccer_model(
     source: str = "CSV",
     persist: bool = False,
 ):
-    print(f"Retraining {model_name}...")
-
-    X = load_data(d_location=source, league=model_name)
-    X, y = clean_format_data(X=X, league=model_name)
+    _logger.info(f"Retraining {model_name}...")
+    league_container = get_league_data_container(league=model_name.value)(
+        datastore=DataStore.DEFAULT
+    )
+    X = league_container.load()
+    X, y = league_container.clean_format_data(X)
+    # X = load_data(d_location=source, league=model_name)
+    # X, y = clean_format_data(X=X, league=model_name)
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=test_size  # Time series data so need to stratify
     )
-    soccer_model = SoccerLogisticModel(model_name, X_train, y_train)
+    soccer_model = SoccerLogisticModel(model_name.value, X_train, y_train)
     soccer_model.fit()  # train/fit the model
     # soccer_model.model.columns = list(X.columns)
 

@@ -1,20 +1,22 @@
 """Model for various logistic models."""
 
-import os
 import pickle
 
 import pandas as pd
 from dask_ml.linear_model import LogisticRegression as dask_LR
 from sklearn.linear_model import LogisticRegression as sklearn_LR
 
-from freekick import _logger
-
-from . import Backend
+from freekick import LEARNER_MODEL_LOCATION, _logger
+from freekick.datastore.util import Backend
 
 
 class SoccerLogisticModel:
     def __init__(
-        self, league, X, y, backend: Backend = Backend.PANDAS
+        self,
+        league: str,
+        X: pd.DataFrame,
+        y: pd.Series,
+        backend: Backend = Backend.PANDAS,
     ) -> None:
         self.league = league
         self.model = None
@@ -90,14 +92,7 @@ class SoccerLogisticModel:
             Name of the pickle file, by default 'soccer_model'
         """
         self.check_fit()
-        serial_path = os.path.join(
-            "freekick",
-            "model",
-            "ai",
-            "serialized_models",
-            self.league + ".pkl",
-        )
-        file_path = os.path.abspath(serial_path)
+        file_path = LEARNER_MODEL_LOCATION / f"{self.league}.pkl"
         with open(file_path, "wb") as mod_file:
             pickle.dump(self.model, mod_file)
-        print(f"Model serialized to {file_path}")
+        print(f"Model '{self.league}' serialized to {file_path}.")

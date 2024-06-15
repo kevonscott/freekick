@@ -18,8 +18,8 @@ function predictGame(){
         return;
     }
     var body = {
-        "home": homeTeam,
-        "away": awayTeam,
+        "home_team": homeTeam,
+        "away_team": awayTeam,
         "league": league,
         "attendance": attendance
     }
@@ -92,9 +92,8 @@ function dynamicTeamDropdown(league){
     document.getElementById("awayTeam").options.length = 0;
     var seasonTeams;
     fetch(
-        '/api/season', {
-            method: "POST",
-            body: JSON.stringify({"league": league}),
+        `/api/season/${league}`, {
+            method: "GET",
             headers: { "Content-type": "application/json; charset=UTF-8"  }
         }
     ).then(res => res.json())
@@ -102,9 +101,9 @@ function dynamicTeamDropdown(league){
             seasonTeams = data;
             let teams = seasonTeams.teams;
 
-            for (const teamCode in teams){
-                document.getElementById("homeTeam").options.add(new Option(teams[teamCode], teamCode))
-                document.getElementById("awayTeam").options.add(new Option(teams[teamCode], teamCode))
+            for (const team of teams){
+                document.getElementById("homeTeam").options.add(new Option(team["name"], team["code"]))
+                document.getElementById("awayTeam").options.add(new Option(team["name"], team["code"]))
             }
         });
 }

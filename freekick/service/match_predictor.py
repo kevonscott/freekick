@@ -1,10 +1,15 @@
-from typing import Any
-
 import pandas as pd
+from sqlalchemy.orm import Session
 
-from freekick.model import League, _logger, get_team_code, serial_models
+from freekick import _logger
+from freekick.datastore import DATA_UTIL, DEFAULT_ENGINE
+from freekick.datastore.repository import SQLAlchemyRepository
+from freekick.datastore.util import League
+from freekick.learners import serial_models
 
 from .util import MatchDTO
+
+REPOSITORY = SQLAlchemyRepository(Session(DEFAULT_ENGINE))
 
 
 class LearnerNotFoundError(Exception):
@@ -45,17 +50,11 @@ def predict_match(
     # Load serialized model
     # TODO: remove 'home' and 'away' since we are not longer using int team code
     # pass str team codes directly. We will need to retrain the model first.
-    home = get_team_code(
-        league=_league.value,
-        team_name=home_team,
-        code_type="int",
-        team_code=home_team,
+    home = DATA_UTIL.get_team_code(
+        league=_league.value, team_name=home_team, repository=REPOSITORY
     )
-    away = get_team_code(
-        league=_league.value,
-        team_name=away_team,
-        code_type="int",
-        team_code=away_team,
+    away = DATA_UTIL.get_team_code(
+        league=_league.value, team_name=away_team, repository=REPOSITORY
     )
     try:
         soccer_model = serial_models()[_league.value]

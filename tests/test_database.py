@@ -1,12 +1,12 @@
 import unittest
 
-from sqlalchemy import create_engine, select
+from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import text
 
-from freekick.database.model import Base, Team
-from freekick.database.repository import SQLAlchemyRepository
-from freekick.database.util import DBUtils
+from freekick.datastore.model import Base, Team
+from freekick.datastore.repository import SQLAlchemyRepository
+from freekick.datastore.util import DBUtils
 
 STMT = """
 INSERT INTO team (code, name, league)
@@ -31,16 +31,6 @@ class DBUtilsTestcase(unittest.TestCase):
             team_name="Team2",
         )
         self.assertEqual(team2_code, "T2")
-
-    # def test_get_team_code_int(self):
-    #     team2_code_int = DBUtils.get_team_code(
-    #         repository=self.repository,
-    #         league="League1",
-    #         team_name="Team2",
-    #         code_type="int",
-    #         team_code="T2",
-    #     )
-    #     self.assertEqual(team2_code_int, 2)
 
 
 class SQLAlchemyRepositoryTestcase(unittest.TestCase):

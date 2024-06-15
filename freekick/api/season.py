@@ -1,26 +1,22 @@
-from pprint import pprint
-
-from flask_restful import Resource, fields, marshal_with, reqparse
+from flask_restx import Namespace, Resource, fields
 
 from freekick.service import get_current_season_teams
 
-resource_fields = {
-    "season": fields.String,
-    "teams": fields.Raw,
-}
-
-post_parser = reqparse.RequestParser()
-post_parser.add_argument(
-    "league", type=str, required=True, help="League Code."
+season_ns = Namespace("season", description="Season operations")
+team_model = season_ns.model(
+    "Team", {"code": fields.String, "name": fields.String}
+)
+season_model = season_ns.model(
+    "Season",
+    {"season": fields.String, "teams": fields.List(fields.Nested(team_model))},
 )
 
 
+@season_ns.route("/<league>")
+@season_ns.param("league", "League Code")
 class SeasonApi(Resource):
-    @marshal_with(resource_fields)
-    def post(self):
+    @season_ns.marshal_with(season_model)
+    def get(self, league):
         """Query the current season list of teams for a league."""
-        args = post_parser.parse_args(strict=True)
-        league = args["league"]
         season_dto = get_current_season_teams(league=league)
-        pprint(season_dto)
         return season_dto, 200
