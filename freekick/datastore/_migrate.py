@@ -35,8 +35,6 @@ def create_db(exists_ok: bool = True) -> None:
 def _csv_to_sqlite_migration(engine=ENGINE):
     """Copy over data from csv, read csv and create models"""
 
-    # Lock csv first?
-    # create DB
     def load_teams_from_csv():
         team_csv = DATA_DIR / "processed" / "team.csv"
         return pd.read_csv(team_csv)
@@ -45,51 +43,14 @@ def _csv_to_sqlite_migration(engine=ENGINE):
         game_csv = DATA_DIR / "processed" / "epl.csv"
         return pd.read_csv(game_csv).dropna(how="all")
 
-    # def create_team_models(df: pd.DataFrame) -> list[Team]:
-    #     teams = []
-    #     for _, series in df.iterrows():
-    #         team = Team(
-    #             code=series["code"],
-    #             name=series["name"],
-    #             league=series["league"],
-    #         )
-    #         teams.append(team)
-    #     return teams
-
-    # def create_game_models(df: pd.DataFrame) -> list[Game]:
-    #     team_code = partial(
-    #         DBUtils.get_team_code, repository=REPOSITORY, league="epl"
-    #     )
-    #     df = df.dropna(subset=["AwayTeam", "HomeTeam"])
-    #     games = []
-    #     df["Date"] = pd.to_datetime(df["Date"])
-    #     df["FTHG"] = df["FTHG"].fillna(0).astype("int64")
-    #     df["FTAG"] = df["FTAG"].fillna(0).astype("int64")
-    #     df["Attendance"] = df["Attendance"].fillna(0).astype("int64")
-    #     # Convert team names to team codes
-
-    #     df["AwayTeam"] = df["AwayTeam"].apply(lambda x: team_code(team_name=x))
-    #     df["HomeTeam"] = df["HomeTeam"].apply(lambda x: team_code(team_name=x))
-    #     for _, series in df.iterrows():
-    #         game = Game(
-    #             home_team=series["AwayTeam"],
-    #             away_team=series["HomeTeam"],
-    #             home_goal=series["FTHG"],
-    #             away_goal=series["FTAG"],
-    #             league="epl",
-    #             date=series["Date"],
-    #             time=series["Time"],
-    #             attendance=series["Attendance"],
-    #             season=series["season"],
-    #         )
-    #         games.append(game)
-    #     return games
-
     with Session(engine) as session:
         # Populate teams
         teams_df = load_teams_from_csv()
         teams_models = DBUtils.create_team_model(df=teams_df)
         session.add_all(teams_models)
+        # Initial commit needed here so DBUtils.create_game_model can query
+        # team codes
+        session.commit()
 
         # Populate games
         games_df = load_games_from_csv()

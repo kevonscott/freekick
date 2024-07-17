@@ -17,10 +17,6 @@ class TestPredictionModels(unittest.TestCase):
         # self.data = load_data(league=self.league)
         self.epl_data_container = EPLData(datastore=DataStore.CSV)
         self.epl_data = self.epl_data_container.load()
-        # self.X, self.y = clean_format_data(self.data, league=self.league)
-        self.X, self.y = self.epl_data_container.clean_format_data(
-            self.epl_data
-        )
 
     # TODO: Complete cross-validation test
     def test_cross_validation(self):

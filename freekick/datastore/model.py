@@ -41,6 +41,7 @@ class Team(Base):
     code: Mapped[str] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(STRING_LENGTH))
     league: Mapped[str] = mapped_column(String(STRING_LENGTH))
+    team_id: Mapped[int] = mapped_column(unique=True)
 
     def __repr__(self) -> str:
         return (

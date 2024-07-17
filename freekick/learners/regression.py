@@ -6,8 +6,11 @@ import pandas as pd
 from dask_ml.linear_model import LogisticRegression as dask_LR
 from sklearn.linear_model import LogisticRegression as sklearn_LR
 
-from freekick import LEARNER_MODEL_LOCATION, _logger
+from freekick import ESTIMATOR_LOCATION, _logger
 from freekick.datastore.util import Backend
+
+# TODO: Fix or eliminate SoccerLogisticModel to inherit from .classification
+# BaseEstimator
 
 
 class SoccerLogisticModel:
@@ -34,7 +37,7 @@ class SoccerLogisticModel:
 
     def fit(self):
         model = self.logistic_regression(
-            penalty="l2", fit_intercept=False, multi_class="ovr", C=1
+            penalty="l2", fit_intercept=False, C=1
         )
         self.model = model.fit(self.X, self.y)
 
@@ -46,19 +49,21 @@ class SoccerLogisticModel:
             )
 
     def get_coeff(self):
+        # TODO: .coef_ does not exists for DecisionTreeClassifier
         # get the coefficients of three logistic models for each team.
-        self.check_fit()
+        # self.check_fit()
 
-        coeffs = pd.DataFrame(
-            self.model.coef_, index=self.model.classes_, columns=self.X.columns
-        ).T
-        coeffs = coeffs.rename(
-            columns={-1: "away_win", 0: "draw", 1: "home_win"}
-        )
+        # coeffs = pd.DataFrame(
+        #     self.model.coef_, index=self.model.classes_, columns=self.X.columns
+        # ).T
+        # coeffs = coeffs.rename(
+        #     columns={-1: "away_win", 0: "draw", 1: "home_win"}
+        # )
 
-        return coeffs
+        # return coeffs
+        return None
 
-    def predict_winner(self, pred_data):
+    def predict(self, pred_data):
         """Predict the match winner"""
         self.check_fit()
 
@@ -92,7 +97,7 @@ class SoccerLogisticModel:
             Name of the pickle file, by default 'soccer_model'
         """
         self.check_fit()
-        file_path = LEARNER_MODEL_LOCATION / f"{self.league}.pkl"
+        file_path = ESTIMATOR_LOCATION / f"{self.name}.pkl"
         with open(file_path, "wb") as mod_file:
             pickle.dump(self.model, mod_file)
         print(f"Model '{self.league}' serialized to {file_path}.")

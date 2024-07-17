@@ -9,8 +9,8 @@ from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import DBUtils
 
 STMT = """
-INSERT INTO team (code, name, league)
-VALUES ('T1', 'Team1', 'League1'), ('T2', 'Team2', 'League1')
+INSERT INTO team (code, name, league, team_id)
+VALUES ('T1', 'Team1', 'League1', '1285731944041560733'), ('T2', 'Team2', 'League1', '36806975173364231')
 """
 
 
@@ -49,7 +49,12 @@ class SQLAlchemyRepositoryTestcase(unittest.TestCase):
         self.assertEqual(res.name, "Team1")
 
     def test_add(self):
-        t9999 = Team(code="T9999", name="Team9999", league="League9999")
+        t9999 = Team(
+            code="T9999",
+            name="Team9999",
+            league="League9999",
+            team_id=hash("T9999"),
+        )
         self.repository.add(t9999)
         self.repository.commit()
 

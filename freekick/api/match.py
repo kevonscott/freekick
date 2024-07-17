@@ -34,8 +34,11 @@ class MatchApi(Resource):
     @match_ns.expect(post_parser)
     def post(self):
         args = post_parser.parse_args(strict=True)
+        # TODO: Also get date and time from front ends request and pass to
+        # predict_match
         match_dto = predict_match(
-            # TODO should we create a League enum here or have predict_match create the enum?
+            # TODO should inherit and use League enum here or have
+            # predict_match create the enum?
             league=args["league"],
             home_team=args["home_team"].replace(" ", "-"),
             away_team=args["away_team"].replace(" ", "-"),

@@ -90,6 +90,12 @@ class Season(Enum):
 SEASON = Season.CURRENT.value
 
 
+def season_to_int(s: str | Season):
+    if isinstance(s, Season):
+        s = s.value
+    return np.int64(s.removeprefix("S_").replace("_", ""))
+
+
 def fix_team_name(name: str) -> str:
 
     match name:
@@ -134,6 +140,18 @@ class DataUtils(ABC):
     def get_team_code(self, *args, **kwargs):
         pass
 
+    @abstractmethod
+    def get_team_id(self, *args, **kwargs):
+        pass
+
+    @abstractmethod
+    def add_teams(self, teams: list):
+        pass
+
+    @staticmethod
+    def new_team_id(team_code: str):
+        return abs(hash(team_code))
+
 
 class DBUtils(DataUtils):
     @staticmethod
@@ -142,8 +160,7 @@ class DBUtils(DataUtils):
         team_name: str,
         repository: AbstractRepository,
     ) -> str:
-        """Looks up a team's integer or string code name given its full name or
-        team_code.
+        """Looks up a team's code given its full name.
 
         Parameters
         ----------
@@ -175,6 +192,21 @@ class DBUtils(DataUtils):
             raise TeamNotFoundError(f"Team code not found for '{team_name}'.")
 
         return entity.code
+
+    @staticmethod
+    def get_team_id(team_code: str, repository: AbstractRepository) -> int:
+        """Looks up a team's ID given its team_code.
+
+        :param team_code: A teams unique code
+        :param repository: Database abstraction interface for db interaction
+        :raises TeamNotFoundError: Raised when team is not found.
+        :return: Three Integer representing the team.
+        """
+        statement = select(Team).where(Team.code == team_code)
+        entity = repository.session.scalars(statement).one_or_none()
+        if not entity:
+            raise TeamNotFoundError(f"Team ID not found for '{team_code}'.")
+        return entity.team_id
 
     @staticmethod
     def get_teams(
@@ -219,6 +251,7 @@ class DBUtils(DataUtils):
                 code=series["code"],
                 name=series["name"],
                 league=series["league"],
+                team_id=series["team_id"],
             )
             teams.append(team)
         return teams
@@ -258,6 +291,10 @@ class DBUtils(DataUtils):
             games.append(game)
         return games
 
+    @abstractmethod
+    def add_teams(self, teams: list):
+        pass
+
 
 class CSVUtils(DataUtils):
     @staticmethod
@@ -275,6 +312,21 @@ class CSVUtils(DataUtils):
             (teams_df["name"] == team_name) & (teams_df["league"] == league)
         ]["code"].iloc[0]
         return code
+
+    @staticmethod
+    def get_team_id(team_code: str) -> str:
+        """Looks up a team's id given its code.
+
+        :param team_code: I teams unique code
+        :return: Team ID
+        """
+        teams_df = CSVUtils.load_teams_csv()
+        team_id = teams_df[(teams_df["code"] == team_code)]["team_id"].iloc[0]
+        return team_id
+
+    @abstractmethod
+    def add_teams(self, teams: list):
+        pass
 
     @staticmethod
     @cache
@@ -434,7 +486,7 @@ class DataScraper:
                 )
                 df = df.stack()
                 new_df = pd.concat([exist_df, df], axis=0)
-                new_df.to_csv(team_ranking_csv)
+                new_df.to_csv(team_ranking_csv, index=False)
         else:
             _logger.info("Unstacking dataframe for better visibility...")
             _logger.info(df)
@@ -468,20 +520,13 @@ class BaseData(ABC):
         league:
             Code name of the league
         """
-        # -1: Away Team Win
-        #  0: Draw
-        # +1: Home Team Win
+        # A/-1: Away Team Win
+        # D/0: Draw
+        # H/1: Home Team Win
         X = X[COLUMNS.keys()]
-        X = X.rename(
-            columns={
-                "HomeTeam": "home_team",
-                "AwayTeam": "away_team",
-                "FTHG": "home_goal",
-                "FTAG": "away_goal",
-                "Date": "date",
-                "Time": "time",
-                "Attendance": "attendance",
-            }
+        X = X.rename(columns=COLUMNS)
+        X["result"] = np.where(
+            X["result"] == "A", -1, np.where(X["result"] == "H", 1, 0)
         )
         X["date"] = pd.to_datetime(X["date"])
         X = X.dropna(
@@ -496,20 +541,20 @@ class BaseData(ABC):
         )
         X["time"] = pd.to_datetime(X["time"].bfill().ffill())
         X["attendance"] = X["attendance"].fillna(0)
-        y = np.sign(X["home_goal"] - X["away_goal"])
 
         team_code = partial(
             DATA_UTIL.get_team_code, league.value, repository=cls.repository
         )
         X["home_team"] = X["home_team"].apply(team_code)
         X["away_team"] = X["away_team"].apply(team_code)
-        # No longer need these columns. This info will not be present at pred
-        # TODO: Fix time and date. dropping date and time for now as I cannot seem
-        # TODO: to get them working with sklearn and dask at the moment
-        X = X.drop(columns=["home_goal", "away_goal", "time", "date"])
+        X["home_team"] = X["home_team"].apply(DATA_UTIL.get_team_id)
+        X["away_team"] = X["away_team"].apply(DATA_UTIL.get_team_id)
+        X["season"] = X["season"].apply(
+            lambda x: np.int64(x.removeprefix("S_").replace("_", ""))
+        )
         X = X.reset_index(drop=True)
 
-        return X, y
+        return X
 
     def read_stitch_raw_data(
         self, league: League, persist: bool = False
@@ -542,7 +587,7 @@ class BaseData(ABC):
         if persist:
             file_path = DATA_DIR / "processed" / f"{league.value}.csv"
             print(f"Persisting data: {file_path}")
-            df.to_csv(file_path)
+            df.to_csv(file_path, index=False)
         print(f"df.shape:\n{df.shape}")
         # print(f"df.sample(frac=0.1):\n{df.sample(frac=0.1)}")
 
@@ -567,6 +612,7 @@ class EPLData(BaseData):
                 "Repository is required when using DataStore.DATABASE"
             )
 
+    @cache
     def load(self) -> pd.DataFrame:
         """Load EPL data from DataStore."""
 
@@ -579,7 +625,11 @@ class EPLData(BaseData):
                 file_location = (
                     self._processed_data_path / f"{self.league.value}.csv"
                 )
-                data = pd.read_csv(str(file_location), parse_dates=["Time"])
+                data = pd.read_csv(
+                    str(file_location),
+                    parse_dates=["Time"],
+                    date_format="mixed",
+                )
             case DataStore.DATABASE:
                 statement = select(Game).where(
                     Game.league == self.league.value
@@ -590,7 +640,7 @@ class EPLData(BaseData):
                     "Cannot extract data from {datastore} yet..."
                 )
         data["Date"] = data["Date"].apply(clean_date)
-        return data
+        return self.clean_format_data(data=data)
 
     def update_current_season(self, persist: bool = False) -> None:
         """Get the latest data for the season.

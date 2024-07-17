@@ -1,69 +1,69 @@
-,code,name,league
-0,ARS,Arsenal,epl
-1,AVL,Aston Villa,epl
-2,BAR,Barnsley,epl
-3,BLA,Blackburn,epl
-4,BLP,Blackpool,epl
-5,BIR,Birmingham,epl
-6,BOL,Bolton,epl
-7,BOU,Bournemouth,epl
-8,BRA,Bradford,epl
-9,BRE,Brentford,epl
-10,BHA,Brighton,epl
-11,BUR,Burnley,epl
-12,CAR,Cardiff,epl
-13,CHA,Charlton,epl
-14,CHE,Chelsea,epl
-15,COV,Coventry,epl
-16,CRY,Crystal Palace,epl
-17,DER,Derby,epl
-18,EVE,Everton,epl
-19,FUL,Fulham,epl
-20,HUD,Huddersfield,epl
-21,HUL,Hull City,epl
-22,IPS,Ipswich,epl
-23,LEE,Leeds United,epl
-24,LEI,Leicester City,epl
-25,LIV,Liverpool,epl
-26,MCI,Manchester City,epl
-27,MUN,Manchester United,epl
-28,MID,Middlesbrough,epl
-29,NEW,Newcastle,epl
-30,NOR,Norwich,epl
-31,FOR,Nottingham Forest,epl
-32,OLD,Oldham,epl
-33,POR,Portsmouth,epl
-34,QPR,Queens Park Rangers,epl
-35,REA,Reading,epl
-36,SOU,Southampton,epl
-37,SHW,Sheffield Wednesday,epl
-38,STO,Stoke City,epl
-39,SUN,Sunderland,epl
-40,SWA,Swansea,epl
-41,SWI,Swindon,epl
-42,TOT,Tottenham Hotspur,epl
-43,WAT,Watford,epl
-44,WBA,West Brom,epl
-45,WHU,West Ham United,epl
-46,WIG,Wigan,epl
-47,WIM,Wimbledon,epl
-48,WOL,Wolves,epl
-49,BIE,Arminia Bielefeld,bundesliga
-50,B04,Bayer Leverkusen,bundesliga
-51,DOR,Borussia Dortmund,bundesliga
-52,BMG,Borussia Monchengladbach,bundesliga
-53,SGE,Eintracht Frankfurt,bundesliga
-54,BAY,Bayern Munich,bundesliga
-55,SCF,Freiburg,bundesliga
-56,MAI,Mainz,bundesliga
-57,STU,VfB Stuttgart,bundesliga
-58,BOC,VfL Bochum,bundesliga
-59,WOB,VfL Wolfsburg,bundesliga
-60,CGN,Cologne,bundesliga
-61,AUG,FC Augsburg,bundesliga
-62,GRF,Greuther Fuerth,bundesliga
-63,BCS,Hertha Berlin,bundesliga
-64,TSG,Hoffenheim,bundesliga
-65,RBL,RB Leipzig,bundesliga
-66,UNB,Union Berlin,bundesliga
-48,SHU,Sheffield United,epl
+code,name,league,team_id
+ARS,Arsenal,epl,596527250946991205
+AVL,Aston Villa,epl,3688335087272668077
+BAR,Barnsley,epl,6119294400825423037
+BLA,Blackburn,epl,2998152398207811986
+BLP,Blackpool,epl,1249996714507049427
+BIR,Birmingham,epl,2063786109345291363
+BOL,Bolton,epl,1810105018120434919
+BOU,Bournemouth,epl,7200030820763781741
+BRA,Bradford,epl,6995146788942231236
+BRE,Brentford,epl,4988756445514637529
+BHA,Brighton,epl,3206381580997914742
+BUR,Burnley,epl,1092108735455696007
+CAR,Cardiff,epl,3711039890950605649
+CHA,Charlton,epl,3958560598161218305
+CHE,Chelsea,epl,4359490043602887070
+COV,Coventry,epl,2755825848987907932
+CRY,Crystal Palace,epl,7036765857267909852
+DER,Derby,epl,6034951591495001790
+EVE,Everton,epl,2863505769999014185
+FUL,Fulham,epl,3273228878290405617
+HUD,Huddersfield,epl,4083388083443081066
+HUL,Hull City,epl,4953910233378393585
+IPS,Ipswich,epl,116671163193879958
+LEE,Leeds United,epl,1271307508417333565
+LEI,Leicester City,epl,2545527600113183690
+LIV,Liverpool,epl,954595822388372406
+MCI,Manchester City,epl,5635884124656797468
+MUN,Manchester United,epl,2077942607848583336
+MID,Middlesbrough,epl,6678441158206767773
+NEW,Newcastle,epl,6969063678203607188
+NOR,Norwich,epl,7771878214803484671
+FOR,Nottingham Forest,epl,1410117033161474103
+OLD,Oldham,epl,1371191603834358318
+POR,Portsmouth,epl,2361547415514997029
+QPR,Queens Park Rangers,epl,1478551334757448698
+REA,Reading,epl,5689061345800143997
+SOU,Southampton,epl,7252980998236991418
+SHW,Sheffield Wednesday,epl,149586692633647518
+STO,Stoke City,epl,5548036782312862235
+SUN,Sunderland,epl,7337399713119042933
+SWA,Swansea,epl,1621521150533487720
+SWI,Swindon,epl,8297697156817701491
+TOT,Tottenham Hotspur,epl,8711879115686911218
+WAT,Watford,epl,9132668287013610014
+WBA,West Brom,epl,7075043351184071737
+WHU,West Ham United,epl,7306292461936365039
+WIG,Wigan,epl,4928064465022950208
+WIM,Wimbledon,epl,5439540951442352525
+WOL,Wolves,epl,8919739036975792627
+BIE,Arminia Bielefeld,bundesliga,3751075316012514657
+B04,Bayer Leverkusen,bundesliga,8073334465420330793
+DOR,Borussia Dortmund,bundesliga,274484823099621471
+BMG,Borussia Monchengladbach,bundesliga,7138210300121727406
+SGE,Eintracht Frankfurt,bundesliga,400600491672237522
+BAY,Bayern Munich,bundesliga,1854225237762135913
+SCF,Freiburg,bundesliga,6662194925166995608
+MAI,Mainz,bundesliga,3999518089091601103
+STU,VfB Stuttgart,bundesliga,8851800602267237119
+BOC,VfL Bochum,bundesliga,5425390135691703659
+WOB,VfL Wolfsburg,bundesliga,4718108681804229464
+CGN,Cologne,bundesliga,4837682077447376063
+AUG,FC Augsburg,bundesliga,5098610630019899779
+GRF,Greuther Fuerth,bundesliga,6856836002446491513
+BCS,Hertha Berlin,bundesliga,8863124535810358098
+TSG,Hoffenheim,bundesliga,3101272451604252878
+RBL,RB Leipzig,bundesliga,6276607144599817159
+UNB,Union Berlin,bundesliga,2803656851251669512
+SHU,Sheffield United,epl,1569170811132348662
