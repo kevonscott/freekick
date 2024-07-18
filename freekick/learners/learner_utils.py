@@ -1,4 +1,4 @@
-"""Model for all Machine Learning Operations."""
+"""Utility module for all Machine Learning Operations."""
 
 import pickle
 from datetime import datetime
@@ -18,8 +18,11 @@ from freekick.datastore.util import (
     get_league_data_container,
     season_to_int,
 )
+from freekick.utils import Timer
 
 from .classification import BaseClassifier
+
+WPC_PYTH_CACHE: dict[str, pd.DataFrame] = {}
 
 
 def _load_model(model_name: str):
@@ -57,9 +60,13 @@ def load_models() -> dict[str, Any]:
 serial_models = partial(load_models)
 
 
-# ===============
-def compute_wpc_pyth(data):
+def compute_wpc_pyth(data: pd.DataFrame, league: League):
     """Compute win percentage and pythagorean expectation for home and away teams."""
+    # TODO: this is expensive and should be cached!! Maybe compute at launch
+    # TODO: or store in DB, but for now, lets cache in WPC_PYTH_CACHE variable
+    global WPC_PYTH_CACHE
+    if league.value in WPC_PYTH_CACHE:
+        return WPC_PYTH_CACHE[league.value]
     # We first identify whether the result was a win for the home team (H),
     # the away team (A) or a draw (D). We also create the counting variable.
     data["game_count"] = 1  # represent # games played in each season
@@ -154,8 +161,16 @@ def compute_wpc_pyth(data):
     )
 
     data = data.drop(
-        columns=["game_count", "home_win_value", "away_win_value"]
+        columns=[
+            "game_count",
+            "home_win_value",
+            "away_win_value",
+            "home_goal",
+            "away_goal",
+        ]
     )
+    # Add to cache. TODO: Cache should expire daily
+    WPC_PYTH_CACHE[league.value] = data
     return data
 
 
@@ -171,9 +186,9 @@ def train_soccer_model(
         datastore=datastore
     )
     X = league_container.load()
-    X = compute_wpc_pyth(X)
+    X = compute_wpc_pyth(data=X, league=league)
     y = X["result"].astype("category")
-    X = X.drop(columns=["result", "home_goal", "away_goal"])
+    X = X.drop(columns=["result"])
     X = X.astype(
         {
             "date": "int64",
@@ -185,19 +200,19 @@ def train_soccer_model(
     )
     X = X[TRAINING_COLS]
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=test_size  # Time series data so need to stratify
+        X,
+        y,
+        test_size=test_size,  # TODO: Time series data should be stratified
     )
     soccer_model = learner(league=league)
     soccer_model.fit(X=X_train, y=y_train)  # train/fit the model
     y_pred = soccer_model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
-    # coeff = soccer_model.get_coeff()
+
     print("=========================Model Statistics=========================")
     print(f"Model Type: {soccer_model.model}")
     print(f"Model Name: {soccer_model.name}")
     print(f"Accuracy: {accuracy}")
-    # print("Coeff:")
-    # pprint(coeff)
 
     if persist:
         soccer_model.persist_model()
@@ -213,12 +228,15 @@ def add_wpc_pyth(
     league_container = get_league_data_container(league=league.value)(
         datastore=datastore
     )
-    X = league_container.load()
-    # Filter current season data
-    X = X[X["season"] == season_to_int(season)]
-    X = compute_wpc_pyth(
-        X
-    )  # TODO: this is expensive and should be cached!! Also compute at launch
+    cached_wpc_pyth = league.value in WPC_PYTH_CACHE
+    if cached_wpc_pyth:
+        X = WPC_PYTH_CACHE[league.value]
+        X = X[X["season"] == season_to_int(season)]
+    else:
+        X = league_container.load()
+        # Filter current season data
+        X = X[X["season"] == season_to_int(season)]
+        X = compute_wpc_pyth(data=X, league=league)
     away_team_wpc_pyth = (
         X[["away_team", "away_win_percentage", "away_pyth_expectation"]]
         .drop_duplicates()
@@ -235,22 +253,14 @@ def add_wpc_pyth(
     return data[TRAINING_COLS]  # reorder cols to match training
 
 
-if __name__ == "__main__":
-    d = {
-        "date": [pd.Timestamp(datetime.now().date())],
-        "time": [pd.to_datetime("1:00")],
-        "home_team": [2077942607848583336],
-        "away_team": [9132668287013610014],
-        "attendance": [0.0],
-        "season": [season_to_int(Season.CURRENT)],
-    }
-    data = pd.DataFrame(d).astype(
-        {
-            "date": "int64",
-            "time": "int64",
-            "home_team": "category",
-            "away_team": "category",
-            "season": "category",
-        }
-    )
-    add_wpc_pyth(data=data, league=League.EPL)
+def compute_cache_all_league_wpc_pyth(
+    datastore: DataStore = DataStore.DEFAULT,
+):
+    for league in League:
+        with Timer():
+            league_container = get_league_data_container(league=league.value)(
+                datastore=datastore
+            )
+            X = league_container.load()
+            X[X["season"] == season_to_int(Season.CURRENT)]
+            compute_wpc_pyth(data=X, league=league)

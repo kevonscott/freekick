@@ -92,8 +92,8 @@ def predict_match(
         data=single_match_df, league=League[league.upper()], season=season
     )
     pred = soccer_model.predict(single_match_df)
-    pred = int(pred)
     _logger.debug(f"Prediction: {pred}")
+    pred = int(pred)
     result = "Draw" if pred == 0 else (home_team if pred > 0 else away_team)
     match_dto = [
         MatchDTO(

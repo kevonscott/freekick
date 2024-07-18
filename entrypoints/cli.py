@@ -1,8 +1,10 @@
+import time
 from pprint import pprint
 
 import click
 
 from freekick.app import create_app  # noqa E402
+from freekick.learners.learner_utils import compute_cache_all_league_wpc_pyth
 from freekick.service import predict_match  # noqa E402
 from freekick.utils import __version__, _logger  # noqa E402
 
@@ -89,6 +91,11 @@ def serve(ctx, port):
 
     app = create_app()
     app.logger.setLevel(ctx.obj["LOGGING_LEVEL"])
+
+    # Computing Win Percentage and Pythagorean Expectation is very expensive so
+    # lets ensure the are initially compted at launch.
+    _logger.info("Computing Win Percentage and Pythagorean Expectation...")
+    compute_cache_all_league_wpc_pyth()
     if env.upper() == "DEV":
         app.run(debug=True, port=port)
     else:

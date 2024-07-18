@@ -569,7 +569,6 @@ class BaseData(ABC):
             If specified, new data file will be saved, by default False
         """
 
-        # concat the csv files together
         dir_path = DATA_DIR / "raw" / league.value
 
         print(str(dir_path) + "/season*.csv")
