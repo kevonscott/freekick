@@ -22,7 +22,7 @@ class LearnerNotFoundError(Exception):
 
 
 def predict_match(
-    league: str,
+    league: str | League,
     home_team: str,
     away_team: str,
     attendance: int | float,
@@ -46,26 +46,27 @@ def predict_match(
     :return: Results of prediction.
     :rtype: list[MatchDTO]
     """
-    _league: League = League[league.upper()]
+    if isinstance(league, str):
+        league = League[league.upper()]
     _logger.info(
         "\n Request Type: Single Match Prediction\n"
-        " League\tHomeTeam\tAwayTeam\n"
-        f" {league}\t{home_team}\t\t{away_team}"
+        " League\t\tHomeTeam\tAwayTeam\tTime\tDate\n"
+        f" {league}\t{home_team}\t\t{away_team}\t\t{time}\t{match_date}\n"
     )
     # pass str team codes directly. We will need to retrain the model first.
     # home = DATA_UTIL.get_team_code(
-    #     league=_league.value, team_name=home_team, repository=REPOSITORY
+    #     league=league.value, team_name=home_team, repository=REPOSITORY
     # )
     # away = DATA_UTIL.get_team_code(
-    #     league=_league.value, team_name=away_team, repository=REPOSITORY
+    #     league=league.value, team_name=away_team, repository=REPOSITORY
     # )
     home_id = DATA_UTIL.get_team_id(team_code=home_team)
     away_id = DATA_UTIL.get_team_id(team_code=away_team)
     try:
         # Load serialized model
-        soccer_model = serial_models()[_league.value]
+        soccer_model = serial_models()[league.value]
     except KeyError:
-        raise LearnerNotFoundError(f"Serial model not found for {_league}.")
+        raise LearnerNotFoundError(f"Serial model not found for {league}.")
 
     data = {
         "date": (
@@ -73,7 +74,7 @@ def predict_match(
             if match_date
             else [pd.Timestamp(datetime.now().date())]
         ),
-        "time": [pd.to_datetime(time)] if time else [pd.to_datetime("1:00")],
+        "time": [pd.to_datetime(time)] if time else [pd.to_datetime("13:30")],
         "home_team": [home_id],
         "away_team": [away_id],
         "season": [season_to_int(season)],
@@ -89,7 +90,7 @@ def predict_match(
         }
     )
     single_match_df = add_wpc_pyth(
-        data=single_match_df, league=League[league.upper()], season=season
+        data=single_match_df, league=league, season=season
     )
     pred = soccer_model.predict(single_match_df)
     _logger.debug(f"Prediction: {pred}")

@@ -8,6 +8,8 @@ function predictGame(){
     var awayTeam = document.getElementById("awayTeam").value
     var league = document.getElementById("league").value
     var attendance = document.getElementById("attendance").value
+    var matchTime = document.getElementById("matchTime").value
+    var matchDate = document.getElementById("matchDate").value
     console.log(homeTeam, awayTeam)
     if (homeTeam == "null"){
         alert("Home team required!")
@@ -21,7 +23,9 @@ function predictGame(){
         "home_team": homeTeam,
         "away_team": awayTeam,
         "league": league,
-        "attendance": attendance
+        "attendance": attendance,
+        "match_time": matchTime,
+        "match_date": matchDate
     }
     fetch('/api/match', {
         method: "POST",

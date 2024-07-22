@@ -37,11 +37,19 @@
 
                 <p>
                     <label for="attendance">Estimated Attendance</label>
-                    <input type="number" name="attendance" id="attendance", value="0">
+                    <input type="number" name="attendance" id="attendance", step="0.1" value="0.0">
+                </p>
+                <p>
+                    <label for="matchTime">Time</label>
+                    <input type="time", id="matchTime", value="13:30">
+                </p>
+                <p>
+                    <label for="matchDate">Date</label>
+                    <input type="date", id="matchDate", value="">
                 </p>
                 <div>
                     <button type="button" id="predictgame">Predict Game</button>
-                    <button type="button" id="predictmatchday">Predict Next Matchday</button>
+                    <!-- <button type="button" id="predictmatchday">Predict Next Matchday</button> -->
                 </div>
                 <p id="result"></p>
             </div>

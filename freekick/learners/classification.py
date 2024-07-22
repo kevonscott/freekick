@@ -45,19 +45,24 @@ class BaseClassifier(ABC):
                 "model.fit(X, y)."
             )
 
-    def get_coeff(self):
+    def get_coeff(self) -> pd.DataFrame | None:
         """Get the coefficients of the classification labels."""
-        # TODO: .coef_ does not exists for DecisionTreeClassifier
-        # self.check_fit()
-
-        # coeffs = pd.DataFrame(
-        #     self.model.coef_, index=self.model.classes_, columns=self.features
-        # ).T
-        # coeffs = coeffs.rename(
-        #     columns={-1: "away_win", 0: "draw", 1: "home_win"}
-        # )
-        # return coeffs
-        return None
+        self.check_fit()
+        try:
+            coeffs = pd.DataFrame(
+                self.model.coef_,
+                index=self.model.classes_,
+                columns=self.features,
+            ).T
+        except AttributeError:
+            # Not all estimator supports the concept of coefficients. In this
+            # case, log and return None.
+            _logger.info(f"Model {self.__class__} does not support '.coef_'")
+            return None
+        coeffs = coeffs.rename(
+            columns={-1: "away_win", 0: "draw", 1: "home_win"}
+        )
+        return coeffs
 
     def predict(self, pred_data) -> pd.DataFrame:
         """Predict the match winner."""
@@ -96,11 +101,13 @@ class BaseClassifier(ABC):
         model_path = ESTIMATOR_LOCATION / f"{self.name}.pkl"
         with open(model_path, "wb") as mod_file:
             pickle.dump(self.model, mod_file)
-        print(f"Model serialized to {model_path}")
+        _logger.info(f"Model serialized to {model_path}")
 
 
 class FreekickDecisionTreeClassifier(BaseClassifier):
-    def __init__(self, league, backend: Backend = Backend.PANDAS) -> None:
+    def __init__(
+        self, league: League, backend: Backend = Backend.PANDAS
+    ) -> None:
         self.backend = backend
         super().__init__(league)
 

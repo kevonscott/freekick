@@ -1,6 +1,3 @@
-import time
-from pprint import pprint
-
 import click
 
 from freekick.app import create_app  # noqa E402
@@ -66,7 +63,7 @@ def match(ctx, league, home, away, attendance):
     prediction = predict_match(
         league=league, home_team=home, away_team=away, attendance=attendance
     )
-    pprint(prediction[0])
+    _logger.info(prediction[0])
 
 
 @cli.command()

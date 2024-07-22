@@ -52,9 +52,9 @@ from freekick.learners.learner_utils import train_soccer_model
 def cli(retrain, list, test_size, persist, source, log_level="INFO"):
     _logger.setLevel(log_level)
     if list:
-        print("Model Options:")
+        _logger.info("Model Options:")
         for model in League:
-            print(f"\t- {model.name}")
+            _logger.info(f"\t- {model.name}")
     elif retrain:
         train_soccer_model(
             learner=DEFAULT_ESTIMATOR,

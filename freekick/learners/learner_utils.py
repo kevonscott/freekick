@@ -63,7 +63,7 @@ serial_models = partial(load_models)
 def compute_wpc_pyth(data: pd.DataFrame, league: League):
     """Compute win percentage and pythagorean expectation for home and away teams."""
     # TODO: this is expensive and should be cached!! Maybe compute at launch
-    # TODO: or store in DB, but for now, lets cache in WPC_PYTH_CACHE variable
+    # or store in DB, but for now, lets cache in WPC_PYTH_CACHE variable
     global WPC_PYTH_CACHE
     if league.value in WPC_PYTH_CACHE:
         return WPC_PYTH_CACHE[league.value]
@@ -202,17 +202,18 @@ def train_soccer_model(
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,
-        test_size=test_size,  # TODO: Time series data should be stratified
+        test_size=test_size,
+        stratify=y,
     )
     soccer_model = learner(league=league)
     soccer_model.fit(X=X_train, y=y_train)  # train/fit the model
     y_pred = soccer_model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
 
-    print("=========================Model Statistics=========================")
-    print(f"Model Type: {soccer_model.model}")
-    print(f"Model Name: {soccer_model.name}")
-    print(f"Accuracy: {accuracy}")
+    _logger.info("==================Model Statistics=========================")
+    _logger.info(f"Model Type: {soccer_model.model}")
+    _logger.info(f"Model Name: {soccer_model.name}")
+    _logger.info(f"Accuracy: {accuracy}")
 
     if persist:
         soccer_model.persist_model()

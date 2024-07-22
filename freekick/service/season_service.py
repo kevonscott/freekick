@@ -14,8 +14,6 @@ def get_current_season_teams(league: str) -> SeasonDTO:
     :return: A SeasonDTO
     """
     repository = SQLAlchemyRepository(Session(DEFAULT_ENGINE))
-    # TODO: catch valueerror in case of no team found and return user friendly
-    # message to frontend
     _, teams = DBUtils.get_teams(
         repository=repository, league=league, season=Season.CURRENT
     )

@@ -14,7 +14,7 @@ def create_app():
 
     CORS(app)
 
-    # @app.route("/")
+    @app.route("/")
     @app.route("/home")
     def welcome():
         return render_template("index.html")

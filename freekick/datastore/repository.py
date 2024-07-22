@@ -55,7 +55,6 @@ class SQLAlchemyRepository(AbstractRepository):
 
 
 class MockRepository(AbstractRepository):
-    # TODO: In-Memory repository used for integration testing.
     def __init__(self) -> None:
         pass
 

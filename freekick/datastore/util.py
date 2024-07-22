@@ -26,7 +26,6 @@ class League(Enum):
     """Container for the supported leagues"""
 
     EPL = "epl"
-    # BUNDESLIGA = "bundesliga"
 
 
 @dataclass(frozen=True)
@@ -35,24 +34,15 @@ class TeamName:
     name: str
 
 
-# TODO: add 'season' to all bundesliga csv data.
-
-
 class Backend(Enum):
     PANDAS = 1
     DASK = 2
 
 
-# TODO: DataStore and DATA_UTILS should always be in sync. all db or all csv
-class DataStore(Enum):
-    CSV = auto()
-    DATABASE = auto()
-    DEFAULT = CSV
-
-
 class Season(Enum):
     """List of supported seasons."""
 
+    S_2024_2025 = "S_2024_2025"
     S_2023_2024 = "S_2023_2024"
     S_2022_2023 = "S_2022_2023"
     S_2021_2022 = "S_2021_2022"
@@ -85,9 +75,6 @@ class Season(Enum):
     S_1994_1995 = "S_1994_1995"
     S_1993_1994 = "S_1993_1994"
     CURRENT = S_2021_2022
-
-
-SEASON = Season.CURRENT.value
 
 
 def season_to_int(s: str | Season):
@@ -335,7 +322,13 @@ class CSVUtils(DataUtils):
         return pd.read_csv(file_path)
 
 
-DATA_UTIL = CSVUtils
+class DataStore(Enum):
+    CSV = CSVUtils
+    DATABASE = DBUtils
+    DEFAULT = CSV
+
+
+DATA_UTIL = DataStore.DEFAULT.value
 
 COLUMNS = {
     "Date": "date",
@@ -349,16 +342,20 @@ COLUMNS = {
     "Attendance": "attendance",
 }
 
+LEAGUE_URI_LOOKUP = {
+    League.EPL: "premier-league",
+    # League.BUNDESLIGA: "bundesliga"
+}
+
 
 class DataScraper:
     """Data class used to fetch various soccer data from open source."""
 
     def __init__(self, league: League) -> None:
-        self.types = {
+        self.urls = {
             "team_rating": "https://projects.fivethirtyeight.com/soccer-predictions",
             "player_rating": "https://www.whoscored.com/Statistics",
         }  # Dict of data type to scraping url
-        self.leagues = {"epl": "premier-league", "bundesliga": "bundesliga"}
         self.league: League = league
 
     def _parse_team_rating_request(self, soup: BeautifulSoup, type: str):
@@ -382,8 +379,10 @@ class DataScraper:
             _description_
         """
         # eg 'Updated Feb. 5, 2022, at 8:03 PM'
-        # TODO: Handle case where .find is None
-        last_updated = soup.find("p", {"class": "timestamp"}).get_text()
+        last_updated_tag = soup.find("p", {"class": "timestamp"})
+        if not last_updated_tag:
+            raise NameError("Tag 'timestamp' no found on page content.")
+        last_updated = last_updated_tag.get_text()
         last_updated_split = last_updated.split(" ")[1:4]
         d_m_y = (
             last_updated_split[1].strip(",")
@@ -393,21 +392,21 @@ class DataScraper:
             + last_updated_split[2].strip(",")
         )
         try:  # First try full month name
-            last_updated = datetime.strptime(d_m_y, "%j/%B/%Y")
+            last_updated_datetime = datetime.strptime(d_m_y, "%j/%B/%Y")
         except ValueError:  # The try 3 letter month name
             try:
-                last_updated = datetime.strptime(d_m_y, "%j/%b/%Y")
+                last_updated_datetime = datetime.strptime(d_m_y, "%j/%b/%Y")
             except ValueError:
                 day, month, year = d_m_y.split("/")
                 if month == "Sept":
-                    last_updated = datetime(int(year), 9, int(day))
+                    last_updated_datetime = datetime(int(year), 9, int(day))
                 else:
                     raise
         if type == "team_rating":
             team_ranking = (
                 {}
             )  # { teams: {team_name: {overall: <rank>, offense: <rank>, defense: <rank>}, last_updated: 'string' }
-            team_ranking["last_updated"] = last_updated
+            team_ranking["last_updated"] = last_updated_datetime
             team_rows = soup.find_all("tr", {"class": "team-row"})
             for team in team_rows:
                 team_name = team.get("data-str")
@@ -446,20 +445,18 @@ class DataScraper:
 
         elif type == "player_rating":
             player_ranking = {}
-            player_ranking["last_updated"] = last_updated
+            player_ranking["last_updated"] = last_updated_datetime
             raise NotImplementedError
         else:
             raise ValueError(
-                f"Invalid scraper type {type}. Valid choices {self.types.keys()}"
+                f"Invalid scraper type {type}. Valid choices {self.urls.keys()}"
             )
         return ranking_df
 
     def scrape_team_rating(self, persists: bool = False, use_db: bool = False):
         data_type = "team_rating"
-        # TODO: Should not be using repeated code like this. use definition above
-        leagues = {"epl": "premier-league", "bundesliga": "bundesliga"}
-        league_end_point = leagues[self.league.value]
-        team_rating_uri = f"{self.types[data_type]}/{league_end_point}/"
+        league_end_point = LEAGUE_URI_LOOKUP[self.league]
+        team_rating_uri = f"{self.urls[data_type]}/{league_end_point}/"
         team_ranking_csv = str(
             DATA_DIR / "processed" / f"{self.league.value}_team_ranking.csv"
         )
@@ -470,7 +467,7 @@ class DataScraper:
         with requests.Session() as session:
             page = session.get(url=team_rating_uri)
         page.raise_for_status()
-        print(f"Request status code: {page.status_code}")
+        _logger.info(f"Request status code: {page.status_code}")
 
         soup = BeautifulSoup(page.content, "html.parser")
         df = self._parse_team_rating_request(soup=soup, type=data_type)
@@ -478,7 +475,7 @@ class DataScraper:
             if use_db:
                 raise NotImplementedError
             else:
-                print("Updating csv....")
+                _logger.info("Updating csv....")
                 exist_df = pd.read_csv(
                     team_ranking_csv,
                     index_col=["date", "ranking"],
@@ -553,7 +550,6 @@ class BaseData(ABC):
             lambda x: np.int64(x.removeprefix("S_").replace("_", ""))
         )
         X = X.reset_index(drop=True)
-
         return X
 
     def read_stitch_raw_data(
@@ -571,7 +567,7 @@ class BaseData(ABC):
 
         dir_path = DATA_DIR / "raw" / league.value
 
-        print(str(dir_path) + "/season*.csv")
+        _logger.info(str(dir_path) + "/season*.csv")
         # Read all csv files in parallel
         df = dd.read_csv(
             str(dir_path) + "/season*.csv",
@@ -585,10 +581,9 @@ class BaseData(ABC):
         df = df.reset_index(drop=True)
         if persist:
             file_path = DATA_DIR / "processed" / f"{league.value}.csv"
-            print(f"Persisting data: {file_path}")
+            _logger.info(f"Persisting data: {file_path}")
             df.to_csv(file_path, index=False)
-        print(f"df.shape:\n{df.shape}")
-        # print(f"df.sample(frac=0.1):\n{df.sample(frac=0.1)}")
+        _logger.info(f"df.shape:\n{df.shape}")
 
 
 class EPLData(BaseData):
@@ -649,18 +644,18 @@ class EPLData(BaseData):
         persist : bool, optional
             If True. persists updated data to d_location, by default False
         """
-        file_name = f"season_{SEASON.removeprefix('S_').replace('_', '-')}.csv"
+        file_name = f"season_{Season.CURRENT.value.removeprefix('S_').replace('_', '-')}.csv"
         p = str(self._raw_data_path / self.league.value / file_name)
 
         division = "E0"
         season_format = "".join(
-            [y[-2:] for y in SEASON.split("_")[-2:]]
+            [y[-2:] for y in Season.CURRENT.value.split("_")[-2:]]
         )  # e.g 9394, 2122..
         # example: "https://www.football-data.co.uk/mmz4281/2122/E0.csv"
         data_url = f"https://www.football-data.co.uk/mmz4281/{season_format}/{division}.csv"
 
         season_data = pd.read_csv(data_url)
-        season_data["season"] = SEASON
+        season_data["season"] = Season.CURRENT.value
         if persist:
             match self.datastore:
                 case DataStore.CSV:
@@ -704,9 +699,11 @@ class BundesligaData(BaseData):
     # raise NotImplementedError
 
 
-def get_league_data_container(league: str):
+def get_league_data_container(league: str | League):
+    if isinstance(league, str):
+        league = League[league.upper()]
     match league:
-        case "epl":
+        case League.EPL:
             return EPLData
         case _:
             raise NotImplementedError

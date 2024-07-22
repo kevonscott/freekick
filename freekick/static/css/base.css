@@ -86,3 +86,7 @@ footer {
 .styled-table tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
+
+#number {
+    width: 3em;
+}
