@@ -1,7 +1,6 @@
 """Utility module for all Machine Learning Operations."""
 
 import pickle
-from datetime import datetime
 from functools import lru_cache, partial
 from typing import Any
 

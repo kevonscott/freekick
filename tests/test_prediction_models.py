@@ -14,12 +14,12 @@ from freekick.learners.learner_utils import add_wpc_pyth, season_to_int
 ACCURACY_THRESHOLD = 0.3  # We want to ensure an average accuracy above 50%
 
 
-class TestPredictionModels(unittest.TestCase):
+class TestLearnerModels(unittest.TestCase):
     def setUp(self) -> None:
-        # self.league = League.EPL  # TODO: should be testing for all leagues
+        # self.league = League.EPL
         # self.data = load_data(league=self.league)
-        self.epl_data_container = EPLData(datastore=DataStore.CSV)
-        self.epl_data = self.epl_data_container.load()
+        self.data_container = EPLData(datastore=DataStore.DEFAULT)
+        self.data = self.epl_data_container.load()
 
     # TODO: Complete cross-validation test
     def test_cross_validation(self):

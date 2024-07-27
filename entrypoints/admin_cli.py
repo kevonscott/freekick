@@ -8,6 +8,12 @@ from freekick.learners import DEFAULT_ESTIMATOR
 from freekick.learners.learner_utils import train_soccer_model
 
 
+def list_supported_leagues():
+    _logger.info("Learner Options:")
+    for model in League:
+        _logger.info(f"\t- {model.name}")
+
+
 @click.command()
 @click.option(
     "-r",
@@ -15,7 +21,9 @@ from freekick.learners.learner_utils import train_soccer_model
     help="Retrain model",
     type=click.Choice(League._member_names_, case_sensitive=False),
 )
-@click.option("-l", "--list", is_flag=True, help="List current models")
+@click.option(
+    "-l", "--list-leagues", is_flag=True, help="List supported leagues."
+)
 @click.option(
     "-p",
     "--persist",
@@ -49,12 +57,10 @@ from freekick.learners.learner_utils import train_soccer_model
     default="INFO",
     show_default=True,
 )
-def cli(retrain, list, test_size, persist, source, log_level="INFO"):
+def cli(retrain, list_leagues, test_size, persist, source, log_level="INFO"):
     _logger.setLevel(log_level)
-    if list:
-        _logger.info("Model Options:")
-        for model in League:
-            _logger.info(f"\t- {model.name}")
+    if list_leagues:
+        list_supported_leagues()
     elif retrain:
         train_soccer_model(
             learner=DEFAULT_ESTIMATOR,

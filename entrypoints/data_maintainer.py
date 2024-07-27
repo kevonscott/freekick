@@ -1,4 +1,4 @@
-"""Model for generating data files used for each model"""
+"""Model for generating data for training our models"""
 
 import click
 
@@ -43,14 +43,16 @@ def update(data_type, league, persist):
         data_scraper = DataScraper(league=League[league])
         data_scraper.scrape_team_rating(persists=persist)
     elif data_type == "match":
-        # raise NotImplementedError
+        raise NotImplementedError
         # Read in new data and override the current file if persist == True
         # read_stitch_raw_data(league=League[league], persist=persist)
-        league_container.read_stitch_raw_data(league=league, persist=persist)
+        # league_container.read_stitch_raw_data(league=league, persist=persist)
     elif data_type == "current_season":
         # TODO: Also update for DB
-        league_container(datastore=DataStore.CSV, repository=None)
-        league_container.update_current_season(persist=persist)
+        league_data = league_container(
+            datastore=DataStore.CSV, repository=None
+        )
+        league_data.update_current_season(persist=persist)
         # update_current_season_data(league=league, persist=persist)
 
 
