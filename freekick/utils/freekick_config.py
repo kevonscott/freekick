@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 def _set_environ(environment):
     """Set environment variables from .env file"""
-    if environment == "production":
+    if environment.lower() == "production":
         load_dotenv("production.env")
     else:
         load_dotenv("development.env")
@@ -30,5 +30,7 @@ def load_config(environ):
     cfg["DATABASE_HOST"] = os.environ.get("DATABASE_HOST")
     cfg["DATABASE_KEY"] = os.environ.get("DATABASE_KEY")
     cfg["DATABASE_URL"] = os.environ.get("DATABASE_URL")
+    cfg["LOG_LEVEL"] = os.environ.get("LOG_LEVEL")
+    cfg["INITIALIZE_WPC_PYTH"] = os.environ.get("INITIALIZE_WPC_PYTH")
 
     return cfg

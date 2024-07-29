@@ -23,6 +23,8 @@ from .classification import BaseClassifier
 
 WPC_PYTH_CACHE: dict[str, pd.DataFrame] = {}
 
+pd.options.mode.copy_on_write = True  # Enable copy and write.
+
 
 def _load_model(model_name: str):
     """Load and deserialize a model."""
@@ -71,11 +73,11 @@ def compute_wpc_pyth(data: pd.DataFrame, league: League):
     data["game_count"] = 1  # represent # games played in each season
     # home_win=1, draw=0.5,away_win=0
     data["home_win_value"] = np.where(
-        data["result"] == "H", 1, np.where(data["result"] == "D", 0.5, 0)
+        data["result"] == 1, 1, np.where(data["result"] == 0, 0.5, 0)
     )
     # Away win=1, draw=0.5,home_win=0
     data["away_win_value"] = np.where(
-        data["result"] == "A", 1, np.where(data["result"] == "D", 0.5, 0)
+        data["result"] == -1, 1, np.where(data["result"] == 0, 0.5, 0)
     )
 
     # We have to create separate dfs to calculate home team and away
@@ -148,6 +150,7 @@ def compute_wpc_pyth(data: pd.DataFrame, league: League):
     data["home_win_percentage"] = data.apply(
         lambda row: _get_wpc(row["season"], row["home_team"]), axis=1
     )
+
     data["away_win_percentage"] = data.apply(
         lambda row: _get_wpc(row["season"], row["away_team"]), axis=1
     )

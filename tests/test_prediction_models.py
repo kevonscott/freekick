@@ -6,20 +6,20 @@ from datetime import datetime
 from statistics import mean
 
 import pandas as pd
-from sklearn.model_selection import cross_val_predict
 
 from freekick.datastore.util import DataStore, EPLData, League, Season
-from freekick.learners.learner_utils import add_wpc_pyth, season_to_int
+from freekick.learners.learner_utils import season_to_int  # add_wpc_pyth
+
+# from sklearn.model_selection import cross_val_predict
+
 
 ACCURACY_THRESHOLD = 0.3  # We want to ensure an average accuracy above 50%
 
 
 class TestLearnerModels(unittest.TestCase):
     def setUp(self) -> None:
-        # self.league = League.EPL
-        # self.data = load_data(league=self.league)
         self.data_container = EPLData(datastore=DataStore.DEFAULT)
-        self.data = self.epl_data_container.load()
+        self.data = self.data_container.load()
 
     # TODO: Complete cross-validation test
     def test_cross_validation(self):

@@ -1,5 +1,3 @@
-from functools import partial
-
 import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
@@ -8,7 +6,7 @@ from freekick import DATA_DIR
 from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import DBUtils
 
-from .model import Base, Game, Team
+from .model import Base
 
 DB_PATH = DATA_DIR / "freekick.db"
 ENGINE = create_engine(f"sqlite:///{str(DB_PATH)}")

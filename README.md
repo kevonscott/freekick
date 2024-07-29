@@ -31,12 +31,12 @@ pre-commit install
 ### Making predictions form the command line
 Fom the root of the project, execute the command below specifying the codes for the league, home team and away team respectively.
 ```
-./freekick/cli.py match --league epl --home ARS -away MCI
+.venv/bin/python3 -m entrypoints.cli match --league epl --home ARS -away MCI
 ```
 ### Making predictions using the webapp
 Fom the root of the project to launch the FreeKick app.
 ```bash
-$ .venv/bin/python3 -m entrypoints.cli serve
+$ ./entrypoints/launch-dev.sh
 ```
 
 ## Retraining The Model

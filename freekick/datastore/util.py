@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from datetime import datetime
-from enum import Enum, auto
+from enum import Enum
 from functools import cache, partial
 
 import dask.dataframe as dd
@@ -547,7 +547,7 @@ class BaseData(ABC):
         X["home_team"] = X["home_team"].apply(DATA_UTIL.get_team_id)
         X["away_team"] = X["away_team"].apply(DATA_UTIL.get_team_id)
         X["season"] = X["season"].apply(
-            lambda x: np.int64(x.removeprefix("S_").replace("_", ""))
+            lambda x: int(x.removeprefix("S_").replace("_", ""))
         )
         X = X.reset_index(drop=True)
         return X

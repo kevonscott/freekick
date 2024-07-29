@@ -1,6 +1,6 @@
 import click
 
-from freekick.app import create_app  # noqa E402
+from freekick.app import app  # noqa E402
 from freekick.learners.learner_utils import compute_cache_all_league_wpc_pyth
 from freekick.service import predict_match  # noqa E402
 from freekick.utils import __version__, _logger  # noqa E402
@@ -86,7 +86,6 @@ def serve(ctx, port):
     _logger.info(f" Launching FreeKick app in {env} mode....")
     _logger.info(f"FreeKick Version: {str(__version__)}")
 
-    app = create_app()
     app.logger.setLevel(ctx.obj["LOGGING_LEVEL"])
 
     # Computing Win Percentage and Pythagorean Expectation is very expensive so
@@ -96,7 +95,7 @@ def serve(ctx, port):
     if env.upper() == "DEV":
         app.run(debug=True, port=port)
     else:
-        app.run(port=port)
+        raise NotImplementedError
 
 
 if __name__ == "__main__":
