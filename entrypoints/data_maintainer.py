@@ -53,7 +53,6 @@ def update(data_type, league, persist):
             datastore=DataStore.CSV, repository=None
         )
         league_data.update_current_season(persist=persist)
-        # update_current_season_data(league=league, persist=persist)
 
 
 @click.command()

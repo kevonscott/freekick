@@ -19,7 +19,9 @@ class DatastoreTestCase(unittest.TestCase):
         # data = load_data(d_location="CSV", league=league)
         data = self.epl_data.load()
         file_location = str(DATA_DIR / "processed" / f"{league.value}.csv")
-        df = pd.read_csv(file_location, parse_dates=["Time"])
+        df = pd.read_csv(
+            file_location, parse_dates=["Time"], date_format="mixed"
+        )
         df["Date"] = df["Date"].apply(
             lambda d: parse(d) if isinstance(d, str) else np.nan
         )

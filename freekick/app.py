@@ -10,20 +10,31 @@ from freekick.utils import __version__, _logger
 from freekick.utils.freekick_config import load_config
 
 
-def _init_freekick(mode: str, config: dict):
+def _init_freekick(
+    mode: str, config: dict, init_wpc_pyth: Optional[bool] = None
+):
     """Initialize freekick configs."""
     _logger.setLevel(config["LOG_LEVEL"])
     _logger.info(f" Launching FreeKick app in {mode} mode...")
     _logger.info(f"FreeKick Version: {str(__version__)}")
-    init_wpc_pyth = bool(config.get("INITIALIZE_WPC_PYTH", False))
-    if init_wpc_pyth:
+    compute_wpc_pyth = False
+    if init_wpc_pyth is not None:
+        # If init_wpc_pyth passed, it takes priority, no need to check env
+        if init_wpc_pyth:
+            compute_wpc_pyth = True
+    else:
+        compute_wpc_pyth = bool(config.get("INITIALIZE_WPC_PYTH", False))
+
+    if compute_wpc_pyth:
         # Computing Win Percentage and Pythagorean Expectation is very expensive so
         # lets ensure the are initially compted at launch.
         _logger.info("Computing Win Percentage and Pythagorean Expectation...")
         compute_cache_all_league_wpc_pyth()
 
 
-def create_app(env: Optional[str] = None, init_wpc_pyth=True):
+def create_app(
+    mode: Optional[str] = None, init_wpc_pyth: Optional[bool] = None
+):
     """Creates FreeKick app"""
 
     # Create the Flask app
@@ -31,13 +42,13 @@ def create_app(env: Optional[str] = None, init_wpc_pyth=True):
     freekick_api.init_app(app=app)
 
     # Configure app environment
-    mode = env or os.environ.get("ENV", None)
+    mode = mode or os.environ.get("ENV", None)
     if mode:
         config = load_config(environ=mode)
-        _init_freekick(mode, config)
+        _init_freekick(mode=mode, config=config, init_wpc_pyth=init_wpc_pyth)
         app.logger.setLevel(config["LOG_LEVEL"])
     else:
-        _logger.warn(
+        _logger.warning(
             "Environment not specified! Please define 'ENV' environment"
             " variable. Skipping app configuration..."
         )
