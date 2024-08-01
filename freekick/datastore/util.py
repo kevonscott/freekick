@@ -74,7 +74,7 @@ class Season(Enum):
     S_1995_1996 = "S_1995_1996"
     S_1994_1995 = "S_1994_1995"
     S_1993_1994 = "S_1993_1994"
-    CURRENT = S_2021_2022
+    CURRENT = S_2023_2024
 
 
 def season_to_int(s: str | Season):
@@ -132,12 +132,22 @@ class DataUtils(ABC):
         pass
 
     @abstractmethod
-    def add_teams(self, teams: list):
+    def add_teams(self, teams: list[Team], repository=None, **kwargs):
         pass
 
     @staticmethod
-    def new_team_id(team_code: str):
+    def new_team_id(team_code: str) -> int:
         return abs(hash(team_code))
+
+    @staticmethod
+    def new_team(team_code: str, team_name: str, league: League) -> Team:
+        team_id: int = DataUtils.new_team_id(team_code=team_code)
+        return Team(
+            code=team_code,
+            name=team_name,
+            league=league.value,
+            team_id=team_id,
+        )
 
 
 class DBUtils(DataUtils):
@@ -169,6 +179,7 @@ class DBUtils(DataUtils):
             Value error if invalid team or not found.
 
         """
+        team_name = fix_team_name(team_name)
         statement = (
             select(Team)
             .where(Team.name == team_name)
@@ -256,10 +267,13 @@ class DBUtils(DataUtils):
         )
         df = df.dropna(subset=["AwayTeam", "HomeTeam"])
         games = []
-        df["Date"] = pd.to_datetime(df["Date"])
+        df["Date"] = pd.to_datetime(df["Date"], format="mixed")
         df["FTHG"] = df["FTHG"].fillna(0).astype("int64")
         df["FTAG"] = df["FTAG"].fillna(0).astype("int64")
-        df["Attendance"] = df["Attendance"].fillna(0).astype("int64")
+        if "Attendance" in df.columns:
+            df["Attendance"] = df["Attendance"].fillna(0).astype("int64")
+        else:
+            df["Attendance"] = 0
         # Convert team names to team codes
         df["AwayTeam"] = df["AwayTeam"].apply(lambda x: team_code(team_name=x))
         df["HomeTeam"] = df["HomeTeam"].apply(lambda x: team_code(team_name=x))
@@ -278,9 +292,11 @@ class DBUtils(DataUtils):
             games.append(game)
         return games
 
-    @abstractmethod
-    def add_teams(self, teams: list):
-        pass
+    @staticmethod
+    def add_teams(teams: list[Team], repository: AbstractRepository):
+        for instance in teams:
+            repository.add(instance)
+        repository.commit()
 
 
 class CSVUtils(DataUtils):
@@ -311,9 +327,26 @@ class CSVUtils(DataUtils):
         team_id = teams_df[(teams_df["code"] == team_code)]["team_id"].iloc[0]
         return team_id
 
-    @abstractmethod
-    def add_teams(self, teams: list):
-        pass
+    @staticmethod
+    def add_teams(teams: list[Team]):
+        team_df = pd.concat(
+            [
+                pd.DataFrame(
+                    {
+                        "code": [instance.code],
+                        "name": [instance.name],
+                        "league": [instance.league],
+                        "team_id": [instance.team_id],
+                    }
+                )
+                for instance in teams
+            ]
+        )
+        teams_df = CSVUtils.load_teams_csv()
+        teams_df = pd.concat([teams_df, team_df])
+
+        file_path = str(DATA_DIR / "processed" / "team.csv")
+        teams_df.to_csv(file_path, index=False)
 
     @staticmethod
     @cache
@@ -572,7 +605,7 @@ class BaseData(ABC):
         df = dd.read_csv(
             str(dir_path) + "/season*.csv",
             dtype={"FTAG": "float64", "FTHG": "float64", "Time": "object"},
-            usecols=COLUMNS.keys(),
+            usecols=list(COLUMNS.keys()),
             skip_blank_lines=True,
         ).compute()
         df["Date"] = pd.to_datetime(df["Date"], format="mixed")
@@ -583,7 +616,7 @@ class BaseData(ABC):
             file_path = DATA_DIR / "processed" / f"{league.value}.csv"
             _logger.info(f"Persisting data: {file_path}")
             df.to_csv(file_path, index=False)
-        _logger.info(f"df.shape:\n{df.shape}")
+        _logger.info(f"df.shape: {df.shape}")
 
 
 class EPLData(BaseData):
@@ -644,25 +677,37 @@ class EPLData(BaseData):
         persist : bool, optional
             If True. persists updated data to d_location, by default False
         """
-        file_name = f"season_{Season.CURRENT.value.removeprefix('S_').replace('_', '-')}.csv"
+        season = Season.CURRENT.value
+        _logger.info(
+            f"Updating data for season '{season}' and datastore '{self.datastore}'"
+        )
+        file_name = f"season_{season.removeprefix('S_').replace('_', '-')}.csv"
         p = str(self._raw_data_path / self.league.value / file_name)
 
         division = "E0"
         season_format = "".join(
-            [y[-2:] for y in Season.CURRENT.value.split("_")[-2:]]
-        )  # e.g 9394, 2122..
+            [y[-2:] for y in season.split("_")[-2:]]
+        )  # e.g 9394, 2122,...
         # example: "https://www.football-data.co.uk/mmz4281/2122/E0.csv"
         data_url = f"https://www.football-data.co.uk/mmz4281/{season_format}/{division}.csv"
 
-        season_data = pd.read_csv(data_url)
-        season_data["season"] = Season.CURRENT.value
+        _logger.info(f"Fetching {season} data from {data_url}...")
+        season_data = self._read_csv(data_url)
+        _logger.info("Loaded data successfully.")
+        season_data["season"] = season
+        if "Attendance" not in season_data.columns:
+            season_data["Attendance"] = 0
         if persist:
             match self.datastore:
                 case DataStore.CSV:
                     # Overwrite the file
                     # For csv, we dump the entire dataset
-                    _logger.info("Saving/Updating file: ", p)
+                    _logger.info(f"Saving/Updating raw season file: {p}")
                     season_data.to_csv(p, index=False)
+                    _logger.info("Regenerating league data...")
+                    self.read_stitch_raw_data(
+                        league=self.league, persist=persist
+                    )
                 case DataStore.DATABASE:
                     _logger.info("Updating Database...")
                     # Create game models
@@ -688,10 +733,16 @@ class EPLData(BaseData):
                 case _:
                     raise NotImplementedError
         else:
-            _logger.info(season_data)
+            _logger.info(
+                f"persist={persist}, not persisting changes in {self.datastore}!"
+            )
 
     def clean_format_data(self, data: pd.DataFrame):
         return self._clean_format_data(X=data, league=self.league)
+
+    @cache
+    def _read_csv(self, uri):
+        return pd.read_csv(uri)
 
 
 class BundesligaData(BaseData):

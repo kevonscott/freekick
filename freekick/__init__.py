@@ -12,7 +12,6 @@ ESTIMATOR_LOCATION = DATA_DIR / "learner_model"
 _logger.info(f"Freekick Version: {__version__}")
 # Ensure we are using the min_supported_platform
 # We also need to ensure this only executes once and not all imports.
-# TODO: Maybe use sitecustomize.py for checking instead?
 _PLATFORM_CHECK = False
 if not _PLATFORM_CHECK:
     min_supported_platform = Version("3.10.0")

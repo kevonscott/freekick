@@ -1,7 +1,7 @@
 import os
 from typing import Optional
 
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 from flask_cors import CORS
 
 from freekick.api import freekick_api

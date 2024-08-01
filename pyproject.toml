@@ -4,7 +4,7 @@ name = "freekick"
 requires-python = ">=3.10"
 description="Soccer/Football match prediction"
 authors = [
-  {name = "Kevon Scot", email = "kevon-dev@outlook.com"}
+  {name = "Kevon Scott", email = "kevon-dev@outlook.com"}
 ]
 maintainers = [
   {name = "Kevon Scott", email = "kevon-dev@outlook.com"}

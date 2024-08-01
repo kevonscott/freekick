@@ -1,7 +1,5 @@
 import click
 
-from freekick.app import app  # noqa E402
-from freekick.learners.learner_utils import compute_cache_all_league_wpc_pyth
 from freekick.service import predict_match  # noqa E402
 from freekick.utils import __version__, _logger  # noqa E402
 
@@ -18,22 +16,13 @@ from freekick.utils import __version__, _logger  # noqa E402
     default="INFO",
     show_default=True,
 )
-@click.option(
-    "-e",
-    "--env",
-    help="Environment to run in",
-    type=click.Choice(["PROD", "DEV"], case_sensitive=False),
-    default="DEV",
-    show_default=True,
-)
 @click.pass_context
-def cli(ctx, debug, env, logging_level):
+def cli(ctx, debug, logging_level):
     ctx.ensure_object(dict)
     if debug:
         logging_level = "DEBUG"
     _logger.setLevel(logging_level)
     ctx.obj["LOGGING_LEVEL"] = logging_level
-    ctx.obj["ENV"] = env
 
 
 @cli.command()
@@ -74,28 +63,6 @@ def match(ctx, league, home, away, attendance):
 def season(ctx, league):
     """Predict all the games within a league."""
     raise NotImplementedError("Sorry, I cannot predict seasons as yet!")
-
-
-@cli.command()
-@click.option(
-    "--port", "-p", help="Web port to open for webapp", default=39592, type=int
-)
-@click.pass_context
-def serve(ctx, port):
-    env = ctx.obj["ENV"]
-    _logger.info(f" Launching FreeKick app in {env} mode....")
-    _logger.info(f"FreeKick Version: {str(__version__)}")
-
-    app.logger.setLevel(ctx.obj["LOGGING_LEVEL"])
-
-    # Computing Win Percentage and Pythagorean Expectation is very expensive so
-    # lets ensure the are initially compted at launch.
-    _logger.info("Computing Win Percentage and Pythagorean Expectation...")
-    compute_cache_all_league_wpc_pyth()
-    if env.upper() == "DEV":
-        app.run(debug=True, port=port)
-    else:
-        raise NotImplementedError
 
 
 if __name__ == "__main__":

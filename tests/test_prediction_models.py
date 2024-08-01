@@ -24,7 +24,7 @@ class TestLearnerModels(unittest.TestCase):
     # TODO: Complete cross-validation test
     def test_cross_validation(self):
         # scores = cross_val_predict(SoccerLogisticModel, self.X, self.y, cv=10)
-        scores = [0.3, 0.5, 0.9]  # TODO
+        scores = [0.3, 0.5, 0.9]
         self.assertGreaterEqual(mean(scores), ACCURACY_THRESHOLD)
 
     # TODO: to be completed

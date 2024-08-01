@@ -25,10 +25,10 @@ class SQLAlchemyRepository(AbstractRepository):
 
     Example
     -------
-    >>> from freekick.database import DEFAULT_ENGINE
+    >>> from freekick.datastore import DEFAULT_ENGINE
     >>> from sqlalchemy.orm import Session
-    >>> from freekick.database.model import Team
-    >>> from freekick.database.repository import SQLAlchemyRepository
+    >>> from freekick.datastore.model import Team
+    >>> from freekick.datastore.repository import SQLAlchemyRepository
 
     >>> session = Session(DEFAULT_ENGINE)
     >>> repo = SQLAlchemyRepository(session)

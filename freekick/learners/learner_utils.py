@@ -63,7 +63,7 @@ serial_models = partial(load_models)
 
 def compute_wpc_pyth(data: pd.DataFrame, league: League):
     """Compute win percentage and pythagorean expectation for home and away teams."""
-    # TODO: this is expensive and should be cached!! Maybe compute at launch
+    # TODO: this is expensive and currently being cached at startup!! Consider compute and push to db since db for faster access
     # or store in DB, but for now, lets cache in WPC_PYTH_CACHE variable
     global WPC_PYTH_CACHE
     if league.value in WPC_PYTH_CACHE:
@@ -183,7 +183,7 @@ def train_soccer_model(
     datastore: DataStore = DataStore.DEFAULT,
     persist: bool = False,
 ):
-    _logger.info(f"Retraining {league}...")
+    _logger.info(f"Retraining predictive model for {league}...")
     league_container = get_league_data_container(league=league.value)(
         datastore=datastore
     )

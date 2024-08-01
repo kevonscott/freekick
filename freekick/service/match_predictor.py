@@ -49,7 +49,7 @@ def predict_match(
     if isinstance(league, str):
         league = League[league.upper()]
     _logger.info(
-        "\n Request Type: Single Match Prediction\n"
+        "Request Type: Single Match Prediction\n"
         " League\t\tHomeTeam\tAwayTeam\tTime\tDate\n"
         f" {league}\t{home_team}\t\t{away_team}\t\t{time}\t{match_date}\n"
     )
