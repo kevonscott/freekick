@@ -6,7 +6,9 @@ complete product. As a result of this project being in active development,
 there will be frequent changes some of which might be breaking changes.
 
 # Demo
-[![demo](freekick/static/images/icons8-soccer-96.png)](freekick/static/videos/freekick_demo.mp4)
+
+https://github.com/user-attachments/assets/4e796f93-59f1-470f-83a3-e9c12ab7e175
+
 
 
 ### Built With
