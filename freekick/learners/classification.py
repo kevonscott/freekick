@@ -1,8 +1,8 @@
 """Classification Models for Freekick predictions."""
 
-import pickle
 from abc import ABC, abstractmethod
 
+import joblib
 import pandas as pd
 from sklearn.base import BaseEstimator
 from sklearn.tree import DecisionTreeClassifier
@@ -89,18 +89,10 @@ class BaseClassifier(ABC):
         return df
 
     def persist_model(self) -> None:
-        """Persists a model as Pickle file on disk in models folder.
-        Overwrite if file already exists.
-
-        Parameters
-        ----------
-        name : str, optional
-            Name of the pickle file, by default 'soccer_model'
-        """
+        """Serialize the model to disk. Overwrite if file already exists."""
         self.check_fit()
         model_path = ESTIMATOR_LOCATION / f"{self.name}.pkl"
-        with open(model_path, "wb") as mod_file:
-            pickle.dump(self.model, mod_file)
+        joblib.dump(self.model, model_path)
         _logger.info(f"Model serialized to {model_path}")
 
 

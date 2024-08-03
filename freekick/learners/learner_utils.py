@@ -1,9 +1,9 @@
 """Utility module for all Machine Learning Operations."""
 
-import pickle
 from functools import lru_cache, partial
 from typing import Any
 
+import joblib
 import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score
@@ -29,9 +29,8 @@ pd.options.mode.copy_on_write = True  # Enable copy and write.
 def _load_model(model_name: str):
     """Load and deserialize a model."""
     model_path = ESTIMATOR_LOCATION / model_name
-    with open(model_path, "rb") as plk_file:
-        model = pickle.load(plk_file)  # noqa B301
-        _logger.debug(f"     - {model_name}")
+    model = joblib.load(model_path)
+    _logger.debug(f"     - {model_name}")
     return model
 
 
