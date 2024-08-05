@@ -20,5 +20,5 @@ pytest==8.3.2
 python-dotenv==1.0.1
 requests==2.32.3
 scikit-learn==1.5.1
-Sphinx==7.4.7
+Sphinx==8.0.2
 SQLAlchemy==2.0.31
