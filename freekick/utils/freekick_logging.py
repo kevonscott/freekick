@@ -12,4 +12,4 @@ class Timer:
 
     def __exit__(self, type, value, traceback):
         self.time_elapsed = time.perf_counter() - self.start
-        _logger.info(f"Time Elapsed: {self.time_elapsed:.3f}s")
+        _logger.info(f" Time Elapsed: {self.time_elapsed:.3f}s")

@@ -1,5 +1,6 @@
 """Utility module for all Machine Learning Operations."""
 
+import time
 from functools import lru_cache, partial
 from typing import Any
 
@@ -21,7 +22,11 @@ from freekick.utils import Timer
 
 from .classification import BaseClassifier
 
-WPC_PYTH_CACHE: dict[str, pd.DataFrame] = {}
+WPC_PYTH_CACHE: dict[str, pd.DataFrame | float] = {
+    "league": {},
+    "last_update": None,
+}
+WPC_PYTH_CACHE_EXPIRE_SECONDS: int = 86400  # 1 day
 
 pd.options.mode.copy_on_write = True  # Enable copy and write.
 
@@ -36,6 +41,7 @@ def _load_model(model_name: str):
 
 TRAINING_COLS = [
     "date",
+    "day_of_week",
     "time",
     "home_team",
     "away_team",
@@ -60,13 +66,20 @@ def load_models() -> dict[str, Any]:
 serial_models = partial(load_models)
 
 
-def compute_wpc_pyth(data: pd.DataFrame, league: League):
+def compute_wpc_pyth(data: pd.DataFrame, league: League) -> pd.DataFrame:
     """Compute win percentage and pythagorean expectation for home and away teams."""
     # TODO: this is expensive and currently being cached at startup!! Consider compute and push to db since db for faster access
     # or store in DB, but for now, lets cache in WPC_PYTH_CACHE variable
     global WPC_PYTH_CACHE
-    if league.value in WPC_PYTH_CACHE:
-        return WPC_PYTH_CACHE[league.value]
+    last_update = WPC_PYTH_CACHE.get("last_update")
+    if (
+        last_update
+        and (league.value in WPC_PYTH_CACHE.get("league", {}))
+        and ((time.time() - last_update) < WPC_PYTH_CACHE_EXPIRE_SECONDS)
+    ):
+        print("cache hit, returning....")
+        return WPC_PYTH_CACHE["league"][league.value]
+    print("cache miss, recomputing wpc-pyth....")
     # We first identify whether the result was a win for the home team (H),
     # the away team (A) or a draw (D). We also create the counting variable.
     data["game_count"] = 1  # represent # games played in each season
@@ -170,8 +183,8 @@ def compute_wpc_pyth(data: pd.DataFrame, league: League):
             "away_goal",
         ]
     )
-    # Add to cache. TODO: Cache should expire daily
-    WPC_PYTH_CACHE[league.value] = data
+    WPC_PYTH_CACHE["league"][league.value] = data
+    WPC_PYTH_CACHE["last_update"] = time.time()
     return data
 
 
@@ -193,6 +206,7 @@ def train_soccer_model(
     X = X.astype(
         {
             "date": "int64",
+            "day_of_week": "category",
             "time": "int64",
             "home_team": "category",
             "away_team": "category",
@@ -230,9 +244,9 @@ def add_wpc_pyth(
     league_container = get_league_data_container(league=league.value)(
         datastore=datastore
     )
-    cached_wpc_pyth = league.value in WPC_PYTH_CACHE
+    cached_wpc_pyth = league.value in WPC_PYTH_CACHE.get("league", {})
     if cached_wpc_pyth:
-        X = WPC_PYTH_CACHE[league.value]
+        X = WPC_PYTH_CACHE["league"][league.value]
         X = X[X["season"] == season_to_int(season)]
     else:
         X = league_container.load()

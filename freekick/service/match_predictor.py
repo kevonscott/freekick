@@ -7,18 +7,11 @@ from freekick import _logger
 from freekick.datastore import DATA_UTIL, DEFAULT_ENGINE
 from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import League, Season, season_to_int
-from freekick.learners import serial_models
 from freekick.learners.learner_utils import add_wpc_pyth
 
-from .util import MatchDTO
+from .util import LearnerNotFoundError, MatchDTO, _predict
 
 REPOSITORY = SQLAlchemyRepository(Session(DEFAULT_ENGINE))
-
-
-class LearnerNotFoundError(Exception):
-    """Custom exception for unknown learner/model"""
-
-    pass
 
 
 def predict_match(
@@ -53,27 +46,18 @@ def predict_match(
         " League\t\tHomeTeam\tAwayTeam\tTime\tDate\n"
         f" {league}\t{home_team}\t\t{away_team}\t\t{time}\t{match_date}\n"
     )
-    # pass str team codes directly. We will need to retrain the model first.
-    # home = DATA_UTIL.get_team_code(
-    #     league=league.value, team_name=home_team, repository=REPOSITORY
-    # )
-    # away = DATA_UTIL.get_team_code(
-    #     league=league.value, team_name=away_team, repository=REPOSITORY
-    # )
+
     home_id = DATA_UTIL.get_team_id(team_code=home_team)
     away_id = DATA_UTIL.get_team_id(team_code=away_team)
-    try:
-        # Load serialized model
-        soccer_model = serial_models()[league.value]
-    except KeyError:
-        raise LearnerNotFoundError(f"Serial model not found for {league}.")
 
+    date = (
+        pd.Timestamp(match_date)
+        if match_date
+        else pd.Timestamp(datetime.now().date())
+    )
     data = {
-        "date": (
-            [pd.Timestamp(match_date)]
-            if match_date
-            else [pd.Timestamp(datetime.now().date())]
-        ),
+        "date": [date],
+        "day_of_week": date.day_of_week,
         "time": [pd.to_datetime(time)] if time else [pd.to_datetime("13:30")],
         "home_team": [home_id],
         "away_team": [away_id],
@@ -92,9 +76,9 @@ def predict_match(
     single_match_df = add_wpc_pyth(
         data=single_match_df, league=league, season=season
     )
-    pred = soccer_model.predict(single_match_df)
+    pred = _predict(single_match_df, league=league)
     _logger.debug(f"Prediction: {pred}")
-    pred = int(pred)
+    pred = int(pred[0])
     result = "Draw" if pred == 0 else (home_team if pred > 0 else away_team)
     match_dto = [
         MatchDTO(

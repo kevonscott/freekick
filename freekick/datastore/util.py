@@ -559,6 +559,7 @@ class BaseData(ABC):
             X["result"] == "A", -1, np.where(X["result"] == "H", 1, 0)
         )
         X["date"] = pd.to_datetime(X["date"])
+        X["day_of_week"] = X["date"].dt.day_of_week
         X = X.dropna(
             subset=[
                 "home_team",

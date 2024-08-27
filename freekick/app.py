@@ -16,19 +16,20 @@ def _init_freekick(
     """Initialize freekick configs."""
     _logger.setLevel(config["LOG_LEVEL"])
     _logger.info(f" Launching FreeKick app in {mode} mode...")
-    _logger.info(f"FreeKick Version: {str(__version__)}")
+    _logger.info(f" FreeKick Version: {str(__version__)}")
     compute_wpc_pyth = False
     if init_wpc_pyth is not None:
         # If init_wpc_pyth passed, it takes priority, no need to check env
-        if init_wpc_pyth:
-            compute_wpc_pyth = True
+        compute_wpc_pyth = True
     else:
         compute_wpc_pyth = bool(config.get("INITIALIZE_WPC_PYTH", False))
 
     if compute_wpc_pyth:
         # Computing Win Percentage and Pythagorean Expectation is very expensive so
         # lets ensure the are initially compted at launch.
-        _logger.info("Computing Win Percentage and Pythagorean Expectation...")
+        _logger.info(
+            " Initiating Win Percentage and Pythagorean Expectation..."
+        )
         compute_cache_all_league_wpc_pyth()
 
 
@@ -61,6 +62,3 @@ def create_app(
         return render_template("index.html")
 
     return app
-
-
-app = create_app()
