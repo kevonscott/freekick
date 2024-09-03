@@ -2,7 +2,7 @@ bandit==1.7.9
 beautifulsoup4==4.12.3
 black==24.8.0
 click==8.1.7
-dask==2024.8.1
+dask==2024.8.2
 dask-ml==2024.4.4
 flake8==7.1.1
 flake8-bugbear==24.8.19
