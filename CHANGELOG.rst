@@ -9,11 +9,13 @@ Version 0.2
 - Whats new in version 0.2.0
 
   - _LEAGUES has been renamed to League and is now an Enum.
-  - Migrate handlers from Flask Blueprint to flask-restx
+  - Migrate handlers from Flask Blueprint to flask-restx.
   - DecisionTreeClassifier is now the default estimator instead of the previous LogisticRegression.
   - Predictions now support specifying match date, time and attendance from UI.
-  - Added swagger endpoint at '/swagger'
-  - Stratify training dataset
+  - Added swagger endpoint at '/swagger'.
+  - Stratify training dataset.
+  - Day of week is now a feature in dataset.
+  - Add win percentage and pythagorean expectation to dataset.
 
 Version 0.1
 -----------

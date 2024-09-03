@@ -1,5 +1,3 @@
-from pathlib import Path
-
 from sqlalchemy import create_engine
 
 from freekick import DATA_DIR
@@ -15,3 +13,5 @@ DEFAULT_ENGINE = create_engine(
     max_overflow=10,  # default in SQLAlchemy
     pool_timeout=10,  # raise an error faster than default
 )
+
+__all__ = ["DATA_UTIL", "DB_URL", "DEFAULT_ENGINE"]
