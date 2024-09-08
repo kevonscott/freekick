@@ -8,7 +8,6 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 
-from freekick import _logger
 from freekick.datastore.util import League, TeamName
 from freekick.learners import serial_models
 from freekick.learners.learner_utils import (
@@ -16,6 +15,7 @@ from freekick.learners.learner_utils import (
     WPC_PYTH_CACHE_EXPIRE_SECONDS,
     compute_cache_all_league_wpc_pyth,
 )
+from freekick.utils import _logger
 
 
 @dataclass
@@ -38,6 +38,14 @@ class LearnerNotFoundError(Exception):
 
 
 def _predict(data: pd.DataFrame, league: League) -> np.ndarray:
+    """Predict the result of a game(s).
+
+    :param data: Input data
+    :param league: League to make a prediction for.
+    :raises LearnerNotFoundError: Raised when no learner found for league.
+    :return: Array with same length as data. A forecast for each data entry.
+    :rtype: np.ndarray
+    """
     time_now = time.time()
     last_update = WPC_PYTH_CACHE.get("last_update")
     time_elapsed = time_now - (last_update or 0.0)

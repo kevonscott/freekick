@@ -12,7 +12,8 @@ from bs4 import BeautifulSoup
 from dateutil.parser import parse
 from sqlalchemy import select
 
-from freekick import DATA_DIR, _logger
+from freekick import DATA_DIR
+from freekick.utils import _logger
 
 from .model import Game, Team
 from .repository import AbstractRepository

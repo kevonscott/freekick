@@ -1,7 +1,5 @@
 """API that calls the match_predictor service"""
 
-from datetime import time
-
 from flask_restx import Namespace, Resource, fields, reqparse
 
 from freekick.datastore.util import League

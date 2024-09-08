@@ -3,7 +3,6 @@
 import click
 from sqlalchemy.orm import Session
 
-from freekick import _logger
 from freekick.datastore import DEFAULT_ENGINE
 from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import (
@@ -14,6 +13,7 @@ from freekick.datastore.util import (
     League,
     get_league_data_container,
 )
+from freekick.utils import _logger
 
 UPDATE_TYPES = ["team_rating", "player_rating", "match", "current_season"]
 _logger.setLevel("INFO")

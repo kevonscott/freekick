@@ -2,10 +2,10 @@ import logging
 
 import click
 
-from freekick import _logger
 from freekick.datastore.util import DataStore, League
 from freekick.learners import DEFAULT_ESTIMATOR
 from freekick.learners.learner_utils import train_soccer_model
+from freekick.utils import _logger
 
 
 def list_supported_leagues():

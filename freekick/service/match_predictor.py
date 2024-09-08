@@ -3,13 +3,13 @@ from datetime import datetime
 import pandas as pd
 from sqlalchemy.orm import Session
 
-from freekick import _logger
 from freekick.datastore import DATA_UTIL, DEFAULT_ENGINE
 from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import League, Season, season_to_int
 from freekick.learners.learner_utils import add_wpc_pyth
+from freekick.utils import _logger
 
-from .util import LearnerNotFoundError, MatchDTO, _predict
+from .util import MatchDTO, _predict
 
 REPOSITORY = SQLAlchemyRepository(Session(DEFAULT_ENGINE))
 
@@ -35,7 +35,6 @@ def predict_match(
     :param season: Season Code, defaults to Season.CURRENT
     :param match_date: Date the game is played, defaults to None
     :param time: Time the game is played, defaults to None
-    :raises LearnerNotFoundError: _description_
     :return: Results of prediction.
     :rtype: list[MatchDTO]
     """

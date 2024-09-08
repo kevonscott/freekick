@@ -7,8 +7,9 @@ import pandas as pd
 from sklearn.base import BaseEstimator
 from sklearn.tree import DecisionTreeClassifier
 
-from freekick import ESTIMATOR_LOCATION, _logger
+from freekick import ESTIMATOR_LOCATION
 from freekick.datastore.util import Backend, League
+from freekick.utils import _logger
 
 
 class BaseClassifier(ABC):

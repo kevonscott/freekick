@@ -10,7 +10,7 @@ import pandas as pd
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
-from freekick import ESTIMATOR_LOCATION, _logger
+from freekick import ESTIMATOR_LOCATION
 from freekick.datastore.util import (
     DataStore,
     League,
@@ -18,7 +18,7 @@ from freekick.datastore.util import (
     get_league_data_container,
     season_to_int,
 )
-from freekick.utils import Timer
+from freekick.utils import Timer, _logger
 
 from .classification import BaseClassifier
 

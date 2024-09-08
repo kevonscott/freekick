@@ -3,9 +3,6 @@ from pathlib import Path
 
 from packaging.version import Version
 
-from .utils._version import __version__
-from .utils.freekick_logging import _logger
-
 ROOT_DIR = Path(__file__).parent.parent
 DATA_DIR = ROOT_DIR / "data"
 ESTIMATOR_LOCATION = DATA_DIR / "learner_model"

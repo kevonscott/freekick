@@ -3,8 +3,8 @@
 from dask_ml.linear_model import LogisticRegression as dask_LR
 from sklearn.linear_model import LogisticRegression as sklearn_LR
 
-from freekick import _logger
 from freekick.datastore.util import Backend, League
+from freekick.utils import _logger
 
 from .classification import BaseClassifier
 

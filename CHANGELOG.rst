@@ -16,6 +16,7 @@ Version 0.2
   - Stratify training dataset.
   - Day of week is now a feature in dataset.
   - Add win percentage and pythagorean expectation to dataset.
+  - switch to joblib for sklearn model persistence
 
 Version 0.1
 -----------

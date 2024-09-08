@@ -1,6 +1,6 @@
 from flask_restx import Api
 
-from freekick import __version__
+from freekick.utils import __version__
 
 from .gameweek import gameweek_ns
 from .healthcheck import HealthCheckApi
