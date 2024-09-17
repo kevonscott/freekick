@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 from functools import cache, partial
+from typing import Iterable, Optional
 
 import dask.dataframe as dd
 import numpy as np
@@ -15,7 +16,7 @@ from sqlalchemy import select
 from freekick import DATA_DIR
 from freekick.utils import _logger
 
-from .model import Game, Team
+from .model import Game, PythWpc, Team
 from .repository import AbstractRepository
 
 
@@ -289,9 +290,40 @@ class DBUtils(DataUtils):
                 time=series["Time"],
                 attendance=series["Attendance"],
                 season=series["season"],
+                result=series["FTR"],
             )
             games.append(game)
         return games
+
+    @staticmethod
+    def create_pyth_wpc_model(df: pd.DataFrame) -> list[PythWpc]:
+        """Create PythWpc models from a DataFrame object.
+
+        :param df: Data to parse.
+        :return: List of PythWpc objects
+        """
+        if df.empty:
+            return []
+        expected_columns = {
+            "team",
+            "season",
+            "win_percentage",
+            "pythagorean_expectation",
+            "last_updated",
+        }
+        _validate_cols(columns=df.columns, expected_columns=expected_columns)
+        pyth_wpc_list = []
+        for row in df.iterrows():
+            model = PythWpc(
+                pyth_wpc_id=f"{row['team']}_{row['season']}",
+                team_code=row["team"],
+                season=row["season"],
+                win_percentage=row["win_percentage"],
+                pythagorean_expectation=row["pythagorean_expectation"],
+                last_updated=row["last_updated"],
+            )
+            pyth_wpc_list.append(model)
+        return pyth_wpc_list
 
     @staticmethod
     def add_teams(teams: list[Team], repository: AbstractRepository):
@@ -318,7 +350,7 @@ class CSVUtils(DataUtils):
         return code
 
     @staticmethod
-    def get_team_id(team_code: str) -> str:
+    def get_team_id(team_code: str, *arg, **kwarg) -> str:
         """Looks up a team's id given its code.
 
         :param team_code: I teams unique code
@@ -359,7 +391,7 @@ class CSVUtils(DataUtils):
 class DataStore(Enum):
     CSV = CSVUtils
     DATABASE = DBUtils
-    DEFAULT = CSV
+    DEFAULT = DATABASE
 
 
 DATA_UTIL = DataStore.DEFAULT.value
@@ -526,7 +558,8 @@ class DataScraper:
 class BaseData(ABC):
     _processed_data_path = DATA_DIR / "processed"
     _raw_data_path = DATA_DIR / "raw"
-    repository: AbstractRepository | None = None
+    repository: Optional[AbstractRepository] = None
+    datastore: Optional[DataStore] = None
 
     @abstractmethod
     def load(self) -> pd.DataFrame:
@@ -540,8 +573,7 @@ class BaseData(ABC):
     def clean_format_data(self, data: pd.DataFrame):
         pass
 
-    @classmethod
-    def _clean_format_data(cls, X: pd.DataFrame, league: League):
+    def _clean_format_data(self, X: pd.DataFrame, league: League):
         """Cleans and formats DataFrame.
 
         Parameters
@@ -554,8 +586,12 @@ class BaseData(ABC):
         # A/-1: Away Team Win
         # D/0: Draw
         # H/1: Home Team Win
-        X = X[COLUMNS.keys()]
+        should_convert_team_name_to_code = False
+        if {"HomeTeam", "AwayTeam"}.issubset(X.columns):
+            # We have the team names ("HomeTeam") and not team code "home_team"
+            should_convert_team_name_to_code = True
         X = X.rename(columns=COLUMNS)
+        X = X[COLUMNS.values()]
         X["result"] = np.where(
             X["result"] == "A", -1, np.where(X["result"] == "H", 1, 0)
         )
@@ -575,12 +611,19 @@ class BaseData(ABC):
         X["attendance"] = X["attendance"].fillna(0)
 
         team_code = partial(
-            DATA_UTIL.get_team_code, league.value, repository=cls.repository
+            self.datastore.value.get_team_code,
+            league.value,
+            repository=self.repository,
         )
-        X["home_team"] = X["home_team"].apply(team_code)
-        X["away_team"] = X["away_team"].apply(team_code)
-        X["home_team"] = X["home_team"].apply(DATA_UTIL.get_team_id)
-        X["away_team"] = X["away_team"].apply(DATA_UTIL.get_team_id)
+        if should_convert_team_name_to_code:
+            X["home_team"] = X["home_team"].apply(team_code)
+            X["away_team"] = X["away_team"].apply(team_code)
+        X["home_team"] = X["home_team"].apply(
+            self.datastore.value.get_team_id, repository=self.repository
+        )
+        X["away_team"] = X["away_team"].apply(
+            self.datastore.value.get_team_id, repository=self.repository
+        )
         X["season"] = X["season"].apply(
             lambda x: int(x.removeprefix("S_").replace("_", ""))
         )
@@ -659,6 +702,7 @@ class EPLData(BaseData):
                     parse_dates=["Time"],
                     date_format="mixed",
                 )
+                data["Date"] = data["Date"].apply(clean_date)
             case DataStore.DATABASE:
                 statement = select(Game).where(
                     Game.league == self.league.value
@@ -668,7 +712,8 @@ class EPLData(BaseData):
                 raise NotImplementedError(
                     "Cannot extract data from {datastore} yet..."
                 )
-        data["Date"] = data["Date"].apply(clean_date)
+                data["date"] = data["date"].apply(clean_date)
+
         return self.clean_format_data(data=data)
 
     def update_current_season(self, persist: bool = False) -> None:
@@ -760,3 +805,17 @@ def get_league_data_container(league: str | League):
             return EPLData
         case _:
             raise NotImplementedError
+
+
+def _validate_cols(
+    columns: Iterable[str], expected_columns: Iterable[str]
+) -> None:
+    """Validate columns we expect exists.
+
+    :param columns: Iterable of columns to check
+    :param expected_columns: Columns we expect to exists in columns.
+    :raises ValueError: Raised when elements from expected_columns are missing.
+    """
+    column_diff = set(expected_columns) - set(columns)
+    if column_diff:
+        raise ValueError(f"Expected column(s) {column_diff} are missing.")

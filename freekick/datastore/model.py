@@ -24,6 +24,7 @@ class Game(Base):
     date: Mapped[datetime.date]
     time: Mapped[Optional[str]]
     attendance: Mapped[Optional[float]]
+    result: Mapped[str]
 
     def __repr__(self) -> str:
         return (
@@ -48,3 +49,16 @@ class Team(Base):
             f"Team(code={self.code!r}, name={self.name!r}, "
             f"league={self.league!r})"
         )
+
+
+class PythWpc(Base):
+    """Table representing Pythagorean Expectation and Win Percentage"""
+
+    __tablename__ = "pyth_wpc"
+
+    pyth_wpc_id: Mapped[str] = mapped_column(primary_key=True)
+    team_code: Mapped[str]
+    season: Mapped[str]
+    win_percentage: Mapped[float]
+    pythagorean_expectation: Mapped[float]
+    last_update: Mapped[datetime.datetime]

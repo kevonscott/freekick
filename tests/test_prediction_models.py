@@ -18,7 +18,7 @@ ACCURACY_THRESHOLD = 0.3  # We want to ensure an average accuracy above 50%
 
 class TestLearnerModels(unittest.TestCase):
     def setUp(self) -> None:
-        self.data_container = EPLData(datastore=DataStore.DEFAULT)
+        self.data_container = EPLData(datastore=DataStore.CSV)
         self.data = self.data_container.load()
 
     # TODO: Complete cross-validation test

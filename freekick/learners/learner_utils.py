@@ -11,6 +11,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
 from freekick import ESTIMATOR_LOCATION
+from freekick.datastore import DEFAULT_REPOSITORY
 from freekick.datastore.util import (
     DataStore,
     League,
@@ -239,10 +240,12 @@ def add_wpc_pyth(
     league: League,
     season: Season = Season.CURRENT,
     datastore: DataStore = DataStore.DEFAULT,
+    repository=None,
 ):
     """Add wpc and pyth for each team in data"""
     league_container = get_league_data_container(league=league.value)(
-        datastore=datastore
+        datastore=datastore,
+        repository=repository,
     )
     cached_wpc_pyth = league.value in WPC_PYTH_CACHE.get("league", {})
     if cached_wpc_pyth:
@@ -275,7 +278,7 @@ def compute_cache_all_league_wpc_pyth(
     for league in League:
         with Timer():
             league_container = get_league_data_container(league=league.value)(
-                datastore=datastore
+                datastore=datastore, repository=DEFAULT_REPOSITORY
             )
             X = league_container.load()
             X[X["season"] == season_to_int(Season.CURRENT)]

@@ -3,7 +3,7 @@ from datetime import datetime
 import pandas as pd
 from sqlalchemy.orm import Session
 
-from freekick.datastore import DATA_UTIL, DEFAULT_ENGINE
+from freekick.datastore import DATA_UTIL, DEFAULT_REPOSITORY
 from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import League, Season, season_to_int
 from freekick.learners.learner_utils import add_wpc_pyth
@@ -11,7 +11,7 @@ from freekick.utils import _logger
 
 from .util import MatchDTO, _predict
 
-REPOSITORY = SQLAlchemyRepository(Session(DEFAULT_ENGINE))
+REPOSITORY = DEFAULT_REPOSITORY
 
 
 def predict_match(
@@ -46,8 +46,8 @@ def predict_match(
         f" {league}\t{home_team}\t\t{away_team}\t\t{time}\t{match_date}\n"
     )
 
-    home_id = DATA_UTIL.get_team_id(team_code=home_team)
-    away_id = DATA_UTIL.get_team_id(team_code=away_team)
+    home_id = DATA_UTIL.get_team_id(team_code=home_team, repository=REPOSITORY)
+    away_id = DATA_UTIL.get_team_id(team_code=away_team, repository=REPOSITORY)
 
     date = (
         pd.Timestamp(match_date)
@@ -73,7 +73,10 @@ def predict_match(
         }
     )
     single_match_df = add_wpc_pyth(
-        data=single_match_df, league=league, season=season
+        data=single_match_df,
+        league=league,
+        season=season,
+        repository=REPOSITORY,
     )
     pred = _predict(single_match_df, league=league)
     _logger.debug(f"Prediction: {pred}")
