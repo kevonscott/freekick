@@ -4,7 +4,7 @@ black==24.8.0
 click==8.1.7
 dask==2024.9.0
 dask-ml==2024.4.4
-distributed==2024.9.0
+distributed==2024.9.1
 flake8==7.1.1
 flake8-bugbear==24.8.19
 Flask==3.0.3
