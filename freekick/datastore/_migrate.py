@@ -30,6 +30,10 @@ def create_db(exists_ok: bool = True) -> None:
         print(f"Created DB: {DB_PATH}")
 
 
+def create_db_table(table_name: str) -> None:
+    Base.metadata.tables["pyth_wpc"].create(ENGINE)
+
+
 def _csv_to_sqlite_migration(engine=ENGINE):
     """Copy over data from csv, read csv and create models"""
 

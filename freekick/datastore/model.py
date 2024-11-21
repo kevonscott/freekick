@@ -59,6 +59,7 @@ class PythWpc(Base):
     pyth_wpc_id: Mapped[str] = mapped_column(primary_key=True)
     team_code: Mapped[str]
     season: Mapped[str]
+    league: Mapped[str]
     win_percentage: Mapped[float]
     pythagorean_expectation: Mapped[float]
     last_update: Mapped[datetime.datetime]

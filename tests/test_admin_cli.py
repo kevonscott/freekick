@@ -23,11 +23,12 @@ class AdminCliTestcase(unittest.TestCase):
         with unittest.mock.patch(
             "entrypoints.admin_cli.train_soccer_model"
         ) as t_s_m:
-            self.runner.invoke(cli, ["-r", "EPL"])
+            self.runner.invoke(cli, ["-r", "EPL", "-s", "CSV"])
             t_s_m.assert_called_once_with(
                 learner=DEFAULT_ESTIMATOR,
                 league=League.EPL,
                 test_size=0.2,
                 datastore=DataStore.CSV,
                 persist=False,
+                repository=None,
             )

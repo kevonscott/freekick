@@ -13,9 +13,16 @@ from freekick.datastore.util import (
     League,
     get_league_data_container,
 )
+from freekick.learners.learner_utils import update_wpc_pyth
 from freekick.utils import _logger
 
-UPDATE_TYPES = ["team_rating", "player_rating", "match", "current_season"]
+UPDATE_TYPES = [
+    "team_rating",
+    "player_rating",
+    "match",
+    "current_season",
+    "wpc_pyth",
+]
 _logger.setLevel("INFO")
 
 
@@ -43,23 +50,32 @@ def cli():
     "-p", "--persist", is_flag=True, help="Save updated date to disk."
 )
 def update(data_type, league, persist):
-    league_container = get_league_data_container(league=league)
-    if data_type == "player_rating":
-        raise NotImplementedError
-    elif data_type == "team_rating":
-        data_scraper = DataScraper(league=League[league])
-        data_scraper.scrape_team_rating(persists=persist)
-    elif data_type == "match":
-        raise NotImplementedError
-        # Read in new data and override the current file if persist == True
-        # read_stitch_raw_data(league=League[league], persist=persist)
-        # league_container.read_stitch_raw_data(league=league, persist=persist)
-    elif data_type == "current_season":
-        session = Session(DEFAULT_ENGINE)
-        repo = SQLAlchemyRepository(session)
-        for store in DataStore:
-            league_data = league_container(datastore=store, repository=repo)
-            league_data.update_current_season(persist=persist)
+    match data_type:
+        case "player_rating":
+            raise NotImplementedError
+        case "team_rating":
+            data_scraper = DataScraper(league=League[league])
+            data_scraper.scrape_team_rating(persists=persist)
+        case "match":
+            raise NotImplementedError
+            # Read in new data and override the current file if persist == True
+            # read_stitch_raw_data(league=League[league], persist=persist)
+            # league_container.read_stitch_raw_data(league=league, persist=persist)
+        case "current_season":
+            league_container = get_league_data_container(league=league)
+            session = Session(DEFAULT_ENGINE)
+            repo = SQLAlchemyRepository(session)
+            for store in DataStore:
+                league_data = league_container(
+                    datastore=store, repository=repo
+                )
+                league_data.update_current_season(persist=persist)
+        case "wpc_pyth":
+            update_wpc_pyth(league=League[league], persist=True, cache=True)
+        case _:
+            raise ValueError(
+                "Invalid data_type. Please select from %s", UPDATE_TYPES
+            )
 
 
 @click.command()

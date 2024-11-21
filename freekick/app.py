@@ -50,8 +50,8 @@ def create_app(
         app.logger.setLevel(config["LOG_LEVEL"])
     else:
         _logger.warning(
-            "Environment not specified! Please define 'ENV' environment"
-            " variable. Skipping app configuration..."
+            "ENVIRONMENT NOT SPECIFIED! PLEASE DEFINE 'ENV' ENVIRONMENT"
+            " VARIABLE. SKIPPING APP CONFIGURATION..."
         )
 
     CORS(app)

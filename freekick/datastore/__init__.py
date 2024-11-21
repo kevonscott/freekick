@@ -22,7 +22,7 @@ DEFAULT_ENGINE = create_engine(
 
 
 # TODO: Think about making this session a callable so we only create sessions
-# only when needed instead of always having a session connected
+# when needed instead of always having a session connected
 # Sessions and repos should only be instantiated in DB mode.
 def get_or_create_session() -> Session:
     """Get existing or create a new Database Session."""

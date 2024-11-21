@@ -1,6 +1,10 @@
 import click
 
-from freekick.datastore._migrate import _csv_to_sqlite_migration, create_db
+from freekick.datastore._migrate import (
+    _csv_to_sqlite_migration,
+    create_db,
+    create_db_table,
+)
 
 
 @click.command()
@@ -21,13 +25,20 @@ from freekick.datastore._migrate import _csv_to_sqlite_migration, create_db
     is_flag=True,
     default=False,
 )
-def cli(create_database, recreate_database, migrate_csv_to_db):
+@click.option(
+    "-t",
+    "--create_table",
+    help="Create a single table in DB.",
+)
+def cli(create_database, recreate_database, migrate_csv_to_db, create_table):
     if create_database:
         create_db(exists_ok=True)
     elif recreate_database:
         create_db(exists_ok=False)
     elif migrate_csv_to_db:
         _csv_to_sqlite_migration()
+    if create_table:
+        create_db_table(create_table)
 
 
 if __name__ == "__main__":

@@ -2,7 +2,6 @@
 """
 
 import threading
-import time
 from dataclasses import dataclass
 
 import numpy as np
@@ -11,8 +10,9 @@ import pandas as pd
 from freekick.datastore.util import League, TeamName
 from freekick.learners import serial_models
 from freekick.learners.learner_utils import (
+    TRAINING_COLS,
     WPC_PYTH_CACHE,
-    WPC_PYTH_CACHE_EXPIRE_SECONDS,
+    WPC_PYTH_CACHE_TIMEOUT,
     compute_cache_all_league_wpc_pyth,
 )
 from freekick.utils import _logger
@@ -46,10 +46,10 @@ def _predict(data: pd.DataFrame, league: League) -> np.ndarray:
     :return: Array with same length as data. A forecast for each data entry.
     :rtype: np.ndarray
     """
-    time_now = time.time()
-    last_update = WPC_PYTH_CACHE.get("last_update")
-    time_elapsed = time_now - (last_update or 0.0)
-    if not last_update or (time_elapsed > WPC_PYTH_CACHE_EXPIRE_SECONDS):
+    time_now = pd.Timestamp.now()
+    last_update = pd.Timestamp(WPC_PYTH_CACHE.get("last_update"))
+    time_elapsed = time_now - (last_update or pd.Timestamp.min())
+    if not last_update or (time_elapsed > WPC_PYTH_CACHE_TIMEOUT):
         # Kick off a background thread to update WPC_PYTH_CACHE
         # Note we are not blocking on the completion of this update
         thread = threading.Thread(target=compute_cache_all_league_wpc_pyth)
@@ -64,5 +64,5 @@ def _predict(data: pd.DataFrame, league: League) -> np.ndarray:
         soccer_model = serial_models()[league.value]
     except KeyError:
         raise LearnerNotFoundError(f"Serial model not found for {league}.")
-
+    data = data[TRAINING_COLS]  # reorder cols to match training
     return soccer_model.predict(data)

@@ -86,7 +86,6 @@ def season_to_int(s: str | Season):
 
 
 def fix_team_name(name: str) -> str:
-
     match name:
         case "Tottenham":
             return "Tottenham Hotspur"
@@ -134,8 +133,43 @@ class DataUtils(ABC):
         pass
 
     @abstractmethod
-    def add_teams(self, teams: list[Team], repository=None, **kwargs):
+    def add_teams(self, teams: list[Team], *args, **kwargs):
         pass
+
+    def add_or_update_wpc_pyth(
+        self,
+        data: pd.DataFrame,
+        league: League,
+        repository: Optional[AbstractRepository] = None,
+        **kwargs,
+    ):
+        expected_columns = {
+            "team",
+            "season",
+            "league",
+            "win_percentage",
+            "pythagorean_expectation",
+            "last_update",
+            "pyth_wpc_id",
+        }
+        _validate_cols(columns=data.columns, expected_columns=expected_columns)
+        data = data[
+            list(expected_columns)
+        ].drop_duplicates()  # Drop any unnecessary columns
+        # data["pyth_wpc_id"] = (
+        #     data["team"].astype(str) + "_" + data["season"].astype(str)
+        # )
+        self.update_wpc_pyth(data=data, league=league, repository=repository)
+
+    @abstractmethod
+    def update_wpc_pyth(
+        self, data: pd.DataFrame, league: League, *arg, **kwargs
+    ) -> None:
+        raise NotImplementedError()
+
+    @abstractmethod
+    def load_wpc_pyth(self, league: League, season: Season) -> pd.DataFrame:
+        raise NotImplementedError()
 
     @staticmethod
     def new_team_id(team_code: str) -> int:
@@ -295,8 +329,14 @@ class DBUtils(DataUtils):
             games.append(game)
         return games
 
-    @staticmethod
-    def create_pyth_wpc_model(df: pd.DataFrame) -> list[PythWpc]:
+    def add_teams(
+        self, teams: list[Team], repository: AbstractRepository, **kwargs
+    ):
+        for instance in teams:
+            repository.add(instance)
+        repository.commit()
+
+    def _create_pyth_wpc_model(self, df: pd.DataFrame) -> list[PythWpc]:
         """Create PythWpc models from a DataFrame object.
 
         :param df: Data to parse.
@@ -304,35 +344,53 @@ class DBUtils(DataUtils):
         """
         if df.empty:
             return []
-        expected_columns = {
-            "team",
-            "season",
-            "win_percentage",
-            "pythagorean_expectation",
-            "last_updated",
-        }
-        _validate_cols(columns=df.columns, expected_columns=expected_columns)
+
         pyth_wpc_list = []
-        for row in df.iterrows():
+        for _, row in df.iterrows():
             model = PythWpc(
-                pyth_wpc_id=f"{row['team']}_{row['season']}",
+                pyth_wpc_id=row["pyth_wpc_id"],
                 team_code=row["team"],
                 season=row["season"],
+                league=row["league"],
                 win_percentage=row["win_percentage"],
                 pythagorean_expectation=row["pythagorean_expectation"],
-                last_updated=row["last_updated"],
+                last_update=row["last_update"],
             )
             pyth_wpc_list.append(model)
         return pyth_wpc_list
 
-    @staticmethod
-    def add_teams(teams: list[Team], repository: AbstractRepository):
-        for instance in teams:
-            repository.add(instance)
+    def update_wpc_pyth(
+        self,
+        data: pd.DataFrame,
+        league: League,
+        repository: AbstractRepository,
+    ) -> None:
+        _logger.info("Updating WPC and PYTH for %s", self.__class__.__name__)
+        _logger.info("Persisting wpc_pyth for league: %s", league)
+        models: list[PythWpc] = self._create_pyth_wpc_model(data)
+        for model in models:
+            db_model = repository.get(PythWpc, model.pyth_wpc_id)
+            if db_model:
+                # update instead. We only want to update some attrs
+                for attr in {
+                    "win_percentage",
+                    "pythagorean_expectation",
+                    "last_update",
+                }:
+                    setattr(db_model, attr, getattr(model, attr))
+            else:
+                # add new
+                repository.add(model)
         repository.commit()
+        _logger.info("WPC/PYTH update completed successfully!")
+
+    def load_wpc_pyth(self, league: League, season: Season) -> pd.DataFrame:
+        raise NotImplementedError
 
 
 class CSVUtils(DataUtils):
+    wpc_pyth_base_path = DATA_DIR / "processed"
+
     @staticmethod
     def get_team_code(league: str, team_name: str, **kwargs) -> str:
         """Looks up a team's code name given its full name.
@@ -361,7 +419,7 @@ class CSVUtils(DataUtils):
         return team_id
 
     @staticmethod
-    def add_teams(teams: list[Team]):
+    def add_teams(teams: list[Team], *args, **kwargs):
         team_df = pd.concat(
             [
                 pd.DataFrame(
@@ -386,6 +444,27 @@ class CSVUtils(DataUtils):
     def load_teams_csv():
         file_path = str(DATA_DIR / "processed" / "team.csv")
         return pd.read_csv(file_path)
+
+    def update_wpc_pyth(
+        self, data: pd.DataFrame, league: League, *args, **kwargs
+    ) -> None:
+        _logger.info("Updating WPC and PYTH for %s", self.__class__.__name__)
+        _logger.info("Updating CSV, overwrite existing one.")
+        file_path = self.wpc_pyth_base_path / f"{league.value}_wpc_pyth.csv"
+        data.to_csv(file_path, index=False)
+        _logger.info("WPC/PYTH update complete!")
+
+    def load_wpc_pyth(self, league: League, season: Season) -> pd.DataFrame:
+        file_path = self.wpc_pyth_base_path / f"{league.value}_wpc_pyth.csv"
+        data = pd.read_csv(file_path)
+        season_int = season_to_int(season.value)
+        data = data[data["season"] == season_int]
+        if data.empty:
+            raise ValueError(
+                f"WPC-PYTH entry not found for league {league} and season "
+                f"{season}. Was wpc_pyth previously computed?"
+            )
+        return data
 
 
 class DataStore(Enum):
@@ -469,9 +548,8 @@ class DataScraper:
                 else:
                     raise
         if type == "team_rating":
-            team_ranking = (
-                {}
-            )  # { teams: {team_name: {overall: <rank>, offense: <rank>, defense: <rank>}, last_updated: 'string' }
+            # {team_name: {overall: <rank>, offense: <rank>, defense: <rank>}, last_updated: 'string' }
+            team_ranking = {}
             team_ranking["last_updated"] = last_updated_datetime
             team_rows = soup.find_all("tr", {"class": "team-row"})
             for team in team_rows:
@@ -607,7 +685,7 @@ class BaseData(ABC):
             ],
             how="all",
         )
-        X["time"] = pd.to_datetime(X["time"].bfill().ffill())
+        X["time"] = pd.to_datetime(X["time"].fillna("13:30"), format="mixed")
         X["attendance"] = X["attendance"].fillna(0)
 
         team_code = partial(
@@ -663,15 +741,17 @@ class BaseData(ABC):
             df.to_csv(file_path, index=False)
         _logger.info(f"df.shape: {df.shape}")
 
+    def load_wpc_pyth(self, league: League, season: Season):
+        raise NotImplementedError()
+
 
 class EPLData(BaseData):
-
     def __init__(
         self,
         datastore: DataStore,
-        repository: (
-            AbstractRepository | None
-        ) = None,  # required if Datastore.DB
+        repository: Optional[
+            AbstractRepository
+        ] = None,  # required if Datastore.DB
         env: str = "development",
     ) -> None:
         super().__init__()
@@ -707,12 +787,13 @@ class EPLData(BaseData):
                 statement = select(Game).where(
                     Game.league == self.league.value
                 )
-                data = pd.read_sql_query(statement, con=self.repository.session.get_bind())  # type: ignore[union-attr]
+                data = pd.read_sql_query(
+                    statement, con=self.repository.session.get_bind()
+                )  # type: ignore[union-attr]
             case _:
                 raise NotImplementedError(
-                    "Cannot extract data from {datastore} yet..."
+                    f"Cannot extract data from datastore '{self.datastore}' yet..."
                 )
-                data["date"] = data["date"].apply(clean_date)
 
         return self.clean_format_data(data=data)
 
@@ -797,6 +878,7 @@ class BundesligaData(BaseData):
     # raise NotImplementedError
 
 
+@cache
 def get_league_data_container(league: str | League):
     if isinstance(league, str):
         league = League[league.upper()]

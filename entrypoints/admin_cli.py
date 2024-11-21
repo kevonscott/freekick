@@ -1,7 +1,10 @@
 import logging
 
 import click
+from sqlalchemy.orm import Session
 
+from freekick.datastore import DEFAULT_ENGINE
+from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import DataStore, League
 from freekick.learners import DEFAULT_ESTIMATOR
 from freekick.learners.learner_utils import train_soccer_model
@@ -46,7 +49,7 @@ def list_supported_leagues():
         " data file with the same name as the model in the data directory"
     ),
     type=click.Choice(["CSV", "DATABASE"]),
-    default="CSV",
+    default="DATABASE",
     show_default=True,
 )
 @click.option(
@@ -62,12 +65,18 @@ def cli(retrain, list_leagues, test_size, persist, source, log_level="INFO"):
     if list_leagues:
         list_supported_leagues()
     elif retrain:
+        datastore = DataStore[source]
+        repo = None
+        if datastore.name == DataStore.DATABASE.name:
+            session = Session(DEFAULT_ENGINE)
+            repo = SQLAlchemyRepository(session)
         train_soccer_model(
             learner=DEFAULT_ESTIMATOR,
             league=League[retrain],
             test_size=test_size,
-            datastore=DataStore[source],
+            datastore=datastore,
             persist=persist,
+            repository=repo,
         )
 
 
