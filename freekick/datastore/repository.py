@@ -16,7 +16,7 @@ class AbstractRepository(ABC):
         pass
 
     @abstractmethod
-    def commit(self):
+    def commit(self) -> None:
         pass
 
 
@@ -50,7 +50,7 @@ class SQLAlchemyRepository(AbstractRepository):
     def add(self, instance):
         self.session.add(instance=instance)
 
-    def commit(self):
+    def commit(self) -> None:
         self.session.commit()
 
 
@@ -64,5 +64,5 @@ class MockRepository(AbstractRepository):
     def add(self, instance):
         pass
 
-    def commit(self):
+    def commit(self) -> None:
         pass

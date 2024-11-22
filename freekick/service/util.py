@@ -1,5 +1,4 @@
-"""Data Transfer Objects (DTO) for sending across network.
-"""
+"""Data Transfer Objects (DTO) for sending across network."""
 
 import threading
 from dataclasses import dataclass
@@ -48,7 +47,7 @@ def _predict(data: pd.DataFrame, league: League) -> np.ndarray:
     """
     time_now = pd.Timestamp.now()
     last_update = pd.Timestamp(WPC_PYTH_CACHE.get("last_update"))
-    time_elapsed = time_now - (last_update or pd.Timestamp.min())
+    time_elapsed = time_now - (last_update or pd.Timestamp.min)
     if not last_update or (time_elapsed > WPC_PYTH_CACHE_TIMEOUT):
         # Kick off a background thread to update WPC_PYTH_CACHE
         # Note we are not blocking on the completion of this update
@@ -63,6 +62,8 @@ def _predict(data: pd.DataFrame, league: League) -> np.ndarray:
         # Load serialized model
         soccer_model = serial_models()[league.value]
     except KeyError:
-        raise LearnerNotFoundError(f"Serial model not found for {league}.")
+        raise LearnerNotFoundError(
+            f"Serial model not found for {league}."
+        ) from None
     data = data[TRAINING_COLS]  # reorder cols to match training
     return soccer_model.predict(data)

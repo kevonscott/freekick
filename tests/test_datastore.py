@@ -3,7 +3,6 @@ import unittest
 import numpy as np
 import pandas as pd
 from dateutil.parser import parse
-from pandas.testing import assert_frame_equal
 
 from freekick import DATA_DIR
 from freekick.datastore.util import DataStore, EPLData, League

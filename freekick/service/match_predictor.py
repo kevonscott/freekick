@@ -1,10 +1,8 @@
 from datetime import datetime
 
 import pandas as pd
-from sqlalchemy.orm import Session
 
 from freekick.datastore import DATA_UTIL, DEFAULT_REPOSITORY
-from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import League, Season, season_to_int
 from freekick.learners.learner_utils import add_wpc_pyth
 from freekick.utils import _logger

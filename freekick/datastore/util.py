@@ -493,6 +493,11 @@ LEAGUE_URI_LOOKUP = {
 }
 
 
+@cache
+def load_csv(*args, **kwargs) -> pd.DataFrame:
+    return pd.read_csv(*args, **kwargs)
+
+
 class DataScraper:
     """Data class used to fetch various soccer data from open source."""
 
@@ -644,7 +649,7 @@ class BaseData(ABC):
         pass
 
     @abstractmethod
-    def update_current_season(self):
+    def update_current_season(self) -> None:
         pass
 
     @abstractmethod
@@ -764,7 +769,12 @@ class EPLData(BaseData):
                 "Repository is required when using DataStore.DATABASE"
             )
 
-    @cache
+    # TODO: Using the functools.lru_cache and functools.cache decorators on
+    # methods can lead to memory leaks, as the global cache will retain a
+    # reference to the instance, preventing it from being garbage collected.
+    # Refactor to cache a global function instead and this method calls into
+    # the global function, then remove noqa: B019
+    @cache  # noqa: B019
     def load(self) -> pd.DataFrame:
         """Load EPL data from DataStore."""
 
@@ -851,7 +861,9 @@ class EPLData(BaseData):
                             Game.away_team == model.away_team,
                             Game.date == model.date,
                         )
-                        scalar = self.repository.session.scalars(stmt).one_or_none()  # type: ignore[union-attr]
+                        scalar = self.repository.session.scalars(
+                            stmt
+                        ).one_or_none()  # type: ignore[union-attr]
                         # does not exists in db so add
                         if not scalar:
                             models_to_add.add(model)
@@ -868,9 +880,8 @@ class EPLData(BaseData):
     def clean_format_data(self, data: pd.DataFrame):
         return self._clean_format_data(X=data, league=self.league)
 
-    @cache
     def _read_csv(self, uri):
-        return pd.read_csv(uri)
+        return load_csv(uri)  # make a cached call.
 
 
 class BundesligaData(BaseData):
