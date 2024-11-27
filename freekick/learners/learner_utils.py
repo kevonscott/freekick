@@ -33,7 +33,7 @@ WPC_PYTH_CACHE_TIMEOUT: pd.Timedelta = pd.Timedelta(days=1)  # 86400s/1day
 pd.options.mode.copy_on_write = True  # Enable copy and write.
 
 
-def _load_model(model_name: str):
+def _load_model(model_name: str) -> Any:
     """Load and deserialize a model."""
     model_path = ESTIMATOR_LOCATION / model_name
     model = joblib.load(model_path)
@@ -145,11 +145,15 @@ def compute_wpc_pyth(
         home_away["goals_for"] ** 2 + home_away["goals_against"] ** 2
     )
 
-    def _get_wpc(season, team, perf=home_away):
-        return perf.loc[(season, team)]["win_percentage"]
+    def _get_wpc(
+        season: str, team: str, perf: pd.DataFrame = home_away
+    ) -> pd.Series:  # type: ignore [type-arg]
+        return perf.loc[(season, team)]["win_percentage"]  # type: ignore
 
-    def _get_pyth(season, team, perf=home_away):
-        return perf.loc[(season, team)]["pyth_expectation"]
+    def _get_pyth(
+        season: str, team: str, perf: pd.DataFrame = home_away
+    ) -> pd.Series:  # type: ignore [type-arg]
+        return perf.loc[(season, team)]["pyth_expectation"]  # type: ignore
 
     data["home_win_percentage"] = data.apply(
         lambda row: _get_wpc(row["season"], row["home_team"]), axis=1
@@ -215,17 +219,17 @@ def compute_wpc_pyth(
 
 
 def train_soccer_model(
-    learner: BaseClassifier,
+    learner: type[BaseClassifier],
     league: League,
     test_size: float,
     datastore: DataStore = DataStore.DEFAULT,
     persist: bool = False,
     repository: Optional[AbstractRepository] = None,
-):
+) -> None:
     _logger.info(f"Retraining predictive model for {league}...")
     league_container = get_league_data_container(league=league.value)(
         datastore=datastore, repository=repository
-    )
+    )  # type: ignore [call-arg]
     X = league_container.load()
     X = add_wpc_pyth(
         data=X,
@@ -274,7 +278,7 @@ def load_wpc_pyth(league: League) -> pd.DataFrame | None:
         )
         if (datetime.now() - last_update) < WPC_PYTH_CACHE_TIMEOUT:
             _logger.info("WPC_PYTH cache hit....")
-            return WPC_PYTH_CACHE[league.value]["data"]
+            return WPC_PYTH_CACHE[league.value]["data"]  # type: ignore [return-value]
         else:
             _logger.warning(
                 "cache miss for wpc-pyth, trying persistent storage...."
@@ -290,9 +294,9 @@ def load_wpc_pyth(league: League) -> pd.DataFrame | None:
 def add_wpc_pyth(
     data: pd.DataFrame,
     league: League,
-    season: Season | None = Season.CURRENT,
+    season: Optional[Season] = Season.CURRENT,
     datastore: DataStore = DataStore.DEFAULT,
-    repository=None,
+    repository: Optional[AbstractRepository] = None,
 ) -> pd.DataFrame:
     """Add win percentage (wpc) and pythagorean expectation (pyth) for each team
 
@@ -325,7 +329,7 @@ def add_wpc_pyth(
             league_container = get_league_data_container(league=league.value)(
                 datastore=datastore,
                 repository=repository,
-            )
+            )  # type: ignore [call-arg]
             X = league_container.load()
             # Filter current season data
             X = X[X["season"] == season_to_int(season)]
@@ -337,7 +341,7 @@ def add_wpc_pyth(
         league_container = get_league_data_container(league=league.value)(
             datastore=datastore,
             repository=repository,
-        )
+        )  # type: ignore [call-arg]
         X = league_container.load()
         X = compute_wpc_pyth(data=X, league=league, cache=False)
     X = X[["team", "season", "win_percentage", "pythagorean_expectation"]]
@@ -368,7 +372,7 @@ def add_wpc_pyth(
 
 def compute_cache_all_league_wpc_pyth(
     datastore: DataStore = DataStore.DEFAULT,
-):
+) -> None:
     # Compute and cache wpc_pyth but do not persists to disk/database.
     for league in League:
         with Timer():
@@ -380,9 +384,9 @@ def compute_cache_all_league_wpc_pyth(
 def update_wpc_pyth(
     league: League,
     datastore: Optional[DataStore] = None,
-    persist=False,
-    cache=False,
-):
+    persist: bool = False,
+    cache: bool = False,
+) -> None:
     """Update win percentage and pythagorean expectation in persistent storage.
 
     :param league: League for which to update
@@ -391,7 +395,7 @@ def update_wpc_pyth(
     """
     league_container = get_league_data_container(league=league.value)(
         datastore=datastore or DataStore.DEFAULT, repository=DEFAULT_REPOSITORY
-    )
+    )  # type: ignore [call-arg]
     X = league_container.load()
     X = X[X["season"] == season_to_int(Season.CURRENT)]
     wpc_pyth = compute_wpc_pyth(data=X, league=league, cache=cache)

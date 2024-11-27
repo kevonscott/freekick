@@ -1,7 +1,7 @@
 from .util import MatchDTO
 
 
-def predict_match_day(league: str):
+def predict_match_day(league: str) -> list[MatchDTO]:
     raise NotImplementedError
     return [
         MatchDTO(

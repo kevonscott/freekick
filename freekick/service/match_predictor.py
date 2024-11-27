@@ -78,8 +78,12 @@ def predict_match(
     )
     pred = _predict(single_match_df, league=league)
     _logger.debug(f"Prediction: {pred}")
-    pred = int(pred[0])
-    result = "Draw" if pred == 0 else (home_team if pred > 0 else away_team)
+    result_int: int = int(pred[0])
+    result = (
+        "Draw"
+        if result_int == 0
+        else (home_team if result_int > 0 else away_team)
+    )
     match_dto = [
         MatchDTO(
             home_team=home_team, away_team=away_team, predicted_winner=result

@@ -14,9 +14,21 @@ repos:
     - id: sort-simple-yaml
     - id: check-shebang-scripts-are-executable
     - id: check-added-large-files
+-   repo: https://github.com/PyCQA/bandit
+    rev: '1.7.8'
+    hooks:
+    - id: bandit
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.13.0
+    hooks:
+      - id: mypy
+        exclude: ^tests/
+        args: [--strict, --ignore-missing-imports]
+        language: system  # make mypy use the same env as pre-commit
+        types_or: [ python, pyi ]
 -   repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
-    rev: v0.7.4
+    rev: v0.8.0
     hooks:
     # Run the linter.
     - id: ruff
@@ -25,13 +37,3 @@ repos:
        # Run the formatter.
     - id: ruff-format
       types_or: [ python, pyi ]
--   repo: https://github.com/PyCQA/bandit
-    rev: '1.7.8'
-    hooks:
-    - id: bandit
-# -   repo: https://github.com/pre-commit/mirrors-mypy
-#     rev: v1.13.0
-#     hooks:
-#       - id: mypy
-#         exclude: ^tests/
-#         args: [--strict]

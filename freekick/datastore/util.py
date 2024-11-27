@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 from functools import cache, partial
-from typing import Iterable, Optional
+from typing import Iterable, Optional, Any
 
 import dask.dataframe as dd
 import numpy as np
@@ -79,10 +79,10 @@ class Season(Enum):
     CURRENT = S_2023_2024
 
 
-def season_to_int(s: str | Season):
+def season_to_int(s: str | Season) -> int:
     if isinstance(s, Season):
         s = s.value
-    return np.int64(s.removeprefix("S_").replace("_", ""))
+    return int(s.removeprefix("S_").replace("_", ""))
 
 
 def fix_team_name(name: str) -> str:
@@ -125,15 +125,15 @@ def fix_team_name(name: str) -> str:
 
 class DataUtils(ABC):
     @abstractmethod
-    def get_team_code(self, *args, **kwargs):
+    def get_team_code(self, *args: Any, **kwargs: Any) -> str:
         pass
 
     @abstractmethod
-    def get_team_id(self, *args, **kwargs):
+    def get_team_id(self, *args: Any, **kwargs: Any) -> int:
         pass
 
     @abstractmethod
-    def add_teams(self, teams: list[Team], *args, **kwargs):
+    def add_teams(self, teams: list[Team], *args: Any, **kwargs: Any) -> None:
         pass
 
     def add_or_update_wpc_pyth(
@@ -141,8 +141,8 @@ class DataUtils(ABC):
         data: pd.DataFrame,
         league: League,
         repository: Optional[AbstractRepository] = None,
-        **kwargs,
-    ):
+        **kwargs: Any,
+    ) -> None:
         expected_columns = {
             "team",
             "season",
@@ -163,7 +163,7 @@ class DataUtils(ABC):
 
     @abstractmethod
     def update_wpc_pyth(
-        self, data: pd.DataFrame, league: League, *arg, **kwargs
+        self, data: pd.DataFrame, league: League, *arg: Any, **kwargs: Any
     ) -> None:
         raise NotImplementedError()
 
@@ -225,7 +225,7 @@ class DBUtils(DataUtils):
         if not entity:
             raise TeamNotFoundError(f"Team code not found for '{team_name}'.")
 
-        return entity.code
+        return str(entity.code)
 
     @staticmethod
     def get_team_id(team_code: str, repository: AbstractRepository) -> int:
@@ -240,7 +240,7 @@ class DBUtils(DataUtils):
         entity = repository.session.scalars(statement).one_or_none()
         if not entity:
             raise TeamNotFoundError(f"Team ID not found for '{team_code}'.")
-        return entity.team_id
+        return int(entity.team_id)
 
     @staticmethod
     def get_teams(
@@ -267,7 +267,7 @@ class DBUtils(DataUtils):
             raise ValueError(
                 f"No teams found for the following league: {league}"
             )
-        teams: set = set()
+        teams: set[TeamName] = set()
         for entity in entities:
             teams.add(TeamName(code=entity.code, name=entity.name))
         return season.value, list(teams)
@@ -291,7 +291,9 @@ class DBUtils(DataUtils):
         return teams
 
     @staticmethod
-    def create_game_model(df: pd.DataFrame, repository) -> list[Game]:
+    def create_game_model(
+        df: pd.DataFrame, repository: AbstractRepository
+    ) -> list[Game]:
         """Create db ORM Game models from dataframe.
 
         :param df: DataFrame with game data
@@ -330,8 +332,8 @@ class DBUtils(DataUtils):
         return games
 
     def add_teams(
-        self, teams: list[Team], repository: AbstractRepository, **kwargs
-    ):
+        self, teams: list[Team], repository: AbstractRepository, **kwargs: Any
+    ) -> None:
         for instance in teams:
             repository.add(instance)
         repository.commit()
@@ -392,7 +394,7 @@ class CSVUtils(DataUtils):
     wpc_pyth_base_path = DATA_DIR / "processed"
 
     @staticmethod
-    def get_team_code(league: str, team_name: str, **kwargs) -> str:
+    def get_team_code(league: str, team_name: str, **kwargs: Any) -> str:
         """Looks up a team's code name given its full name.
 
         :param league: League code
@@ -402,13 +404,13 @@ class CSVUtils(DataUtils):
         """
         team_name = fix_team_name(name=team_name)
         teams_df = CSVUtils.load_teams_csv()
-        code = teams_df[
+        code: str = teams_df[
             (teams_df["name"] == team_name) & (teams_df["league"] == league)
         ]["code"].iloc[0]
         return code
 
     @staticmethod
-    def get_team_id(team_code: str, *arg, **kwarg) -> str:
+    def get_team_id(team_code: str, *arg: Any, **kwarg: Any) -> int:
         """Looks up a team's id given its code.
 
         :param team_code: I teams unique code
@@ -416,10 +418,10 @@ class CSVUtils(DataUtils):
         """
         teams_df = CSVUtils.load_teams_csv()
         team_id = teams_df[(teams_df["code"] == team_code)]["team_id"].iloc[0]
-        return team_id
+        return int(team_id)
 
     @staticmethod
-    def add_teams(teams: list[Team], *args, **kwargs):
+    def add_teams(teams: list[Team], *args: Any, **kwargs: Any) -> None:
         team_df = pd.concat(
             [
                 pd.DataFrame(
@@ -441,12 +443,12 @@ class CSVUtils(DataUtils):
 
     @staticmethod
     @cache
-    def load_teams_csv():
+    def load_teams_csv() -> pd.DataFrame:
         file_path = str(DATA_DIR / "processed" / "team.csv")
         return pd.read_csv(file_path)
 
     def update_wpc_pyth(
-        self, data: pd.DataFrame, league: League, *args, **kwargs
+        self, data: pd.DataFrame, league: League, *args: Any, **kwargs: Any
     ) -> None:
         _logger.info("Updating WPC and PYTH for %s", self.__class__.__name__)
         _logger.info("Updating CSV, overwrite existing one.")
@@ -494,8 +496,8 @@ LEAGUE_URI_LOOKUP = {
 
 
 @cache
-def load_csv(*args, **kwargs) -> pd.DataFrame:
-    return pd.read_csv(*args, **kwargs)
+def load_csv(*args: Any, **kwargs: Any) -> pd.DataFrame:
+    return pd.read_csv(*args, **kwargs)  # type: ignore [no-any-return]
 
 
 class DataScraper:
@@ -508,7 +510,9 @@ class DataScraper:
         }  # Dict of data type to scraping url
         self.league: League = league
 
-    def _parse_team_rating_request(self, soup: BeautifulSoup, type: str):
+    def _parse_team_rating_request(
+        self, soup: BeautifulSoup, type: str
+    ) -> pd.DataFrame:
         """Parse a BS4 object for team or player rating data.
 
         Parameters
@@ -584,13 +588,13 @@ class DataScraper:
                     "overall": team_overall_rating,
                     "offense": team_defensive_rating,
                     "defense": team_offensive_rating,
-                }
+                }  # type: ignore [assignment]
             ranking_df = pd.DataFrame(team_ranking)
             ranking_df = ranking_df.reset_index().set_index(
                 ["last_updated", "index"]
             )  # multi index df
             ranking_df.index.set_names(["date", "ranking"], inplace=True)
-            ranking_df = ranking_df.unstack()  # type: ignore[assignment]
+            ranking_df = ranking_df.unstack()  # type: ignore [assignment]
 
         elif type == "player_rating":
             player_ranking = {}
@@ -602,7 +606,9 @@ class DataScraper:
             )
         return ranking_df
 
-    def scrape_team_rating(self, persists: bool = False, use_db: bool = False):
+    def scrape_team_rating(
+        self, persists: bool = False, use_db: bool = False
+    ) -> None:
         data_type = "team_rating"
         league_end_point = LEAGUE_URI_LOOKUP[self.league]
         team_rating_uri = f"{self.urls[data_type]}/{league_end_point}/"
@@ -630,7 +636,7 @@ class DataScraper:
                     index_col=["date", "ranking"],
                     parse_dates=True,
                 )
-                df = df.stack()
+                df = df.stack()  # type: ignore [assignment]
                 new_df = pd.concat([exist_df, df], axis=0)
                 new_df.to_csv(team_ranking_csv, index=False)
         else:
@@ -653,10 +659,12 @@ class BaseData(ABC):
         pass
 
     @abstractmethod
-    def clean_format_data(self, data: pd.DataFrame):
+    def clean_format_data(self, data: pd.DataFrame) -> pd.DataFrame:
         pass
 
-    def _clean_format_data(self, X: pd.DataFrame, league: League):
+    def _clean_format_data(
+        self, X: pd.DataFrame, league: League
+    ) -> pd.DataFrame:
         """Cleans and formats DataFrame.
 
         Parameters
@@ -669,6 +677,8 @@ class BaseData(ABC):
         # A/-1: Away Team Win
         # D/0: Draw
         # H/1: Home Team Win
+        if not self.datastore:
+            raise ValueError(f"{self.__class__.__name__}: DataStore required")
         should_convert_team_name_to_code = False
         if {"HomeTeam", "AwayTeam"}.issubset(X.columns):
             # We have the team names ("HomeTeam") and not team code "home_team"
@@ -730,7 +740,7 @@ class BaseData(ABC):
 
         _logger.info(str(dir_path) + "/season*.csv")
         # Read all csv files in parallel
-        df = dd.read_csv(
+        df = dd.read_csv(  # type: ignore [attr-defined]
             str(dir_path) + "/season*.csv",
             dtype={"FTAG": "float64", "FTHG": "float64", "Time": "object"},
             usecols=list(COLUMNS.keys()),
@@ -746,8 +756,16 @@ class BaseData(ABC):
             df.to_csv(file_path, index=False)
         _logger.info(f"df.shape: {df.shape}")
 
-    def load_wpc_pyth(self, league: League, season: Season):
+    def load_wpc_pyth(self, league: League, season: Season) -> pd.DataFrame:
         raise NotImplementedError()
+
+
+def _validate_repository_for_db(repository: AbstractRepository | None) -> None:
+    if not repository or not repository.session:
+        raise ValueError(
+            "Repository (with a session) is required when using "
+            f"{DataStore.DATABASE.name}!"
+        )
 
 
 class EPLData(BaseData):
@@ -778,7 +796,7 @@ class EPLData(BaseData):
     def load(self) -> pd.DataFrame:
         """Load EPL data from DataStore."""
 
-        def clean_date(d):
+        def clean_date(d: Any) -> datetime | float:
             """varying date formats so parse date in consistent format"""
             return parse(d) if isinstance(d, str) else np.nan
 
@@ -794,12 +812,14 @@ class EPLData(BaseData):
                 )
                 data["Date"] = data["Date"].apply(clean_date)
             case DataStore.DATABASE:
+                _validate_repository_for_db(self.repository)
                 statement = select(Game).where(
                     Game.league == self.league.value
                 )
                 data = pd.read_sql_query(
-                    statement, con=self.repository.session.get_bind()
-                )  # type: ignore[union-attr]
+                    statement,
+                    con=self.repository.session.get_bind(),  # type: ignore [union-attr]
+                )
             case _:
                 raise NotImplementedError(
                     f"Cannot extract data from datastore '{self.datastore}' yet..."
@@ -847,11 +867,13 @@ class EPLData(BaseData):
                         league=self.league, persist=persist
                     )
                 case DataStore.DATABASE:
+                    _validate_repository_for_db(self.repository)
                     _logger.info("Updating Database...")
                     # Create game models
                     models_to_add = set()
                     game_models = DBUtils.create_game_model(
-                        df=season_data, repository=self.repository
+                        df=season_data,
+                        repository=self.repository,  # type: ignore [arg-type]
                     )
                     for model in game_models:
                         stmt = select(Game).where(
@@ -861,9 +883,9 @@ class EPLData(BaseData):
                             Game.away_team == model.away_team,
                             Game.date == model.date,
                         )
-                        scalar = self.repository.session.scalars(
+                        scalar = self.repository.session.scalars(  # type: ignore [union-attr]
                             stmt
-                        ).one_or_none()  # type: ignore[union-attr]
+                        ).one_or_none()
                         # does not exists in db so add
                         if not scalar:
                             models_to_add.add(model)
@@ -877,10 +899,10 @@ class EPLData(BaseData):
                 f"persist={persist}, not persisting changes in {self.datastore}!"
             )
 
-    def clean_format_data(self, data: pd.DataFrame):
+    def clean_format_data(self, data: pd.DataFrame) -> pd.DataFrame:
         return self._clean_format_data(X=data, league=self.league)
 
-    def _read_csv(self, uri):
+    def _read_csv(self, uri: str) -> pd.DataFrame:
         return load_csv(uri)  # make a cached call.
 
 
@@ -890,7 +912,7 @@ class BundesligaData(BaseData):
 
 
 @cache
-def get_league_data_container(league: str | League):
+def get_league_data_container(league: str | League) -> type[BaseData]:
     if isinstance(league, str):
         league = League[league.upper()]
     match league:

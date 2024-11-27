@@ -36,7 +36,7 @@ class LearnerNotFoundError(Exception):
     pass
 
 
-def _predict(data: pd.DataFrame, league: League) -> np.ndarray:
+def _predict(data: pd.DataFrame, league: League) -> np.ndarray[np.float64]:  # type: ignore
     """Predict the result of a game(s).
 
     :param data: Input data
@@ -46,7 +46,7 @@ def _predict(data: pd.DataFrame, league: League) -> np.ndarray:
     :rtype: np.ndarray
     """
     time_now = pd.Timestamp.now()
-    last_update = pd.Timestamp(WPC_PYTH_CACHE.get("last_update"))
+    last_update = pd.Timestamp(WPC_PYTH_CACHE.get("last_update"))  # type: ignore
     time_elapsed = time_now - (last_update or pd.Timestamp.min)
     if not last_update or (time_elapsed > WPC_PYTH_CACHE_TIMEOUT):
         # Kick off a background thread to update WPC_PYTH_CACHE
@@ -66,4 +66,4 @@ def _predict(data: pd.DataFrame, league: League) -> np.ndarray:
             f"Serial model not found for {league}."
         ) from None
     data = data[TRAINING_COLS]  # reorder cols to match training
-    return soccer_model.predict(data)
+    return soccer_model.predict(data)  # type: ignore [no-any-return]

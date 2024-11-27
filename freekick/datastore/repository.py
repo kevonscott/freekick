@@ -8,11 +8,11 @@ class AbstractRepository(ABC):
     session: Any = None
 
     @abstractmethod
-    def get(self, entity, reference):
+    def get(self, entity: Any, reference: Any) -> Any:
         pass
 
     @abstractmethod
-    def add(self, instance):
+    def add(self, instance: Any) -> None:
         pass
 
     @abstractmethod
@@ -44,10 +44,10 @@ class SQLAlchemyRepository(AbstractRepository):
     def __init__(self, session: Session) -> None:
         self.session = session
 
-    def get(self, entity, reference):
+    def get(self, entity: Any, reference: Any) -> Any:
         return self.session.get(entity=entity, ident=reference)
 
-    def add(self, instance):
+    def add(self, instance: Any) -> None:
         self.session.add(instance=instance)
 
     def commit(self) -> None:
@@ -58,10 +58,10 @@ class MockRepository(AbstractRepository):
     def __init__(self) -> None:
         pass
 
-    def get(self, entity, reference):
+    def get(self, entity: Any, reference: Any) -> Any:
         pass
 
-    def add(self, instance):
+    def add(self, instance: Any) -> None:
         pass
 
     def commit(self) -> None:

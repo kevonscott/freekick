@@ -28,7 +28,7 @@ class BaseClassifier(ABC):
         """Define, initialize and return your Classifier."""
         pass
 
-    def fit(self, X: pd.DataFrame, y: pd.Series) -> None:
+    def fit(self, X: pd.DataFrame, y: pd.Series) -> None:  # type: ignore [type-arg]
         """Fit an estimator (self.model) to be used for prediction.
 
         :param X: Training data for the model.
@@ -65,7 +65,7 @@ class BaseClassifier(ABC):
         )
         return coeffs
 
-    def predict(self, pred_data) -> pd.DataFrame:
+    def predict(self, pred_data: pd.DataFrame) -> pd.DataFrame:
         """Predict the match winner."""
         self.check_fit()
 
@@ -76,7 +76,7 @@ class BaseClassifier(ABC):
         )
         return df_pred
 
-    def predict_probability(self, X) -> pd.DataFrame:
+    def predict_probability(self, X: pd.DataFrame) -> pd.DataFrame:
         """Predict the probabilities each result."""
         self.check_fit()
 
@@ -104,7 +104,7 @@ class FreekickDecisionTreeClassifier(BaseClassifier):
         self.backend = backend
         super().__init__(league)
 
-    def init_model(self):
+    def init_model(self) -> DecisionTreeClassifier:
         match self.backend:
             case Backend.PANDAS:
                 classifier = DecisionTreeClassifier
@@ -118,18 +118,22 @@ class FreekickDecisionTreeClassifier(BaseClassifier):
 
 
 class FreekickSVMClassifier(BaseClassifier):
-    def __init__(self, league, backend: Backend = Backend.PANDAS) -> None:
+    def __init__(
+        self, league: League, backend: Backend = Backend.PANDAS
+    ) -> None:
         self.backend = backend
         super().__init__(league)
 
-    def init_model(self):
+    def init_model(self) -> None:
         raise NotImplementedError
 
 
 class FreekickKNNClassifier(BaseClassifier):
-    def __init__(self, league, backend: Backend = Backend.PANDAS) -> None:
+    def __init__(
+        self, league: League, backend: Backend = Backend.PANDAS
+    ) -> None:
         self.backend = backend
         super().__init__(league)
 
-    def init_model(self):
+    def init_model(self) -> None:
         raise NotImplementedError
