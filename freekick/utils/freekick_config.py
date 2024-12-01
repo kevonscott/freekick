@@ -3,15 +3,15 @@ import os
 from dotenv import load_dotenv
 
 
-def _set_environ(environment):
+def _set_environ(environment: str) -> None:
     """Set environment variables from .env file"""
-    if environment.lower() == "production":
+    if environment.lower() in {"production", "prod"}:
         load_dotenv("production.env")
     else:
         load_dotenv("development.env")
 
 
-def load_config(environ):
+def load_config(environ: str) -> dict[str, str | bool | None]:
     """Load configs form .env files
 
     Parameters
@@ -25,12 +25,13 @@ def load_config(environ):
         Dictionary with each environment variable
     """
     _set_environ(environ)
-    cfg = {}
+    cfg: dict[str, str | bool | None] = {}
     cfg["DATABASE_NAME"] = os.environ.get("DATABASE_NAME")
     cfg["DATABASE_HOST"] = os.environ.get("DATABASE_HOST")
     cfg["DATABASE_KEY"] = os.environ.get("DATABASE_KEY")
     cfg["DATABASE_URL"] = os.environ.get("DATABASE_URL")
     cfg["LOG_LEVEL"] = os.environ.get("LOG_LEVEL")
+    cfg["EPL_ESTIMATOR_CLASS"] = os.environ.get("EPL_ESTIMATOR_CLASS")
     WPC_PYTH_STR = os.environ.get("INITIALIZE_WPC_PYTH")
     if WPC_PYTH_STR == "True":
         WPC_PYTH_BOOL = True
@@ -43,3 +44,20 @@ def load_config(environ):
     cfg["INITIALIZE_WPC_PYTH"] = WPC_PYTH_BOOL
 
     return cfg
+
+
+def coerce_env_dir_name(env_name: str) -> str:
+    """Utility function to massage environment directory names/mapping.
+
+    :param env_name: Environment name. E.g. prod, production, dev, etc..
+    """
+    env_name_lower = env_name.lower()
+    match env_name_lower:
+        case "production" | "prod":
+            env = "prod"
+        case "development" | "dev":
+            env = "dev"
+        case _:
+            raise ValueError("Invalid Environment option: %s", env_name)
+
+    return env

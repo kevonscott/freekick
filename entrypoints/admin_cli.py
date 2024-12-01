@@ -6,12 +6,13 @@ from sqlalchemy.orm import Session
 from freekick.datastore import DEFAULT_ENGINE
 from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import DataStore, League
-from freekick.learners import DEFAULT_ESTIMATOR
+from freekick.learners import DEFAULT_ESTIMATOR, AllEstimator
 from freekick.learners.learner_utils import train_soccer_model
 from freekick.utils import _logger
+from freekick.utils.freekick_config import load_config
 
 
-def list_supported_leagues():
+def list_supported_leagues() -> None:
     _logger.info("Learner Options:")
     for model in League:
         _logger.info(f"\t- {model.name}")
@@ -60,20 +61,55 @@ def list_supported_leagues():
     default="INFO",
     show_default=True,
 )
-def cli(retrain, list_leagues, test_size, persist, source, log_level="INFO"):
+@click.option(
+    "-e",
+    "--env",
+    help="Target Environment.",
+    type=click.Choice(["DEV", "PROD"], case_sensitive=True),
+    default="DEV",
+    show_default=True,
+)
+def cli(
+    retrain: str,
+    list_leagues: bool,
+    test_size: float,
+    persist: bool,
+    source: str,
+    log_level: str = "INFO",
+    env: str = "DEV",
+) -> None:
     _logger.setLevel(log_level)
+
     if list_leagues:
         list_supported_leagues()
     elif retrain:
+        league = League[retrain]
         datastore = DataStore[source]
+
+        config = load_config(environ=env)
+        estimator_cls_name = config.get(f"{league.name}_ESTIMATOR_CLASS")
+        if not estimator_cls_name:
+            _logger.warning(
+                (
+                    "Environment estimator not specified for %s!!! Falling "
+                    "back to 'DEFAULT_ESTIMATOR': %s"
+                ),
+                league.name,
+                DEFAULT_ESTIMATOR,
+            )
+            estimator_cls = DEFAULT_ESTIMATOR
+        else:
+            estimator_cls = AllEstimator[estimator_cls_name]  # type: ignore[index]
+
         repo = None
         if datastore.name == DataStore.DATABASE.name:
             session = Session(DEFAULT_ENGINE)
             repo = SQLAlchemyRepository(session)
         train_soccer_model(
-            learner=DEFAULT_ESTIMATOR,
-            league=League[retrain],
+            learner=estimator_cls,  # type: ignore[type-abstract]
+            league=league,
             test_size=test_size,
+            env=env,
             datastore=datastore,
             persist=persist,
             repository=repo,
