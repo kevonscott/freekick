@@ -13,6 +13,7 @@ Welcome to freekick's documentation!
    install
    quickstart
    references
+   development
 
 Indices and tables
 ==================

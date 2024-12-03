@@ -1,5 +1,6 @@
 """Utility module for all Machine Learning Operations."""
 
+import os
 from datetime import datetime
 from functools import lru_cache, partial
 from typing import Any, Optional
@@ -21,8 +22,19 @@ from freekick.datastore.util import (
     season_to_int,
 )
 from freekick.utils import Timer, _logger
+from freekick.utils.freekick_config import coerce_env_dir_name
 
-from .classification import BaseClassifier
+from .classification import BaseClassifier, FreekickDecisionTreeClassifier
+from .regression import SoccerLogisticModel
+
+
+# Container for all active estimators/forecasters.
+AllEstimator = {
+    "FreekickDecisionTreeClassifier": FreekickDecisionTreeClassifier,
+    "SoccerLogisticModel": SoccerLogisticModel,
+}
+DEFAULT_ESTIMATOR = AllEstimator["FreekickDecisionTreeClassifier"]
+
 
 # This cache is ONLY used for caching the WPC and PYTH values for current season
 # (Season.CURRENT) teams so we do not have to compute or query DB for each
@@ -33,9 +45,23 @@ WPC_PYTH_CACHE_TIMEOUT: pd.Timedelta = pd.Timedelta(days=1)  # 86400s/1day
 pd.options.mode.copy_on_write = True  # Enable copy and write.
 
 
-def _load_model(model_name: str) -> Any:
+def _load_model(league: League) -> Any:
     """Load and deserialize a model."""
-    model_path = ESTIMATOR_LOCATION / model_name
+    env = os.environ["ENV"]
+    estimator_cls_name = os.environ.get(f"{league.name}_ESTIMATOR_CLASS")
+    if not estimator_cls_name:
+        _logger.warning(
+            (
+                "Environment estimator not specified for %s!!! Falling "
+                "back to loading 'DEFAULT_ESTIMATOR': %s"
+            ),
+            league.name,
+            DEFAULT_ESTIMATOR,
+        )
+        estimator_cls_name = DEFAULT_ESTIMATOR.__name__
+    env_subdir = coerce_env_dir_name(env_name=env)
+    model_name = f"{league.value}_{estimator_cls_name}.pkl"
+    model_path = ESTIMATOR_LOCATION / env_subdir / model_name
     model = joblib.load(model_path)
     _logger.debug(f"     - {model_name}")
     return model
@@ -59,10 +85,7 @@ TRAINING_COLS = [
 @lru_cache()
 def load_models() -> dict[str, Any]:
     _logger.debug(" Loading serialized models...")
-    return {
-        league.value: _load_model(model_name=f"{league.value}.pkl")
-        for league in League
-    }
+    return {league.value: _load_model(league=league) for league in League}
 
 
 serial_models = partial(load_models)
@@ -222,6 +245,7 @@ def train_soccer_model(
     learner: type[BaseClassifier],
     league: League,
     test_size: float,
+    env: str,
     datastore: DataStore = DataStore.DEFAULT,
     persist: bool = False,
     repository: Optional[AbstractRepository] = None,
@@ -268,7 +292,7 @@ def train_soccer_model(
     _logger.info(f"Accuracy: {accuracy}")
 
     if persist:
-        soccer_model.persist_model()
+        soccer_model.persist_model(env=env)
 
 
 def load_wpc_pyth(league: League) -> pd.DataFrame | None:

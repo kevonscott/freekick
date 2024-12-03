@@ -17,7 +17,11 @@ Version 0.2
   - Day of week is now a feature in dataset.
   - Add win percentage and pythagorean expectation to dataset.
   - switch to joblib for sklearn model persistence
-  - Set DataStore default to Database
+  - Set DataStore default to Database (SQLLite)
+  - Ruff replaced black, flake8 and isort as default formatter and linter
+  - Enable Mypy pre-commit project-wide
+  - Ability to  update WPC and PYTH from admin_cli
+  - The default estimator/model per league is now configurable via env variables
 
 Version 0.1
 -----------
@@ -29,6 +33,7 @@ Version 0.1
   - Fix date parse pandas warning to parse date in more consistent format.
   - Code Refactor
   - Add support for dask backend
+
 
 Version 0.0
 -----------

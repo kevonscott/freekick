@@ -28,6 +28,7 @@ class AdminCliTestcase(unittest.TestCase):
                 learner=DEFAULT_ESTIMATOR,
                 league=League.EPL,
                 test_size=0.2,
+                env="DEV",
                 datastore=DataStore.CSV,
                 persist=False,
                 repository=None,

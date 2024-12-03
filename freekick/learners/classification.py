@@ -10,14 +10,13 @@ from sklearn.tree import DecisionTreeClassifier
 from freekick import ESTIMATOR_LOCATION
 from freekick.datastore.util import Backend, League
 from freekick.utils import _logger
+from freekick.utils.freekick_config import coerce_env_dir_name
 
 
 class BaseClassifier(ABC):
     def __init__(self, league: League) -> None:
         self.league: League = league
-        # TODO: Use league and classname combo for model name
-        # self.name = f"{self.league.value}_{self.__class__.__name__}"
-        self.name = self.league.value
+        self.name = f"{self.league.value}_{self.__class__.__name__}"
         self.is_fit = False
         self.model = self.init_model()
         if not self.model:
@@ -89,10 +88,11 @@ class BaseClassifier(ABC):
 
         return df
 
-    def persist_model(self) -> None:
+    def persist_model(self, env: str) -> None:
         """Serialize the model to disk. Overwrite if file already exists."""
+        env_subdir = coerce_env_dir_name(env_name=env)
         self.check_fit()
-        model_path = ESTIMATOR_LOCATION / f"{self.name}.pkl"
+        model_path = ESTIMATOR_LOCATION / env_subdir / f"{self.name}.pkl"
         joblib.dump(self.model, model_path)
         _logger.info(f"Model serialized to {model_path}")
 

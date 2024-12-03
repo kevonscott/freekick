@@ -1,13 +1,11 @@
-from freekick.learners.learner_utils import serial_models
-
-from .classification import FreekickDecisionTreeClassifier
-from .regression import SoccerLogisticModel
-
-DEFAULT_ESTIMATOR = FreekickDecisionTreeClassifier
+from freekick.learners.learner_utils import (
+    serial_models,
+    AllEstimator,
+    DEFAULT_ESTIMATOR,
+)
 
 __all__ = [
     "serial_models",
-    "SoccerLogisticModel",
-    "FreekickDecisionTreeClassifier",
+    "AllEstimator",
     "DEFAULT_ESTIMATOR",
 ]
