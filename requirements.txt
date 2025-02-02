@@ -3,6 +3,7 @@ beautifulsoup4==4.12.3
 black==24.10.0
 click==8.1.8
 dask==2025.1.0
+dask-expr==2.0.0
 dask-ml==2024.4.4
 distributed==2025.1.0
 flake8==7.1.1
