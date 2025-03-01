@@ -3,8 +3,8 @@ import unittest
 
 from flask import Flask
 
+from tests import ensure_test_env
 from freekick.app import create_app
-
 
 class AppTestCase(unittest.TestCase):
     def test_create_app(self):

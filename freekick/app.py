@@ -6,8 +6,7 @@ from flask_cors import CORS
 
 from freekick.api import freekick_api
 from freekick.learners.learner_utils import compute_cache_all_league_wpc_pyth
-from freekick.utils import __version__, _logger
-from freekick.utils.freekick_config import load_config
+from freekick.utils import __version__, _logger, load_config
 
 
 def _init_freekick(

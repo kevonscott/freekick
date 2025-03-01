@@ -4,6 +4,7 @@ import unittest.mock
 from click.testing import CliRunner
 from parameterized import parameterized
 
+from tests import ensure_test_env
 from entrypoints.data_maintainer import cli
 from freekick.datastore.util import League
 

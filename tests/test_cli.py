@@ -2,8 +2,8 @@ import unittest
 
 from click.testing import CliRunner
 
+from tests import ensure_test_env
 from entrypoints.cli import cli
-
 
 class CliTestCase(unittest.TestCase):
     def setUp(self) -> None:

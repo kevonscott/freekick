@@ -8,8 +8,7 @@ from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import DataStore, League
 from freekick.learners import DEFAULT_ESTIMATOR, AllEstimator
 from freekick.learners.learner_utils import train_soccer_model
-from freekick.utils import _logger
-from freekick.utils.freekick_config import load_config
+from freekick.utils import _logger, load_config
 
 
 def list_supported_leagues() -> None:

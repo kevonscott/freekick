@@ -1,10 +1,11 @@
 import unittest
 from parameterized import parameterized
-
+from tests import ensure_test_env
 from freekick.learners.learner_utils import League
 from freekick.learners import DEFAULT_ESTIMATOR
-from freekick.utils.freekick_config import load_config
+from freekick.utils import load_config
 from freekick import ESTIMATOR_LOCATION
+import os
 
 
 class EstimatorTestCase(unittest.TestCase):

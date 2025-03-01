@@ -4,6 +4,7 @@ from datetime import datetime
 from enum import Enum
 from functools import cache, partial
 from typing import Iterable, Optional, Any
+from pathlib import Path
 
 import dask.dataframe as dd
 import numpy as np
@@ -767,6 +768,38 @@ def _validate_repository_for_db(repository: AbstractRepository | None) -> None:
             f"{DataStore.DATABASE.name}!"
         )
 
+@cache
+def _do_load_data(league: League, datastore: DataStore, repository: AbstractRepository, path: Path) -> pd.DataFrame:
+    """Load data from DataStore."""
+
+    def clean_date(d: Any) -> datetime | float:
+        """varying date formats so parse date in consistent format"""
+        return parse(d) if isinstance(d, str) else np.nan
+
+    match datastore:
+        case DataStore.CSV:
+            file_location = path / f"{league.value}.csv"
+            data = pd.read_csv(
+                str(file_location),
+                parse_dates=["Time"],
+                date_format="mixed",
+            )
+            data["Date"] = data["Date"].apply(clean_date)
+        case DataStore.DATABASE:
+            _validate_repository_for_db(repository)
+            statement = select(Game).where(
+                Game.league == league.value
+            )
+            data = pd.read_sql_query(
+                statement,
+                con=repository.session.get_bind(),  # type: ignore [union-attr]
+            )
+        case _:
+            raise NotImplementedError(
+                f"Cannot extract data from datastore '{datastore}' yet..."
+            )
+
+    return data
 
 class EPLData(BaseData):
     def __init__(
@@ -787,43 +820,14 @@ class EPLData(BaseData):
                 "Repository is required when using DataStore.DATABASE"
             )
 
-    # TODO: Using the functools.lru_cache and functools.cache decorators on
-    # methods can lead to memory leaks, as the global cache will retain a
-    # reference to the instance, preventing it from being garbage collected.
-    # Refactor to cache a global function instead and this method calls into
-    # the global function, then remove noqa: B019
-    @cache  # noqa: B019
     def load(self) -> pd.DataFrame:
         """Load EPL data from DataStore."""
-
-        def clean_date(d: Any) -> datetime | float:
-            """varying date formats so parse date in consistent format"""
-            return parse(d) if isinstance(d, str) else np.nan
-
-        match self.datastore:
-            case DataStore.CSV:
-                file_location = (
-                    self._processed_data_path / f"{self.league.value}.csv"
-                )
-                data = pd.read_csv(
-                    str(file_location),
-                    parse_dates=["Time"],
-                    date_format="mixed",
-                )
-                data["Date"] = data["Date"].apply(clean_date)
-            case DataStore.DATABASE:
-                _validate_repository_for_db(self.repository)
-                statement = select(Game).where(
-                    Game.league == self.league.value
-                )
-                data = pd.read_sql_query(
-                    statement,
-                    con=self.repository.session.get_bind(),  # type: ignore [union-attr]
-                )
-            case _:
-                raise NotImplementedError(
-                    f"Cannot extract data from datastore '{self.datastore}' yet..."
-                )
+        data = _do_load_data(
+            league=self.league,
+            datastore=self.datastore,
+            repository=self.repository,
+            path=self._processed_data_path
+        )
 
         return self.clean_format_data(data=data)
 

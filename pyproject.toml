@@ -80,3 +80,11 @@ line-ending = "auto"
 
 [tool.ruff.lint.isort]
 case-sensitive = true
+
+# pytest
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]

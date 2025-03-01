@@ -3,6 +3,7 @@ import unittest.mock
 
 from click.testing import CliRunner
 
+from tests import ensure_test_env
 from entrypoints.admin_cli import cli
 from freekick.datastore.util import DataStore, League
 from freekick.learners import DEFAULT_ESTIMATOR

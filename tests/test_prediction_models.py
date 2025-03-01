@@ -1,6 +1,7 @@
 """ Runs a series of tests to validate modules against specifies threshold
 """
 
+import os
 import unittest
 from datetime import datetime
 from statistics import mean
@@ -8,7 +9,9 @@ from statistics import mean
 import pandas as pd
 
 from freekick.datastore.util import DataStore, EPLData, League, Season
-from freekick.learners.learner_utils import season_to_int  # add_wpc_pyth
+from tests import ensure_test_env
+from freekick.learners.learner_utils import season_to_int, add_wpc_pyth
+# from freekick.learners.classification import FreekickDecisionTreeClassifier
 
 # from sklearn.model_selection import cross_val_predict
 
@@ -20,10 +23,14 @@ class TestLearnerModels(unittest.TestCase):
     def setUp(self) -> None:
         self.data_container = EPLData(datastore=DataStore.CSV)
         self.data = self.data_container.load()
+        # self.y = self.data[""]
+        # self.data = self.data.drop(columns="")
 
     # TODO: Complete cross-validation test
     def test_cross_validation(self):
-        # scores = cross_val_predict(SoccerLogisticModel, self.X, self.y, cv=10)
+        # scores = cross_val_predict(
+        #     FreekickDecisionTreeClassifier, self.X, self.y, cv=10
+        # )
         scores = [0.3, 0.5, 0.9]
         self.assertGreaterEqual(mean(scores), ACCURACY_THRESHOLD)
 
