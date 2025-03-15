@@ -10,7 +10,7 @@ ESTIMATOR_LOCATION = DATA_DIR / "learner_model"
 # We also need to ensure this only executes once and not all imports.
 _PLATFORM_CHECK = False
 if not _PLATFORM_CHECK:
-    min_supported_platform = Version("3.10.0")
+    min_supported_platform = Version("3.11.0")
     current_platform = Version(platform.python_version())
     if current_platform < min_supported_platform:
         raise RuntimeError(
