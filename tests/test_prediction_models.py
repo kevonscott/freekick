@@ -34,7 +34,6 @@ class TestLearnerModels(unittest.TestCase):
         scores = [0.3, 0.5, 0.9]
         self.assertGreaterEqual(mean(scores), ACCURACY_THRESHOLD)
 
-    # TODO: to be completed
     def test_add_wpc_pyth(self):
         season = Season.CURRENT
         league = League.EPL
@@ -55,7 +54,12 @@ class TestLearnerModels(unittest.TestCase):
                 "season": "category",
             }
         )
-        print(season, league, data)
-        # data = add_wpc_pyth(data=data, league=League.EPL)
-        # Assert shape of dataframe increased by 4 or that the wpc and pyth
-        # columns exists
+        data = add_wpc_pyth(data=data, league=league, datastore=DataStore.CSV)
+        # Assert the pyth colums have been added to the data
+        new_cols = {
+            'away_win_percentage',
+            'away_pythagorean_expectation',
+            'home_win_percentage',
+            'home_pythagorean_expectation'
+        }
+        self.assertTrue(new_cols.issubset(data.columns))

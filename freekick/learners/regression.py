@@ -1,6 +1,5 @@
 """Model for various logistic models."""
 
-from dask_ml.linear_model import LogisticRegression as dask_LR
 from sklearn.linear_model import LogisticRegression as sklearn_LR
 from sklearn.base import BaseEstimator
 
@@ -22,7 +21,9 @@ class SoccerLogisticModel(BaseClassifier):
             case Backend.PANDAS:
                 learner = sklearn_LR
             case Backend.DASK:
-                learner = dask_LR
+                raise ValueError(
+                    "Dask backend not yet fully supported!"
+                )
             case _:
                 raise ValueError(
                     f"{self.__class__} does not support backend {self.backend}"
