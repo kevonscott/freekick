@@ -3,7 +3,7 @@ beautifulsoup4==4.12.3
 click==8.1.8
 dask==2025.2.0
 distributed==2025.2.0
-flake8==7.1.1
+flake8==7.3.0
 flake8-bugbear==24.12.12
 Flask==3.1.1
 Flask-Cors==5.0.1
