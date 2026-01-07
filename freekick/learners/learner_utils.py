@@ -33,7 +33,7 @@ AllEstimator = {
     "FreekickDecisionTreeClassifier": FreekickDecisionTreeClassifier,
     "SoccerLogisticModel": SoccerLogisticModel,
 }
-DEFAULT_ESTIMATOR = AllEstimator["FreekickDecisionTreeClassifier"]
+DEFAULT_ESTIMATOR = AllEstimator["FreekickDecisionTreeClassifier"]  # TODO: Remove, pull each default from workspace settings instead
 
 
 # This cache is ONLY used for caching the WPC and PYTH values for current season

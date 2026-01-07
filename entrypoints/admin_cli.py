@@ -1,9 +1,8 @@
 import logging
 
 import click
-from sqlalchemy.orm import Session
 
-from freekick.datastore import DEFAULT_ENGINE
+from freekick.datastore import get_or_create_session()
 from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import DataStore, League
 from freekick.learners import DEFAULT_ESTIMATOR, AllEstimator
@@ -102,7 +101,7 @@ def cli(
 
         repo = None
         if datastore.name == DataStore.DATABASE.name:
-            session = Session(DEFAULT_ENGINE)
+            session = get_or_create_session()
             repo = SQLAlchemyRepository(session)
         train_soccer_model(
             learner=estimator_cls,  # type: ignore[type-abstract]
