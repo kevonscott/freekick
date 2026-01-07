@@ -22,6 +22,7 @@ Version 0.2
   - Enable Mypy pre-commit project-wide
   - Ability to  update WPC and PYTH from admin_cli
   - The default estimator/model per league is now configurable via env variables
+  - A default application data workspace is now added storing configurable app settings
 
 Version 0.1
 -----------

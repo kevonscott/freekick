@@ -1,6 +1,4 @@
-from sqlalchemy.orm import Session
-
-from freekick.datastore import DEFAULT_ENGINE
+from freekick.datastore import get_or_create_session
 from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import DBUtils, Season
 
@@ -13,7 +11,7 @@ def get_current_season_teams(league: str) -> SeasonDTO:
     :param league: League code
     :return: A SeasonDTO
     """
-    repository = SQLAlchemyRepository(Session(DEFAULT_ENGINE))
+    repository = SQLAlchemyRepository(get_or_create_session())
     _, teams = DBUtils.get_teams(
         repository=repository, league=league, season=Season.CURRENT
     )

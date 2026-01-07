@@ -4,8 +4,8 @@ from pathlib import Path
 from packaging.version import Version
 
 ROOT_DIR = Path(__file__).parent.parent
-DATA_DIR = ROOT_DIR / "data"
-ESTIMATOR_LOCATION = DATA_DIR / "learner_model"
+DATA_DIR = ROOT_DIR / "data" # TODO: move to workspace dir
+ESTIMATOR_LOCATION = DATA_DIR / "learner_model"  # TODO: move to workspace dir
 # Ensure we are using the min_supported_platform
 # We also need to ensure this only executes once and not all imports.
 _PLATFORM_CHECK = False

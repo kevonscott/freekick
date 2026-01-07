@@ -45,4 +45,4 @@ class MatchApi(Resource):
             time=args["match_time"],
             match_date=args["match_date"] or None,
         )
-        return match_dto
+        return match_dto, 200
