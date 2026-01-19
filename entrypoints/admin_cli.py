@@ -2,7 +2,7 @@ import logging
 
 import click
 
-from freekick.datastore import get_or_create_session()
+from freekick.datastore import get_or_create_session
 from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import DataStore, League
 from freekick.learners import DEFAULT_ESTIMATOR, AllEstimator
