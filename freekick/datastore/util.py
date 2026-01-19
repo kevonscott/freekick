@@ -25,7 +25,7 @@ class TeamNotFoundError(Exception):
     pass
 
 
-class League(Enum):
+class League(Enum):  # TODO: Use StrEnum instead and `EPL ='EPL'`
     """Container for the supported leagues"""
 
     EPL = "epl"
@@ -45,6 +45,7 @@ class Backend(Enum):
 class Season(Enum):
     """List of supported seasons."""
 
+    S_2025_2026 = "S_2025_2026"
     S_2024_2025 = "S_2024_2025"
     S_2023_2024 = "S_2023_2024"
     S_2022_2023 = "S_2022_2023"

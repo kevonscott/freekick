@@ -29,6 +29,11 @@ class SeasonDTO:
         self.season = season
         self.teams = teams
 
+@dataclass
+class SettingDTO:
+    estimator: dict[str, str]
+    default_league: str
+    models: list[str]
 
 class LearnerNotFoundError(Exception):
     """Custom exception for unknown learner/model"""

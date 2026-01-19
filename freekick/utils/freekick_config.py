@@ -4,18 +4,20 @@ from dotenv import load_dotenv
 from functools import cache
 from .freekick_logging import _logger
 
+from freekick import ROOT_DIR
+
 @cache
 def _set_environ(environment: str) -> None:
     """Set environment variables from .env file"""
     if environment.lower() in {"production", "prod"}:
         load_dotenv("production.env")
         _logger.info("Loaded production.env.")
-    elif environment.lower() == "test":
+    elif environment.lower() in {"test", "testing"}:
         load_dotenv("testing.env")
-        _logger.info("Loaded production.env.")
+        _logger.info("Loaded testing.env.")
     else:
         load_dotenv("development.env")
-        _logger.info("Loaded production.env.")
+        _logger.info("Loaded development.env.")
 
 def add_env_specific_config(cfg: dict, environment: str) -> dict:
     env = environment.lower()
@@ -25,10 +27,13 @@ def add_env_specific_config(cfg: dict, environment: str) -> dict:
     match env:
         case "prod" | "production":
             cfg["DATABASE_URL"] = f"sqlite:///{str(dev_url)}"
+            cfg["APP_WORKSPACE_DIR"] = "/var/lib/freekick" # TODO: Also account for windows app directly
         case "dev" | "development":
             cfg["DATABASE_URL"] = f"sqlite:///{str(dev_url)}"
+            cfg["APP_WORKSPACE_DIR"] = str(ROOT_DIR / ".freekick-dev")
         case "test" | "testing":
             cfg["DATABASE_URL"] = f"sqlite:///{str(dev_url)}"
+            cfg["APP_WORKSPACE_DIR"] = str(ROOT_DIR / ".freekick-test")
         case _:
             raise ValueError(f"Invalid env {environment}!")
     return cfg
@@ -40,7 +45,7 @@ def load_config(environ: str) -> dict[str, str | bool | None]:
     Parameters
     ----------
     environ : str
-        Name of .env file. Choice of ['production', 'development']
+        Name of .env file. Choice of ['production', 'development', 'test']
 
     Returns
     -------
@@ -50,7 +55,7 @@ def load_config(environ: str) -> dict[str, str | bool | None]:
     _set_environ(environ)
     cfg: dict[str, str | bool | None] = {}
     cfg["LOG_LEVEL"] = os.environ.get("LOG_LEVEL")
-    cfg["EPL_ESTIMATOR_CLASS"] = os.environ.get("EPL_ESTIMATOR_CLASS")
+    cfg["EPL_ESTIMATOR_CLASS"] = os.environ.get("EPL_ESTIMATOR_CLASS") # TODO: remove, use pull from DEFAULT_WORKSPACE_SETTINGS config file after app init
     WPC_PYTH_STR = os.environ.get("INITIALIZE_WPC_PYTH")
     if WPC_PYTH_STR == "True":
         WPC_PYTH_BOOL = True
@@ -78,6 +83,8 @@ def coerce_env_dir_name(env_name: str) -> str:
             env = "prod"
         case "development" | "dev":
             env = "dev"
+        case "testing" | "test":
+            env = "test"
         case _:
             raise ValueError("Invalid Environment option: %s", env_name)
 

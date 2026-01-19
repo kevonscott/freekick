@@ -1,11 +1,9 @@
 import unittest
 from parameterized import parameterized
-from tests import ensure_test_env
+from tests import ensure_test_env  # noqa: F401
 from freekick.learners.learner_utils import League
-from freekick.learners import DEFAULT_ESTIMATOR
-from freekick.utils import load_config
+from freekick.utils import load_config, get_default_estimator
 from freekick import ESTIMATOR_LOCATION
-import os
 
 
 class EstimatorTestCase(unittest.TestCase):
@@ -18,10 +16,7 @@ class EstimatorTestCase(unittest.TestCase):
     @parameterized.expand(list(League))
     def test_learner_exists_prod(self, league: League):
         """Ensure there is a serial model for each league in production."""
-        estimator_cls_name = (
-            self.prod_config.get(f"{league.name}_ESTIMATOR_CLASS")
-            or DEFAULT_ESTIMATOR.__name__
-        )
+        estimator_cls_name = get_default_estimator(league=League)
         serial_model_name = f"{league.value}_{estimator_cls_name}.pkl"
 
         estimator_path = ESTIMATOR_LOCATION / "prod" / serial_model_name
@@ -37,10 +32,7 @@ class EstimatorTestCase(unittest.TestCase):
     @parameterized.expand(list(League))
     def test_learner_exists_dev(self, league: League):
         """Ensure there is a serial model for each league in development."""
-        estimator_cls_name = (
-            self.dev_config.get(f"{league.name}_ESTIMATOR_CLASS")
-            or DEFAULT_ESTIMATOR.__name__
-        )
+        estimator_cls_name = get_default_estimator(league=League)
         serial_model_name = f"{league.value}_{estimator_cls_name}.pkl"
 
         estimator_path = ESTIMATOR_LOCATION / "dev" / serial_model_name

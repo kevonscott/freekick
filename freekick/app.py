@@ -6,13 +6,14 @@ from flask_cors import CORS
 
 from freekick.api import freekick_api
 from freekick.learners.learner_utils import compute_cache_all_league_wpc_pyth
-from freekick.utils import __version__, _logger, load_config
+from freekick.utils import __version__, _logger, load_config, ensure_workspace
 
 
 def _init_freekick(
     mode: str, config: dict, init_wpc_pyth: Optional[bool] = None
 ):
     """Initialize freekick configs."""
+    ensure_workspace()
     _logger.setLevel(config["LOG_LEVEL"])
     _logger.info(f" Launching FreeKick app in {mode} mode...")
     _logger.info(f" FreeKick Version: {str(__version__)}")
@@ -59,5 +60,9 @@ def create_app(
     @app.route("/home")
     def welcome():
         return render_template("index.html")
+
+    @app.route("/settings-home")
+    def settings_home():
+        return render_template("settings-home.html")
 
     return app

@@ -1,9 +1,9 @@
 """Model for generating data for training our models"""
 
 import click
-from sqlalchemy.orm import Session
+# from sqlalchemy.orm import Session
 
-from freekick.datastore import DEFAULT_ENGINE
+from freekick.datastore import get_or_create_session
 from freekick.datastore.repository import SQLAlchemyRepository
 from freekick.datastore.util import (
     CSVUtils,
@@ -49,6 +49,13 @@ def cli():
 @click.option(
     "-p", "--persist", is_flag=True, help="Save updated date to disk."
 )
+@click.option(
+    "-e",
+    "--env",
+    help="Environment.",
+    type=click.Choice(["DEV", "PROD", "TEST"], case_sensitive=False),
+    required=True,
+)
 def update(data_type, league, persist):
     match data_type:
         case "player_rating":
@@ -63,7 +70,7 @@ def update(data_type, league, persist):
             # league_container.read_stitch_raw_data(league=league, persist=persist)
         case "current_season":
             league_container = get_league_data_container(league=league)
-            session = Session(DEFAULT_ENGINE)
+            session = get_or_create_session()
             repo = SQLAlchemyRepository(session)
             for store in DataStore:
                 league_data = league_container(
@@ -95,7 +102,7 @@ def add_team(name, code, league):
     teams = [
         DBUtils.new_team(team_code=code, team_name=name, league=League[league])
     ]
-    session = Session(DEFAULT_ENGINE)
+    session = get_or_create_session()
     repo = SQLAlchemyRepository(session)
     DBUtils.add_teams(teams=teams, repository=repo)
     CSVUtils.add_teams(teams=teams)

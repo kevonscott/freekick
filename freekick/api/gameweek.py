@@ -24,4 +24,4 @@ class MatchDayApi(Resource):
     def post(self):
         args = post_parser.parse_args(strict=True)
         match_day_dto = predict_match_day(league=args["league"])
-        return match_day_dto
+        return match_day_dto, 200

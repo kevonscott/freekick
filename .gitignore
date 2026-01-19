@@ -18,3 +18,5 @@ builds/
 *.vscode/
 
 # *.env
+# Feeeick workspace directories
+*.freekick-*
