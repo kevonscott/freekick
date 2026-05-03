@@ -3,6 +3,7 @@ import os
 from freekick.utils.freekick_config import _set_environ
 
 # Use testing.env variables for testing configuation
+os.environ.setdefault("ENV", "TEST")
 _set_environ(environment="TEST")
 
 
@@ -17,6 +18,7 @@ def ensure_test_env():
     convenience funtion that triggers the line above upon import and often do
     not enven need to execute this function.
     """
-    current_env: str | None = os.environ.get("DEV", None)
-    if not current_env or current_env != "TEST":
+    current_env: str | None = os.environ.get("ENV", None)
+    if not current_env or current_env.upper() != "TEST":
+        os.environ["ENV"] = "TEST"
         _set_environ(environment="TEST")

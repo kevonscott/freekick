@@ -4,7 +4,6 @@ import unittest.mock
 from click.testing import CliRunner
 from parameterized import parameterized
 
-from tests import ensure_test_env
 from entrypoints.data_maintainer import cli
 from freekick.datastore.util import League
 
@@ -12,7 +11,6 @@ LEAGUES = League._member_names_
 
 
 class DataMaintainerTestCase(unittest.TestCase):
-
     def setUp(self) -> None:
         self.runner = CliRunner()
 
@@ -62,6 +60,8 @@ class DataMaintainerTestCase(unittest.TestCase):
                     "current_season",
                     "--league",
                     league,
+                    "--env",
+                    "TEST",
                 ],
             )
             updater.assert_called()

@@ -6,18 +6,31 @@ from .freekick_logging import _logger
 
 from freekick import ROOT_DIR
 
+
+def _resolve_environment(environment: str | None) -> str:
+    """Resolve environment name with a safe default."""
+    effective_env = environment or os.environ.get("ENV") or "development"
+    return coerce_env_dir_name(effective_env)
+
+
 @cache
-def _set_environ(environment: str) -> None:
+def _set_environ(environment: str | None) -> None:
     """Set environment variables from .env file"""
-    if environment.lower() in {"production", "prod"}:
+    env = _resolve_environment(environment)
+
+    if env == "prod":
         load_dotenv("production.env")
         _logger.info("Loaded production.env.")
-    elif environment.lower() in {"test", "testing"}:
+        os.environ["ENV"] = "PROD"
+    elif env == "test":
         load_dotenv("testing.env")
         _logger.info("Loaded testing.env.")
+        os.environ["ENV"] = "TEST"
     else:
         load_dotenv("development.env")
         _logger.info("Loaded development.env.")
+        os.environ["ENV"] = "DEV"
+
 
 def add_env_specific_config(cfg: dict, environment: str) -> dict:
     env = environment.lower()
@@ -27,7 +40,9 @@ def add_env_specific_config(cfg: dict, environment: str) -> dict:
     match env:
         case "prod" | "production":
             cfg["DATABASE_URL"] = f"sqlite:///{str(dev_url)}"
-            cfg["APP_WORKSPACE_DIR"] = "/var/lib/freekick" # TODO: Also account for windows app directly
+            cfg["APP_WORKSPACE_DIR"] = (
+                "/var/lib/freekick"  # TODO: Also account for windows app directly
+            )
         case "dev" | "development":
             cfg["DATABASE_URL"] = f"sqlite:///{str(dev_url)}"
             cfg["APP_WORKSPACE_DIR"] = str(ROOT_DIR / ".freekick-dev")
@@ -39,7 +54,7 @@ def add_env_specific_config(cfg: dict, environment: str) -> dict:
     return cfg
 
 
-def load_config(environ: str) -> dict[str, str | bool | None]:
+def load_config(environ: str | None) -> dict[str, str | bool | None]:
     """Load configs form .env files
 
     Parameters
@@ -52,10 +67,13 @@ def load_config(environ: str) -> dict[str, str | bool | None]:
     dict
         Dictionary with each environment variable
     """
-    _set_environ(environ)
+    env = _resolve_environment(environ)
+    _set_environ(env)
     cfg: dict[str, str | bool | None] = {}
     cfg["LOG_LEVEL"] = os.environ.get("LOG_LEVEL")
-    cfg["EPL_ESTIMATOR_CLASS"] = os.environ.get("EPL_ESTIMATOR_CLASS") # TODO: remove, use pull from DEFAULT_WORKSPACE_SETTINGS config file after app init
+    cfg["EPL_ESTIMATOR_CLASS"] = os.environ.get(
+        "EPL_ESTIMATOR_CLASS"
+    )  # TODO: remove, use pull from DEFAULT_WORKSPACE_SETTINGS config file after app init
     WPC_PYTH_STR = os.environ.get("INITIALIZE_WPC_PYTH")
     if WPC_PYTH_STR == "True":
         WPC_PYTH_BOOL = True
@@ -69,7 +87,7 @@ def load_config(environ: str) -> dict[str, str | bool | None]:
     cfg["DATABASE_NAME"] = os.environ.get("DATABASE_NAME")
     cfg["DATABASE_HOST"] = os.environ.get("DATABASE_HOST")
     cfg["DATABASE_KEY"] = os.environ.get("DATABASE_KEY")
-    return add_env_specific_config(cfg, environment=environ)
+    return add_env_specific_config(cfg, environment=env)
 
 
 def coerce_env_dir_name(env_name: str) -> str:
@@ -77,7 +95,7 @@ def coerce_env_dir_name(env_name: str) -> str:
 
     :param env_name: Environment name. E.g. prod, production, dev, etc..
     """
-    env_name_lower = env_name.lower()
+    env_name_lower = env_name.strip().lower()
     match env_name_lower:
         case "production" | "prod":
             env = "prod"

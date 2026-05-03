@@ -1,7 +1,5 @@
-""" Runs a series of tests to validate modules against specifies threshold
-"""
+"""Runs a series of tests to validate modules against specifies threshold"""
 
-import os
 import unittest
 from datetime import datetime
 from statistics import mean
@@ -9,7 +7,6 @@ from statistics import mean
 import pandas as pd
 
 from freekick.datastore.util import DataStore, EPLData, League, Season
-from tests import ensure_test_env
 from freekick.learners.learner_utils import season_to_int, add_wpc_pyth
 # from freekick.learners.classification import FreekickDecisionTreeClassifier
 
@@ -35,7 +32,7 @@ class TestLearnerModels(unittest.TestCase):
         self.assertGreaterEqual(mean(scores), ACCURACY_THRESHOLD)
 
     def test_add_wpc_pyth(self):
-        season = Season.CURRENT
+        # season = Season.CURRENT
         league = League.EPL
         d = {
             "date": [pd.Timestamp(datetime.now().date())],
@@ -57,9 +54,9 @@ class TestLearnerModels(unittest.TestCase):
         data = add_wpc_pyth(data=data, league=league, datastore=DataStore.CSV)
         # Assert the pyth colums have been added to the data
         new_cols = {
-            'away_win_percentage',
-            'away_pythagorean_expectation',
-            'home_win_percentage',
-            'home_pythagorean_expectation'
+            "away_win_percentage",
+            "away_pythagorean_expectation",
+            "home_win_percentage",
+            "home_pythagorean_expectation",
         }
         self.assertTrue(new_cols.issubset(data.columns))

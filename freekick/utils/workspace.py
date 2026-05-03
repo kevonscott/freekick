@@ -16,6 +16,7 @@ DEFAULT_WORKSPACE_SETTINGS = {  # TODO: Store in database instead
     "DEFAULT_LEAGUE": "EPL",
 }
 
+
 def ensure_workspace() -> None:
     """Ensure workspace directory for application data and files exists."""
     APP_WORKSPACE_DIR.mkdir(exist_ok=True)
@@ -41,6 +42,7 @@ def ensure_workspace() -> None:
             cp_settings.update(data)
             update_runtime_settings(cp_settings)
 
+
 def update_runtime_settings(setting_dict: dict) -> None:
     # Load and update config e.g. update and save default learnier
     with open(SETTING_FILE, "w") as sf:
@@ -49,6 +51,7 @@ def update_runtime_settings(setting_dict: dict) -> None:
             data.update(setting_dict)
             json.dump(data, sf)
 
+
 def load_runtime_settings() -> dict:
     # Load config.
     # Will be useful to pull info to display in frontend.
@@ -56,12 +59,15 @@ def load_runtime_settings() -> dict:
         data = json.load(sf)
     return data
 
+
 def update_estimator_for_league(league, estimator: str) -> None:
     settings = load_runtime_settings()
     # TODO: validate estimator and league are actually valid entries
-    settings['ESTIMATOR'][league.name] =  estimator
+    settings["ESTIMATOR"][league.name] = estimator
     update_runtime_settings(settings)
 
-def get_default_estimator(league) -> str:
-    return load_runtime_settings['ESTIMATOR'][league]
 
+def get_default_estimator(league) -> str:
+    ensure_workspace()
+    settings = load_runtime_settings()
+    return settings["ESTIMATOR"][league.name]
