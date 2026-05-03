@@ -1,6 +1,6 @@
 from flask_restx import Namespace, Resource, fields
 
-from freekick.service import get_setting, update_setting, SettingDTO
+from freekick.service import get_setting
 
 setting_ns = Namespace("settings", description="App Settings")
 setting_model = setting_ns.model(
@@ -9,10 +9,10 @@ setting_model = setting_ns.model(
         "league": fields.String,
         "estimator": fields.String,
         "is_default": fields.Boolean,
-        "models": fields.List(fields.String)
-
-    }
+        "models": fields.List(fields.String),
+    },
 )
+
 
 @setting_ns.route("/setting")
 class SettingApi(Resource):
@@ -28,6 +28,6 @@ class SettingApi(Resource):
     @setting_ns.doc("update_settings")
     @setting_ns.expect(setting_model)
     def put(self, data):
-        setting_dto: SettingDTO = SettingDTO(**data)
+        # setting_dto: SettingDTO = SettingDTO(**data)
         # update_setting(setting_dto)
         return "ok", 200

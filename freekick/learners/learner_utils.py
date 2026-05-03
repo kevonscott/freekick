@@ -33,7 +33,9 @@ AllEstimator = {
     "FreekickDecisionTreeClassifier": FreekickDecisionTreeClassifier,
     "SoccerLogisticModel": SoccerLogisticModel,
 }
-DEFAULT_ESTIMATOR = AllEstimator["FreekickDecisionTreeClassifier"]  # TODO: Remove, pull each default from workspace settings instead
+DEFAULT_ESTIMATOR = AllEstimator[
+    "FreekickDecisionTreeClassifier"
+]  # TODO: Remove, pull each default from workspace settings instead
 
 
 # This cache is ONLY used for caching the WPC and PYTH values for current season
@@ -233,7 +235,7 @@ def compute_wpc_pyth(
     now = datetime.now()
     data["last_update"] = now
     if cache:
-        global WPC_PYTH_CACHE
+        global WPC_PYTH_CACHE  # noqa: F824
         WPC_PYTH_CACHE[league.value] = {
             "data": data,
             "last_update": now,

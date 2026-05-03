@@ -16,7 +16,7 @@ class EstimatorTestCase(unittest.TestCase):
     @parameterized.expand(list(League))
     def test_learner_exists_prod(self, league: League):
         """Ensure there is a serial model for each league in production."""
-        estimator_cls_name = get_default_estimator(league=League)
+        estimator_cls_name = get_default_estimator(league=league)
         serial_model_name = f"{league.value}_{estimator_cls_name}.pkl"
 
         estimator_path = ESTIMATOR_LOCATION / "prod" / serial_model_name
@@ -32,7 +32,7 @@ class EstimatorTestCase(unittest.TestCase):
     @parameterized.expand(list(League))
     def test_learner_exists_dev(self, league: League):
         """Ensure there is a serial model for each league in development."""
-        estimator_cls_name = get_default_estimator(league=League)
+        estimator_cls_name = get_default_estimator(league=league)
         serial_model_name = f"{league.value}_{estimator_cls_name}.pkl"
 
         estimator_path = ESTIMATOR_LOCATION / "dev" / serial_model_name

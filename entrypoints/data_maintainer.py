@@ -1,5 +1,7 @@
 """Model for generating data for training our models"""
 
+import os
+
 import click
 # from sqlalchemy.orm import Session
 
@@ -54,9 +56,12 @@ def cli():
     "--env",
     help="Environment.",
     type=click.Choice(["DEV", "PROD", "TEST"], case_sensitive=False),
-    required=True,
+    required=False,
+    default="TEST",
+    show_default=True,
 )
-def update(data_type, league, persist):
+def update(data_type, league, persist, env):
+    os.environ["ENV"] = env.upper()
     match data_type:
         case "player_rating":
             raise NotImplementedError
