@@ -18,7 +18,7 @@ pyarrow==22.0.0
 pytest==9.0.2
 python-dotenv==1.2.1
 requests==2.33.0
-ruff==0.11.2
+ruff==0.15.15
 scikit-learn==1.6.1
 Sphinx==8.1.3
 SQLAlchemy==2.0.41
