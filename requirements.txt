@@ -2,7 +2,7 @@ bandit==1.9.2
 beautifulsoup4==4.14.3
 click==8.3.1
 dask==2026.3.0
-distributed==2026.1.2
+distributed==2026.3.0
 flake8==7.3.0
 flake8-bugbear==25.11.29
 Flask==3.1.2
