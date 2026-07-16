@@ -1,5 +1,5 @@
 bandit==1.9.2
-beautifulsoup4==4.14.3
+beautifulsoup4==4.15.0
 click==8.4.2
 dask==2026.3.0
 distributed==2026.3.0
